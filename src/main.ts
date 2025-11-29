@@ -18,76 +18,97 @@ const SETTINGS_KEY = 'vm-studio-settings';
 export default function () {
   // Show UI with appropriate size
   showUI({
-    height: 420,
+    height: 460,
     width: 340
   });
 
   // Handle messages from UI
-  on<GenerateImageHandler>('generate-image', async (payload: GenerationRequest) => {
+  on<GenerateImageHandler>('generate-image', async (payload: GenerationRequest & { count: number }) => {
+    const { count, ...request } = payload;
+    const total = Math.max(count || 1, 1);
+
     try {
-      // Send progress updates
       const onProgress = (status: string) => {
         emit<GenerationProgressHandler>('generation-progress', { status });
       };
 
-      onProgress('Starting generation...');
+      const statusText = total > 1 ? `Generating ${total} images...` : 'Generating image...';
+      onProgress(statusText);
 
-      const result = await generateImage(payload, onProgress);
+      // Run all generations in parallel
+      const promises = Array.from({ length: total }, () =>
+        generateImage(request, () => {
+          onProgress(statusText);
+        })
+      );
 
-      if (result.success && result.imageData) {
-        onProgress('Creating image node...');
+      const results = await Promise.all(promises);
 
-        // Create image in Figma
-        const image = figma.createImage(result.imageData);
-        const node = figma.createRectangle();
+      // Process all results
+      const nodes: SceneNode[] = [];
+      let successCount = 0;
+      let lastError = '';
 
-        // Get image dimensions (default to 512x512 if unknown)
-        const { width, height } = await image.getSizeAsync();
-        node.resize(width || 512, height || 512);
+      for (let i = 0; i < results.length; i++) {
+        const result = results[i];
 
-        // Apply image as fill
-        node.fills = [{
-          type: 'IMAGE',
-          imageHash: image.hash,
-          scaleMode: 'FILL'
-        }];
+        if (result.success && result.imageData) {
+          const image = figma.createImage(result.imageData);
+          const node = figma.createRectangle();
 
-        // Name the node with the prompt (truncated)
-        const truncatedPrompt = payload.prompt.length > 50
-          ? payload.prompt.substring(0, 47) + '...'
-          : payload.prompt;
-        node.name = `Generated: ${truncatedPrompt}`;
+          const { width, height } = await image.getSizeAsync();
+          node.resize(width || 512, height || 512);
 
-        // Position at viewport center or selection
-        const selection = figma.currentPage.selection;
-        if (selection.length > 0) {
-          // Position relative to selection
-          const selectedNode = selection[0];
-          node.x = selectedNode.x + selectedNode.width + 20;
-          node.y = selectedNode.y;
+          node.fills = [{
+            type: 'IMAGE',
+            imageHash: image.hash,
+            scaleMode: 'FILL'
+          }];
+
+          const truncatedPrompt = request.prompt.length > 40
+            ? request.prompt.substring(0, 37) + '...'
+            : request.prompt;
+          node.name = `Generated ${i + 1}: ${truncatedPrompt}`;
+
+          // Position nodes in a grid
+          const selection = figma.currentPage.selection;
+          const baseX = selection.length > 0
+            ? selection[0].x + selection[0].width + 20
+            : figma.viewport.center.x - (node.width / 2);
+          const baseY = selection.length > 0
+            ? selection[0].y
+            : figma.viewport.center.y - (node.height / 2);
+
+          // Arrange in a row with spacing
+          node.x = baseX + (i * (node.width + 20));
+          node.y = baseY;
+
+          figma.currentPage.appendChild(node);
+          nodes.push(node);
+          successCount++;
         } else {
-          // Position at viewport center
-          const viewport = figma.viewport.center;
-          node.x = viewport.x - (node.width / 2);
-          node.y = viewport.y - (node.height / 2);
+          lastError = result.error || 'Unknown error';
         }
+      }
 
-        // Select the new node
-        figma.currentPage.appendChild(node);
-        figma.currentPage.selection = [node];
-        figma.viewport.scrollAndZoomIntoView([node]);
+      if (nodes.length > 0) {
+        figma.currentPage.selection = nodes;
+        figma.viewport.scrollAndZoomIntoView(nodes);
+      }
 
+      if (successCount === total) {
+        emit<GenerationCompleteHandler>('generation-complete', { success: true });
+        figma.notify(`${successCount} image${successCount > 1 ? 's' : ''} generated!`);
+      } else if (successCount > 0) {
         emit<GenerationCompleteHandler>('generation-complete', {
           success: true,
-          imageData: result.imageData,
-          mimeType: result.mimeType
+          error: `${successCount}/${total} succeeded. Last error: ${lastError}`
         });
-
-        figma.notify('Image generated successfully!');
+        figma.notify(`${successCount}/${total} images generated`);
       } else {
         emit<GenerationCompleteHandler>('generation-complete', {
           success: false,
-          error: result.error || 'Unknown error'
+          error: lastError || 'All generations failed'
         });
       }
     } catch (error) {
@@ -112,7 +133,6 @@ export default function () {
       };
       emit<SettingsLoadedHandler>('settings-loaded', settings);
     } catch (error) {
-      // Return default settings on error
       emit<SettingsLoadedHandler>('settings-loaded', {
         lastProviderId: 'openrouter',
         lastModelId: 'google/gemini-3-pro-image-preview',
@@ -129,7 +149,6 @@ export default function () {
       const current = await figma.clientStorage.getAsync(SETTINGS_KEY) || {};
       const updated = { ...current, ...payload };
 
-      // Merge API keys
       if (payload.apiKeys) {
         updated.apiKeys = { ...current.apiKeys, ...payload.apiKeys };
       }

@@ -51,7 +51,7 @@ export interface PartialPluginSettings {
 // Event handlers for UI <-> Sandbox communication
 export interface GenerateImageHandler extends EventHandler {
   name: 'generate-image';
-  handler: (payload: GenerationRequest) => void;
+  handler: (payload: GenerationRequest & { count: number }) => void;
 }
 
 export interface LoadSettingsHandler extends EventHandler {
@@ -90,6 +90,7 @@ export interface UIState {
   providerId: ProviderId;
   modelId: string;
   apiKey: string;
+  count: number;
   isGenerating: boolean;
   error: string | null;
   status: string | null;

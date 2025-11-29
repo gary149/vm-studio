@@ -8,6 +8,7 @@ import {
   PromptInput,
   ProviderPicker,
   ApiKeyInput,
+  CountInput,
   GenerateButton,
   ErrorBanner
 } from './components';
@@ -33,6 +34,7 @@ function Plugin() {
     providerId: 'openrouter',
     modelId: 'google/gemini-3-pro-image-preview',
     apiKey: '',
+    count: 1,
     isGenerating: false,
     error: null,
     status: null
@@ -115,6 +117,10 @@ function Plugin() {
     setState(prev => ({ ...prev, prompt: value }));
   }, []);
 
+  const handleCountChange = useCallback((value: number) => {
+    setState(prev => ({ ...prev, count: value }));
+  }, []);
+
   const handleGenerate = useCallback(() => {
     if (!state.prompt.trim()) {
       setState(prev => ({ ...prev, error: 'Please enter a prompt' }));
@@ -137,9 +143,10 @@ function Plugin() {
       prompt: state.prompt,
       providerId: state.providerId,
       modelId: state.modelId,
-      apiKey: state.apiKey
+      apiKey: state.apiKey,
+      count: state.count
     });
-  }, [state.prompt, state.providerId, state.modelId, state.apiKey]);
+  }, [state.prompt, state.providerId, state.modelId, state.apiKey, state.count]);
 
   const handleDismissError = useCallback(() => {
     setState(prev => ({ ...prev, error: null }));
@@ -156,6 +163,13 @@ function Plugin() {
           value={state.prompt}
           onChange={handlePromptChange}
           disabled={state.isGenerating}
+        />
+
+        <CountInput
+          value={state.count}
+          onChange={handleCountChange}
+          disabled={state.isGenerating}
+          min={1}
         />
 
         <ProviderPicker
