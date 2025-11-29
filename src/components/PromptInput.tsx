@@ -1,4 +1,5 @@
 import { h, JSX } from 'preact';
+import { useState } from 'preact/hooks';
 
 interface PromptInputProps {
   value: string;
@@ -9,6 +10,8 @@ interface PromptInputProps {
 }
 
 export function PromptInput({ value, onChange, onPrevious, onNext, disabled }: PromptInputProps) {
+  const [copied, setCopied] = useState(false);
+
   const handleInput = (e: JSX.TargetedEvent<HTMLTextAreaElement>) => {
     onChange(e.currentTarget.value);
   };
@@ -27,9 +30,34 @@ export function PromptInput({ value, onChange, onPrevious, onNext, disabled }: P
     }
   };
 
+  const handleCopy = () => {
+    if (value) {
+      const textarea = document.createElement('textarea');
+      textarea.value = value;
+      textarea.style.position = 'fixed';
+      textarea.style.opacity = '0';
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textarea);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1000);
+    }
+  };
+
   return (
     <div class="field">
-      <label class="field-label">Prompt</label>
+      <div class="field-label-row">
+        <label class="field-label">Prompt</label>
+        <button
+          type="button"
+          class="field-link"
+          onClick={handleCopy}
+          disabled={!value}
+        >
+          {copied ? 'Copied!' : 'Copy'}
+        </button>
+      </div>
       <textarea
         value={value}
         onInput={handleInput}
