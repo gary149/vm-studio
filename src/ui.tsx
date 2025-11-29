@@ -1,6 +1,6 @@
 import { render } from '@create-figma-plugin/ui';
 import { emit, on } from '@create-figma-plugin/utilities';
-import { h } from 'preact';
+import { h, Fragment } from 'preact';
 import { useState, useEffect, useCallback } from 'preact/hooks';
 import '!./styles.css';
 
@@ -30,8 +30,12 @@ import type {
   SettingsLoadedHandler
 } from './types';
 
+type TabValue = 'generate' | 'settings';
+
 function Plugin() {
   const providers = getProviderList();
+
+  const [activeTab, setActiveTab] = useState<TabValue>('generate');
 
   const [state, setState] = useState<UIState>({
     prompt: '',
@@ -49,6 +53,10 @@ function Plugin() {
   const [apiKeys, setApiKeys] = useState<Record<ProviderId, string>>({
     'openrouter': ''
   });
+
+  const handleTabChange = useCallback((value: string) => {
+    setActiveTab(value as TabValue);
+  }, []);
 
   useEffect(() => {
     emit<LoadSettingsHandler>('load-settings');
@@ -186,60 +194,85 @@ function Plugin() {
 
   return (
     <div class="app">
-      <div class="content">
-        <ErrorBanner message={state.error} onDismiss={handleDismissError} />
+      <nav class="navbar">
+        <div class="navbar-tabs">
+          <button
+            class={`tab-button ${activeTab === 'generate' ? 'tab-button--active' : ''}`}
+            onClick={() => handleTabChange('generate')}
+          >
+            Generate
+          </button>
+          <button
+            class={`tab-button ${activeTab === 'settings' ? 'tab-button--active' : ''}`}
+            onClick={() => handleTabChange('settings')}
+          >
+            Settings
+          </button>
+        </div>
+      </nav>
 
-        <PromptInput
-          value={state.prompt}
-          onChange={handlePromptChange}
-          disabled={state.isGenerating}
-        />
+      {activeTab === 'generate' && (
+        <Fragment>
+          <div class="content">
+            <ErrorBanner message={state.error} onDismiss={handleDismissError} />
 
-        <CountInput
-          value={state.count}
-          onChange={handleCountChange}
-          disabled={state.isGenerating}
-          min={1}
-        />
+            <PromptInput
+              value={state.prompt}
+              onChange={handlePromptChange}
+              disabled={state.isGenerating}
+            />
 
-        <div class="row">
-          <AspectRatioSelect
-            value={state.aspectRatio}
-            onChange={handleAspectRatioChange}
-            disabled={state.isGenerating}
-          />
-          <ImageSizeSelect
-            value={state.imageSize}
-            onChange={handleImageSizeChange}
+            <ProviderPicker
+              providers={providers}
+              selectedProviderId={state.providerId}
+              selectedModelId={state.modelId}
+              onProviderChange={handleProviderChange}
+              onModelChange={handleModelChange}
+              disabled={state.isGenerating}
+            />
+
+            <CountInput
+              value={state.count}
+              onChange={handleCountChange}
+              disabled={state.isGenerating}
+              min={1}
+            />
+
+            <div class="row">
+              <AspectRatioSelect
+                value={state.aspectRatio}
+                onChange={handleAspectRatioChange}
+                disabled={state.isGenerating}
+              />
+              <ImageSizeSelect
+                value={state.imageSize}
+                onChange={handleImageSizeChange}
+                disabled={state.isGenerating}
+              />
+            </div>
+          </div>
+
+          <footer class="footer">
+            <GenerateButton
+              onClick={handleGenerate}
+              disabled={!state.prompt.trim() || !state.apiKey.trim()}
+              isGenerating={state.isGenerating}
+              status={state.status}
+            />
+          </footer>
+        </Fragment>
+      )}
+
+      {activeTab === 'settings' && (
+        <div class="content">
+          <ApiKeyInput
+            value={state.apiKey}
+            onChange={handleApiKeyChange}
+            providerName={currentProvider?.name || 'Provider'}
             disabled={state.isGenerating}
           />
         </div>
-
-        <ProviderPicker
-          providers={providers}
-          selectedProviderId={state.providerId}
-          selectedModelId={state.modelId}
-          onProviderChange={handleProviderChange}
-          onModelChange={handleModelChange}
-          disabled={state.isGenerating}
-        />
-
-        <ApiKeyInput
-          value={state.apiKey}
-          onChange={handleApiKeyChange}
-          providerName={currentProvider?.name || 'Provider'}
-          disabled={state.isGenerating}
-        />
-      </div>
-
-      <footer class="footer">
-        <GenerateButton
-          onClick={handleGenerate}
-          disabled={!state.prompt.trim() || !state.apiKey.trim()}
-          isGenerating={state.isGenerating}
-          status={state.status}
-        />
-      </footer>
+      )}
     </div>
   );
 }
