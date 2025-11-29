@@ -1,8 +1,8 @@
 import { render } from '@create-figma-plugin/ui';
 import { emit, on } from '@create-figma-plugin/utilities';
-import { h, Fragment } from 'preact';
+import { h } from 'preact';
 import { useState, useEffect, useCallback } from 'preact/hooks';
-import '!./output.css';
+import '!./styles.css';
 
 import {
   PromptInput,
@@ -30,8 +30,8 @@ function Plugin() {
 
   const [state, setState] = useState<UIState>({
     prompt: '',
-    providerId: 'google-ai',
-    modelId: 'gemini-2.0-flash-exp',
+    providerId: 'openrouter',
+    modelId: 'google/gemini-3-pro-image-preview',
     apiKey: '',
     isGenerating: false,
     error: null,
@@ -39,16 +39,13 @@ function Plugin() {
   });
 
   const [apiKeys, setApiKeys] = useState<Record<ProviderId, string>>({
-    'google-ai': '',
     'openrouter': ''
   });
 
-  // Load settings on mount
   useEffect(() => {
     emit<LoadSettingsHandler>('load-settings');
   }, []);
 
-  // Listen for messages from sandbox
   useEffect(() => {
     const handleSettingsLoaded = (settings: PluginSettings) => {
       setState(prev => ({
@@ -64,22 +61,13 @@ function Plugin() {
       setState(prev => ({ ...prev, status }));
     };
 
-    const handleGenerationComplete = (result: { success: boolean; imageData?: Uint8Array; mimeType?: string; error?: string }) => {
-      if (result.success) {
-        setState(prev => ({
-          ...prev,
-          isGenerating: false,
-          status: null,
-          error: null
-        }));
-      } else {
-        setState(prev => ({
-          ...prev,
-          isGenerating: false,
-          status: null,
-          error: result.error || 'Generation failed'
-        }));
-      }
+    const handleGenerationComplete = (result: { success: boolean; error?: string }) => {
+      setState(prev => ({
+        ...prev,
+        isGenerating: false,
+        status: null,
+        error: result.success ? null : (result.error || 'Generation failed')
+      }));
     };
 
     on<SettingsLoadedHandler>('settings-loaded', handleSettingsLoaded);
@@ -87,7 +75,6 @@ function Plugin() {
     on<GenerationCompleteHandler>('generation-complete', handleGenerationComplete);
   }, []);
 
-  // Update API key when provider changes
   useEffect(() => {
     setState(prev => ({
       ...prev,
@@ -104,7 +91,6 @@ function Plugin() {
       apiKey: apiKeys[providerId] || ''
     }));
 
-    // Save provider preference
     emit<SaveSettingsHandler>('save-settings', {
       lastProviderId: providerId,
       lastModelId: defaultModel
@@ -120,7 +106,6 @@ function Plugin() {
     setState(prev => ({ ...prev, apiKey: value }));
     setApiKeys(prev => ({ ...prev, [state.providerId]: value }));
 
-    // Save API key
     emit<SaveSettingsHandler>('save-settings', {
       apiKeys: { [state.providerId]: value }
     });
@@ -163,17 +148,8 @@ function Plugin() {
   const currentProvider = getProvider(state.providerId);
 
   return (
-    <div class="flex flex-col h-full p-4 gap-4 bg-white dark:bg-neutral-900">
-      <div class="flex items-center gap-2 pb-2 border-b border-neutral-200 dark:border-neutral-700">
-        <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-        </svg>
-        <h1 class="text-sm font-semibold text-neutral-800 dark:text-neutral-100">
-          VM Studio
-        </h1>
-      </div>
-
-      <div class="flex-1 flex flex-col gap-4 overflow-y-auto">
+    <div class="app">
+      <div class="content">
         <ErrorBanner message={state.error} onDismiss={handleDismissError} />
 
         <PromptInput
@@ -199,14 +175,14 @@ function Plugin() {
         />
       </div>
 
-      <div class="pt-2 border-t border-neutral-200 dark:border-neutral-700">
+      <footer class="footer">
         <GenerateButton
           onClick={handleGenerate}
           disabled={!state.prompt.trim() || !state.apiKey.trim()}
           isGenerating={state.isGenerating}
           status={state.status}
         />
-      </div>
+      </footer>
     </div>
   );
 }

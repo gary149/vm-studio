@@ -1,5 +1,5 @@
 import { h, JSX } from 'preact';
-import type { ProviderId, ProviderConfig, ModelConfig } from '../types';
+import type { ProviderId, ProviderConfig } from '../types';
 
 interface ProviderPickerProps {
   providers: ProviderConfig[];
@@ -9,6 +9,12 @@ interface ProviderPickerProps {
   onModelChange: (modelId: string) => void;
   disabled?: boolean;
 }
+
+const ChevronIcon = () => (
+  <svg class="select-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <path d="M6 9l6 6 6-6" />
+  </svg>
+);
 
 export function ProviderPicker({
   providers,
@@ -30,41 +36,43 @@ export function ProviderPicker({
   };
 
   return (
-    <div class="flex flex-col gap-3">
-      <div class="flex flex-col gap-1">
-        <label class="text-xs font-medium text-neutral-700 dark:text-neutral-300">
-          Provider
-        </label>
-        <select
-          value={selectedProviderId}
-          onChange={handleProviderChange}
-          disabled={disabled}
-          class="w-full px-3 py-2 text-sm border border-neutral-300 dark:border-neutral-600 rounded-md bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:opacity-50 disabled:cursor-not-allowed"
-        >
-          {providers.map(provider => (
-            <option key={provider.id} value={provider.id}>
-              {provider.name}
-            </option>
-          ))}
-        </select>
+    <div class="row">
+      <div class="field">
+        <label class="field-label">Model</label>
+        <div class="select-wrapper">
+          <select
+            value={selectedModelId}
+            onChange={handleModelChange}
+            disabled={disabled}
+            class="select"
+          >
+            {models.map(model => (
+              <option key={model.id} value={model.id}>
+                {model.name}
+              </option>
+            ))}
+          </select>
+          <ChevronIcon />
+        </div>
       </div>
 
-      <div class="flex flex-col gap-1">
-        <label class="text-xs font-medium text-neutral-700 dark:text-neutral-300">
-          Model
-        </label>
-        <select
-          value={selectedModelId}
-          onChange={handleModelChange}
-          disabled={disabled}
-          class="w-full px-3 py-2 text-sm border border-neutral-300 dark:border-neutral-600 rounded-md bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:opacity-50 disabled:cursor-not-allowed"
-        >
-          {models.map(model => (
-            <option key={model.id} value={model.id}>
-              {model.name}
-            </option>
-          ))}
-        </select>
+      <div class="field">
+        <label class="field-label">Provider</label>
+        <div class="select-wrapper">
+          <select
+            value={selectedProviderId}
+            onChange={handleProviderChange}
+            disabled={disabled}
+            class="select"
+          >
+            {providers.map(provider => (
+              <option key={provider.id} value={provider.id}>
+                {provider.name}
+              </option>
+            ))}
+          </select>
+          <ChevronIcon />
+        </div>
       </div>
     </div>
   );

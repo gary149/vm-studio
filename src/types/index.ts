@@ -1,7 +1,7 @@
 import { EventHandler } from '@create-figma-plugin/utilities';
 
 // Provider types
-export type ProviderId = 'google-ai' | 'openrouter';
+export type ProviderId = 'openrouter';
 
 export interface ProviderConfig {
   id: ProviderId;
@@ -96,10 +96,9 @@ export interface UIState {
 }
 
 export const DEFAULT_SETTINGS: PluginSettings = {
-  lastProviderId: 'google-ai',
-  lastModelId: 'gemini-2.0-flash-exp',
+  lastProviderId: 'openrouter',
+  lastModelId: 'google/gemini-3-pro-image-preview',
   apiKeys: {
-    'google-ai': '',
     'openrouter': ''
   }
 };

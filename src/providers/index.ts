@@ -1,16 +1,7 @@
-import type { ProviderId, ProviderConfig, GenerationRequest, GenerationResult } from '../types';
+import type { ProviderId, ProviderConfig } from '../types';
 
 // Provider configurations
 export const PROVIDERS: Record<ProviderId, ProviderConfig> = {
-  'google-ai': {
-    id: 'google-ai',
-    name: 'Google AI Studio',
-    requiresApiKey: true,
-    models: [
-      { id: 'gemini-2.0-flash-exp', name: 'Gemini 2.0 Flash (Experimental)', supportsImageGeneration: true },
-      { id: 'imagen-3.0-generate-002', name: 'Imagen 3', supportsImageGeneration: true },
-    ]
-  },
   'openrouter': {
     id: 'openrouter',
     name: 'OpenRouter',

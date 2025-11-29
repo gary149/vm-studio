@@ -1,7 +1,7 @@
 {
   "name": "vm-studio",
   "version": "1.0.0",
-  "description": "Generate images via Google AI Studio or OpenRouter and drop them onto Figma",
+  "description": "Generate images via AI and drop them onto Figma",
   "dependencies": {
     "@create-figma-plugin/ui": "^4.0.3",
     "@create-figma-plugin/utilities": "^4.0.3",
@@ -11,18 +11,11 @@
     "@create-figma-plugin/build": "^4.0.3",
     "@create-figma-plugin/tsconfig": "^4.0.3",
     "@figma/plugin-typings": "1.109.0",
-    "@tailwindcss/cli": ">=4",
-    "concurrently": ">=9",
-    "tailwindcss": ">=4",
     "typescript": ">=5"
   },
   "scripts": {
-    "build": "npm run build:css && npm run build:js",
-    "build:css": "npx @tailwindcss/cli --input ./src/input.css --output ./src/output.css",
-    "build:js": "build-figma-plugin --typecheck --minify",
-    "watch": "npm run build:css && concurrently npm:watch:css npm:watch:js",
-    "watch:css": "npx @tailwindcss/cli --input ./src/input.css --output ./src/output.css --watch",
-    "watch:js": "build-figma-plugin --typecheck --watch"
+    "build": "build-figma-plugin --typecheck --minify",
+    "watch": "build-figma-plugin --typecheck --watch"
   },
   "figma-plugin": {
     "editorType": [
@@ -34,7 +27,6 @@
     "ui": "src/ui.tsx",
     "networkAccess": {
       "allowedDomains": [
-        "https://generativelanguage.googleapis.com",
         "https://openrouter.ai"
       ]
     }

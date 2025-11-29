@@ -9,51 +9,43 @@ interface ApiKeyInputProps {
 }
 
 export function ApiKeyInput({ value, onChange, providerName, disabled }: ApiKeyInputProps) {
-  const [showKey, setShowKey] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
 
   const handleInput = (e: JSX.TargetedEvent<HTMLInputElement>) => {
     onChange(e.currentTarget.value);
   };
 
-  const toggleVisibility = () => {
-    setShowKey(!showKey);
-  };
-
   return (
-    <div class="flex flex-col gap-1">
-      <label class="text-xs font-medium text-neutral-700 dark:text-neutral-300">
-        {providerName} API Key
-      </label>
-      <div class="relative">
+    <div class="field">
+      <label class="field-label">{providerName} API Key</label>
+      <div class="input-wrapper">
         <input
-          type={showKey ? 'text' : 'password'}
+          type={isVisible ? 'text' : 'password'}
           value={value}
           onInput={handleInput}
           disabled={disabled}
-          placeholder="Enter your API key..."
-          class="w-full px-3 py-2 pr-10 text-sm border border-neutral-300 dark:border-neutral-600 rounded-md bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 placeholder-neutral-400 dark:placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:opacity-50 disabled:cursor-not-allowed"
+          placeholder="Enter your API key"
+          class="input input--with-icon"
         />
         <button
           type="button"
-          onClick={toggleVisibility}
+          style="position: absolute; right: 8px; top: 50%; transform: translateY(-50%); background: none; border: none; padding: 0; cursor: pointer; color: var(--color-text-tertiary);"
+          onClick={() => setIsVisible(!isVisible)}
           disabled={disabled}
-          class="absolute right-2 top-1/2 -translate-y-1/2 text-neutral-500 hover:text-neutral-700 dark:hover:text-neutral-300 disabled:opacity-50"
         >
-          {showKey ? (
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21" />
+          {isVisible ? (
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24" />
+              <line x1="1" y1="1" x2="23" y2="23" />
             </svg>
           ) : (
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+              <circle cx="12" cy="12" r="3" />
             </svg>
           )}
         </button>
       </div>
-      <p class="text-xs text-neutral-500 dark:text-neutral-400">
-        Your API key is stored locally in Figma's client storage.
-      </p>
     </div>
   );
 }

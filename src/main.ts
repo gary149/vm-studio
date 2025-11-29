@@ -104,10 +104,9 @@ export default function () {
     try {
       const stored = await figma.clientStorage.getAsync(SETTINGS_KEY);
       const settings: PluginSettings = stored || {
-        lastProviderId: 'google-ai',
-        lastModelId: 'gemini-2.0-flash-exp',
+        lastProviderId: 'openrouter',
+        lastModelId: 'google/gemini-3-pro-image-preview',
         apiKeys: {
-          'google-ai': '',
           'openrouter': ''
         }
       };
@@ -115,10 +114,9 @@ export default function () {
     } catch (error) {
       // Return default settings on error
       emit<SettingsLoadedHandler>('settings-loaded', {
-        lastProviderId: 'google-ai',
-        lastModelId: 'gemini-2.0-flash-exp',
+        lastProviderId: 'openrouter',
+        lastModelId: 'google/gemini-3-pro-image-preview',
         apiKeys: {
-          'google-ai': '',
           'openrouter': ''
         }
       });
