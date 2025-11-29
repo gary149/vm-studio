@@ -30,7 +30,7 @@ export async function generateWithOpenRouter(
   request: GenerationRequest,
   onProgress?: (status: string) => void
 ): Promise<GenerationResult> {
-  const { prompt, modelId, apiKey } = request;
+  const { prompt, modelId, apiKey, aspectRatio, imageSize } = request;
 
   if (!apiKey) {
     return { success: false, error: 'OpenRouter API key is required' };
@@ -41,13 +41,21 @@ export async function generateWithOpenRouter(
   try {
     const url = `${OPENROUTER_BASE_URL}/chat/completions`;
 
-    const body = {
+    const body: Record<string, unknown> = {
       model: modelId,
       messages: [{
         role: 'user',
         content: `Generate an image: ${prompt}`
       }]
     };
+
+    // Add image config if aspect ratio or size specified
+    if (aspectRatio || imageSize) {
+      const imageConfig: Record<string, string> = {};
+      if (aspectRatio) imageConfig.aspect_ratio = aspectRatio;
+      if (imageSize) imageConfig.image_size = imageSize;
+      body.image_config = imageConfig;
+    }
 
     const response = await fetch(url, {
       method: 'POST',

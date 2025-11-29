@@ -24,7 +24,8 @@ export default function () {
 
   // Handle messages from UI
   on<GenerateImageHandler>('generate-image', async (payload: GenerationRequest & { count: number }) => {
-    const { count, ...request } = payload;
+    const { count, aspectRatio, imageSize, ...baseRequest } = payload;
+    const request = { ...baseRequest, aspectRatio, imageSize };
     const total = Math.max(count || 1, 1);
 
     try {

@@ -9,6 +9,8 @@ import {
   ProviderPicker,
   ApiKeyInput,
   CountInput,
+  AspectRatioSelect,
+  ImageSizeSelect,
   GenerateButton,
   ErrorBanner
 } from './components';
@@ -18,6 +20,8 @@ import type {
   ProviderId,
   UIState,
   PluginSettings,
+  AspectRatio,
+  ImageSize,
   GenerateImageHandler,
   LoadSettingsHandler,
   SaveSettingsHandler,
@@ -35,6 +39,8 @@ function Plugin() {
     modelId: 'google/gemini-3-pro-image-preview',
     apiKey: '',
     count: 1,
+    aspectRatio: '1:1',
+    imageSize: '1K',
     isGenerating: false,
     error: null,
     status: null
@@ -121,6 +127,14 @@ function Plugin() {
     setState(prev => ({ ...prev, count: value }));
   }, []);
 
+  const handleAspectRatioChange = useCallback((value: AspectRatio) => {
+    setState(prev => ({ ...prev, aspectRatio: value }));
+  }, []);
+
+  const handleImageSizeChange = useCallback((value: ImageSize) => {
+    setState(prev => ({ ...prev, imageSize: value }));
+  }, []);
+
   const handleGenerate = useCallback(() => {
     if (!state.prompt.trim()) {
       setState(prev => ({ ...prev, error: 'Please enter a prompt' }));
@@ -144,13 +158,29 @@ function Plugin() {
       providerId: state.providerId,
       modelId: state.modelId,
       apiKey: state.apiKey,
-      count: state.count
+      count: state.count,
+      aspectRatio: state.aspectRatio,
+      imageSize: state.imageSize
     });
-  }, [state.prompt, state.providerId, state.modelId, state.apiKey, state.count]);
+  }, [state.prompt, state.providerId, state.modelId, state.apiKey, state.count, state.aspectRatio, state.imageSize]);
 
   const handleDismissError = useCallback(() => {
     setState(prev => ({ ...prev, error: null }));
   }, []);
+
+  // Cmd/Ctrl+Enter to generate
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === 'Enter') {
+        e.preventDefault();
+        if (!state.isGenerating && state.prompt.trim() && state.apiKey.trim()) {
+          handleGenerate();
+        }
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [state.isGenerating, state.prompt, state.apiKey, handleGenerate]);
 
   const currentProvider = getProvider(state.providerId);
 
@@ -171,6 +201,19 @@ function Plugin() {
           disabled={state.isGenerating}
           min={1}
         />
+
+        <div class="row">
+          <AspectRatioSelect
+            value={state.aspectRatio}
+            onChange={handleAspectRatioChange}
+            disabled={state.isGenerating}
+          />
+          <ImageSizeSelect
+            value={state.imageSize}
+            onChange={handleImageSizeChange}
+            disabled={state.isGenerating}
+          />
+        </div>
 
         <ProviderPicker
           providers={providers}
