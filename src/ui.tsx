@@ -54,6 +54,11 @@ function Plugin() {
     'openrouter': ''
   });
 
+  // Prompt history
+  const [promptHistory, setPromptHistory] = useState<string[]>([]);
+  const [historyIndex, setHistoryIndex] = useState<number>(-1);
+  const [draftPrompt, setDraftPrompt] = useState<string>('');
+
   const handleTabChange = useCallback((value: string) => {
     setActiveTab(value as TabValue);
   }, []);
@@ -129,7 +134,39 @@ function Plugin() {
 
   const handlePromptChange = useCallback((value: string) => {
     setState(prev => ({ ...prev, prompt: value }));
+    setHistoryIndex(-1); // Reset history index when typing
   }, []);
+
+  const handlePromptPrevious = useCallback(() => {
+    if (promptHistory.length === 0) return;
+
+    // Save current input as draft before navigating into history
+    if (historyIndex === -1) {
+      setDraftPrompt(state.prompt);
+    }
+
+    const newIndex = historyIndex === -1
+      ? promptHistory.length - 1
+      : Math.max(0, historyIndex - 1);
+
+    setHistoryIndex(newIndex);
+    setState(prev => ({ ...prev, prompt: promptHistory[newIndex] }));
+  }, [promptHistory, historyIndex, state.prompt]);
+
+  const handlePromptNext = useCallback(() => {
+    if (historyIndex === -1) return;
+
+    const newIndex = historyIndex + 1;
+
+    if (newIndex >= promptHistory.length) {
+      // Restore draft when going past history
+      setHistoryIndex(-1);
+      setState(prev => ({ ...prev, prompt: draftPrompt }));
+    } else {
+      setHistoryIndex(newIndex);
+      setState(prev => ({ ...prev, prompt: promptHistory[newIndex] }));
+    }
+  }, [promptHistory, historyIndex, draftPrompt]);
 
   const handleCountChange = useCallback((value: number) => {
     setState(prev => ({ ...prev, count: value }));
@@ -154,6 +191,13 @@ function Plugin() {
       return;
     }
 
+    // Add to history if not duplicate of last entry
+    const trimmedPrompt = state.prompt.trim();
+    if (promptHistory[promptHistory.length - 1] !== trimmedPrompt) {
+      setPromptHistory(prev => [...prev, trimmedPrompt]);
+    }
+    setHistoryIndex(-1);
+
     setState(prev => ({
       ...prev,
       isGenerating: true,
@@ -170,7 +214,7 @@ function Plugin() {
       aspectRatio: state.aspectRatio,
       imageSize: state.imageSize
     });
-  }, [state.prompt, state.providerId, state.modelId, state.apiKey, state.count, state.aspectRatio, state.imageSize]);
+  }, [state.prompt, state.providerId, state.modelId, state.apiKey, state.count, state.aspectRatio, state.imageSize, promptHistory]);
 
   const handleDismissError = useCallback(() => {
     setState(prev => ({ ...prev, error: null }));
@@ -219,6 +263,8 @@ function Plugin() {
             <PromptInput
               value={state.prompt}
               onChange={handlePromptChange}
+              onPrevious={handlePromptPrevious}
+              onNext={handlePromptNext}
               disabled={state.isGenerating}
             />
 
