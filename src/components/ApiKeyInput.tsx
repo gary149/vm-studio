@@ -17,7 +17,17 @@ export function ApiKeyInput({ value, onChange, providerName, disabled }: ApiKeyI
 
   return (
     <div class="field">
-      <label class="field-label">{providerName} API Key</label>
+      <div class="field-label-row">
+        <label class="field-label">{providerName} API Key</label>
+        <a
+          href="https://openrouter.ai/settings/keys"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="field-link"
+        >
+          Get API Key
+        </a>
+      </div>
       <div class="input-wrapper">
         <input
           type={isVisible ? 'text' : 'password'}

@@ -119,6 +119,22 @@ html, body {
   color: var(--color-text-secondary);
 }
 
+.field-label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.field-link {
+  font-size: var(--font-size-xs);
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+.field-link:hover {
+  text-decoration: underline;
+}
+
 /* Input styles */
 .input {
   width: 100%;

@@ -17,7 +17,7 @@ export interface ModelConfig {
 }
 
 // Generation types
-export type AspectRatio = '1:1' | '3:4' | '4:3' | '9:16' | '16:9';
+export type AspectRatio = 'auto' | '1:1' | '9:16' | '16:9' | '3:4' | '4:3' | '3:2' | '2:3' | '5:4' | '4:5' | '21:9';
 export type ImageSize = '1K' | '2K' | '4K';
 
 export interface GenerationRequest {

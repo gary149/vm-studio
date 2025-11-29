@@ -39,7 +39,7 @@ function Plugin() {
     modelId: 'google/gemini-3-pro-image-preview',
     apiKey: '',
     count: 1,
-    aspectRatio: '1:1',
+    aspectRatio: 'auto',
     imageSize: '1K',
     isGenerating: false,
     error: null,

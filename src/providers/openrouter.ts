@@ -49,10 +49,11 @@ export async function generateWithOpenRouter(
       }]
     };
 
-    // Add image config if aspect ratio or size specified
-    if (aspectRatio || imageSize) {
+    // Add image config if aspect ratio (non-auto) or size specified
+    const hasAspectRatio = aspectRatio && aspectRatio !== 'auto';
+    if (hasAspectRatio || imageSize) {
       const imageConfig: Record<string, string> = {};
-      if (aspectRatio) imageConfig.aspect_ratio = aspectRatio;
+      if (hasAspectRatio) imageConfig.aspect_ratio = aspectRatio;
       if (imageSize) imageConfig.image_size = imageSize;
       body.image_config = imageConfig;
     }

@@ -66,10 +66,7 @@ export default function () {
             scaleMode: 'FILL'
           }];
 
-          const truncatedPrompt = request.prompt.length > 40
-            ? request.prompt.substring(0, 37) + '...'
-            : request.prompt;
-          node.name = `Generated ${i + 1}: ${truncatedPrompt}`;
+          node.name = request.prompt;
 
           // Position nodes in a grid
           const selection = figma.currentPage.selection;
