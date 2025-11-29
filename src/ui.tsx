@@ -45,7 +45,7 @@ function Plugin() {
     count: 1,
     aspectRatio: 'auto',
     imageSize: '1K',
-    isGenerating: false,
+    generatingCount: 0,
     error: null,
     status: null
   });
@@ -85,9 +85,9 @@ function Plugin() {
     const handleGenerationComplete = (result: { success: boolean; error?: string }) => {
       setState(prev => ({
         ...prev,
-        isGenerating: false,
-        status: null,
-        error: result.success ? null : (result.error || 'Generation failed')
+        generatingCount: Math.max(0, prev.generatingCount - 1),
+        status: prev.generatingCount <= 1 ? null : prev.status,
+        error: result.success ? prev.error : (result.error || 'Generation failed')
       }));
     };
 
@@ -200,9 +200,9 @@ function Plugin() {
 
     setState(prev => ({
       ...prev,
-      isGenerating: true,
+      generatingCount: prev.generatingCount + 1,
       error: null,
-      status: 'Starting...'
+      status: 'Generating...'
     }));
 
     emit<GenerateImageHandler>('generate-image', {
@@ -225,14 +225,14 @@ function Plugin() {
     const handleKeyDown = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key === 'Enter') {
         e.preventDefault();
-        if (!state.isGenerating && state.prompt.trim() && state.apiKey.trim()) {
+        if (state.prompt.trim() && state.apiKey.trim()) {
           handleGenerate();
         }
       }
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [state.isGenerating, state.prompt, state.apiKey, handleGenerate]);
+  }, [state.prompt, state.apiKey, handleGenerate]);
 
   const currentProvider = getProvider(state.providerId);
 
@@ -265,7 +265,6 @@ function Plugin() {
               onChange={handlePromptChange}
               onPrevious={handlePromptPrevious}
               onNext={handlePromptNext}
-              disabled={state.isGenerating}
             />
 
             <ProviderPicker
@@ -274,13 +273,11 @@ function Plugin() {
               selectedModelId={state.modelId}
               onProviderChange={handleProviderChange}
               onModelChange={handleModelChange}
-              disabled={state.isGenerating}
             />
 
             <CountInput
               value={state.count}
               onChange={handleCountChange}
-              disabled={state.isGenerating}
               min={1}
             />
 
@@ -288,12 +285,10 @@ function Plugin() {
               <AspectRatioSelect
                 value={state.aspectRatio}
                 onChange={handleAspectRatioChange}
-                disabled={state.isGenerating}
               />
               <ImageSizeSelect
                 value={state.imageSize}
                 onChange={handleImageSizeChange}
-                disabled={state.isGenerating}
               />
             </div>
           </div>
@@ -302,7 +297,7 @@ function Plugin() {
             <GenerateButton
               onClick={handleGenerate}
               disabled={!state.prompt.trim() || !state.apiKey.trim()}
-              isGenerating={state.isGenerating}
+              generatingCount={state.generatingCount}
               status={state.status}
             />
           </footer>
@@ -315,7 +310,6 @@ function Plugin() {
             value={state.apiKey}
             onChange={handleApiKeyChange}
             providerName={currentProvider?.name || 'Provider'}
-            disabled={state.isGenerating}
           />
         </div>
       )}

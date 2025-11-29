@@ -95,7 +95,7 @@ export interface UIState {
   count: number;
   aspectRatio: AspectRatio;
   imageSize: ImageSize;
-  isGenerating: boolean;
+  generatingCount: number;
   error: string | null;
   status: string | null;
 }

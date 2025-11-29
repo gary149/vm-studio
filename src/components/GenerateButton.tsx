@@ -3,16 +3,21 @@ import { h, Fragment } from 'preact';
 interface GenerateButtonProps {
   onClick: () => void;
   disabled?: boolean;
-  isGenerating?: boolean;
+  generatingCount?: number;
   status?: string | null;
 }
 
-export function GenerateButton({ onClick, disabled, isGenerating, status }: GenerateButtonProps) {
+export function GenerateButton({ onClick, disabled, generatingCount = 0, status }: GenerateButtonProps) {
+  const isGenerating = generatingCount > 0;
+  const statusText = generatingCount > 1
+    ? `Generating (${generatingCount})...`
+    : (status || 'Generating...');
+
   return (
     <button
       type="button"
       onClick={onClick}
-      disabled={disabled || isGenerating}
+      disabled={disabled}
       class="btn btn--primary"
     >
       {isGenerating ? (
@@ -21,7 +26,7 @@ export function GenerateButton({ onClick, disabled, isGenerating, status }: Gene
             <circle cx="12" cy="12" r="10" stroke-opacity="0.25" />
             <path d="M12 2a10 10 0 0 1 10 10" stroke-opacity="1" />
           </svg>
-          <span>{status || 'Generating...'}</span>
+          <span>{statusText}</span>
         </Fragment>
       ) : (
         <Fragment>
