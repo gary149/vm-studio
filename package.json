@@ -27,7 +27,8 @@
     "ui": "src/ui.tsx",
     "networkAccess": {
       "allowedDomains": [
-        "https://openrouter.ai"
+        "https://openrouter.ai",
+        "https://fal.run"
       ]
     }
   }

@@ -2,10 +2,20 @@ import type { ProviderId, ProviderConfig } from '../types';
 
 // Provider configurations
 export const PROVIDERS: Record<ProviderId, ProviderConfig> = {
+  'fal': {
+    id: 'fal',
+    name: 'Fal.ai',
+    requiresApiKey: true,
+    apiKeyUrl: 'https://fal.ai/dashboard/keys',
+    models: [
+      { id: 'fal-ai/nano-banana-pro', name: 'Nano Banana Pro', supportsImageGeneration: true },
+    ]
+  },
   'openrouter': {
     id: 'openrouter',
     name: 'OpenRouter',
     requiresApiKey: true,
+    apiKeyUrl: 'https://openrouter.ai/keys',
     models: [
       { id: 'google/gemini-3-pro-image-preview', name: 'Nano Banana Pro', supportsImageGeneration: true },
     ]

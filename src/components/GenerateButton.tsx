@@ -13,6 +13,9 @@ export function GenerateButton({ onClick, disabled, generatingCount = 0, status 
     ? `Generating (${generatingCount})...`
     : (status || 'Generating...');
 
+  const isMac = typeof navigator !== 'undefined' && /Mac|iPhone|iPad|iPod/.test(navigator.platform);
+  const shortcut = isMac ? '⌘↵' : 'Ctrl↵';
+
   return (
     <button
       type="button"
@@ -36,6 +39,7 @@ export function GenerateButton({ onClick, disabled, generatingCount = 0, status 
             <path d="M21 15l-5-5L5 21" />
           </svg>
           <span>Generate</span>
+          <span class="shortcut-hint">{shortcut}</span>
         </Fragment>
       )}
     </button>

@@ -123,18 +123,27 @@ export default function () {
     try {
       const stored = await figma.clientStorage.getAsync(SETTINGS_KEY);
       const settings: PluginSettings = stored || {
-        lastProviderId: 'openrouter',
-        lastModelId: 'google/gemini-3-pro-image-preview',
+        lastProviderId: 'fal',
+        lastModelId: 'fal-ai/nano-banana-pro',
         apiKeys: {
+          'fal': '',
           'openrouter': ''
         }
       };
+      // Ensure all provider keys exist (for migration from older versions)
+      if (!settings.apiKeys.fal) {
+        settings.apiKeys.fal = '';
+      }
+      if (!settings.apiKeys.openrouter) {
+        settings.apiKeys.openrouter = '';
+      }
       emit<SettingsLoadedHandler>('settings-loaded', settings);
     } catch (error) {
       emit<SettingsLoadedHandler>('settings-loaded', {
-        lastProviderId: 'openrouter',
-        lastModelId: 'google/gemini-3-pro-image-preview',
+        lastProviderId: 'fal',
+        lastModelId: 'fal-ai/nano-banana-pro',
         apiKeys: {
+          'fal': '',
           'openrouter': ''
         }
       });

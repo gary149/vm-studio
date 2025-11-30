@@ -39,8 +39,8 @@ function Plugin() {
 
   const [state, setState] = useState<UIState>({
     prompt: '',
-    providerId: 'openrouter',
-    modelId: 'google/gemini-3-pro-image-preview',
+    providerId: 'fal',
+    modelId: 'fal-ai/nano-banana-pro',
     apiKey: '',
     count: 1,
     aspectRatio: 'auto',
@@ -51,6 +51,7 @@ function Plugin() {
   });
 
   const [apiKeys, setApiKeys] = useState<Record<ProviderId, string>>({
+    'fal': '',
     'openrouter': ''
   });
 
@@ -123,12 +124,17 @@ function Plugin() {
     emit<SaveSettingsHandler>('save-settings', { lastModelId: modelId });
   }, []);
 
-  const handleApiKeyChange = useCallback((value: string) => {
-    setState(prev => ({ ...prev, apiKey: value }));
-    setApiKeys(prev => ({ ...prev, [state.providerId]: value }));
+  const handleApiKeyChange = useCallback((providerId: ProviderId, value: string) => {
+    // Update apiKeys state
+    setApiKeys(prev => ({ ...prev, [providerId]: value }));
+
+    // If this is the currently selected provider, also update the UI state
+    if (providerId === state.providerId) {
+      setState(prev => ({ ...prev, apiKey: value }));
+    }
 
     emit<SaveSettingsHandler>('save-settings', {
-      apiKeys: { [state.providerId]: value }
+      apiKeys: { [providerId]: value }
     });
   }, [state.providerId]);
 
@@ -306,11 +312,15 @@ function Plugin() {
 
       {activeTab === 'settings' && (
         <div class="content">
-          <ApiKeyInput
-            value={state.apiKey}
-            onChange={handleApiKeyChange}
-            providerName={currentProvider?.name || 'Provider'}
-          />
+          {providers.map(provider => (
+            <ApiKeyInput
+              key={provider.id}
+              value={apiKeys[provider.id] || ''}
+              onChange={(value) => handleApiKeyChange(provider.id, value)}
+              providerName={provider.name}
+              apiKeyUrl={provider.apiKeyUrl}
+            />
+          ))}
         </div>
       )}
     </div>
