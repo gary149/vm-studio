@@ -234,12 +234,21 @@ html, body {
 
 .btn--primary {
   width: 100%;
-  color: var(--color-accent-text);
-  background: var(--color-accent);
+  color: #ffffff;
+  background: #000000;
+}
+
+.figma-dark .btn--primary {
+  color: #000000;
+  background: #ffffff;
 }
 
 .btn--primary:hover:not(:disabled) {
-  background: var(--color-accent-hover);
+  background: #333333;
+}
+
+.figma-dark .btn--primary:hover:not(:disabled) {
+  background: #e0e0e0;
 }
 
 .btn-icon {
