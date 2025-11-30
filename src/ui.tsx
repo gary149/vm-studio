@@ -51,7 +51,8 @@ function Plugin() {
   });
 
   const [apiKeys, setApiKeys] = useState<Record<ProviderId, string>>({
-    'openrouter': ''
+    'openrouter': '',
+    'replicate': ''
   });
 
   // Prompt history
@@ -123,12 +124,14 @@ function Plugin() {
     emit<SaveSettingsHandler>('save-settings', { lastModelId: modelId });
   }, []);
 
-  const handleApiKeyChange = useCallback((value: string) => {
-    setState(prev => ({ ...prev, apiKey: value }));
-    setApiKeys(prev => ({ ...prev, [state.providerId]: value }));
+  const handleApiKeyChange = useCallback((providerId: ProviderId, value: string) => {
+    if (providerId === state.providerId) {
+      setState(prev => ({ ...prev, apiKey: value }));
+    }
+    setApiKeys(prev => ({ ...prev, [providerId]: value }));
 
     emit<SaveSettingsHandler>('save-settings', {
-      apiKeys: { [state.providerId]: value }
+      apiKeys: { [providerId]: value }
     });
   }, [state.providerId]);
 
@@ -306,11 +309,15 @@ function Plugin() {
 
       {activeTab === 'settings' && (
         <div class="content">
-          <ApiKeyInput
-            value={state.apiKey}
-            onChange={handleApiKeyChange}
-            providerName={currentProvider?.name || 'Provider'}
-          />
+          {providers.map(provider => (
+            <ApiKeyInput
+              key={provider.id}
+              value={apiKeys[provider.id] || ''}
+              onChange={(value) => handleApiKeyChange(provider.id, value)}
+              providerName={provider.name}
+              apiKeyUrl={provider.apiKeyUrl}
+            />
+          ))}
         </div>
       )}
     </div>

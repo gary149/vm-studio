@@ -27,7 +27,9 @@
     "ui": "src/ui.tsx",
     "networkAccess": {
       "allowedDomains": [
-        "https://openrouter.ai"
+        "https://openrouter.ai",
+        "https://api.replicate.com",
+        "https://replicate.delivery"
       ]
     }
   }

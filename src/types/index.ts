@@ -1,13 +1,14 @@
 import { EventHandler } from '@create-figma-plugin/utilities';
 
 // Provider types
-export type ProviderId = 'openrouter';
+export type ProviderId = 'openrouter' | 'replicate';
 
 export interface ProviderConfig {
   id: ProviderId;
   name: string;
   models: ModelConfig[];
   requiresApiKey: boolean;
+  apiKeyUrl?: string;
 }
 
 export interface ModelConfig {
@@ -104,6 +105,7 @@ export const DEFAULT_SETTINGS: PluginSettings = {
   lastProviderId: 'openrouter',
   lastModelId: 'google/gemini-3-pro-image-preview',
   apiKeys: {
-    'openrouter': ''
+    'openrouter': '',
+    'replicate': ''
   }
 };

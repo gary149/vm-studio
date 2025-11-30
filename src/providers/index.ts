@@ -6,8 +6,18 @@ export const PROVIDERS: Record<ProviderId, ProviderConfig> = {
     id: 'openrouter',
     name: 'OpenRouter',
     requiresApiKey: true,
+    apiKeyUrl: 'https://openrouter.ai/settings/keys',
     models: [
       { id: 'google/gemini-3-pro-image-preview', name: 'Nano Banana Pro', supportsImageGeneration: true },
+    ]
+  },
+  'replicate': {
+    id: 'replicate',
+    name: 'Replicate',
+    requiresApiKey: true,
+    apiKeyUrl: 'https://replicate.com/account/api-tokens',
+    models: [
+      { id: 'google/nano-banana-pro', name: 'Nano Banana Pro', supportsImageGeneration: true },
     ]
   }
 };

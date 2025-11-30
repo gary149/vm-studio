@@ -5,10 +5,11 @@ interface ApiKeyInputProps {
   value: string;
   onChange: (value: string) => void;
   providerName: string;
+  apiKeyUrl?: string;
   disabled?: boolean;
 }
 
-export function ApiKeyInput({ value, onChange, providerName, disabled }: ApiKeyInputProps) {
+export function ApiKeyInput({ value, onChange, providerName, apiKeyUrl, disabled }: ApiKeyInputProps) {
   const [isVisible, setIsVisible] = useState(false);
 
   const handleInput = (e: JSX.TargetedEvent<HTMLInputElement>) => {
@@ -19,14 +20,16 @@ export function ApiKeyInput({ value, onChange, providerName, disabled }: ApiKeyI
     <div class="field">
       <div class="field-label-row">
         <label class="field-label">{providerName} API Key</label>
-        <a
-          href="https://openrouter.ai/settings/keys"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="field-link"
-        >
-          Get API Key
-        </a>
+        {apiKeyUrl && (
+          <a
+            href={apiKeyUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="field-link"
+          >
+            Get API Key
+          </a>
+        )}
       </div>
       <div class="input-wrapper">
         <input

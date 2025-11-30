@@ -126,7 +126,8 @@ export default function () {
         lastProviderId: 'openrouter',
         lastModelId: 'google/gemini-3-pro-image-preview',
         apiKeys: {
-          'openrouter': ''
+          'openrouter': '',
+          'replicate': ''
         }
       };
       emit<SettingsLoadedHandler>('settings-loaded', settings);
@@ -135,7 +136,8 @@ export default function () {
         lastProviderId: 'openrouter',
         lastModelId: 'google/gemini-3-pro-image-preview',
         apiKeys: {
-          'openrouter': ''
+          'openrouter': '',
+          'replicate': ''
         }
       });
     }
