@@ -28,7 +28,8 @@
     "networkAccess": {
       "allowedDomains": [
         "https://openrouter.ai",
-        "https://fal.run"
+        "https://fal.run",
+        "https://generativelanguage.googleapis.com"
       ]
     }
   }

@@ -1,7 +1,7 @@
 import { EventHandler } from '@create-figma-plugin/utilities';
 
 // Provider types
-export type ProviderId = 'fal' | 'openrouter';
+export type ProviderId = 'fal' | 'openrouter' | 'gemini';
 
 export interface ProviderConfig {
   id: ProviderId;
@@ -106,6 +106,7 @@ export const DEFAULT_SETTINGS: PluginSettings = {
   lastModelId: 'fal-ai/nano-banana-pro',
   apiKeys: {
     'fal': '',
-    'openrouter': ''
+    'openrouter': '',
+    'gemini': ''
   }
 };

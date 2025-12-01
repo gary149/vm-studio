@@ -1,5 +1,6 @@
 import type { GenerationRequest, GenerationResult, ProviderId } from '../types';
 import { generateWithFal } from './fal';
+import { generateWithGemini } from './gemini';
 import { generateWithOpenRouter } from './openrouter';
 
 type GeneratorFn = (
@@ -10,6 +11,7 @@ type GeneratorFn = (
 // Provider generator registry - add new providers here
 const PROVIDER_GENERATORS: Record<ProviderId, GeneratorFn> = {
   'fal': generateWithFal,
+  'gemini': generateWithGemini,
   'openrouter': generateWithOpenRouter,
 };
 

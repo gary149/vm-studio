@@ -19,6 +19,15 @@ export const PROVIDERS: Record<ProviderId, ProviderConfig> = {
     models: [
       { id: 'google/gemini-3-pro-image-preview', name: 'Nano Banana Pro', supportsImageGeneration: true },
     ]
+  },
+  'gemini': {
+    id: 'gemini',
+    name: 'Google AI Studio',
+    requiresApiKey: true,
+    apiKeyUrl: 'https://aistudio.google.com/apikey',
+    models: [
+      { id: 'gemini-3-pro-image-preview', name: 'Nano Banana Pro', supportsImageGeneration: true },
+    ]
   }
 };
 

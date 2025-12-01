@@ -127,7 +127,8 @@ export default function () {
         lastModelId: 'fal-ai/nano-banana-pro',
         apiKeys: {
           'fal': '',
-          'openrouter': ''
+          'openrouter': '',
+          'gemini': ''
         }
       };
       // Ensure all provider keys exist (for migration from older versions)
@@ -137,6 +138,9 @@ export default function () {
       if (!settings.apiKeys.openrouter) {
         settings.apiKeys.openrouter = '';
       }
+      if (!settings.apiKeys.gemini) {
+        settings.apiKeys.gemini = '';
+      }
       emit<SettingsLoadedHandler>('settings-loaded', settings);
     } catch (error) {
       emit<SettingsLoadedHandler>('settings-loaded', {
@@ -144,7 +148,8 @@ export default function () {
         lastModelId: 'fal-ai/nano-banana-pro',
         apiKeys: {
           'fal': '',
-          'openrouter': ''
+          'openrouter': '',
+          'gemini': ''
         }
       });
     }

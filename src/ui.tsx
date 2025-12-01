@@ -52,7 +52,8 @@ function Plugin() {
 
   const [apiKeys, setApiKeys] = useState<Record<ProviderId, string>>({
     'fal': '',
-    'openrouter': ''
+    'openrouter': '',
+    'gemini': ''
   });
 
   // Prompt history
