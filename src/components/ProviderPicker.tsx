@@ -1,12 +1,10 @@
 import { h, JSX } from 'preact';
-import type { ProviderId, ProviderConfig } from '../types';
+import type { ProviderId } from '../types';
+import { getUniqueModelNames, getProvidersForModelName, getAllModels } from '../providers';
 
 interface ProviderPickerProps {
-  providers: ProviderConfig[];
-  selectedProviderId: ProviderId;
   selectedModelId: string;
-  onProviderChange: (providerId: ProviderId) => void;
-  onModelChange: (modelId: string) => void;
+  onModelChange: (modelId: string, providerId: ProviderId) => void;
   disabled?: boolean;
 }
 
@@ -17,22 +15,35 @@ const ChevronIcon = () => (
 );
 
 export function ProviderPicker({
-  providers,
-  selectedProviderId,
   selectedModelId,
-  onProviderChange,
   onModelChange,
   disabled
 }: ProviderPickerProps) {
-  const selectedProvider = providers.find(p => p.id === selectedProviderId);
-  const models = selectedProvider?.models || [];
+  const allModels = getAllModels();
+  const modelNames = getUniqueModelNames();
 
-  const handleProviderChange = (e: JSX.TargetedEvent<HTMLSelectElement>) => {
-    onProviderChange(e.currentTarget.value as ProviderId);
+  // Find current model info
+  const currentModel = allModels.find(m => m.id === selectedModelId);
+  const currentModelName = currentModel?.name || modelNames[0];
+
+  // Get providers available for current model name
+  const availableProviders = getProvidersForModelName(currentModelName);
+
+  const handleModelNameChange = (e: JSX.TargetedEvent<HTMLSelectElement>) => {
+    const newModelName = e.currentTarget.value;
+    const providers = getProvidersForModelName(newModelName);
+    if (providers.length > 0) {
+      // Auto-select first provider for this model
+      onModelChange(providers[0].id, providers[0].providerId);
+    }
   };
 
-  const handleModelChange = (e: JSX.TargetedEvent<HTMLSelectElement>) => {
-    onModelChange(e.currentTarget.value);
+  const handleProviderChange = (e: JSX.TargetedEvent<HTMLSelectElement>) => {
+    const newModelId = e.currentTarget.value;
+    const model = allModels.find(m => m.id === newModelId);
+    if (model) {
+      onModelChange(newModelId, model.providerId);
+    }
   };
 
   return (
@@ -41,14 +52,14 @@ export function ProviderPicker({
         <label class="field-label">Model</label>
         <div class="select-wrapper">
           <select
-            value={selectedModelId}
-            onChange={handleModelChange}
+            value={currentModelName}
+            onChange={handleModelNameChange}
             disabled={disabled}
             class="select"
           >
-            {models.map(model => (
-              <option key={model.id} value={model.id}>
-                {model.name}
+            {modelNames.map(name => (
+              <option key={name} value={name}>
+                {name}
               </option>
             ))}
           </select>
@@ -60,14 +71,14 @@ export function ProviderPicker({
         <label class="field-label">Provider</label>
         <div class="select-wrapper">
           <select
-            value={selectedProviderId}
+            value={selectedModelId}
             onChange={handleProviderChange}
-            disabled={disabled}
+            disabled={disabled || availableProviders.length <= 1}
             class="select"
           >
-            {providers.map(provider => (
-              <option key={provider.id} value={provider.id}>
-                {provider.name}
+            {availableProviders.map(model => (
+              <option key={model.id} value={model.id}>
+                {model.providerName}
               </option>
             ))}
           </select>

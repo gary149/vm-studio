@@ -9,6 +9,7 @@ export const PROVIDERS: Record<ProviderId, ProviderConfig> = {
     apiKeyUrl: 'https://fal.ai/dashboard/keys',
     models: [
       { id: 'fal-ai/nano-banana-pro', name: 'Nano Banana Pro', supportsImageGeneration: true },
+      { id: 'fal-ai/z-image/turbo', name: 'Z-Image Turbo', supportsImageGeneration: true },
     ]
   },
   'openrouter': {
@@ -42,4 +43,47 @@ export function getProviderList(): ProviderConfig[] {
 export function getDefaultModel(providerId: ProviderId): string {
   const provider = PROVIDERS[providerId];
   return provider.models[0]?.id || '';
+}
+
+export interface FlatModel {
+  id: string;
+  name: string;
+  providerId: ProviderId;
+  providerName: string;
+}
+
+export function getAllModels(): FlatModel[] {
+  return Object.values(PROVIDERS).flatMap(provider =>
+    provider.models.map(model => ({
+      id: model.id,
+      name: model.name,
+      providerId: provider.id,
+      providerName: provider.name
+    }))
+  );
+}
+
+// Get unique model names
+export function getUniqueModelNames(): string[] {
+  const names = new Set<string>();
+  for (const provider of Object.values(PROVIDERS)) {
+    for (const model of provider.models) {
+      names.add(model.name);
+    }
+  }
+  return Array.from(names);
+}
+
+// Get providers that offer a model with the given name
+export function getProvidersForModelName(modelName: string): FlatModel[] {
+  return getAllModels().filter(m => m.name === modelName);
+}
+
+export function getProviderForModel(modelId: string): ProviderId | null {
+  for (const provider of Object.values(PROVIDERS)) {
+    if (provider.models.some(m => m.id === modelId)) {
+      return provider.id;
+    }
+  }
+  return null;
 }

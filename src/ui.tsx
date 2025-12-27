@@ -15,7 +15,7 @@ import {
   ErrorBanner
 } from './components';
 
-import { getProviderList, getProvider, getDefaultModel } from './providers';
+import { getProviderList, getProvider } from './providers';
 import type {
   ProviderId,
   UIState,
@@ -105,25 +105,19 @@ function Plugin() {
     }));
   }, [state.providerId, apiKeys]);
 
-  const handleProviderChange = useCallback((providerId: ProviderId) => {
-    const defaultModel = getDefaultModel(providerId);
+  const handleModelChange = useCallback((modelId: string, providerId: ProviderId) => {
     setState(prev => ({
       ...prev,
+      modelId,
       providerId,
-      modelId: defaultModel,
       apiKey: apiKeys[providerId] || ''
     }));
 
     emit<SaveSettingsHandler>('save-settings', {
-      lastProviderId: providerId,
-      lastModelId: defaultModel
+      lastModelId: modelId,
+      lastProviderId: providerId
     });
   }, [apiKeys]);
-
-  const handleModelChange = useCallback((modelId: string) => {
-    setState(prev => ({ ...prev, modelId }));
-    emit<SaveSettingsHandler>('save-settings', { lastModelId: modelId });
-  }, []);
 
   const handleApiKeyChange = useCallback((providerId: ProviderId, value: string) => {
     // Update apiKeys state
@@ -275,10 +269,7 @@ function Plugin() {
             />
 
             <ProviderPicker
-              providers={providers}
-              selectedProviderId={state.providerId}
               selectedModelId={state.modelId}
-              onProviderChange={handleProviderChange}
               onModelChange={handleModelChange}
             />
 

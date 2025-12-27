@@ -1,7 +1,47 @@
-import type { GenerationRequest, GenerationResult } from '../types';
+import type { GenerationRequest, GenerationResult, AspectRatio, ImageSize } from '../types';
 import { extractImageFromDataUrl } from './utils';
 
-const FAL_ENDPOINT = 'https://fal.run/fal-ai/nano-banana-pro';
+const FAL_BASE_URL = 'https://fal.run';
+
+// Calculate Z-Image dimensions based on aspect ratio and image size
+function getZImageDimensions(aspectRatio: AspectRatio, imageSize: ImageSize): { width: number; height: number } {
+  // Base sizes for each resolution tier (long edge)
+  const baseSizes: Record<ImageSize, number> = {
+    '1K': 1024,
+    '2K': 2048,
+    '4K': 4096
+  };
+
+  const baseSize = baseSizes[imageSize] || 1024;
+
+  // Aspect ratio multipliers [width, height]
+  const ratios: Record<AspectRatio, [number, number]> = {
+    'auto': [4, 3],
+    '1:1': [1, 1],
+    '16:9': [16, 9],
+    '9:16': [9, 16],
+    '4:3': [4, 3],
+    '3:4': [3, 4],
+    '3:2': [3, 2],
+    '2:3': [2, 3],
+    '5:4': [5, 4],
+    '4:5': [4, 5],
+    '21:9': [21, 9]
+  };
+
+  const [wRatio, hRatio] = ratios[aspectRatio] || [4, 3];
+
+  // Calculate dimensions where the longer edge equals baseSize
+  if (wRatio >= hRatio) {
+    const width = baseSize;
+    const height = Math.round(baseSize * hRatio / wRatio);
+    return { width, height };
+  } else {
+    const height = baseSize;
+    const width = Math.round(baseSize * wRatio / hRatio);
+    return { width, height };
+  }
+}
 
 interface FalImageFile {
   url: string;
@@ -23,7 +63,7 @@ export async function generateWithFal(
   request: GenerationRequest,
   onProgress?: (status: string) => void
 ): Promise<GenerationResult> {
-  const { prompt, apiKey, aspectRatio, imageSize } = request;
+  const { prompt, modelId, apiKey, aspectRatio, imageSize } = request;
 
   if (!apiKey) {
     return { success: false, error: 'Fal.ai API key is required' };
@@ -32,6 +72,9 @@ export async function generateWithFal(
   onProgress?.('Sending request to Fal.ai...');
 
   try {
+    const endpoint = `${FAL_BASE_URL}/${modelId}`;
+    const isZImage = modelId.includes('z-image');
+
     const body: Record<string, unknown> = {
       prompt,
       num_images: 1,
@@ -39,17 +82,21 @@ export async function generateWithFal(
       sync_mode: true  // Return data URI directly, avoids CDN fetch
     };
 
-    // Map aspect ratio (our values match Fal.ai's format)
-    if (aspectRatio && aspectRatio !== 'auto') {
-      body.aspect_ratio = aspectRatio;
+    if (isZImage) {
+      // Z-Image supports custom width/height dimensions
+      body.image_size = getZImageDimensions(aspectRatio || 'auto', imageSize || '1K');
+      body.num_inference_steps = 8;
+    } else {
+      // Other Fal models use aspect_ratio and resolution
+      if (aspectRatio && aspectRatio !== 'auto') {
+        body.aspect_ratio = aspectRatio;
+      }
+      if (imageSize) {
+        body.resolution = imageSize;
+      }
     }
 
-    // Map image size to resolution (our values match Fal.ai's)
-    if (imageSize) {
-      body.resolution = imageSize;
-    }
-
-    const response = await fetch(FAL_ENDPOINT, {
+    const response = await fetch(endpoint, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
