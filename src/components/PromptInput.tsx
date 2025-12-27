@@ -7,9 +7,10 @@ interface PromptInputProps {
   onPrevious?: () => void;
   onNext?: () => void;
   disabled?: boolean;
+  placeholder?: string;
 }
 
-export function PromptInput({ value, onChange, onPrevious, onNext, disabled }: PromptInputProps) {
+export function PromptInput({ value, onChange, onPrevious, onNext, disabled, placeholder = 'Describe the image you want to generate...' }: PromptInputProps) {
   const [copied, setCopied] = useState(false);
 
   const handleInput = (e: JSX.TargetedEvent<HTMLTextAreaElement>) => {
@@ -63,7 +64,7 @@ export function PromptInput({ value, onChange, onPrevious, onNext, disabled }: P
         onInput={handleInput}
         onKeyDown={handleKeyDown}
         disabled={disabled}
-        placeholder="Describe the image you want to generate..."
+        placeholder={placeholder}
         class="input textarea"
       />
     </div>

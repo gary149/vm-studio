@@ -31,7 +31,7 @@ export async function generateWithOpenRouter(
   request: GenerationRequest,
   onProgress?: (status: string) => void
 ): Promise<GenerationResult> {
-  const { prompt, modelId, apiKey, aspectRatio, imageSize } = request;
+  const { prompt, modelId, apiKey, aspectRatio, imageSize, inputImages } = request;
 
   if (!apiKey) {
     return { success: false, error: 'OpenRouter API key is required' };
@@ -41,12 +41,39 @@ export async function generateWithOpenRouter(
 
   try {
     const url = `${OPENROUTER_BASE_URL}/chat/completions`;
+    const hasInputImages = inputImages && inputImages.length > 0;
+
+    // Build message content - images first, then text
+    let messageContent: string | Array<{ type: string; text?: string; image_url?: { url: string } }>;
+
+    if (hasInputImages) {
+      const contentParts: Array<{ type: string; text?: string; image_url?: { url: string } }> = [];
+
+      // Add input images first
+      for (const base64 of inputImages) {
+        contentParts.push({
+          type: 'image_url',
+          image_url: { url: `data:image/png;base64,${base64}` }
+        });
+      }
+
+      // Add text prompt
+      contentParts.push({
+        type: 'text',
+        text: prompt
+      });
+
+      messageContent = contentParts;
+    } else {
+      messageContent = `Generate an image: ${prompt}`;
+    }
 
     const body: Record<string, unknown> = {
       model: modelId,
+      modalities: ['text', 'image'],
       messages: [{
         role: 'user',
-        content: `Generate an image: ${prompt}`
+        content: messageContent
       }]
     };
 

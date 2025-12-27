@@ -27,7 +27,7 @@ export async function generateWithGemini(
   request: GenerationRequest,
   onProgress?: (status: string) => void
 ): Promise<GenerationResult> {
-  const { prompt, modelId, apiKey, aspectRatio, imageSize } = request;
+  const { prompt, modelId, apiKey, aspectRatio, imageSize, inputImages } = request;
 
   if (!apiKey) {
     return { success: false, error: 'Google AI Studio API key is required' };
@@ -38,10 +38,26 @@ export async function generateWithGemini(
   try {
     const url = `${GEMINI_ENDPOINT}/${modelId}:generateContent`;
 
+    // Build parts array - images first, then text
+    const requestParts: GeminiPart[] = [];
+
+    // Add input images for image-to-image
+    if (inputImages && inputImages.length > 0) {
+      for (const base64 of inputImages) {
+        requestParts.push({
+          inlineData: {
+            mimeType: 'image/png',
+            data: base64
+          }
+        });
+      }
+    }
+
+    // Add text prompt
+    requestParts.push({ text: prompt });
+
     const body: Record<string, unknown> = {
-      contents: [{
-        parts: [{ text: prompt }]
-      }],
+      contents: [{ parts: requestParts }],
       generationConfig: {
         responseModalities: ['TEXT', 'IMAGE']
       }
