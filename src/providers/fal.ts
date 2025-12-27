@@ -63,7 +63,7 @@ export async function generateWithFal(
   request: GenerationRequest,
   onProgress?: (status: string) => void
 ): Promise<GenerationResult> {
-  const { prompt, modelId, apiKey, aspectRatio, imageSize } = request;
+  const { prompt, modelId, apiKey, aspectRatio, imageSize, inputImages } = request;
 
   if (!apiKey) {
     return { success: false, error: 'Fal.ai API key is required' };
@@ -72,8 +72,13 @@ export async function generateWithFal(
   onProgress?.('Sending request to Fal.ai...');
 
   try {
-    const endpoint = `${FAL_BASE_URL}/${modelId}`;
+    const hasInputImages = inputImages && inputImages.length > 0;
     const isZImage = modelId.includes('z-image');
+
+    // Use /edit endpoint for image-to-image
+    const endpoint = hasInputImages
+      ? `${FAL_BASE_URL}/${modelId}/edit`
+      : `${FAL_BASE_URL}/${modelId}`;
 
     const body: Record<string, unknown> = {
       prompt,
@@ -81,6 +86,11 @@ export async function generateWithFal(
       output_format: 'png',
       sync_mode: true  // Return data URI directly, avoids CDN fetch
     };
+
+    // Add input images for image-to-image
+    if (hasInputImages) {
+      body.image_urls = inputImages.map(base64 => `data:image/png;base64,${base64}`);
+    }
 
     if (isZImage) {
       // Z-Image supports custom width/height dimensions

@@ -12,22 +12,25 @@ import {
   AspectRatioSelect,
   ImageSizeSelect,
   GenerateButton,
-  ErrorBanner
+  ErrorBanner,
+  ThumbnailStrip
 } from './components';
 
-import { getProviderList, getProvider } from './providers';
+import { getProviderList, getProvider, modelSupportsImageToImage } from './providers';
 import type {
   ProviderId,
   UIState,
   PluginSettings,
   AspectRatio,
   ImageSize,
+  InputImage,
   GenerateImageHandler,
   LoadSettingsHandler,
   SaveSettingsHandler,
   GenerationCompleteHandler,
   GenerationProgressHandler,
-  SettingsLoadedHandler
+  SettingsLoadedHandler,
+  SelectionChangedHandler
 } from './types';
 
 type TabValue = 'generate' | 'settings';
@@ -47,7 +50,8 @@ function Plugin() {
     imageSize: '1K',
     generatingCount: 0,
     error: null,
-    status: null
+    status: null,
+    inputImages: []
   });
 
   const [apiKeys, setApiKeys] = useState<Record<ProviderId, string>>({
@@ -93,9 +97,14 @@ function Plugin() {
       }));
     };
 
+    const handleSelectionChanged = ({ images }: { images: InputImage[] }) => {
+      setState(prev => ({ ...prev, inputImages: images }));
+    };
+
     on<SettingsLoadedHandler>('settings-loaded', handleSettingsLoaded);
     on<GenerationProgressHandler>('generation-progress', handleGenerationProgress);
     on<GenerationCompleteHandler>('generation-complete', handleGenerationComplete);
+    on<SelectionChangedHandler>('selection-changed', handleSelectionChanged);
   }, []);
 
   useEffect(() => {
@@ -214,28 +223,34 @@ function Plugin() {
       count: state.count,
       aspectRatio: state.aspectRatio,
       imageSize: state.imageSize
+      // inputImages are exported at generation time from node IDs
     });
-  }, [state.prompt, state.providerId, state.modelId, state.apiKey, state.count, state.aspectRatio, state.imageSize, promptHistory]);
+  }, [state.prompt, state.providerId, state.modelId, state.apiKey, state.count, state.aspectRatio, state.imageSize, state.inputImages, promptHistory]);
 
   const handleDismissError = useCallback(() => {
     setState(prev => ({ ...prev, error: null }));
   }, []);
+
+  const currentProvider = getProvider(state.providerId);
+
+  // Check if image-to-image is supported for current model
+  const hasInputImages = state.inputImages.length > 0;
+  const currentModelSupportsI2I = modelSupportsImageToImage(state.modelId);
+  const i2iUnsupported = hasInputImages && !currentModelSupportsI2I;
 
   // Cmd/Ctrl+Enter to generate
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key === 'Enter') {
         e.preventDefault();
-        if (state.prompt.trim() && state.apiKey.trim()) {
+        if (state.prompt.trim() && state.apiKey.trim() && !i2iUnsupported) {
           handleGenerate();
         }
       }
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [state.prompt, state.apiKey, handleGenerate]);
-
-  const currentProvider = getProvider(state.providerId);
+  }, [state.prompt, state.apiKey, i2iUnsupported, handleGenerate]);
 
   return (
     <div class="app">
@@ -266,7 +281,16 @@ function Plugin() {
               onChange={handlePromptChange}
               onPrevious={handlePromptPrevious}
               onNext={handlePromptNext}
+              placeholder={hasInputImages ? 'Prompt for selected images...' : 'Describe the image you want to generate...'}
             />
+
+            <ThumbnailStrip images={state.inputImages} />
+
+            {i2iUnsupported && (
+              <div class="i2i-unsupported-warning">
+                Selected model does not support image-to-image
+              </div>
+            )}
 
             <ProviderPicker
               selectedModelId={state.modelId}
@@ -294,7 +318,7 @@ function Plugin() {
           <footer class="footer">
             <GenerateButton
               onClick={handleGenerate}
-              disabled={!state.prompt.trim() || !state.apiKey.trim()}
+              disabled={!state.prompt.trim() || !state.apiKey.trim() || i2iUnsupported}
               generatingCount={state.generatingCount}
               status={state.status}
             />

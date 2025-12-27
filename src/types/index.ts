@@ -15,6 +15,17 @@ export interface ModelConfig {
   id: string;
   name: string;
   supportsImageGeneration: boolean;
+  supportsImageToImage: boolean;
+}
+
+// Input image from Figma selection
+export interface InputImage {
+  id: string;
+  base64: string;
+  thumbnail: string;
+  width: number;
+  height: number;
+  name: string;
 }
 
 // Generation types
@@ -28,6 +39,7 @@ export interface GenerationRequest {
   apiKey: string;
   aspectRatio?: AspectRatio;
   imageSize?: ImageSize;
+  inputImages?: string[];
 }
 
 export interface GenerationResult {
@@ -87,6 +99,11 @@ export interface SettingsSavedHandler extends EventHandler {
   handler: () => void;
 }
 
+export interface SelectionChangedHandler extends EventHandler {
+  name: 'selection-changed';
+  handler: (payload: { images: InputImage[] }) => void;
+}
+
 // UI State
 export interface UIState {
   prompt: string;
@@ -99,6 +116,7 @@ export interface UIState {
   generatingCount: number;
   error: string | null;
   status: string | null;
+  inputImages: InputImage[];
 }
 
 export const DEFAULT_SETTINGS: PluginSettings = {
