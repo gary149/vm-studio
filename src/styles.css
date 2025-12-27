@@ -454,3 +454,37 @@ html, body {
 .figma-dark .shortcut-hint {
   background: rgba(0, 0, 0, 0.15);
 }
+
+/* Thumbnail Strip */
+.thumbnail-strip {
+  display: flex;
+}
+
+.thumbnail-strip-images {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+  overflow-x: auto;
+}
+
+.thumbnail-item {
+  flex-shrink: 0;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+}
+
+.thumbnail-item img {
+  display: block;
+  object-fit: contain;
+}
+
+/* Image-to-image unsupported warning */
+.i2i-unsupported-warning {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-tertiary);
+  padding: var(--space-1) var(--space-2);
+  background: var(--color-bg-tertiary);
+  border-radius: var(--radius-sm);
+  text-align: center;
+}

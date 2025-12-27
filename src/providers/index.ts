@@ -8,8 +8,8 @@ export const PROVIDERS: Record<ProviderId, ProviderConfig> = {
     requiresApiKey: true,
     apiKeyUrl: 'https://fal.ai/dashboard/keys',
     models: [
-      { id: 'fal-ai/nano-banana-pro', name: 'Nano Banana Pro', supportsImageGeneration: true },
-      { id: 'fal-ai/z-image/turbo', name: 'Z-Image Turbo', supportsImageGeneration: true },
+      { id: 'fal-ai/nano-banana-pro', name: 'Nano Banana Pro', supportsImageGeneration: true, supportsImageToImage: true },
+      { id: 'fal-ai/z-image/turbo', name: 'Z-Image Turbo', supportsImageGeneration: true, supportsImageToImage: false },
     ]
   },
   'openrouter': {
@@ -18,7 +18,7 @@ export const PROVIDERS: Record<ProviderId, ProviderConfig> = {
     requiresApiKey: true,
     apiKeyUrl: 'https://openrouter.ai/keys',
     models: [
-      { id: 'google/gemini-3-pro-image-preview', name: 'Nano Banana Pro', supportsImageGeneration: true },
+      { id: 'google/gemini-3-pro-image-preview', name: 'Nano Banana Pro', supportsImageGeneration: true, supportsImageToImage: true },
     ]
   },
   'gemini': {
@@ -27,7 +27,7 @@ export const PROVIDERS: Record<ProviderId, ProviderConfig> = {
     requiresApiKey: true,
     apiKeyUrl: 'https://aistudio.google.com/apikey',
     models: [
-      { id: 'gemini-3-pro-image-preview', name: 'Nano Banana Pro', supportsImageGeneration: true },
+      { id: 'gemini-3-pro-image-preview', name: 'Nano Banana Pro', supportsImageGeneration: true, supportsImageToImage: true },
     ]
   }
 };
@@ -86,4 +86,12 @@ export function getProviderForModel(modelId: string): ProviderId | null {
     }
   }
   return null;
+}
+
+export function modelSupportsImageToImage(modelId: string): boolean {
+  for (const provider of Object.values(PROVIDERS)) {
+    const model = provider.models.find(m => m.id === modelId);
+    if (model) return model.supportsImageToImage;
+  }
+  return false;
 }
