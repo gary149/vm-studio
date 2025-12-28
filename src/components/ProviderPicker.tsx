@@ -73,7 +73,7 @@ export function ProviderPicker({
           <select
             value={selectedModelId}
             onChange={handleProviderChange}
-            disabled={disabled || availableProviders.length <= 1}
+            disabled={disabled}
             class="select"
           >
             {availableProviders.map(model => (

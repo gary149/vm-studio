@@ -4,16 +4,17 @@ import type { ImageSize } from '../types';
 interface ImageSizeSelectProps {
   value: ImageSize;
   onChange: (value: ImageSize) => void;
+  availableSizes: ImageSize[];
   disabled?: boolean;
 }
 
-const IMAGE_SIZES: { value: ImageSize; label: string }[] = [
-  { value: '1K', label: '1K (1024px)' },
-  { value: '2K', label: '2K (2048px)' },
-  { value: '4K', label: '4K (4096px)' }
-];
+const IMAGE_SIZE_LABELS: Record<ImageSize, string> = {
+  '1K': '1K (1024px)',
+  '2K': '2K (2048px)',
+  '4K': '4K (4096px)'
+};
 
-export function ImageSizeSelect({ value, onChange, disabled }: ImageSizeSelectProps) {
+export function ImageSizeSelect({ value, onChange, availableSizes, disabled }: ImageSizeSelectProps) {
   const handleChange = (e: JSX.TargetedEvent<HTMLSelectElement>) => {
     onChange(e.currentTarget.value as ImageSize);
   };
@@ -28,9 +29,9 @@ export function ImageSizeSelect({ value, onChange, disabled }: ImageSizeSelectPr
           onChange={handleChange}
           disabled={disabled}
         >
-          {IMAGE_SIZES.map(size => (
-            <option key={size.value} value={size.value}>
-              {size.label}
+          {availableSizes.map(size => (
+            <option key={size} value={size}>
+              {IMAGE_SIZE_LABELS[size]}
             </option>
           ))}
         </select>

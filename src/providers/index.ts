@@ -1,4 +1,4 @@
-import type { ProviderId, ProviderConfig } from '../types';
+import type { ProviderId, ProviderConfig, ImageSize } from '../types';
 
 // Provider configurations
 export const PROVIDERS: Record<ProviderId, ProviderConfig> = {
@@ -8,8 +8,10 @@ export const PROVIDERS: Record<ProviderId, ProviderConfig> = {
     requiresApiKey: true,
     apiKeyUrl: 'https://fal.ai/dashboard/keys',
     models: [
-      { id: 'fal-ai/nano-banana-pro', name: 'Nano Banana Pro', supportsImageGeneration: true, supportsImageToImage: true },
-      { id: 'fal-ai/z-image/turbo', name: 'Z-Image Turbo', supportsImageGeneration: true, supportsImageToImage: false },
+      { id: 'fal-ai/nano-banana-pro', name: 'Nano Banana Pro', supportsImageGeneration: true, supportsImageToImage: true, supportedImageSizes: ['1K', '2K', '4K'] },
+      { id: 'fal-ai/z-image/turbo', name: 'Z-Image Turbo', supportsImageGeneration: true, supportsImageToImage: false, supportedImageSizes: ['1K', '2K', '4K'] },
+      { id: 'fal-ai/bytedance/seedream/v4', name: 'Seedream v4', supportsImageGeneration: true, supportsImageToImage: true, supportedImageSizes: ['1K', '2K', '4K'] },
+      { id: 'fal-ai/gpt-image-1.5', name: 'GPT-Image 1.5', supportsImageGeneration: true, supportsImageToImage: true, supportedImageSizes: ['1K'] },
     ]
   },
   'openrouter': {
@@ -18,7 +20,7 @@ export const PROVIDERS: Record<ProviderId, ProviderConfig> = {
     requiresApiKey: true,
     apiKeyUrl: 'https://openrouter.ai/keys',
     models: [
-      { id: 'google/gemini-3-pro-image-preview', name: 'Nano Banana Pro', supportsImageGeneration: true, supportsImageToImage: true },
+      { id: 'google/gemini-3-pro-image-preview', name: 'Nano Banana Pro', supportsImageGeneration: true, supportsImageToImage: true, supportedImageSizes: ['1K', '2K', '4K'] },
     ]
   },
   'gemini': {
@@ -27,7 +29,7 @@ export const PROVIDERS: Record<ProviderId, ProviderConfig> = {
     requiresApiKey: true,
     apiKeyUrl: 'https://aistudio.google.com/apikey',
     models: [
-      { id: 'gemini-3-pro-image-preview', name: 'Nano Banana Pro', supportsImageGeneration: true, supportsImageToImage: true },
+      { id: 'gemini-3-pro-image-preview', name: 'Nano Banana Pro', supportsImageGeneration: true, supportsImageToImage: true, supportedImageSizes: ['1K', '2K', '4K'] },
     ]
   }
 };
@@ -94,4 +96,12 @@ export function modelSupportsImageToImage(modelId: string): boolean {
     if (model) return model.supportsImageToImage;
   }
   return false;
+}
+
+export function getModelSupportedImageSizes(modelId: string): ImageSize[] {
+  for (const provider of Object.values(PROVIDERS)) {
+    const model = provider.models.find(m => m.id === modelId);
+    if (model) return model.supportedImageSizes;
+  }
+  return ['1K'];
 }
