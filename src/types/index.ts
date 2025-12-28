@@ -16,6 +16,7 @@ export interface ModelConfig {
   name: string;
   supportsImageGeneration: boolean;
   supportsImageToImage: boolean;
+  supportedImageSizes: ImageSize[];
 }
 
 // Input image from Figma selection
