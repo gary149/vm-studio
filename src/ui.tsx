@@ -16,7 +16,7 @@ import {
   ThumbnailStrip
 } from './components';
 
-import { getProviderList, getProvider, modelSupportsImageToImage } from './providers';
+import { getProviderList, getProvider, modelSupportsImageToImage, getModelSupportedImageSizes } from './providers';
 import type {
   ProviderId,
   UIState,
@@ -115,12 +115,22 @@ function Plugin() {
   }, [state.providerId, apiKeys]);
 
   const handleModelChange = useCallback((modelId: string, providerId: ProviderId) => {
-    setState(prev => ({
-      ...prev,
-      modelId,
-      providerId,
-      apiKey: apiKeys[providerId] || ''
-    }));
+    const supportedSizes = getModelSupportedImageSizes(modelId);
+
+    setState(prev => {
+      // Reset imageSize if current size isn't supported by new model
+      const newImageSize = supportedSizes.includes(prev.imageSize)
+        ? prev.imageSize
+        : supportedSizes[0];
+
+      return {
+        ...prev,
+        modelId,
+        providerId,
+        apiKey: apiKeys[providerId] || '',
+        imageSize: newImageSize
+      };
+    });
 
     emit<SaveSettingsHandler>('save-settings', {
       lastModelId: modelId,
@@ -311,6 +321,7 @@ function Plugin() {
               <ImageSizeSelect
                 value={state.imageSize}
                 onChange={handleImageSizeChange}
+                availableSizes={getModelSupportedImageSizes(state.modelId)}
               />
             </div>
           </div>

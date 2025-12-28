@@ -1,5 +1,5 @@
 import type { GenerationRequest, GenerationResult, AspectRatio, ImageSize } from '../types';
-import { extractImageFromDataUrl } from './utils';
+import { extractImageFromDataUrl, fetchImageFromUrl } from './utils';
 
 const FAL_BASE_URL = 'https://fal.run';
 
@@ -43,6 +43,28 @@ function getZImageDimensions(aspectRatio: AspectRatio, imageSize: ImageSize): { 
   }
 }
 
+// Map aspect ratio to GPT-Image size enum
+// t2i: "1024x1024", "1536x1024", "1024x1536" (no "auto")
+// edit: adds "auto" option
+function getGptImageSize(aspectRatio: AspectRatio, allowAuto: boolean): string {
+  const mapping: Partial<Record<AspectRatio, string>> = {
+    '1:1': '1024x1024',
+    '3:2': '1536x1024',
+    '16:9': '1536x1024',
+    '4:3': '1536x1024',
+    '21:9': '1536x1024',
+    '5:4': '1024x1024',
+    '2:3': '1024x1536',
+    '9:16': '1024x1536',
+    '3:4': '1024x1536',
+    '4:5': '1024x1536',
+  };
+  if (aspectRatio === 'auto') {
+    return allowAuto ? 'auto' : '1024x1024';
+  }
+  return mapping[aspectRatio] || '1024x1024';
+}
+
 interface FalImageFile {
   url: string;
   content_type: string;
@@ -74,30 +96,55 @@ export async function generateWithFal(
   try {
     const hasInputImages = inputImages && inputImages.length > 0;
     const isZImage = modelId.includes('z-image');
+    const isSeedream = modelId.includes('seedream');
+    const isGptImage = modelId.includes('gpt-image');
 
-    // Use /edit endpoint for image-to-image
-    const endpoint = hasInputImages
-      ? `${FAL_BASE_URL}/${modelId}/edit`
-      : `${FAL_BASE_URL}/${modelId}`;
+    // Determine endpoint based on model and whether we have input images
+    let endpoint: string;
+    if (isSeedream) {
+      // Seedream uses /text-to-image and /edit suffixes
+      endpoint = hasInputImages
+        ? `${FAL_BASE_URL}/${modelId}/edit`
+        : `${FAL_BASE_URL}/${modelId}/text-to-image`;
+    } else {
+      // Other models use base path for t2i, /edit suffix for i2i
+      endpoint = hasInputImages
+        ? `${FAL_BASE_URL}/${modelId}/edit`
+        : `${FAL_BASE_URL}/${modelId}`;
+    }
 
-    const body: Record<string, unknown> = {
-      prompt,
-      num_images: 1,
-      output_format: 'png',
-      sync_mode: true  // Return data URI directly, avoids CDN fetch
-    };
+    // Build body based on model type
+    const body: Record<string, unknown> = { prompt };
 
     // Add input images for image-to-image
     if (hasInputImages) {
       body.image_urls = inputImages.map(base64 => `data:image/png;base64,${base64}`);
     }
 
-    if (isZImage) {
-      // Z-Image supports custom width/height dimensions
+    if (isGptImage) {
+      // GPT-Image: t2i doesn't support "auto" size, edit does
+      body.image_size = getGptImageSize(aspectRatio || 'auto', !!hasInputImages);
+      body.quality = 'high';
+      body.output_format = 'png';
+      body.sync_mode = true;
+    } else if (isZImage) {
+      // Z-Image: custom dimensions, inference steps
+      body.num_images = 1;
+      body.output_format = 'png';
+      body.sync_mode = true;
       body.image_size = getZImageDimensions(aspectRatio || 'auto', imageSize || '1K');
       body.num_inference_steps = 8;
+    } else if (isSeedream) {
+      // Seedream: custom dimensions
+      body.num_images = 1;
+      body.output_format = 'png';
+      body.sync_mode = true;
+      body.image_size = getZImageDimensions(aspectRatio || 'auto', imageSize || '2K');
     } else {
-      // Other Fal models use aspect_ratio and resolution
+      // Other Fal models: standard params
+      body.num_images = 1;
+      body.output_format = 'png';
+      body.sync_mode = true;
       if (aspectRatio && aspectRatio !== 'auto') {
         body.aspect_ratio = aspectRatio;
       }
@@ -129,11 +176,16 @@ export async function generateWithFal(
       return { success: false, error: 'No images in Fal.ai response' };
     }
 
-    // With sync_mode: true, the URL is a data URI
-    const dataUrl = data.images[0].url;
+    const imageUrl = data.images[0].url;
 
-    onProgress?.('Extracting image data...');
-    return await extractImageFromDataUrl(dataUrl);
+    // Check if it's a data URI or a regular URL
+    if (imageUrl.startsWith('data:')) {
+      onProgress?.('Extracting image data...');
+      return await extractImageFromDataUrl(imageUrl);
+    } else {
+      onProgress?.('Downloading image...');
+      return await fetchImageFromUrl(imageUrl);
+    }
   } catch (error) {
     const message = error instanceof Error ? error.message : 'Unknown error';
     return { success: false, error: `Failed to generate image: ${message}` };
