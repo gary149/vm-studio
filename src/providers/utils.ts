@@ -1,11 +1,13 @@
-import type { GenerationResult } from '../types';
+import type { GenerationResult } from "../types";
 
-export async function extractImageFromDataUrl(dataUrl: string): Promise<GenerationResult> {
+export async function extractImageFromDataUrl(
+  dataUrl: string,
+): Promise<GenerationResult> {
   try {
     // Parse data URL: data:image/jpeg;base64,/9j/4AAQ...
     const matches = dataUrl.match(/^data:([^;]+);base64,(.+)$/);
     if (!matches) {
-      return { success: false, error: 'Invalid data URL format' };
+      return { success: false, error: "Invalid data URL format" };
     }
 
     const mimeType = matches[1];
@@ -15,19 +17,27 @@ export async function extractImageFromDataUrl(dataUrl: string): Promise<Generati
     return {
       success: true,
       imageData,
-      mimeType
+      mimeType,
     };
   } catch (error) {
-    const message = error instanceof Error ? error.message : 'Unknown error';
-    return { success: false, error: `Failed to extract image from data URL: ${message}` };
+    const message = error instanceof Error ? error.message : "Unknown error";
+    return {
+      success: false,
+      error: `Failed to extract image from data URL: ${message}`,
+    };
   }
 }
 
-export async function fetchImageFromUrl(url: string): Promise<GenerationResult> {
+export async function fetchImageFromUrl(
+  url: string,
+): Promise<GenerationResult> {
   try {
     const response = await fetch(url);
     if (!response.ok) {
-      return { success: false, error: `Failed to download image: HTTP ${response.status}` };
+      return {
+        success: false,
+        error: `Failed to download image: HTTP ${response.status}`,
+      };
     }
 
     const blob = await response.blob();
@@ -37,17 +47,18 @@ export async function fetchImageFromUrl(url: string): Promise<GenerationResult> 
     return {
       success: true,
       imageData,
-      mimeType: blob.type || 'image/png'
+      mimeType: blob.type || "image/png",
     };
   } catch (error) {
-    const message = error instanceof Error ? error.message : 'Unknown error';
+    const message = error instanceof Error ? error.message : "Unknown error";
     return { success: false, error: `Failed to download image: ${message}` };
   }
 }
 
 export function base64ToUint8Array(base64: string): Uint8Array {
   // Decode base64 without using atob (not available in Figma sandbox)
-  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
+  const chars =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
   const lookup = new Uint8Array(256);
   for (let i = 0; i < chars.length; i++) {
     lookup[chars.charCodeAt(i)] = i;
@@ -55,8 +66,8 @@ export function base64ToUint8Array(base64: string): Uint8Array {
 
   // Remove padding and calculate length
   let bufferLength = Math.floor(base64.length * 0.75);
-  if (base64[base64.length - 1] === '=') bufferLength--;
-  if (base64[base64.length - 2] === '=') bufferLength--;
+  if (base64[base64.length - 1] === "=") bufferLength--;
+  if (base64[base64.length - 2] === "=") bufferLength--;
 
   const bytes = new Uint8Array(bufferLength);
   let p = 0;

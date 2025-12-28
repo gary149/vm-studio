@@ -1,5 +1,5 @@
-import { h, JSX } from 'preact';
-import { useState } from 'preact/hooks';
+import { h, JSX } from "preact";
+import { useState } from "preact/hooks";
 
 interface PromptInputProps {
   value: string;
@@ -10,7 +10,14 @@ interface PromptInputProps {
   placeholder?: string;
 }
 
-export function PromptInput({ value, onChange, onPrevious, onNext, disabled, placeholder = 'Describe the image you want to generate...' }: PromptInputProps) {
+export function PromptInput({
+  value,
+  onChange,
+  onPrevious,
+  onNext,
+  disabled,
+  placeholder = "Describe the image you want to generate...",
+}: PromptInputProps) {
   const [copied, setCopied] = useState(false);
 
   const handleInput = (e: JSX.TargetedEvent<HTMLTextAreaElement>) => {
@@ -19,13 +26,14 @@ export function PromptInput({ value, onChange, onPrevious, onNext, disabled, pla
 
   const handleKeyDown = (e: JSX.TargetedKeyboardEvent<HTMLTextAreaElement>) => {
     const textarea = e.currentTarget;
-    const isAtStart = textarea.selectionStart === 0 && textarea.selectionEnd === 0;
+    const isAtStart =
+      textarea.selectionStart === 0 && textarea.selectionEnd === 0;
     const isAtEnd = textarea.selectionStart === textarea.value.length;
 
-    if (e.key === 'ArrowUp' && isAtStart && onPrevious) {
+    if (e.key === "ArrowUp" && isAtStart && onPrevious) {
       e.preventDefault();
       onPrevious();
-    } else if (e.key === 'ArrowDown' && isAtEnd && onNext) {
+    } else if (e.key === "ArrowDown" && isAtEnd && onNext) {
       e.preventDefault();
       onNext();
     }
@@ -33,13 +41,13 @@ export function PromptInput({ value, onChange, onPrevious, onNext, disabled, pla
 
   const handleCopy = () => {
     if (value) {
-      const textarea = document.createElement('textarea');
+      const textarea = document.createElement("textarea");
       textarea.value = value;
-      textarea.style.position = 'fixed';
-      textarea.style.opacity = '0';
+      textarea.style.position = "fixed";
+      textarea.style.opacity = "0";
       document.body.appendChild(textarea);
       textarea.select();
-      document.execCommand('copy');
+      document.execCommand("copy");
       document.body.removeChild(textarea);
       setCopied(true);
       setTimeout(() => setCopied(false), 1000);
@@ -56,7 +64,7 @@ export function PromptInput({ value, onChange, onPrevious, onNext, disabled, pla
           onClick={handleCopy}
           disabled={!value}
         >
-          {copied ? 'Copied!' : 'Copy'}
+          {copied ? "Copied!" : "Copy"}
         </button>
       </div>
       <textarea

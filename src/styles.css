@@ -46,9 +46,13 @@
 
   --color-danger-fg: var(--figma-color-text-danger, #f24822);
   --color-danger-bg: var(--figma-color-bg-danger, rgba(242, 72, 34, 0.1));
-  --color-danger-border: var(--figma-color-border-danger, rgba(242, 72, 34, 0.4));
+  --color-danger-border: var(
+    --figma-color-border-danger,
+    rgba(242, 72, 34, 0.4)
+  );
 
-  --shadow-focus: 0 0 0 2px var(--figma-color-border-selected, rgba(13, 153, 255, 0.5));
+  --shadow-focus: 0 0 0 2px
+    var(--figma-color-border-selected, rgba(13, 153, 255, 0.5));
 }
 
 /* Base styles */
@@ -58,8 +62,15 @@
   padding: 0;
 }
 
-html, body {
-  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+html,
+body {
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
   font-size: var(--font-size-base);
   color: var(--color-text);
   background: var(--color-bg);
@@ -155,7 +166,9 @@ html, body {
   border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
   outline: none;
-  transition: border-color 0.15s, box-shadow 0.15s;
+  transition:
+    border-color 0.15s,
+    box-shadow 0.15s;
 }
 
 .input:hover:not(:disabled) {
@@ -220,7 +233,9 @@ html, body {
   border-radius: var(--radius-sm);
   cursor: pointer;
   outline: none;
-  transition: background-color 0.15s, opacity 0.15s;
+  transition:
+    background-color 0.15s,
+    opacity 0.15s;
 }
 
 .btn:focus-visible {
@@ -264,7 +279,9 @@ html, body {
 }
 
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* Error banner */
@@ -355,7 +372,9 @@ html, body {
   border-radius: var(--radius-sm);
   outline: none;
   cursor: pointer;
-  transition: border-color 0.15s, box-shadow 0.15s;
+  transition:
+    border-color 0.15s,
+    box-shadow 0.15s;
 }
 
 .select:hover:not(:disabled) {

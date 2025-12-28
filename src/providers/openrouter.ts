@@ -1,7 +1,7 @@
-import type { GenerationRequest, GenerationResult } from '../types';
-import { extractImageFromDataUrl, fetchImageFromUrl } from './utils';
+import type { GenerationRequest, GenerationResult } from "../types";
+import { extractImageFromDataUrl, fetchImageFromUrl } from "./utils";
 
-const OPENROUTER_BASE_URL = 'https://openrouter.ai/api/v1';
+const OPENROUTER_BASE_URL = "https://openrouter.ai/api/v1";
 
 interface OpenRouterImageUrl {
   type: string;
@@ -12,7 +12,9 @@ interface OpenRouterImageUrl {
 
 interface OpenRouterMessage {
   role: string;
-  content?: string | Array<{ type: string; text?: string; image_url?: { url: string } }>;
+  content?:
+    | string
+    | Array<{ type: string; text?: string; image_url?: { url: string } }>;
   images?: OpenRouterImageUrl[];
   refusal?: string | null;
 }
@@ -29,38 +31,45 @@ interface OpenRouterResponse {
 
 export async function generateWithOpenRouter(
   request: GenerationRequest,
-  onProgress?: (status: string) => void
+  onProgress?: (status: string) => void,
 ): Promise<GenerationResult> {
-  const { prompt, modelId, apiKey, aspectRatio, imageSize, inputImages } = request;
+  const { prompt, modelId, apiKey, aspectRatio, imageSize, inputImages } =
+    request;
 
   if (!apiKey) {
-    return { success: false, error: 'OpenRouter API key is required' };
+    return { success: false, error: "OpenRouter API key is required" };
   }
 
-  onProgress?.('Sending request to OpenRouter...');
+  onProgress?.("Sending request to OpenRouter...");
 
   try {
     const url = `${OPENROUTER_BASE_URL}/chat/completions`;
     const hasInputImages = inputImages && inputImages.length > 0;
 
     // Build message content - images first, then text
-    let messageContent: string | Array<{ type: string; text?: string; image_url?: { url: string } }>;
+    let messageContent:
+      | string
+      | Array<{ type: string; text?: string; image_url?: { url: string } }>;
 
     if (hasInputImages) {
-      const contentParts: Array<{ type: string; text?: string; image_url?: { url: string } }> = [];
+      const contentParts: Array<{
+        type: string;
+        text?: string;
+        image_url?: { url: string };
+      }> = [];
 
       // Add input images first
       for (const base64 of inputImages) {
         contentParts.push({
-          type: 'image_url',
-          image_url: { url: `data:image/png;base64,${base64}` }
+          type: "image_url",
+          image_url: { url: `data:image/png;base64,${base64}` },
         });
       }
 
       // Add text prompt
       contentParts.push({
-        type: 'text',
-        text: prompt
+        type: "text",
+        text: prompt,
       });
 
       messageContent = contentParts;
@@ -70,15 +79,17 @@ export async function generateWithOpenRouter(
 
     const body: Record<string, unknown> = {
       model: modelId,
-      modalities: ['text', 'image'],
-      messages: [{
-        role: 'user',
-        content: messageContent
-      }]
+      modalities: ["text", "image"],
+      messages: [
+        {
+          role: "user",
+          content: messageContent,
+        },
+      ],
     };
 
     // Add image config if aspect ratio (non-auto) or size specified
-    const hasAspectRatio = aspectRatio && aspectRatio !== 'auto';
+    const hasAspectRatio = aspectRatio && aspectRatio !== "auto";
     if (hasAspectRatio || imageSize) {
       const imageConfig: Record<string, string> = {};
       if (hasAspectRatio) imageConfig.aspect_ratio = aspectRatio;
@@ -87,36 +98,38 @@ export async function generateWithOpenRouter(
     }
 
     const response = await fetch(url, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${apiKey}`,
-        'HTTP-Referer': 'https://figma.com',
-        'X-Title': 'VM Studio Figma Plugin'
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${apiKey}`,
+        "HTTP-Referer": "https://figma.com",
+        "X-Title": "VM Studio Figma Plugin",
       },
-      body: JSON.stringify(body)
+      body: JSON.stringify(body),
     });
 
     if (!response.ok) {
       const errorData = await response.json().catch(() => ({}));
-      const errorMessage = (errorData as OpenRouterResponse).error?.message || `HTTP ${response.status}`;
+      const errorMessage =
+        (errorData as OpenRouterResponse).error?.message ||
+        `HTTP ${response.status}`;
       return { success: false, error: `OpenRouter error: ${errorMessage}` };
     }
 
-    onProgress?.('Processing response...');
+    onProgress?.("Processing response...");
 
     const data: OpenRouterResponse = await response.json();
     const message = data.choices?.[0]?.message;
 
     if (!message) {
-      return { success: false, error: 'No message in OpenRouter response' };
+      return { success: false, error: "No message in OpenRouter response" };
     }
 
     // Check for images array (new format from Gemini 3 Pro)
     if (message.images && message.images.length > 0) {
       const imageUrl = message.images[0]?.image_url?.url;
       if (imageUrl) {
-        onProgress?.('Extracting image data...');
+        onProgress?.("Extracting image data...");
         return await extractImageFromDataUrl(imageUrl);
       }
     }
@@ -125,25 +138,28 @@ export async function generateWithOpenRouter(
     const content = message.content;
 
     if (!content) {
-      return { success: false, error: 'No content or images in OpenRouter response' };
+      return {
+        success: false,
+        error: "No content or images in OpenRouter response",
+      };
     }
 
     // Handle different response formats
     let imageUrl: string | null = null;
 
-    if (typeof content === 'string') {
+    if (typeof content === "string") {
       // Check if content is a URL or base64
-      if (content.startsWith('http')) {
+      if (content.startsWith("http")) {
         imageUrl = content;
-      } else if (content.startsWith('data:image')) {
+      } else if (content.startsWith("data:image")) {
         return await extractImageFromDataUrl(content);
       }
     } else if (Array.isArray(content)) {
       // Array format with image_url
-      const imagePart = content.find(part => part.type === 'image_url');
+      const imagePart = content.find((part) => part.type === "image_url");
       if (imagePart?.image_url?.url) {
         const url = imagePart.image_url.url;
-        if (url.startsWith('data:image')) {
+        if (url.startsWith("data:image")) {
           return await extractImageFromDataUrl(url);
         }
         imageUrl = url;
@@ -151,13 +167,13 @@ export async function generateWithOpenRouter(
     }
 
     if (imageUrl) {
-      onProgress?.('Downloading image...');
+      onProgress?.("Downloading image...");
       return await fetchImageFromUrl(imageUrl);
     }
 
-    return { success: false, error: 'Could not extract image from response' };
+    return { success: false, error: "Could not extract image from response" };
   } catch (error) {
-    const message = error instanceof Error ? error.message : 'Unknown error';
+    const message = error instanceof Error ? error.message : "Unknown error";
     return { success: false, error: `Failed to generate image: ${message}` };
   }
 }

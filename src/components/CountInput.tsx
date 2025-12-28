@@ -1,4 +1,4 @@
-import { h, JSX } from 'preact';
+import { h, JSX } from "preact";
 
 interface CountInputProps {
   value: number;
@@ -7,7 +7,12 @@ interface CountInputProps {
   min?: number;
 }
 
-export function CountInput({ value, onChange, disabled, min = 1 }: CountInputProps) {
+export function CountInput({
+  value,
+  onChange,
+  disabled,
+  min = 1,
+}: CountInputProps) {
   const handleInput = (e: JSX.TargetedEvent<HTMLInputElement>) => {
     const num = parseInt(e.currentTarget.value, 10);
     if (!isNaN(num) && num >= min) {
