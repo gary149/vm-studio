@@ -1,32 +1,40 @@
-import type { GenerationRequest, GenerationResult, AspectRatio, ImageSize } from '../types';
-import { extractImageFromDataUrl, fetchImageFromUrl } from './utils';
+import type {
+  GenerationRequest,
+  GenerationResult,
+  AspectRatio,
+  ImageSize,
+} from "../types";
+import { extractImageFromDataUrl, fetchImageFromUrl } from "./utils";
 
-const FAL_BASE_URL = 'https://fal.run';
+const FAL_BASE_URL = "https://fal.run";
 
 // Calculate Z-Image dimensions based on aspect ratio and image size
-function getZImageDimensions(aspectRatio: AspectRatio, imageSize: ImageSize): { width: number; height: number } {
+function getZImageDimensions(
+  aspectRatio: AspectRatio,
+  imageSize: ImageSize,
+): { width: number; height: number } {
   // Base sizes for each resolution tier (long edge)
   const baseSizes: Record<ImageSize, number> = {
-    '1K': 1024,
-    '2K': 2048,
-    '4K': 4096
+    "1K": 1024,
+    "2K": 2048,
+    "4K": 4096,
   };
 
   const baseSize = baseSizes[imageSize] || 1024;
 
   // Aspect ratio multipliers [width, height]
   const ratios: Record<AspectRatio, [number, number]> = {
-    'auto': [4, 3],
-    '1:1': [1, 1],
-    '16:9': [16, 9],
-    '9:16': [9, 16],
-    '4:3': [4, 3],
-    '3:4': [3, 4],
-    '3:2': [3, 2],
-    '2:3': [2, 3],
-    '5:4': [5, 4],
-    '4:5': [4, 5],
-    '21:9': [21, 9]
+    auto: [4, 3],
+    "1:1": [1, 1],
+    "16:9": [16, 9],
+    "9:16": [9, 16],
+    "4:3": [4, 3],
+    "3:4": [3, 4],
+    "3:2": [3, 2],
+    "2:3": [2, 3],
+    "5:4": [5, 4],
+    "4:5": [4, 5],
+    "21:9": [21, 9],
   };
 
   const [wRatio, hRatio] = ratios[aspectRatio] || [4, 3];
@@ -34,11 +42,11 @@ function getZImageDimensions(aspectRatio: AspectRatio, imageSize: ImageSize): { 
   // Calculate dimensions where the longer edge equals baseSize
   if (wRatio >= hRatio) {
     const width = baseSize;
-    const height = Math.round(baseSize * hRatio / wRatio);
+    const height = Math.round((baseSize * hRatio) / wRatio);
     return { width, height };
   } else {
     const height = baseSize;
-    const width = Math.round(baseSize * wRatio / hRatio);
+    const width = Math.round((baseSize * wRatio) / hRatio);
     return { width, height };
   }
 }
@@ -48,21 +56,21 @@ function getZImageDimensions(aspectRatio: AspectRatio, imageSize: ImageSize): { 
 // edit: adds "auto" option
 function getGptImageSize(aspectRatio: AspectRatio, allowAuto: boolean): string {
   const mapping: Partial<Record<AspectRatio, string>> = {
-    '1:1': '1024x1024',
-    '3:2': '1536x1024',
-    '16:9': '1536x1024',
-    '4:3': '1536x1024',
-    '21:9': '1536x1024',
-    '5:4': '1024x1024',
-    '2:3': '1024x1536',
-    '9:16': '1024x1536',
-    '3:4': '1024x1536',
-    '4:5': '1024x1536',
+    "1:1": "1024x1024",
+    "3:2": "1536x1024",
+    "16:9": "1536x1024",
+    "4:3": "1536x1024",
+    "21:9": "1536x1024",
+    "5:4": "1024x1024",
+    "2:3": "1024x1536",
+    "9:16": "1024x1536",
+    "3:4": "1024x1536",
+    "4:5": "1024x1536",
   };
-  if (aspectRatio === 'auto') {
-    return allowAuto ? 'auto' : '1024x1024';
+  if (aspectRatio === "auto") {
+    return allowAuto ? "auto" : "1024x1024";
   }
-  return mapping[aspectRatio] || '1024x1024';
+  return mapping[aspectRatio] || "1024x1024";
 }
 
 interface FalImageFile {
@@ -83,21 +91,22 @@ interface FalErrorResponse {
 
 export async function generateWithFal(
   request: GenerationRequest,
-  onProgress?: (status: string) => void
+  onProgress?: (status: string) => void,
 ): Promise<GenerationResult> {
-  const { prompt, modelId, apiKey, aspectRatio, imageSize, inputImages } = request;
+  const { prompt, modelId, apiKey, aspectRatio, imageSize, inputImages } =
+    request;
 
   if (!apiKey) {
-    return { success: false, error: 'Fal.ai API key is required' };
+    return { success: false, error: "Fal.ai API key is required" };
   }
 
-  onProgress?.('Sending request to Fal.ai...');
+  onProgress?.("Sending request to Fal.ai...");
 
   try {
     const hasInputImages = inputImages && inputImages.length > 0;
-    const isZImage = modelId.includes('z-image');
-    const isSeedream = modelId.includes('seedream');
-    const isGptImage = modelId.includes('gpt-image');
+    const isZImage = modelId.includes("z-image");
+    const isSeedream = modelId.includes("seedream");
+    const isGptImage = modelId.includes("gpt-image");
 
     // Determine endpoint based on model and whether we have input images
     let endpoint: string;
@@ -118,34 +127,45 @@ export async function generateWithFal(
 
     // Add input images for image-to-image
     if (hasInputImages) {
-      body.image_urls = inputImages.map(base64 => `data:image/png;base64,${base64}`);
+      body.image_urls = inputImages.map(
+        (base64) => `data:image/png;base64,${base64}`,
+      );
     }
 
     if (isGptImage) {
       // GPT-Image: t2i doesn't support "auto" size, edit does
-      body.image_size = getGptImageSize(aspectRatio || 'auto', !!hasInputImages);
-      body.quality = 'high';
-      body.output_format = 'png';
+      body.image_size = getGptImageSize(
+        aspectRatio || "auto",
+        !!hasInputImages,
+      );
+      body.quality = "high";
+      body.output_format = "png";
       body.sync_mode = true;
     } else if (isZImage) {
       // Z-Image: custom dimensions, inference steps
       body.num_images = 1;
-      body.output_format = 'png';
+      body.output_format = "png";
       body.sync_mode = true;
-      body.image_size = getZImageDimensions(aspectRatio || 'auto', imageSize || '1K');
+      body.image_size = getZImageDimensions(
+        aspectRatio || "auto",
+        imageSize || "1K",
+      );
       body.num_inference_steps = 8;
     } else if (isSeedream) {
       // Seedream: custom dimensions
       body.num_images = 1;
-      body.output_format = 'png';
+      body.output_format = "png";
       body.sync_mode = true;
-      body.image_size = getZImageDimensions(aspectRatio || 'auto', imageSize || '2K');
+      body.image_size = getZImageDimensions(
+        aspectRatio || "auto",
+        imageSize || "2K",
+      );
     } else {
       // Other Fal models: standard params
       body.num_images = 1;
-      body.output_format = 'png';
+      body.output_format = "png";
       body.sync_mode = true;
-      if (aspectRatio && aspectRatio !== 'auto') {
+      if (aspectRatio && aspectRatio !== "auto") {
         body.aspect_ratio = aspectRatio;
       }
       if (imageSize) {
@@ -154,40 +174,43 @@ export async function generateWithFal(
     }
 
     const response = await fetch(endpoint, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Key ${apiKey}`
+        "Content-Type": "application/json",
+        Authorization: `Key ${apiKey}`,
       },
-      body: JSON.stringify(body)
+      body: JSON.stringify(body),
     });
 
     if (!response.ok) {
-      const errorData = await response.json().catch(() => ({})) as FalErrorResponse;
-      const errorMessage = errorData.detail || errorData.error || `HTTP ${response.status}`;
+      const errorData = (await response
+        .json()
+        .catch(() => ({}))) as FalErrorResponse;
+      const errorMessage =
+        errorData.detail || errorData.error || `HTTP ${response.status}`;
       return { success: false, error: `Fal.ai error: ${errorMessage}` };
     }
 
-    onProgress?.('Processing response...');
+    onProgress?.("Processing response...");
 
     const data: FalResponse = await response.json();
 
     if (!data.images || data.images.length === 0) {
-      return { success: false, error: 'No images in Fal.ai response' };
+      return { success: false, error: "No images in Fal.ai response" };
     }
 
     const imageUrl = data.images[0].url;
 
     // Check if it's a data URI or a regular URL
-    if (imageUrl.startsWith('data:')) {
-      onProgress?.('Extracting image data...');
+    if (imageUrl.startsWith("data:")) {
+      onProgress?.("Extracting image data...");
       return await extractImageFromDataUrl(imageUrl);
     } else {
-      onProgress?.('Downloading image...');
+      onProgress?.("Downloading image...");
       return await fetchImageFromUrl(imageUrl);
     }
   } catch (error) {
-    const message = error instanceof Error ? error.message : 'Unknown error';
+    const message = error instanceof Error ? error.message : "Unknown error";
     return { success: false, error: `Failed to generate image: ${message}` };
   }
 }

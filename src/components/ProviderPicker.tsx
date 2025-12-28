@@ -1,6 +1,10 @@
-import { h, JSX } from 'preact';
-import type { ProviderId } from '../types';
-import { getUniqueModelNames, getProvidersForModelName, getAllModels } from '../providers';
+import { h, JSX } from "preact";
+import type { ProviderId } from "../types";
+import {
+  getUniqueModelNames,
+  getProvidersForModelName,
+  getAllModels,
+} from "../providers";
 
 interface ProviderPickerProps {
   selectedModelId: string;
@@ -9,7 +13,13 @@ interface ProviderPickerProps {
 }
 
 const ChevronIcon = () => (
-  <svg class="select-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+  <svg
+    class="select-chevron"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+  >
     <path d="M6 9l6 6 6-6" />
   </svg>
 );
@@ -17,13 +27,13 @@ const ChevronIcon = () => (
 export function ProviderPicker({
   selectedModelId,
   onModelChange,
-  disabled
+  disabled,
 }: ProviderPickerProps) {
   const allModels = getAllModels();
   const modelNames = getUniqueModelNames();
 
   // Find current model info
-  const currentModel = allModels.find(m => m.id === selectedModelId);
+  const currentModel = allModels.find((m) => m.id === selectedModelId);
   const currentModelName = currentModel?.name || modelNames[0];
 
   // Get providers available for current model name
@@ -40,7 +50,7 @@ export function ProviderPicker({
 
   const handleProviderChange = (e: JSX.TargetedEvent<HTMLSelectElement>) => {
     const newModelId = e.currentTarget.value;
-    const model = allModels.find(m => m.id === newModelId);
+    const model = allModels.find((m) => m.id === newModelId);
     if (model) {
       onModelChange(newModelId, model.providerId);
     }
@@ -57,7 +67,7 @@ export function ProviderPicker({
             disabled={disabled}
             class="select"
           >
-            {modelNames.map(name => (
+            {modelNames.map((name) => (
               <option key={name} value={name}>
                 {name}
               </option>
@@ -76,7 +86,7 @@ export function ProviderPicker({
             disabled={disabled}
             class="select"
           >
-            {availableProviders.map(model => (
+            {availableProviders.map((model) => (
               <option key={model.id} value={model.id}>
                 {model.providerName}
               </option>

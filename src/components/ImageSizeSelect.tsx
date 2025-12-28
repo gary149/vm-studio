@@ -1,5 +1,5 @@
-import { h, JSX } from 'preact';
-import type { ImageSize } from '../types';
+import { h, JSX } from "preact";
+import type { ImageSize } from "../types";
 
 interface ImageSizeSelectProps {
   value: ImageSize;
@@ -9,12 +9,17 @@ interface ImageSizeSelectProps {
 }
 
 const IMAGE_SIZE_LABELS: Record<ImageSize, string> = {
-  '1K': '1K (1024px)',
-  '2K': '2K (2048px)',
-  '4K': '4K (4096px)'
+  "1K": "1K (1024px)",
+  "2K": "2K (2048px)",
+  "4K": "4K (4096px)",
 };
 
-export function ImageSizeSelect({ value, onChange, availableSizes, disabled }: ImageSizeSelectProps) {
+export function ImageSizeSelect({
+  value,
+  onChange,
+  availableSizes,
+  disabled,
+}: ImageSizeSelectProps) {
   const handleChange = (e: JSX.TargetedEvent<HTMLSelectElement>) => {
     onChange(e.currentTarget.value as ImageSize);
   };
@@ -29,14 +34,20 @@ export function ImageSizeSelect({ value, onChange, availableSizes, disabled }: I
           onChange={handleChange}
           disabled={disabled}
         >
-          {availableSizes.map(size => (
+          {availableSizes.map((size) => (
             <option key={size} value={size}>
               {IMAGE_SIZE_LABELS[size]}
             </option>
           ))}
         </select>
         <svg class="select-chevron" viewBox="0 0 12 12" fill="none">
-          <path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path
+            d="M2.5 4.5L6 8L9.5 4.5"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
         </svg>
       </div>
     </div>

@@ -1,37 +1,73 @@
-import type { ProviderId, ProviderConfig, ImageSize } from '../types';
+import type { ProviderId, ProviderConfig, ImageSize } from "../types";
 
 // Provider configurations
 export const PROVIDERS: Record<ProviderId, ProviderConfig> = {
-  'fal': {
-    id: 'fal',
-    name: 'Fal.ai',
+  fal: {
+    id: "fal",
+    name: "Fal.ai",
     requiresApiKey: true,
-    apiKeyUrl: 'https://fal.ai/dashboard/keys',
+    apiKeyUrl: "https://fal.ai/dashboard/keys",
     models: [
-      { id: 'fal-ai/nano-banana-pro', name: 'Nano Banana Pro', supportsImageGeneration: true, supportsImageToImage: true, supportedImageSizes: ['1K', '2K', '4K'] },
-      { id: 'fal-ai/z-image/turbo', name: 'Z-Image Turbo', supportsImageGeneration: true, supportsImageToImage: false, supportedImageSizes: ['1K', '2K', '4K'] },
-      { id: 'fal-ai/bytedance/seedream/v4', name: 'Seedream v4', supportsImageGeneration: true, supportsImageToImage: true, supportedImageSizes: ['1K', '2K', '4K'] },
-      { id: 'fal-ai/gpt-image-1.5', name: 'GPT-Image 1.5', supportsImageGeneration: true, supportsImageToImage: true, supportedImageSizes: ['1K'] },
-    ]
+      {
+        id: "fal-ai/nano-banana-pro",
+        name: "Nano Banana Pro",
+        supportsImageGeneration: true,
+        supportsImageToImage: true,
+        supportedImageSizes: ["1K", "2K", "4K"],
+      },
+      {
+        id: "fal-ai/z-image/turbo",
+        name: "Z-Image Turbo",
+        supportsImageGeneration: true,
+        supportsImageToImage: false,
+        supportedImageSizes: ["1K", "2K", "4K"],
+      },
+      {
+        id: "fal-ai/bytedance/seedream/v4",
+        name: "Seedream v4",
+        supportsImageGeneration: true,
+        supportsImageToImage: true,
+        supportedImageSizes: ["1K", "2K", "4K"],
+      },
+      {
+        id: "fal-ai/gpt-image-1.5",
+        name: "GPT-Image 1.5",
+        supportsImageGeneration: true,
+        supportsImageToImage: true,
+        supportedImageSizes: ["1K"],
+      },
+    ],
   },
-  'openrouter': {
-    id: 'openrouter',
-    name: 'OpenRouter',
+  openrouter: {
+    id: "openrouter",
+    name: "OpenRouter",
     requiresApiKey: true,
-    apiKeyUrl: 'https://openrouter.ai/keys',
+    apiKeyUrl: "https://openrouter.ai/keys",
     models: [
-      { id: 'google/gemini-3-pro-image-preview', name: 'Nano Banana Pro', supportsImageGeneration: true, supportsImageToImage: true, supportedImageSizes: ['1K', '2K', '4K'] },
-    ]
+      {
+        id: "google/gemini-3-pro-image-preview",
+        name: "Nano Banana Pro",
+        supportsImageGeneration: true,
+        supportsImageToImage: true,
+        supportedImageSizes: ["1K", "2K", "4K"],
+      },
+    ],
   },
-  'gemini': {
-    id: 'gemini',
-    name: 'Google AI Studio',
+  gemini: {
+    id: "gemini",
+    name: "Google AI Studio",
     requiresApiKey: true,
-    apiKeyUrl: 'https://aistudio.google.com/apikey',
+    apiKeyUrl: "https://aistudio.google.com/apikey",
     models: [
-      { id: 'gemini-3-pro-image-preview', name: 'Nano Banana Pro', supportsImageGeneration: true, supportsImageToImage: true, supportedImageSizes: ['1K', '2K', '4K'] },
-    ]
-  }
+      {
+        id: "gemini-3-pro-image-preview",
+        name: "Nano Banana Pro",
+        supportsImageGeneration: true,
+        supportsImageToImage: true,
+        supportedImageSizes: ["1K", "2K", "4K"],
+      },
+    ],
+  },
 };
 
 export function getProvider(providerId: ProviderId): ProviderConfig {
@@ -44,7 +80,7 @@ export function getProviderList(): ProviderConfig[] {
 
 export function getDefaultModel(providerId: ProviderId): string {
   const provider = PROVIDERS[providerId];
-  return provider.models[0]?.id || '';
+  return provider.models[0]?.id || "";
 }
 
 export interface FlatModel {
@@ -55,13 +91,13 @@ export interface FlatModel {
 }
 
 export function getAllModels(): FlatModel[] {
-  return Object.values(PROVIDERS).flatMap(provider =>
-    provider.models.map(model => ({
+  return Object.values(PROVIDERS).flatMap((provider) =>
+    provider.models.map((model) => ({
       id: model.id,
       name: model.name,
       providerId: provider.id,
-      providerName: provider.name
-    }))
+      providerName: provider.name,
+    })),
   );
 }
 
@@ -78,12 +114,12 @@ export function getUniqueModelNames(): string[] {
 
 // Get providers that offer a model with the given name
 export function getProvidersForModelName(modelName: string): FlatModel[] {
-  return getAllModels().filter(m => m.name === modelName);
+  return getAllModels().filter((m) => m.name === modelName);
 }
 
 export function getProviderForModel(modelId: string): ProviderId | null {
   for (const provider of Object.values(PROVIDERS)) {
-    if (provider.models.some(m => m.id === modelId)) {
+    if (provider.models.some((m) => m.id === modelId)) {
       return provider.id;
     }
   }
@@ -92,7 +128,7 @@ export function getProviderForModel(modelId: string): ProviderId | null {
 
 export function modelSupportsImageToImage(modelId: string): boolean {
   for (const provider of Object.values(PROVIDERS)) {
-    const model = provider.models.find(m => m.id === modelId);
+    const model = provider.models.find((m) => m.id === modelId);
     if (model) return model.supportsImageToImage;
   }
   return false;
@@ -100,8 +136,8 @@ export function modelSupportsImageToImage(modelId: string): boolean {
 
 export function getModelSupportedImageSizes(modelId: string): ImageSize[] {
   for (const provider of Object.values(PROVIDERS)) {
-    const model = provider.models.find(m => m.id === modelId);
+    const model = provider.models.find((m) => m.id === modelId);
     if (model) return model.supportedImageSizes;
   }
-  return ['1K'];
+  return ["1K"];
 }

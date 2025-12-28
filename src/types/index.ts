@@ -1,7 +1,7 @@
-import { EventHandler } from '@create-figma-plugin/utilities';
+import { EventHandler } from "@create-figma-plugin/utilities";
 
 // Provider types
-export type ProviderId = 'fal' | 'openrouter' | 'gemini';
+export type ProviderId = "fal" | "openrouter" | "gemini";
 
 export interface ProviderConfig {
   id: ProviderId;
@@ -30,8 +30,19 @@ export interface InputImage {
 }
 
 // Generation types
-export type AspectRatio = 'auto' | '1:1' | '9:16' | '16:9' | '3:4' | '4:3' | '3:2' | '2:3' | '5:4' | '4:5' | '21:9';
-export type ImageSize = '1K' | '2K' | '4K';
+export type AspectRatio =
+  | "auto"
+  | "1:1"
+  | "9:16"
+  | "16:9"
+  | "3:4"
+  | "4:3"
+  | "3:2"
+  | "2:3"
+  | "5:4"
+  | "4:5"
+  | "21:9";
+export type ImageSize = "1K" | "2K" | "4K";
 
 export interface GenerationRequest {
   prompt: string;
@@ -66,42 +77,42 @@ export interface PartialPluginSettings {
 
 // Event handlers for UI <-> Sandbox communication
 export interface GenerateImageHandler extends EventHandler {
-  name: 'generate-image';
+  name: "generate-image";
   handler: (payload: GenerationRequest & { count: number }) => void;
 }
 
 export interface LoadSettingsHandler extends EventHandler {
-  name: 'load-settings';
+  name: "load-settings";
   handler: () => void;
 }
 
 export interface SaveSettingsHandler extends EventHandler {
-  name: 'save-settings';
+  name: "save-settings";
   handler: (payload: PartialPluginSettings) => void;
 }
 
 export interface GenerationCompleteHandler extends EventHandler {
-  name: 'generation-complete';
+  name: "generation-complete";
   handler: (payload: GenerationResult) => void;
 }
 
 export interface GenerationProgressHandler extends EventHandler {
-  name: 'generation-progress';
+  name: "generation-progress";
   handler: (payload: { status: string }) => void;
 }
 
 export interface SettingsLoadedHandler extends EventHandler {
-  name: 'settings-loaded';
+  name: "settings-loaded";
   handler: (payload: PluginSettings) => void;
 }
 
 export interface SettingsSavedHandler extends EventHandler {
-  name: 'settings-saved';
+  name: "settings-saved";
   handler: () => void;
 }
 
 export interface SelectionChangedHandler extends EventHandler {
-  name: 'selection-changed';
+  name: "selection-changed";
   handler: (payload: { images: InputImage[] }) => void;
 }
 
@@ -121,11 +132,11 @@ export interface UIState {
 }
 
 export const DEFAULT_SETTINGS: PluginSettings = {
-  lastProviderId: 'fal',
-  lastModelId: 'fal-ai/nano-banana-pro',
+  lastProviderId: "fal",
+  lastModelId: "fal-ai/nano-banana-pro",
   apiKeys: {
-    'fal': '',
-    'openrouter': '',
-    'gemini': ''
-  }
+    fal: "",
+    openrouter: "",
+    gemini: "",
+  },
 };
