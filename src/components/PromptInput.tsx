@@ -8,6 +8,7 @@ interface PromptInputProps {
   onNext?: () => void;
   disabled?: boolean;
   placeholder?: string;
+  isEditingMode?: boolean;
 }
 
 export function PromptInput({
@@ -17,6 +18,7 @@ export function PromptInput({
   onNext,
   disabled,
   placeholder = "Describe the image you want to generate...",
+  isEditingMode,
 }: PromptInputProps) {
   const [copied, setCopied] = useState(false);
 
@@ -57,7 +59,9 @@ export function PromptInput({
   return (
     <div class="field">
       <div class="field-label-row">
-        <label class="field-label">Prompt</label>
+        <label class="field-label">
+          Prompt{isEditingMode && " (editing mode)"}
+        </label>
         <button
           type="button"
           class="field-link"

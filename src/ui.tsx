@@ -329,6 +329,7 @@ function Plugin() {
                   ? "Prompt for selected images..."
                   : "Describe the image you want to generate..."
               }
+              isEditingMode={hasInputImages}
             />
 
             <ThumbnailStrip images={state.inputImages} />
