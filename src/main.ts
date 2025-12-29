@@ -14,7 +14,11 @@ import type {
   SelectionChangedHandler,
 } from "./types";
 import { generateImage } from "./providers/generate";
-import { getPlacementOrigin, getEstimatedCellSize } from "./positioning";
+import {
+  getPlacementOrigin,
+  getEstimatedCellSize,
+  getCollisionFreePositions,
+} from "./positioning";
 
 // Convert Uint8Array to base64 (atob/btoa not available in Figma sandbox)
 function uint8ArrayToBase64(bytes: Uint8Array): string {
@@ -134,7 +138,7 @@ let gridCursor: {
 } | null = null;
 let gridCursorTime = 0;
 const MAX_COLUMNS = 12;
-const GRID_SPACING = 20;
+const GRID_SPACING = 60;
 
 // Create a placeholder rectangle for an image being generated
 function createPlaceholder(
@@ -155,6 +159,59 @@ function createPlaceholder(
   return node;
 }
 
+// Check if a rectangle overlaps any page objects (excluding itself)
+function checkOverlap(
+  x: number,
+  y: number,
+  width: number,
+  height: number,
+  excludeNodeId: string,
+): boolean {
+  const right = x + width;
+  const bottom = y + height;
+
+  for (const node of figma.currentPage.children) {
+    if (node.id === excludeNodeId) continue;
+
+    const nodeRight = node.x + node.width;
+    const nodeBottom = node.y + node.height;
+
+    // Check overlap
+    if (!(right <= node.x || nodeRight <= x || bottom <= node.y || nodeBottom <= y)) {
+      return true;
+    }
+  }
+  return false;
+}
+
+// Find a non-overlapping position using diagonal expansion (checks right and down equally)
+function findNonOverlappingPosition(
+  startX: number,
+  startY: number,
+  width: number,
+  height: number,
+  excludeNodeId: string,
+): { x: number; y: number } {
+  const stepX = width + GRID_SPACING;
+  const stepY = height + GRID_SPACING;
+  const maxSteps = 100;
+
+  // Diagonal expansion: check positions in order of distance from start
+  for (let distance = 0; distance < maxSteps; distance++) {
+    for (let col = 0; col <= distance; col++) {
+      const row = distance - col;
+
+      const x = startX + col * stepX;
+      const y = startY + row * stepY;
+
+      if (!checkOverlap(x, y, width, height, excludeNodeId)) {
+        return { x, y };
+      }
+    }
+  }
+  return { x: startX, y: startY };
+}
+
 // Replace a placeholder with the generated image
 async function replacePlaceholder(
   placeholder: RectangleNode,
@@ -163,9 +220,25 @@ async function replacePlaceholder(
 ): Promise<void> {
   const image = figma.createImage(imageData);
   const { width, height } = await image.getSizeAsync();
+  const actualWidth = width || 512;
+  const actualHeight = height || 512;
 
   // Resize to actual image dimensions
-  placeholder.resize(width || 512, height || 512);
+  placeholder.resize(actualWidth, actualHeight);
+
+  // Check if resized image overlaps other objects
+  if (checkOverlap(placeholder.x, placeholder.y, actualWidth, actualHeight, placeholder.id)) {
+    // Find a non-overlapping position and move
+    const newPos = findNonOverlappingPosition(
+      placeholder.x,
+      placeholder.y,
+      actualWidth,
+      actualHeight,
+      placeholder.id,
+    );
+    placeholder.x = newPos.x;
+    placeholder.y = newPos.y;
+  }
 
   // Apply image fill
   placeholder.fills = [
@@ -259,24 +332,31 @@ export default function () {
           };
         }
 
-        // Calculate positions using grid cursor
-        const positions: Array<{ x: number; y: number }> = [];
-        for (let i = 0; i < total; i++) {
-          positions.push({
-            x:
-              gridCursor!.originX +
-              gridCursor!.col * (cellWidth + GRID_SPACING),
-            y:
-              gridCursor!.originY +
-              gridCursor!.row * (cellHeight + GRID_SPACING),
-          });
+        // Calculate collision-free positions
+        const positions = getCollisionFreePositions(
+          { x: gridCursor!.originX, y: gridCursor!.originY },
+          total,
+          cellWidth,
+          cellHeight,
+          GRID_SPACING,
+          MAX_COLUMNS,
+          figma.currentPage.children,
+        );
 
-          // Advance cursor
-          gridCursor!.col++;
-          if (gridCursor!.col >= MAX_COLUMNS) {
-            gridCursor!.col = 0;
-            gridCursor!.row++;
-          }
+        // Update grid cursor based on last position for sequential generations
+        if (positions.length > 0) {
+          const lastPos = positions[positions.length - 1];
+          // Calculate which column/row the last position landed in (considering both X and Y)
+          const lastCol = Math.round(
+            (lastPos.x - gridCursor!.originX) / (cellWidth + GRID_SPACING),
+          );
+          const lastRow = Math.round(
+            (lastPos.y - gridCursor!.originY) / (cellHeight + GRID_SPACING),
+          );
+          // Advance to next position
+          const nextCol = lastCol + 1;
+          gridCursor!.col = nextCol % MAX_COLUMNS;
+          gridCursor!.row = lastRow + (nextCol >= MAX_COLUMNS ? 1 : 0);
         }
 
         gridCursorTime = now;
