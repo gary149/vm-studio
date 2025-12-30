@@ -459,6 +459,7 @@ export default function () {
           fal: "",
           openrouter: "",
           gemini: "",
+          openai: "",
         },
       };
       // Ensure all provider keys exist (for migration from older versions)
@@ -471,6 +472,9 @@ export default function () {
       if (!settings.apiKeys.gemini) {
         settings.apiKeys.gemini = "";
       }
+      if (!settings.apiKeys.openai) {
+        settings.apiKeys.openai = "";
+      }
       emit<SettingsLoadedHandler>("settings-loaded", settings);
     } catch (error) {
       emit<SettingsLoadedHandler>("settings-loaded", {
@@ -480,6 +484,7 @@ export default function () {
           fal: "",
           openrouter: "",
           gemini: "",
+          openai: "",
         },
       });
     }

@@ -1,7 +1,7 @@
 import { EventHandler } from "@create-figma-plugin/utilities";
 
 // Provider types
-export type ProviderId = "fal" | "openrouter" | "gemini";
+export type ProviderId = "fal" | "openrouter" | "gemini" | "openai";
 
 export interface ProviderConfig {
   id: ProviderId;
@@ -138,5 +138,6 @@ export const DEFAULT_SETTINGS: PluginSettings = {
     fal: "",
     openrouter: "",
     gemini: "",
+    openai: "",
   },
 };
