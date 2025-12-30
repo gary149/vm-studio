@@ -73,6 +73,33 @@ function getGptImageSize(aspectRatio: AspectRatio, allowAuto: boolean): string {
   return mapping[aspectRatio] || "1024x1024";
 }
 
+// Map aspect ratio to FLUX.2 size (enum or custom dimensions)
+function getFlux2ImageSize(
+  aspectRatio: AspectRatio,
+  imageSize: ImageSize,
+): string | { width: number; height: number } {
+  // FLUX.2 supported enum values
+  const enumMapping: Partial<Record<AspectRatio, string>> = {
+    "1:1": "square_hd",
+    "4:3": "landscape_4_3",
+    "3:4": "portrait_4_3",
+    "16:9": "landscape_16_9",
+    "9:16": "portrait_16_9",
+  };
+
+  if (aspectRatio === "auto") {
+    return "landscape_4_3"; // FLUX.2 default
+  }
+
+  const enumValue = enumMapping[aspectRatio];
+  if (enumValue) {
+    return enumValue;
+  }
+
+  // Fallback to custom dimensions for unsupported ratios (3:2, 2:3, 5:4, 4:5, 21:9)
+  return getZImageDimensions(aspectRatio, imageSize);
+}
+
 interface FalImageFile {
   url: string;
   content_type: string;
@@ -107,6 +134,7 @@ export async function generateWithFal(
     const isZImage = modelId.includes("z-image");
     const isSeedream = modelId.includes("seedream");
     const isGptImage = modelId.includes("gpt-image");
+    const isFlux2 = modelId.includes("flux-2");
 
     // Determine endpoint based on model and whether we have input images
     let endpoint: string;
@@ -139,6 +167,11 @@ export async function generateWithFal(
         !!hasInputImages,
       );
       body.quality = "high";
+      body.output_format = "png";
+      body.sync_mode = true;
+    } else if (isFlux2) {
+      // FLUX.2: enum-based sizes with custom dimension fallback
+      body.image_size = getFlux2ImageSize(aspectRatio || "auto", imageSize || "1K");
       body.output_format = "png";
       body.sync_mode = true;
     } else if (isZImage) {

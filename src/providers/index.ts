@@ -36,6 +36,13 @@ export const PROVIDERS: Record<ProviderId, ProviderConfig> = {
         supportsImageToImage: true,
         supportedImageSizes: ["1K"],
       },
+      {
+        id: "fal-ai/flux-2/turbo",
+        name: "FLUX.2 [dev] Turbo",
+        supportsImageGeneration: true,
+        supportsImageToImage: true,
+        supportedImageSizes: ["1K", "2K"],
+      },
     ],
   },
   openrouter: {
