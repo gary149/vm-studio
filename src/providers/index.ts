@@ -41,7 +41,7 @@ export const PROVIDERS: Record<ProviderId, ProviderConfig> = {
         name: "FLUX.2 [dev] Turbo",
         supportsImageGeneration: true,
         supportsImageToImage: true,
-        supportedImageSizes: ["1K", "2K"],
+        supportedImageSizes: ["1K"],
       },
     ],
   },
