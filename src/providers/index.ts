@@ -75,6 +75,21 @@ export const PROVIDERS: Record<ProviderId, ProviderConfig> = {
       },
     ],
   },
+  openai: {
+    id: "openai",
+    name: "OpenAI",
+    requiresApiKey: true,
+    apiKeyUrl: "https://platform.openai.com/api-keys",
+    models: [
+      {
+        id: "gpt-image-1.5",
+        name: "GPT-Image 1.5",
+        supportsImageGeneration: true,
+        supportsImageToImage: true,
+        supportedImageSizes: ["1K"],
+      },
+    ],
+  },
 };
 
 export function getProvider(providerId: ProviderId): ProviderConfig {

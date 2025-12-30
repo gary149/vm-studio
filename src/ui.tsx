@@ -64,6 +64,7 @@ function Plugin() {
     fal: "",
     openrouter: "",
     gemini: "",
+    openai: "",
   });
 
   // Prompt history
