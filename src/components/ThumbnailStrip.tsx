@@ -4,11 +4,13 @@ import type { InputImage } from "../types";
 interface ThumbnailStripProps {
   images: InputImage[];
   maxHeight?: number;
+  onRemove?: (id: string) => void;
 }
 
 export function ThumbnailStrip({
   images,
   maxHeight = 25,
+  onRemove,
 }: ThumbnailStripProps) {
   if (images.length === 0) return null;
 
@@ -22,6 +24,15 @@ export function ThumbnailStrip({
               alt={img.name}
               style={{ height: `${maxHeight}px`, width: "auto" }}
             />
+            {onRemove && (
+              <button
+                class="thumbnail-close"
+                onClick={() => onRemove(img.id)}
+                aria-label="Remove"
+              >
+                ×
+              </button>
+            )}
           </div>
         ))}
       </div>

@@ -12,6 +12,7 @@ import type {
   SettingsLoadedHandler,
   SettingsSavedHandler,
   SelectionChangedHandler,
+  DeselectNodeHandler,
 } from "./types";
 import { generateImage } from "./providers/generate";
 import {
@@ -276,6 +277,13 @@ export default function () {
     currentInputImageIds = images.map((img) => img.id);
     emit<SelectionChangedHandler>("selection-changed", { images });
   }, 100);
+
+  // Handle deselect node from UI
+  on<DeselectNodeHandler>("deselect-node", ({ nodeId }) => {
+    const currentSelection = figma.currentPage.selection;
+    const newSelection = currentSelection.filter((node) => node.id !== nodeId);
+    figma.currentPage.selection = newSelection;
+  });
 
   // Handle messages from UI
   on<GenerateImageHandler>(
