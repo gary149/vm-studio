@@ -82,7 +82,7 @@ export function getProvider(providerId: ProviderId): ProviderConfig {
 }
 
 export function getProviderList(): ProviderConfig[] {
-  return Object.values(PROVIDERS);
+  return Object.values(PROVIDERS).sort((a, b) => a.name.localeCompare(b.name));
 }
 
 export function getDefaultModel(providerId: ProviderId): string {
@@ -119,9 +119,11 @@ export function getUniqueModelNames(): string[] {
   return Array.from(names).sort((a, b) => a.localeCompare(b));
 }
 
-// Get providers that offer a model with the given name
+// Get providers that offer a model with the given name (sorted alphabetically)
 export function getProvidersForModelName(modelName: string): FlatModel[] {
-  return getAllModels().filter((m) => m.name === modelName);
+  return getAllModels()
+    .filter((m) => m.name === modelName)
+    .sort((a, b) => a.providerName.localeCompare(b.providerName));
 }
 
 export function getProviderForModel(modelId: string): ProviderId | null {
