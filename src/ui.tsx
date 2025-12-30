@@ -35,6 +35,7 @@ import type {
   GenerationCompleteHandler,
   GenerationProgressHandler,
   SettingsLoadedHandler,
+  SettingsSavedHandler,
   SelectionChangedHandler,
 } from "./types";
 
@@ -112,6 +113,7 @@ function Plugin() {
     };
 
     on<SettingsLoadedHandler>("settings-loaded", handleSettingsLoaded);
+    on<SettingsSavedHandler>("settings-saved", () => {});
     on<GenerationProgressHandler>(
       "generation-progress",
       handleGenerationProgress,
