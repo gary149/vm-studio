@@ -37,6 +37,7 @@ import type {
   SettingsLoadedHandler,
   SettingsSavedHandler,
   SelectionChangedHandler,
+  DeselectNodeHandler,
 } from "./types";
 
 type TabValue = "generate" | "settings";
@@ -230,6 +231,10 @@ function Plugin() {
     setState((prev) => ({ ...prev, imageSize: value }));
   }, []);
 
+  const handleRemoveImage = useCallback((nodeId: string) => {
+    emit<DeselectNodeHandler>("deselect-node", { nodeId });
+  }, []);
+
   const handleGenerate = useCallback(() => {
     if (!state.prompt.trim()) {
       setState((prev) => ({ ...prev, error: "Please enter a prompt" }));
@@ -340,7 +345,7 @@ function Plugin() {
               cursorPosition={cursorPosition}
             />
 
-            <ThumbnailStrip images={state.inputImages} />
+            <ThumbnailStrip images={state.inputImages} onRemove={handleRemoveImage} />
 
             {i2iUnsupported && (
               <div class="i2i-unsupported-warning">

@@ -487,6 +487,7 @@ body {
 }
 
 .thumbnail-item {
+  position: relative;
   flex-shrink: 0;
   border-radius: var(--radius-sm);
   overflow: hidden;
@@ -496,6 +497,28 @@ body {
 .thumbnail-item img {
   display: block;
   object-fit: contain;
+}
+
+.thumbnail-close {
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 9px;
+  line-height: 10px;
+  text-align: center;
+  padding: 0;
+  transition: background 0.15s;
+}
+
+.thumbnail-close:hover {
+  background: rgba(0, 0, 0, 0.9);
 }
 
 /* Image-to-image unsupported warning */

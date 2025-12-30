@@ -116,6 +116,11 @@ export interface SelectionChangedHandler extends EventHandler {
   handler: (payload: { images: InputImage[] }) => void;
 }
 
+export interface DeselectNodeHandler extends EventHandler {
+  name: "deselect-node";
+  handler: (payload: { nodeId: string }) => void;
+}
+
 // UI State
 export interface UIState {
   prompt: string;
