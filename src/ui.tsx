@@ -70,6 +70,7 @@ function Plugin() {
   const [promptHistory, setPromptHistory] = useState<string[]>([]);
   const [historyIndex, setHistoryIndex] = useState<number>(-1);
   const [draftPrompt, setDraftPrompt] = useState<string>("");
+  const [cursorPosition, setCursorPosition] = useState<"start" | "end" | undefined>(undefined);
 
   const handleTabChange = useCallback((value: string) => {
     setActiveTab(value as TabValue);
@@ -179,6 +180,7 @@ function Plugin() {
   const handlePromptChange = useCallback((value: string) => {
     setState((prev) => ({ ...prev, prompt: value }));
     setHistoryIndex(-1); // Reset history index when typing
+    setCursorPosition(undefined);
   }, []);
 
   const handlePromptPrevious = useCallback(() => {
@@ -196,6 +198,7 @@ function Plugin() {
 
     setHistoryIndex(newIndex);
     setState((prev) => ({ ...prev, prompt: promptHistory[newIndex] }));
+    setCursorPosition("start");
   }, [promptHistory, historyIndex, state.prompt]);
 
   const handlePromptNext = useCallback(() => {
@@ -211,6 +214,7 @@ function Plugin() {
       setHistoryIndex(newIndex);
       setState((prev) => ({ ...prev, prompt: promptHistory[newIndex] }));
     }
+    setCursorPosition("end");
   }, [promptHistory, historyIndex, draftPrompt]);
 
   const handleCountChange = useCallback((value: number) => {
@@ -332,6 +336,7 @@ function Plugin() {
                   : "Describe the image you want to generate..."
               }
               isEditingMode={hasInputImages}
+              cursorPosition={cursorPosition}
             />
 
             <ThumbnailStrip images={state.inputImages} />

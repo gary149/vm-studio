@@ -1,5 +1,5 @@
 import { h, JSX } from "preact";
-import { useState } from "preact/hooks";
+import { useState, useEffect, useRef } from "preact/hooks";
 
 interface PromptInputProps {
   value: string;
@@ -9,6 +9,7 @@ interface PromptInputProps {
   disabled?: boolean;
   placeholder?: string;
   isEditingMode?: boolean;
+  cursorPosition?: "start" | "end";
 }
 
 export function PromptInput({
@@ -19,8 +20,19 @@ export function PromptInput({
   disabled,
   placeholder = "Describe the image you want to generate...",
   isEditingMode,
+  cursorPosition,
 }: PromptInputProps) {
   const [copied, setCopied] = useState(false);
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
+
+  // Set cursor position when navigating history
+  useEffect(() => {
+    if (textareaRef.current && cursorPosition) {
+      const pos = cursorPosition === "start" ? 0 : textareaRef.current.value.length;
+      textareaRef.current.setSelectionRange(pos, pos);
+      textareaRef.current.focus();
+    }
+  }, [cursorPosition, value]);
 
   const handleInput = (e: JSX.TargetedEvent<HTMLTextAreaElement>) => {
     onChange(e.currentTarget.value);
@@ -72,6 +84,7 @@ export function PromptInput({
         </button>
       </div>
       <textarea
+        ref={textareaRef}
         value={value}
         onInput={handleInput}
         onKeyDown={handleKeyDown}
