@@ -108,7 +108,7 @@ export function getAllModels(): FlatModel[] {
   );
 }
 
-// Get unique model names
+// Get unique model names (sorted alphabetically)
 export function getUniqueModelNames(): string[] {
   const names = new Set<string>();
   for (const provider of Object.values(PROVIDERS)) {
@@ -116,7 +116,7 @@ export function getUniqueModelNames(): string[] {
       names.add(model.name);
     }
   }
-  return Array.from(names);
+  return Array.from(names).sort((a, b) => a.localeCompare(b));
 }
 
 // Get providers that offer a model with the given name
