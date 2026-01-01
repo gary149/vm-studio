@@ -530,3 +530,23 @@ body {
   border-radius: var(--radius-sm);
   text-align: center;
 }
+
+/* API key warning */
+.api-key-warning {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  padding: var(--space-1) var(--space-2);
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+}
+
+.api-key-warning-link {
+  color: var(--color-accent);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.api-key-warning-link:hover {
+  text-decoration: underline;
+}
