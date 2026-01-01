@@ -358,6 +358,18 @@ function Plugin() {
               onModelChange={handleModelChange}
             />
 
+            {!state.apiKey.trim() && (
+              <div class="api-key-warning">
+                {currentProvider?.name} API key not set.{" "}
+                <span
+                  class="api-key-warning-link"
+                  onClick={() => handleTabChange("settings")}
+                >
+                  Go to Settings
+                </span>
+              </div>
+            )}
+
             <CountInput
               value={state.count}
               onChange={handleCountChange}
