@@ -21,7 +21,7 @@
     "editorType": [
       "figma"
     ],
-    "id": "vm-studio-figma",
+    "id": "1588675833256652136",
     "name": "VM Studio",
     "main": "src/main.ts",
     "ui": "src/ui.tsx",
