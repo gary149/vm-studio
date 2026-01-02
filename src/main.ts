@@ -89,7 +89,7 @@ async function exportFullResolutionImages(
   const images: string[] = [];
 
   for (const nodeId of nodeIds) {
-    const node = figma.getNodeById(nodeId);
+    const node = await figma.getNodeByIdAsync(nodeId);
     if (!node || !("exportAsync" in node)) continue;
 
     try {
