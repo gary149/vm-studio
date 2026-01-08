@@ -40,7 +40,7 @@ import type {
   DeselectNodeHandler,
 } from "./types";
 
-type TabValue = "generate" | "settings";
+type TabValue = "generate" | "settings" | "help";
 
 function Plugin() {
   const providers = getProviderList();
@@ -323,6 +323,13 @@ function Plugin() {
           >
             Settings
           </button>
+          <button
+            style="margin-left: auto;"
+            class={`tab-button ${activeTab === "help" ? "tab-button--active" : ""}`}
+            onClick={() => handleTabChange("help")}
+          >
+            Help
+          </button>
         </div>
       </nav>
 
@@ -413,6 +420,82 @@ function Plugin() {
               apiKeyUrl={provider.apiKeyUrl}
             />
           ))}
+        </div>
+      )}
+
+      {activeTab === "help" && (
+        <div class="content help-content">
+          <section class="help-section">
+            <div class="help-section-title">Getting Started</div>
+            <div class="help-step">
+              <span class="help-step-num">1</span>
+              <div>
+                <strong>Add your API key</strong> in Settings for your preferred provider
+              </div>
+            </div>
+            <div class="help-step">
+              <span class="help-step-num">2</span>
+              <div>
+                <strong>Write a prompt</strong> describing the image you want
+              </div>
+            </div>
+            <div class="help-step">
+              <span class="help-step-num">3</span>
+              <div>
+                <strong>Click Generate</strong> and images place automatically on your canvas
+              </div>
+            </div>
+          </section>
+
+          <hr class="help-divider" />
+
+          <section class="help-section">
+            <div class="help-section-title">Image Editing</div>
+            <div class="help-text">
+              Select existing frames or images in Figma, then describe changes. The plugin will transform your selection based on your prompt.
+            </div>
+          </section>
+
+          <hr class="help-divider" />
+
+          <section class="help-section">
+            <div class="help-section-title">Batch Generation</div>
+            <div class="help-text">
+              Set Count higher than 1 to generate multiple images at once. They arrange in a smart grid that avoids existing objects. Generate again within 30 seconds to continue the same grid.
+            </div>
+          </section>
+
+          <hr class="help-divider" />
+
+          <section class="help-section">
+            <div class="help-section-title">Options</div>
+            <div class="help-option"><strong>Model</strong> - Choose AI model and provider</div>
+            <div class="help-option"><strong>Count</strong> - Number of images to generate</div>
+            <div class="help-option"><strong>Aspect Ratio</strong> - Output dimensions (1:1, 16:9, etc.)</div>
+            <div class="help-option"><strong>Resolution</strong> - 1K, 2K, or 4K output size</div>
+          </section>
+
+          <hr class="help-divider" />
+
+          <section class="help-section">
+            <div class="help-section-title">Shortcuts</div>
+            <div class="help-shortcut-row">
+              <span class="help-shortcut">⌘/Ctrl + Enter</span>
+              <span>Generate</span>
+            </div>
+            <div class="help-shortcut-row">
+              <span class="help-shortcut">↑ ↓</span>
+              <span>Prompt history</span>
+            </div>
+          </section>
+
+          <hr class="help-divider" />
+
+          <section class="help-section">
+            <div class="help-text help-text--muted">
+              API keys are stored locally and only sent to the selected provider.
+            </div>
+          </section>
         </div>
       )}
     </div>
