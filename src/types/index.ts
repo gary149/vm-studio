@@ -121,6 +121,22 @@ export interface DeselectNodeHandler extends EventHandler {
   handler: (payload: { nodeId: string }) => void;
 }
 
+// Prompt history persistence
+export interface LoadPromptHistoryHandler extends EventHandler {
+  name: "load-prompt-history";
+  handler: () => void;
+}
+
+export interface SavePromptHistoryHandler extends EventHandler {
+  name: "save-prompt-history";
+  handler: (payload: { history: string[] }) => void;
+}
+
+export interface PromptHistoryLoadedHandler extends EventHandler {
+  name: "prompt-history-loaded";
+  handler: (payload: { history: string[] }) => void;
+}
+
 // UI State
 export interface UIState {
   prompt: string;

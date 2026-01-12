@@ -13,6 +13,9 @@ import type {
   SettingsSavedHandler,
   SelectionChangedHandler,
   DeselectNodeHandler,
+  LoadPromptHistoryHandler,
+  SavePromptHistoryHandler,
+  PromptHistoryLoadedHandler,
 } from "./types";
 import { generateImage } from "./providers/generate";
 import {
@@ -107,6 +110,8 @@ async function exportFullResolutionImages(
 }
 
 const SETTINGS_KEY = "vm-studio-settings";
+const PROMPT_HISTORY_KEY = "vm-studio-prompt-history";
+const MAX_PROMPT_HISTORY = 50;
 
 // Debounce helper
 function debounce<T extends (...args: unknown[]) => void>(
@@ -515,6 +520,32 @@ export default function () {
         emit<SettingsSavedHandler>("settings-saved");
       } catch (error) {
         console.error("Failed to save settings:", error);
+      }
+    },
+  );
+
+  // Handle prompt history load
+  on<LoadPromptHistoryHandler>("load-prompt-history", async () => {
+    try {
+      const history: string[] =
+        (await figma.clientStorage.getAsync(PROMPT_HISTORY_KEY)) || [];
+      emit<PromptHistoryLoadedHandler>("prompt-history-loaded", { history });
+    } catch (error) {
+      console.error("Failed to load prompt history:", error);
+      emit<PromptHistoryLoadedHandler>("prompt-history-loaded", { history: [] });
+    }
+  });
+
+  // Handle prompt history save
+  on<SavePromptHistoryHandler>(
+    "save-prompt-history",
+    async (payload: { history: string[] }) => {
+      try {
+        // Keep only the last MAX_PROMPT_HISTORY entries
+        const trimmedHistory = payload.history.slice(-MAX_PROMPT_HISTORY);
+        await figma.clientStorage.setAsync(PROMPT_HISTORY_KEY, trimmedHistory);
+      } catch (error) {
+        console.error("Failed to save prompt history:", error);
       }
     },
   );
