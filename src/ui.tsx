@@ -38,6 +38,9 @@ import type {
   SettingsSavedHandler,
   SelectionChangedHandler,
   DeselectNodeHandler,
+  LoadPromptHistoryHandler,
+  SavePromptHistoryHandler,
+  PromptHistoryLoadedHandler,
 } from "./types";
 
 type TabValue = "generate" | "settings" | "help";
@@ -80,6 +83,7 @@ function Plugin() {
 
   useEffect(() => {
     emit<LoadSettingsHandler>("load-settings");
+    emit<LoadPromptHistoryHandler>("load-prompt-history");
   }, []);
 
   useEffect(() => {
@@ -115,6 +119,10 @@ function Plugin() {
       setState((prev) => ({ ...prev, inputImages: images }));
     };
 
+    const handlePromptHistoryLoaded = ({ history }: { history: string[] }) => {
+      setPromptHistory(history);
+    };
+
     on<SettingsLoadedHandler>("settings-loaded", handleSettingsLoaded);
     on<SettingsSavedHandler>("settings-saved", () => {});
     on<GenerationProgressHandler>(
@@ -126,6 +134,7 @@ function Plugin() {
       handleGenerationComplete,
     );
     on<SelectionChangedHandler>("selection-changed", handleSelectionChanged);
+    on<PromptHistoryLoadedHandler>("prompt-history-loaded", handlePromptHistoryLoaded);
   }, []);
 
   useEffect(() => {
@@ -134,6 +143,13 @@ function Plugin() {
       apiKey: apiKeys[prev.providerId] || "",
     }));
   }, [state.providerId, apiKeys]);
+
+  // Save prompt history when it changes (skip empty initial state)
+  useEffect(() => {
+    if (promptHistory.length > 0) {
+      emit<SavePromptHistoryHandler>("save-prompt-history", { history: promptHistory });
+    }
+  }, [promptHistory]);
 
   const handleModelChange = useCallback(
     (modelId: string, providerId: ProviderId) => {
