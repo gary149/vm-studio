@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>VM Studio - AI Image Generator for Figma | 5 Models, Up to 4K</title>
+    <meta name="description" content="Generate AI images directly in Figma with 5 AI models including FLUX, Nano Banana Pro & GPT-Image 1.5. Text-to-image, image-to-image, batch generation up to 4K.">
+    <meta name="keywords" content="AI image generator Figma plugin, Figma AI image generation, FLUX Figma plugin, text to image Figma, fal.ai Figma, GPT-Image Figma, Nano Banana Pro">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://vm-studio.app/">
+
+    <!-- Open Graph / Social -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="VM Studio - AI Image Generator for Figma">
+    <meta property="og:description" content="Generate AI images directly in Figma with 5 AI models. Text-to-image, image-to-image, batch generation up to 4K.">
+    <meta property="og:image" content="assets/og-image.png">
+    <meta property="og:url" content="https://vm-studio.app/">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="VM Studio - AI Image Generator for Figma">
+    <meta name="twitter:description" content="5 AI models, 4 providers, up to 4K resolution. All in Figma.">
+    <meta name="twitter:image" content="assets/og-image.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+
+    <!-- Fonts & Tailwind -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+            },
+            colors: {
+              neutral: {
+                850: '#1f1f1f',
+                950: '#0a0a0a',
+              }
+            },
+            backgroundImage: {
+              'grid-pattern': "linear-gradient(to right, #262626 1px, transparent 1px), linear-gradient(to bottom, #262626 1px, transparent 1px)",
+            }
+          },
+        },
+      }
+    </script>
+    <style>
+      body {
+        background-color: #000;
+        color: #fff;
+        font-family: 'Inter', sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+      ::-webkit-scrollbar { width: 8px; }
+      ::-webkit-scrollbar-track { background: #000; }
+      ::-webkit-scrollbar-thumb { background: #333; border-radius: 0; }
+      ::-webkit-scrollbar-thumb:hover { background: #555; }
+      .grid-bg {
+        background-size: 40px 40px;
+        mask-image: linear-gradient(to bottom, transparent, 10%, black, 90%, transparent);
+        -webkit-mask-image: linear-gradient(to bottom, transparent, 10%, black, 90%, transparent);
+      }
+      .faq-item[open] summary svg { transform: rotate(180deg); }
+      .faq-item summary::-webkit-details-marker { display: none; }
+    </style>
+
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "VM Studio - AI Image Generator for Figma",
+        "description": "Generate AI images directly in Figma with 5 AI models including FLUX, Nano Banana Pro, and GPT-Image 1.5. Supports text-to-image, image-to-image, and batch generation up to 4K resolution.",
+        "applicationCategory": "DesignApplication",
+        "operatingSystem": "Web",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD",
+            "description": "Free plugin with BYOK (Bring Your Own Key) pricing model"
+        },
+        "featureList": ["Text-to-image generation", "Image-to-image transformation", "Batch image generation", "Up to 4K resolution output", "10 aspect ratios", "5 AI models", "4 AI providers"],
+        "softwareRequirements": "Figma desktop or web application",
+        "downloadUrl": "https://www.figma.com/community/plugin/1588675833256652136"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {"@type": "Question", "name": "What AI models does VM Studio support?", "acceptedAnswer": {"@type": "Answer", "text": "VM Studio supports 5 AI models: Nano Banana Pro, Z-Image Turbo, Seedream v4, FLUX.2 Turbo, and GPT-Image 1.5."}},
+            {"@type": "Question", "name": "Do I need to pay for VM Studio?", "acceptedAnswer": {"@type": "Answer", "text": "The plugin is free to install. VM Studio uses a BYOK (Bring Your Own Key) model."}},
+            {"@type": "Question", "name": "What is the maximum resolution?", "acceptedAnswer": {"@type": "Answer", "text": "VM Studio supports image generation up to 4K resolution."}},
+            {"@type": "Question", "name": "Can I generate multiple images at once?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, VM Studio supports batch image generation with smart grid placement."}}
+        ]
+    }
+    </script>
+</head>
+<body>
+    <div class="min-h-screen bg-black text-white selection:bg-white selection:text-black overflow-x-hidden">
+        <!-- Grid Background -->
+        <div class="fixed inset-0 z-0 pointer-events-none opacity-20 grid-bg bg-grid-pattern h-full w-full"></div>
+
+        <div class="relative z-10 flex flex-col items-center w-full">
+            <!-- Header -->
+            <header class="sticky top-0 z-50 w-full border-b border-white/10 bg-black/80 backdrop-blur-md">
+                <div class="max-w-7xl mx-auto px-4 md:px-6 h-16 flex items-center justify-between">
+                    <a href="/" class="flex items-center gap-2 group">
+                        <div class="p-1 bg-white text-black rounded-sm group-hover:rotate-180 transition-transform duration-500">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6v12a3 3 0 1 0 3-3H6a3 3 0 1 0 3 3V6a3 3 0 1 0-3 3h12a3 3 0 1 0-3-3"></path></svg>
+                        </div>
+                        <span class="font-bold tracking-tight text-lg">VM Studio</span>
+                    </a>
+                    <nav class="flex items-center gap-4">
+                        <a href="#how-it-works" class="text-sm text-neutral-400 hover:text-white transition-colors hidden sm:block">How it works</a>
+                        <a href="#models" class="text-sm text-neutral-400 hover:text-white transition-colors hidden sm:block">Models</a>
+                        <a href="https://www.figma.com/community/plugin/1588675833256652136" class="inline-flex items-center justify-center font-medium bg-white text-black border border-white hover:bg-neutral-200 h-8 px-4 text-xs transition-all duration-300 active:scale-95" target="_blank" rel="noopener">Add to Figma</a>
+                    </nav>
+                </div>
+            </header>
+
+            <main class="w-full flex flex-col items-center">
+                <!-- Hero Section -->
+                <section class="w-full max-w-7xl mx-auto px-4 md:px-6 py-20 md:py-32 flex flex-col items-center text-center relative">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 text-xs font-medium text-neutral-300 mb-8">
+                        <span class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
+                        v1.0 Now Available
+                    </div>
+
+                    <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter leading-tight max-w-4xl mb-6 text-balance">
+                        AI image generation <br class="hidden md:block">
+                        <span class="text-transparent bg-clip-text bg-gradient-to-b from-white to-neutral-500">for the creative mind</span>
+                    </h1>
+
+                    <p class="text-lg md:text-xl text-neutral-400 max-w-2xl mb-10 leading-relaxed text-balance">
+                        The fastest AI models built for creative workflows. FLUX, Nano Banana Pro & GPT-Image 1.5. Text-to-image, image-to-image, batch generation up to 4K.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row items-center gap-4 mb-16">
+                        <a href="https://www.figma.com/community/plugin/1588675833256652136" class="inline-flex items-center justify-center font-medium bg-white text-black border border-white hover:bg-neutral-200 h-12 px-8 text-base transition-all duration-300 active:scale-95 group w-full sm:w-auto" target="_blank" rel="noopener">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M5 5.5A3.5 3.5 0 0 1 8.5 2H12v7H8.5A3.5 3.5 0 0 1 5 5.5z"></path><path d="M12 2h3.5a3.5 3.5 0 1 1 0 7H12V2z"></path><path d="M12 12.5a3.5 3.5 0 1 1 7 0 3.5 3.5 0 1 1-7 0z"></path><path d="M5 19.5A3.5 3.5 0 0 1 8.5 16H12v3.5a3.5 3.5 0 1 1-7 0z"></path><path d="M5 12.5A3.5 3.5 0 0 1 8.5 9H12v7H8.5A3.5 3.5 0 0 1 5 12.5z"></path></svg>
+                            Add to Figma
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2 group-hover:translate-x-1 transition-transform"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                        </a>
+                        <div class="text-xs text-neutral-500 font-mono mt-2 sm:mt-0">• Bring your own API key</div>
+                    </div>
+
+                    <!-- Hero Video -->
+                    <div class="relative w-full max-w-5xl group cursor-pointer" id="hero-video-container" onclick="openVideoFullscreen()">
+                        <div class="absolute -inset-1 bg-gradient-to-r from-neutral-800 to-neutral-900 rounded-lg blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
+                        <div class="relative border border-white/10 bg-neutral-900/50 rounded-lg overflow-hidden shadow-2xl">
+                            <video id="hero-video" class="w-full aspect-video object-cover" poster="assets/hero-poster.jpg" muted loop playsinline preload="metadata">
+                                <source src="assets/hero-demo.mp4" type="video/mp4">
+                            </video>
+                            <!-- Play Button Overlay -->
+                            <div id="play-overlay" class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/20 transition-colors duration-300">
+                                <div class="w-20 h-20 md:w-24 md:h-24 rounded-full bg-white/90 group-hover:bg-white group-hover:scale-110 transition-all duration-300 flex items-center justify-center shadow-2xl">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="black" class="ml-1"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <script>
+                        function openVideoFullscreen() {
+                            const video = document.getElementById('hero-video');
+                            video.muted = false;
+                            video.currentTime = 0;
+                            if (video.requestFullscreen) {
+                                video.requestFullscreen();
+                            } else if (video.webkitRequestFullscreen) {
+                                video.webkitRequestFullscreen();
+                            } else if (video.webkitEnterFullscreen) {
+                                video.webkitEnterFullscreen();
+                            }
+                            video.play();
+                        }
+                        document.addEventListener('fullscreenchange', handleFullscreenChange);
+                        document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
+                        function handleFullscreenChange() {
+                            const video = document.getElementById('hero-video');
+                            if (!document.fullscreenElement && !document.webkitFullscreenElement) {
+                                video.pause();
+                                video.muted = true;
+                            }
+                        }
+                    </script>
+                </section>
+
+                <!-- Features Section -->
+                <section id="features" class="w-full border-t border-white/10 bg-neutral-950">
+                    <div class="max-w-7xl mx-auto px-4 md:px-6 py-24">
+                        <div class="mb-16">
+                            <h2 class="text-3xl font-bold tracking-tight mb-4 text-balance">Built for Rapid <br> Creative Iteration</h2>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                            <div class="group p-6 border border-white/10 bg-black hover:border-white/30 transition-colors duration-300">
+                                <div class="mb-6 inline-flex items-center justify-center w-12 h-12 rounded bg-white/5 text-white group-hover:bg-white group-hover:text-black transition-colors duration-300">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16"></path><path d="M4 7V5a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v2"></path><path d="M9 20h6"></path></svg>
+                                </div>
+                                <h3 class="text-lg font-semibold mb-3">Text-to-Image</h3>
+                                <p class="text-sm text-neutral-400 leading-relaxed group-hover:text-neutral-300 transition-colors">Describe what you want and generate images instantly from text prompts.</p>
+                            </div>
+                            <div class="group p-6 border border-white/10 bg-black hover:border-white/30 transition-colors duration-300">
+                                <div class="mb-6 inline-flex items-center justify-center w-12 h-12 rounded bg-white/5 text-white group-hover:bg-white group-hover:text-black transition-colors duration-300">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect><circle cx="9" cy="9" r="2"></circle><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"></path></svg>
+                                </div>
+                                <h3 class="text-lg font-semibold mb-3">Image-to-Image</h3>
+                                <p class="text-sm text-neutral-400 leading-relaxed group-hover:text-neutral-300 transition-colors">Transform existing images with AI. Refine, restyle, or completely reimagine.</p>
+                            </div>
+                            <div class="group p-6 border border-white/10 bg-black hover:border-white/30 transition-colors duration-300">
+                                <div class="mb-6 inline-flex items-center justify-center w-12 h-12 rounded bg-white/5 text-white group-hover:bg-white group-hover:text-black transition-colors duration-300">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"></path><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"></path><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"></path></svg>
+                                </div>
+                                <h3 class="text-lg font-semibold mb-3">Batch Generation</h3>
+                                <p class="text-sm text-neutral-400 leading-relaxed group-hover:text-neutral-300 transition-colors">Create multiple variations at once with smart grid placement on your canvas.</p>
+                            </div>
+                            <div class="group p-6 border border-white/10 bg-black hover:border-white/30 transition-colors duration-300">
+                                <div class="mb-6 inline-flex items-center justify-center w-12 h-12 rounded bg-white/5 text-white group-hover:bg-white group-hover:text-black transition-colors duration-300">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="3" rx="2"></rect><line x1="8" x2="16" y1="21" y2="21"></line><line x1="12" x2="12" y1="17" y2="21"></line></svg>
+                                </div>
+                                <h3 class="text-lg font-semibold mb-3">Up to 4K Resolution</h3>
+                                <p class="text-sm text-neutral-400 leading-relaxed group-hover:text-neutral-300 transition-colors">Generate high-resolution images at 1K, 2K, or 4K for any project size.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Models Section -->
+                <section id="models" class="w-full border-t border-white/10 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-white/5 to-transparent pointer-events-none"></div>
+                    <div class="max-w-7xl mx-auto px-4 md:px-6 py-24">
+                        <div class="mb-12">
+                            <h2 class="text-3xl font-bold tracking-tight mb-4 text-balance">Choose Your AI Model</h2>
+                            <p class="text-neutral-400">Always up to date with the latest AI advancements. Bring your own API key.</p>
+                        </div>
+                        <div class="grid gap-4">
+                            <!-- Header row -->
+                            <div class="hidden md:grid md:grid-cols-[2fr_3fr_1fr] gap-4 px-6 text-xs text-neutral-600 uppercase tracking-wider">
+                                <span>Model</span>
+                                <span>Description</span>
+                                <span class="text-right">Provider</span>
+                            </div>
+                            <!-- Nano Banana Pro -->
+                            <div class="grid md:grid-cols-[2fr_3fr_1fr] gap-4 p-6 border border-white/10 hover:bg-white/5 transition-colors duration-300 items-center">
+                                <div class="flex items-center gap-3">
+                                    <svg viewBox="0 0 65 65" class="w-6 h-6 flex-shrink-0"><defs><linearGradient id="gemini-grad" x1="18" y1="43" x2="52" y2="15" gradientUnits="userSpaceOnUse"><stop stop-color="#4893FC"/><stop offset=".5" stop-color="#969DFF"/><stop offset="1" stop-color="#BD99FE"/></linearGradient></defs><path fill="url(#gemini-grad)" d="M32.447 0c.68 0 1.273.465 1.439 1.125a38.904 38.904 0 001.999 5.905c2.152 5 5.105 9.376 8.854 13.125 3.751 3.75 8.126 6.703 13.125 8.855a38.98 38.98 0 005.906 1.999c.66.166 1.124.758 1.124 1.438 0 .68-.464 1.273-1.125 1.439a38.902 38.902 0 00-5.905 1.999c-5 2.152-9.375 5.105-13.125 8.854-3.749 3.751-6.702 8.126-8.854 13.125a38.973 38.973 0 00-2 5.906 1.485 1.485 0 01-1.438 1.124c-.68 0-1.272-.464-1.438-1.125a38.913 38.913 0 00-2-5.905c-2.151-5-5.103-9.375-8.854-13.125-3.75-3.749-8.125-6.702-13.125-8.854a38.973 38.973 0 00-5.905-2A1.485 1.485 0 010 32.448c0-.68.465-1.272 1.125-1.438a38.903 38.903 0 005.905-2c5-2.151 9.376-5.104 13.125-8.854 3.75-3.749 6.703-8.125 8.855-13.125a38.972 38.972 0 001.999-5.905A1.485 1.485 0 0132.447 0z"/></svg>
+                                    <h3 class="font-mono font-medium">Nano Banana Pro</h3>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-neutral-500" title="Text-to-Image"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-neutral-500" title="Image-to-Image"><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/></svg>
+                                </div>
+                                <p class="text-sm text-neutral-500">Google's reasoning-powered AI with flawless text rendering and 4K output.</p>
+                                <div class="flex flex-wrap gap-x-3 gap-y-1 justify-end text-sm">
+                                    <a href="https://fal.ai/dashboard/keys" target="_blank" rel="noopener" class="text-neutral-400 hover:text-white transition-colors">fal.ai</a>
+                                    <a href="https://openrouter.ai/keys" target="_blank" rel="noopener" class="text-neutral-400 hover:text-white transition-colors">OpenRouter</a>
+                                    <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener" class="text-neutral-400 hover:text-white transition-colors">Google AI Studio</a>
+                                </div>
+                            </div>
+                            <!-- FLUX.2 Turbo -->
+                            <div class="grid md:grid-cols-[2fr_3fr_1fr] gap-4 p-6 border border-white/10 hover:bg-white/5 transition-colors duration-300 items-center">
+                                <div class="flex items-center gap-3">
+                                    <svg viewBox="0 0 24 24" class="w-6 h-6 flex-shrink-0" fill="currentColor"><path d="M0 20.683L12.01 2.5 24 20.683h-2.233L12.009 5.878 3.471 18.806h12.122l1.239 1.877H0z"/><path d="M8.069 16.724l2.073-3.115 2.074 3.115H8.069zM18.24 20.683l-5.668-8.707h2.177l5.686 8.707h-2.196zM19.74 11.676l2.13-3.19 2.13 3.19h-4.26z"/></svg>
+                                    <h3 class="font-mono font-medium">FLUX.2 Turbo</h3>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-neutral-500" title="Text-to-Image"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-neutral-500" title="Image-to-Image"><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/></svg>
+                                </div>
+                                <p class="text-sm text-neutral-500">Photorealistic 4MP images in seconds with fabric-to-architecture detail.</p>
+                                <a href="https://fal.ai/dashboard/keys" target="_blank" rel="noopener" class="text-sm text-neutral-400 hover:text-white transition-colors text-right">fal.ai</a>
+                            </div>
+                            <!-- GPT-Image 1.5 -->
+                            <div class="grid md:grid-cols-[2fr_3fr_1fr] gap-4 p-6 border border-white/10 hover:bg-white/5 transition-colors duration-300 items-center">
+                                <div class="flex items-center gap-3">
+                                    <svg viewBox="0 0 24 24" class="w-6 h-6 flex-shrink-0" fill="currentColor"><path d="M22.282 9.821a5.985 5.985 0 0 0-.516-4.91 6.046 6.046 0 0 0-6.51-2.9A6.065 6.065 0 0 0 4.981 4.18a5.985 5.985 0 0 0-3.998 2.9 6.046 6.046 0 0 0 .743 7.097 5.98 5.98 0 0 0 .51 4.911 6.051 6.051 0 0 0 6.515 2.9A5.985 5.985 0 0 0 13.26 24a6.056 6.056 0 0 0 5.772-4.206 5.99 5.99 0 0 0 3.997-2.9 6.056 6.056 0 0 0-.747-7.073zM13.26 22.43a4.476 4.476 0 0 1-2.876-1.04l.141-.081 4.779-2.758a.795.795 0 0 0 .392-.681v-6.737l2.02 1.168a.071.071 0 0 1 .038.052v5.583a4.504 4.504 0 0 1-4.494 4.494zM3.6 18.304a4.47 4.47 0 0 1-.535-3.014l.142.085 4.783 2.759a.771.771 0 0 0 .78 0l5.843-3.369v2.332a.08.08 0 0 1-.033.062L9.74 19.95a4.5 4.5 0 0 1-6.14-1.646zM2.34 7.896a4.485 4.485 0 0 1 2.366-1.973V11.6a.766.766 0 0 0 .388.676l5.815 3.355-2.02 1.168a.076.076 0 0 1-.071 0l-4.83-2.786A4.504 4.504 0 0 1 2.34 7.872zm16.597 3.855l-5.833-3.387L15.119 7.2a.076.076 0 0 1 .071 0l4.83 2.791a4.494 4.494 0 0 1-.676 8.105v-5.678a.79.79 0 0 0-.407-.667zm2.01-3.023l-.141-.085-4.774-2.782a.776.776 0 0 0-.785 0L9.409 9.23V6.897a.066.066 0 0 1 .028-.061l4.83-2.787a4.5 4.5 0 0 1 6.68 4.66zm-12.64 4.135l-2.02-1.164a.08.08 0 0 1-.038-.057V6.075a4.5 4.5 0 0 1 7.375-3.453l-.142.08L8.704 5.46a.795.795 0 0 0-.393.681zm1.097-2.365l2.602-1.5 2.607 1.5v2.999l-2.597 1.5-2.607-1.5z"/></svg>
+                                    <h3 class="font-mono font-medium">GPT-Image 1.5</h3>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-neutral-500" title="Text-to-Image"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-neutral-500" title="Image-to-Image"><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/></svg>
+                                </div>
+                                <p class="text-sm text-neutral-500">Pixel-perfect text rendering with precise edits and 4x faster generation.</p>
+                                <div class="flex flex-wrap gap-x-3 gap-y-1 justify-end text-sm">
+                                    <a href="https://fal.ai/dashboard/keys" target="_blank" rel="noopener" class="text-neutral-400 hover:text-white transition-colors">fal.ai</a>
+                                    <a href="https://platform.openai.com/api-keys" target="_blank" rel="noopener" class="text-neutral-400 hover:text-white transition-colors">OpenAI</a>
+                                </div>
+                            </div>
+                            <!-- Seedream v4 -->
+                            <div class="grid md:grid-cols-[2fr_3fr_1fr] gap-4 p-6 border border-white/10 hover:bg-white/5 transition-colors duration-300 items-center">
+                                <div class="flex items-center gap-3">
+                                    <svg viewBox="0 0 24 24" class="w-6 h-6 flex-shrink-0" fill="currentColor"><path d="M14.944 18.587l-1.704-.445V10.01l1.824-.462c1-.254 1.84-.461 1.88-.453.032 0 .056 2.235.056 4.972v4.973l-.176-.008c-.104 0-.952-.207-1.88-.446z"/><path d="M7 16.542c0-2.736.024-4.98.064-4.98.032-.008.872.2 1.88.454l1.816.461-.016 4.05-.024 4.049-1.632.422c-.896.23-1.736.445-1.856.469L7 21.523v-4.98z"/><path d="M19.24 12.477c0-9.03.008-9.515.144-9.475.072.024.784.207 1.576.406.792.207 1.576.405 1.744.445l.296.08-.016 8.56-.024 8.568-1.624.414c-.888.23-1.728.437-1.856.47l-.24.055v-9.523z"/><path d="M1 12.509c0-4.678.024-8.505.064-8.505.032 0 .872.207 1.872.454l1.824.461v7.582c0 4.16-.016 7.574-.032 7.574-.024 0-.872.215-1.88.47L1 21.013v-8.505z"/></svg>
+                                    <h3 class="font-mono font-medium">Seedream v4</h3>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-neutral-500" title="Text-to-Image"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-neutral-500" title="Image-to-Image"><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/></svg>
+                                </div>
+                                <p class="text-sm text-neutral-500">Cinematic 4K imagery with exceptional text rendering and style consistency.</p>
+                                <a href="https://fal.ai/dashboard/keys" target="_blank" rel="noopener" class="text-sm text-neutral-400 hover:text-white transition-colors text-right">fal.ai</a>
+                            </div>
+                            <!-- Z-Image Turbo -->
+                            <div class="grid md:grid-cols-[2fr_3fr_1fr] gap-4 p-6 border border-white/10 hover:bg-white/5 transition-colors duration-300 items-center">
+                                <div class="flex items-center gap-3">
+                                    <svg viewBox="0 0 24 24" class="w-6 h-6 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="4"/><path d="M14 5L8 12h3l-1 7 6-8h-3l1-6z" fill="currentColor" stroke="none"/></svg>
+                                    <h3 class="font-mono font-medium">Z-Image Turbo</h3>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-neutral-500" title="Text-to-Image"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg>
+                                </div>
+                                <p class="text-sm text-neutral-500">Lightning-fast 8-step generation with flagship quality output.</p>
+                                <a href="https://fal.ai/dashboard/keys" target="_blank" rel="noopener" class="text-sm text-neutral-400 hover:text-white transition-colors text-right">fal.ai</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- How It Works Section -->
+                <section id="how-it-works" class="w-full border-t border-white/10">
+                    <div class="max-w-7xl mx-auto px-4 md:px-6 py-24">
+                        <h2 class="text-3xl font-bold tracking-tight mb-16 text-balance">How It Works</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-0">
+                            <div class="relative p-8 border-l border-white/10 md:border-b-0 md:border-r border-b first:border-t md:first:border-t-0 last:border-b-0 hover:bg-white/5 transition-colors duration-500 group">
+                                <div class="text-6xl font-black text-neutral-800 mb-8 group-hover:text-neutral-700 transition-colors select-none">01</div>
+                                <h3 class="text-xl font-bold mb-3">Install the Plugin</h3>
+                                <p class="text-neutral-400">Get VM Studio free from the Figma Community.</p>
+                            </div>
+                            <div class="relative p-8 border-l border-white/10 md:border-b-0 md:border-r border-b first:border-t md:first:border-t-0 last:border-b-0 hover:bg-white/5 transition-colors duration-500 group">
+                                <div class="text-6xl font-black text-neutral-800 mb-8 group-hover:text-neutral-700 transition-colors select-none">02</div>
+                                <h3 class="text-xl font-bold mb-3">Add Your API Key</h3>
+                                <p class="text-neutral-400">Enter your key from any supported provider.</p>
+                            </div>
+                            <div class="relative p-8 border-l border-white/10 md:border-b-0 md:border-r border-b first:border-t md:first:border-t-0 last:border-b-0 hover:bg-white/5 transition-colors duration-500 group">
+                                <div class="text-6xl font-black text-neutral-800 mb-8 group-hover:text-neutral-700 transition-colors select-none">03</div>
+                                <h3 class="text-xl font-bold mb-3">Generate Images</h3>
+                                <p class="text-neutral-400">Write a prompt and create images directly on your canvas.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Specs Section -->
+                <section class="w-full border-y border-white/10 bg-white text-black">
+                    <div class="max-w-7xl mx-auto px-4 md:px-6 py-16">
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+                            <div class="flex flex-col items-center justify-center text-center">
+                                <span class="text-4xl md:text-5xl font-black tracking-tighter mb-2">5</span>
+                                <span class="text-sm font-medium uppercase tracking-widest text-neutral-500">AI Models</span>
+                            </div>
+                            <div class="flex flex-col items-center justify-center text-center">
+                                <span class="text-4xl md:text-5xl font-black tracking-tighter mb-2">4</span>
+                                <span class="text-sm font-medium uppercase tracking-widest text-neutral-500">Providers</span>
+                            </div>
+                            <div class="flex flex-col items-center justify-center text-center">
+                                <span class="text-4xl md:text-5xl font-black tracking-tighter mb-2">4K</span>
+                                <span class="text-sm font-medium uppercase tracking-widest text-neutral-500">Max Resolution</span>
+                            </div>
+                            <div class="flex flex-col items-center justify-center text-center">
+                                <span class="text-4xl md:text-5xl font-black tracking-tighter mb-2">10</span>
+                                <span class="text-sm font-medium uppercase tracking-widest text-neutral-500">Aspect Ratios</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- FAQ Section -->
+                <section id="faq" class="w-full">
+                    <div class="max-w-3xl mx-auto px-4 md:px-6 py-24">
+                        <h2 class="text-3xl font-bold tracking-tight mb-12 text-center text-balance">Frequently Asked Questions</h2>
+                        <div class="bg-neutral-900/30 border border-white/5 p-6 md:p-8 rounded-2xl">
+                            <details class="faq-item border-b border-white/10 last:border-0">
+                                <summary class="w-full flex items-center justify-between py-6 text-left cursor-pointer group">
+                                    <span class="text-lg font-medium group-hover:text-neutral-300 transition-colors">What AI models does VM Studio support?</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-neutral-500 transition-transform duration-300"><path d="m6 9 6 6 6-6"></path></svg>
+                                </summary>
+                                <p class="text-neutral-400 leading-relaxed pr-8 pb-6">VM Studio supports 5 AI models: Nano Banana Pro, Z-Image Turbo, Seedream v4, FLUX.2 Turbo, and GPT-Image 1.5. Each model has unique strengths for different creative needs.</p>
+                            </details>
+                            <details class="faq-item border-b border-white/10 last:border-0">
+                                <summary class="w-full flex items-center justify-between py-6 text-left cursor-pointer group">
+                                    <span class="text-lg font-medium group-hover:text-neutral-300 transition-colors">Do I need to pay for VM Studio?</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-neutral-500 transition-transform duration-300"><path d="m6 9 6 6 6-6"></path></svg>
+                                </summary>
+                                <p class="text-neutral-400 leading-relaxed pr-8 pb-6">The plugin is free to install. VM Studio uses a BYOK (Bring Your Own Key) model. You use your own API keys from providers like fal.ai, OpenAI, Google AI Studio, or OpenRouter and pay directly to them based on usage.</p>
+                            </details>
+                            <details class="faq-item border-b border-white/10 last:border-0">
+                                <summary class="w-full flex items-center justify-between py-6 text-left cursor-pointer group">
+                                    <span class="text-lg font-medium group-hover:text-neutral-300 transition-colors">What is the maximum resolution for generated images?</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-neutral-500 transition-transform duration-300"><path d="m6 9 6 6 6-6"></path></svg>
+                                </summary>
+                                <p class="text-neutral-400 leading-relaxed pr-8 pb-6">VM Studio supports image generation up to 4K resolution, depending on the AI model selected. You can choose between 1K, 2K, and 4K outputs.</p>
+                            </details>
+                            <details class="faq-item border-b border-white/10 last:border-0">
+                                <summary class="w-full flex items-center justify-between py-6 text-left cursor-pointer group">
+                                    <span class="text-lg font-medium group-hover:text-neutral-300 transition-colors">Can I generate multiple images at once?</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-neutral-500 transition-transform duration-300"><path d="m6 9 6 6 6-6"></path></svg>
+                                </summary>
+                                <p class="text-neutral-400 leading-relaxed pr-8 pb-6">Yes, VM Studio supports batch image generation, allowing you to create multiple image variations simultaneously with smart grid placement on your Figma canvas.</p>
+                            </details>
+                            <details class="faq-item border-b border-white/10 last:border-0">
+                                <summary class="w-full flex items-center justify-between py-6 text-left cursor-pointer group">
+                                    <span class="text-lg font-medium group-hover:text-neutral-300 transition-colors">Does it support image-to-image generation?</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-neutral-500 transition-transform duration-300"><path d="m6 9 6 6 6-6"></path></svg>
+                                </summary>
+                                <p class="text-neutral-400 leading-relaxed pr-8 pb-6">Yes, you can select existing images in Figma and use them as a reference for AI-powered transformations, style transfers, and refinements.</p>
+                            </details>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- CTA Section -->
+                <section class="w-full border-t border-white/10 bg-neutral-950">
+                    <div class="max-w-4xl mx-auto px-4 md:px-6 py-32 text-center">
+                        <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-6 text-balance">Get Started in Seconds</h2>
+                        <p class="text-xl text-neutral-400 mb-10 max-w-2xl mx-auto text-balance">Install VM Studio and start generating AI images in Figma today.</p>
+                        <a href="https://www.figma.com/community/plugin/1588675833256652136" class="inline-flex items-center justify-center font-medium bg-white text-black border border-white hover:bg-neutral-200 h-14 px-10 text-lg transition-all duration-300 active:scale-95 group" target="_blank" rel="noopener">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M5 5.5A3.5 3.5 0 0 1 8.5 2H12v7H8.5A3.5 3.5 0 0 1 5 5.5z"></path><path d="M12 2h3.5a3.5 3.5 0 1 1 0 7H12V2z"></path><path d="M12 12.5a3.5 3.5 0 1 1 7 0 3.5 3.5 0 1 1-7 0z"></path><path d="M5 19.5A3.5 3.5 0 0 1 8.5 16H12v3.5a3.5 3.5 0 1 1-7 0z"></path><path d="M5 12.5A3.5 3.5 0 0 1 8.5 9H12v7H8.5A3.5 3.5 0 0 1 5 12.5z"></path></svg>
+                            Add to Figma
+                        </a>
+                    </div>
+                </section>
+            </main>
+
+            <!-- Footer -->
+            <footer class="w-full border-t border-white/10 bg-black py-12">
+                <div class="max-w-7xl mx-auto px-4 md:px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+                    <div class="flex items-center gap-2">
+                        <div class="p-1 bg-white text-black rounded-sm">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6v12a3 3 0 1 0 3-3H6a3 3 0 1 0 3 3V6a3 3 0 1 0-3 3h12a3 3 0 1 0-3-3"></path></svg>
+                        </div>
+                        <span class="font-bold text-sm">VM Studio</span>
+                    </div>
+                    <div class="flex items-center gap-8">
+                        <a href="https://www.figma.com/community/plugin/1588675833256652136" target="_blank" rel="noopener" class="text-sm text-neutral-500 hover:text-white transition-colors">Figma Community</a>
+                        <a href="https://github.com/user/vm-studio" target="_blank" rel="noopener" class="text-sm text-neutral-500 hover:text-white transition-colors flex items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
+                            GitHub
+                        </a>
+                    </div>
+                    <p class="text-xs text-neutral-600">MIT License</p>
+                </div>
+            </footer>
+        </div>
+    </div>
+</body>
+</html>
