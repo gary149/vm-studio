@@ -5,24 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- SEO Meta Tags -->
-    <title>VM Studio - AI Image Generator for Figma | 5 Models, Up to 4K</title>
-    <meta name="description" content="Generate AI images directly in Figma with 5 AI models including FLUX, Nano Banana Pro & GPT-Image 1.5. Text-to-image, image-to-image, batch generation up to 4K.">
-    <meta name="keywords" content="AI image generator Figma plugin, Figma AI image generation, FLUX Figma plugin, text to image Figma, fal.ai Figma, GPT-Image Figma, Nano Banana Pro">
+    <title>AI Image Generator for Figma Plugin (FLUX + GPT Image, 4K) | VM Studio</title>
+    <meta name="description" content="Free Figma plugin for AI image generation. Text-to-image, image-to-image, batch variations, up to 4K. Use your own API keys (fal.ai, OpenAI, Google AI Studio, OpenRouter).">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://vm-studio.app/">
+    <link rel="canonical" href="https://vmstudio.ai/">
 
     <!-- Open Graph / Social -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="VM Studio - AI Image Generator for Figma">
-    <meta property="og:description" content="Generate AI images directly in Figma with 5 AI models. Text-to-image, image-to-image, batch generation up to 4K.">
-    <meta property="og:image" content="assets/vm-studio.png">
-    <meta property="og:url" content="https://vm-studio.app/">
+    <meta property="og:title" content="AI Image Generator for Figma Plugin | VM Studio">
+    <meta property="og:description" content="Free Figma plugin for AI image generation. Text-to-image, image-to-image, batch variations, up to 4K. Use your own API keys.">
+    <meta property="og:image" content="https://vmstudio.ai/assets/vm-studio.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="VM Studio - AI Image Generator for Figma">
+    <meta property="og:url" content="https://vmstudio.ai/">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="VM Studio - AI Image Generator for Figma">
-    <meta name="twitter:description" content="5 AI models, 4 providers, up to 4K resolution. All in Figma.">
-    <meta name="twitter:image" content="assets/vm-studio.png">
+    <meta name="twitter:title" content="AI Image Generator for Figma Plugin | VM Studio">
+    <meta name="twitter:description" content="Free plugin. 5 AI models, 4 providers, up to 4K. Use your own API keys.">
+    <meta name="twitter:image" content="https://vmstudio.ai/assets/vm-studio.png">
+    <meta name="twitter:image:alt" content="VM Studio - AI Image Generator for Figma">
 
     <!-- Favicon & Touch Icons -->
     <link rel="icon" type="image/png" href="assets/favicon.png">
@@ -30,6 +33,8 @@
     <link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png">
 
     <!-- Fonts & Tailwind -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -81,7 +86,10 @@
         "name": "VM Studio - AI Image Generator for Figma",
         "description": "Generate AI images directly in Figma with 5 AI models including FLUX, Nano Banana Pro, and GPT-Image 1.5. Supports text-to-image, image-to-image, and batch generation up to 4K resolution.",
         "applicationCategory": "DesignApplication",
+        "applicationSubCategory": "Figma Plugin",
         "operatingSystem": "Web",
+        "softwareVersion": "1.0",
+        "isAccessibleForFree": true,
         "offers": {
             "@type": "Offer",
             "price": "0",
@@ -90,7 +98,8 @@
         },
         "featureList": ["Text-to-image generation", "Image-to-image transformation", "Batch image generation", "Up to 4K resolution output", "10 aspect ratios", "5 AI models", "4 AI providers"],
         "softwareRequirements": "Figma desktop or web application",
-        "downloadUrl": "https://www.figma.com/community/plugin/1588675833256652136"
+        "downloadUrl": "https://www.figma.com/community/plugin/1588675833256652136",
+        "screenshot": "https://vmstudio.ai/assets/hero-poster.jpg"
     }
     </script>
     <script type="application/ld+json">
@@ -134,7 +143,7 @@
                         AI image creation deserves<br>a better workflow.
                     </h1>
                     <p class="text-lg md:text-xl text-neutral-400 mb-8 max-w-2xl mx-auto leading-relaxed">
-                        Use <span class="px-2 py-0.5 bg-white/10 rounded text-white font-mono text-base">FLUX</span> <span class="px-2 py-0.5 bg-white/10 rounded text-white font-mono text-base">GPT-Image</span> <span class="px-2 py-0.5 bg-white/10 rounded text-white font-mono text-base">Nano Banana Pro</span> and more, directly inside Figma in a UX made for AI creation. Up to 4K resolution.
+                        Generate, edit, and batch-create images directly on your Figma canvas using your own API keys. Choose from <span class="px-2 py-0.5 bg-white/10 rounded text-white font-mono text-base">FLUX</span> <span class="px-2 py-0.5 bg-white/10 rounded text-white font-mono text-base">GPT-Image</span> <span class="px-2 py-0.5 bg-white/10 rounded text-white font-mono text-base">Nano Banana Pro</span> and more — up to 4K output.
                     </p>
                     <div class="flex flex-col items-center gap-3 mb-12">
                         <a href="https://www.figma.com/community/plugin/1588675833256652136" class="inline-flex items-center justify-center font-medium bg-white text-black hover:bg-neutral-200 h-12 px-6 text-base rounded-lg transition-all duration-300 active:scale-95 group" target="_blank" rel="noopener">
@@ -142,7 +151,7 @@
                             Add to Figma
                             <span class="ml-2 text-neutral-500 text-sm">v1.0</span>
                         </a>
-                        <span class="text-sm text-neutral-500">Free · Use your own API keys</span>
+                        <span class="text-sm text-neutral-500">Free · Keys stay local · You pay your provider directly</span>
                     </div>
                     <!-- Video -->
                     <div class="relative group cursor-pointer max-w-4xl mx-auto" id="hero-video-container" onclick="openVideoFullscreen()">
