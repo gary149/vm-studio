@@ -6,7 +6,7 @@ AI image generation plugin for Figma with multiple models and providers.
 
 ## Features
 
-- **5 AI Models**: Nano Banana Pro, Z-Image Turbo, Seedream v4, FLUX.2 Turbo, GPT-Image 1.5
+- **5 AI Models**: Nano Banana Pro, Z-Image Turbo, Seedream v4.5, FLUX.2 Turbo, GPT-Image 1.5
 - **4 Providers**: Fal.ai, Google AI Studio, OpenRouter, OpenAI
 - **Text-to-Image & Image-to-Image**: Generate from prompts or transform existing images
 - **Batch Generation**: Create multiple images at once with smart grid placement
