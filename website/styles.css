@@ -128,7 +128,7 @@ ul {
   width: 40%;
   max-width: 480px;
   min-width: 320px;
-  height: 100vh;
+  height: 100dvh;
   /* Full viewport height */
   position: sticky;
   top: 0;
@@ -139,7 +139,7 @@ ul {
   justify-content: space-between;
   background: var(--bg-body);
   z-index: 10;
-  overflow-y: auto;
+  overflow: hidden;
 }
 
 .header-content {
