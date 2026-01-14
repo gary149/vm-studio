@@ -23,8 +23,8 @@ export const PROVIDERS: Record<ProviderId, ProviderConfig> = {
         supportedImageSizes: ["1K", "2K", "4K"],
       },
       {
-        id: "fal-ai/bytedance/seedream/v4",
-        name: "Seedream v4",
+        id: "fal-ai/bytedance/seedream/v4.5",
+        name: "Seedream v4.5",
         supportsImageGeneration: true,
         supportsImageToImage: true,
         supportedImageSizes: ["1K", "2K", "4K"],
