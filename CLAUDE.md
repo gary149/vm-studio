@@ -38,7 +38,43 @@ Providers are defined in `src/providers/`:
 
 Each provider implements `GeneratorFn`: `(request, onProgress?) => Promise<GenerationResult>`
 
-To add a new provider:
+### Adding a New Model to an Existing Provider
+
+For adding a model to an existing provider (e.g., a new Fal.ai model):
+
+1. **Research the API** - Check the provider's API docs (e.g., https://fal.ai/models/{model-id}/api) for:
+   - Endpoint structure (base path, `/edit` suffix for i2i, `/text-to-image` suffix)
+   - Required/optional parameters (image_size, num_images, output_format, etc.)
+   - Image size format (enum values like `square_hd`, `landscape_4_3` or custom `{width, height}`)
+
+2. **Add model config** in `src/providers/index.ts`:
+   ```typescript
+   {
+     id: "fal-ai/model-name",
+     name: "Display Name",
+     supportsImageGeneration: true,
+     supportsImageToImage: true,  // Check if model has /edit endpoint
+     supportedImageSizes: ["1K"], // Based on API capabilities
+   }
+   ```
+
+3. **Update generator logic** in `src/providers/fal.ts` if the model needs special handling:
+   - The code uses `modelId.includes()` patterns to detect model types:
+     - `isFlux2 = modelId.includes("flux-2")` - FLUX.2 models
+     - `isSeedream = modelId.includes("seedream")` - Seedream models
+     - `isGptImage = modelId.includes("gpt-image")` - GPT-Image models
+     - `isZImage = modelId.includes("z-image")` - Z-Image models
+   - If the new model fits an existing pattern, it works automatically
+   - Otherwise, add a new detection pattern and body construction block
+
+4. **Update website** in `website/index.html`:
+   - Add model row to the models table (copy existing row structure)
+   - Update model count in section header and FAQ
+
+### Adding a New Provider
+
+For adding an entirely new provider:
+
 1. Add to `ProviderId` type in `src/types/index.ts`
 2. Add config to `PROVIDERS` in `src/providers/index.ts`
 3. Create generator in `src/providers/{name}.ts`
@@ -74,4 +110,4 @@ The `website/` directory contains a static landing page for vmstudio.ai:
 - **`styles.css`** - Dark theme CSS with custom properties, responsive breakpoints
 - **`assets/`** - Logo SVG, favicons, hero video (`hero-demo.mp4`), and OG image
 
-The page is pure HTML/CSS/JS with no build step. Includes SEO meta tags, Open Graph, Twitter Cards, and Schema.org structured data.
+The page is pure HTML/CSS/JS with no build step. Do not change the title or meta descriptions when updating.
