@@ -31,11 +31,7 @@ export function ThumbnailStrip({
               style={{ height: `${maxHeight}px`, width: "auto" }}
             />
             {onRemove && (
-              <button
-                class="thumbnail-close"
-                onClick={() => onRemove(img.id)}
-                aria-label="Remove"
-              >
+              <button class="thumbnail-close" aria-label="Remove">
                 ×
               </button>
             )}
