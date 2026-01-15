@@ -18,7 +18,13 @@ export function ThumbnailStrip({
     <div class="thumbnail-strip">
       <div class="thumbnail-strip-images">
         {images.map((img) => (
-          <div key={img.id} class="thumbnail-item" title={img.name}>
+          <div
+            key={img.id}
+            class="thumbnail-item"
+            title={img.name}
+            onClick={onRemove ? () => onRemove(img.id) : undefined}
+            style={{ cursor: onRemove ? "pointer" : undefined }}
+          >
             <img
               src={img.thumbnail}
               alt={img.name}
