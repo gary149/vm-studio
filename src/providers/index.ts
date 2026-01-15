@@ -43,6 +43,13 @@ export const PROVIDERS: Record<ProviderId, ProviderConfig> = {
         supportsImageToImage: true,
         supportedImageSizes: ["1K"],
       },
+      {
+        id: "fal-ai/flux-2/klein/9b",
+        name: "FLUX.2 [klein] 9B",
+        supportsImageGeneration: true,
+        supportsImageToImage: true,
+        supportedImageSizes: ["1K"],
+      },
     ],
   },
   openrouter: {
