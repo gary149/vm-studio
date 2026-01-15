@@ -517,8 +517,8 @@ body {
   transition: background 0.15s;
 }
 
-.thumbnail-close:hover {
-  background: rgba(0, 0, 0, 0.9);
+.thumbnail-item:hover .thumbnail-close {
+  background: rgba(220, 38, 38, 0.9);
 }
 
 /* Image-to-image unsupported warning */
