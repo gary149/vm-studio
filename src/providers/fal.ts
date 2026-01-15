@@ -170,7 +170,8 @@ export async function generateWithFal(
       body.output_format = "png";
       body.sync_mode = true;
     } else if (isFlux2) {
-      // FLUX.2: enum-based sizes with custom dimension fallback
+      // FLUX.2 models: turbo, klein/9b - use enum-based image sizes
+      body.num_images = 1;
       body.image_size = getFlux2ImageSize(aspectRatio || "auto", imageSize || "1K");
       body.output_format = "png";
       body.sync_mode = true;
