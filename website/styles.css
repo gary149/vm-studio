@@ -92,6 +92,26 @@ ul {
   background: #CCCCCC;
 }
 
+.btn-secondary {
+  background: transparent;
+  color: var(--text-tertiary);
+  border: 1px solid var(--border-subtle);
+  cursor: default;
+  opacity: 0.7;
+}
+
+.soon-label {
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  padding: 2px 6px;
+  background: var(--bg-surface-active);
+  border: 1px solid var(--border-strong);
+  border-radius: 4px;
+  margin-left: 4px;
+}
+
 .btn-sm {
   height: 32px;
   padding: 0 16px;
@@ -203,6 +223,9 @@ ul {
 
 .hero-actions {
   margin-bottom: 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .nav-links {
@@ -584,6 +607,19 @@ ul {
   color: var(--text-secondary);
   font-size: 16px;
   margin-bottom: 32px;
+}
+
+.cta-buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cta-buttons .btn-lg {
+  width: auto;
+  max-width: none;
 }
 
 /* Responsive */
