@@ -161,6 +161,8 @@ function createPlaceholder(
   node.y = y;
   node.fills = [{ type: "SOLID", color: { r: 0.9, g: 0.9, b: 0.9 } }];
   node.cornerRadius = 8;
+  // Lock placeholder to prevent user from deleting/moving during generation
+  node.locked = true;
   figma.currentPage.appendChild(node);
   return node;
 }
@@ -257,6 +259,8 @@ async function replacePlaceholder(
 
   placeholder.name = prompt;
   placeholder.cornerRadius = 0;
+  // Unlock the node now that generation is complete
+  placeholder.locked = false;
 }
 
 export default function () {
