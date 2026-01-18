@@ -1,10 +1,10 @@
-# UI/UX Design Use Case Page
+# AI Images for UI/UX Design in Figma
 
 ## Meta Information
 
-**Meta Title:** AI Image Generation for UI/UX Design | VM Studio Figma Plugin
+**Meta Title:** AI Image Generator for UI/UX Design | Figma Plugin | VM Studio
 
-**Meta Description:** Generate placeholder images, mockup assets, and UI illustrations directly in Figma. Stop context-switching. Stay in your design flow with VM Studio.
+**Meta Description:** Generate placeholder images, mockup assets, and UI illustrations directly in Figma. No stock photos. No context switching. Free plugin.
 
 ---
 
@@ -12,168 +12,120 @@
 
 **Badge:** For UI/UX Designers
 
-**Headline:** Stop hunting for stock photos. Start designing.
+**Headline:** Stop hunting stock photos. Start designing.
 
-**Subheadline:** VM Studio generates placeholder images, mockup assets, and UI illustrations directly on your Figma canvas. No more context-switching between design tools and stock photo sites. Stay in your flow.
+**Subheadline:** Generate placeholders, mockups, and illustrations on your Figma canvas. Stay in flow.
 
 **Primary CTA:** Add to Figma - Free
 
 ---
 
-## Pain Points Section
+## The Problem
 
-**Section Header:** The placeholder problem is real.
+You're deep in a design flow. Then you need a hero image.
 
-### The Context Switch Tax
-You are deep in a design flow. Then you need a hero image. Suddenly you are browsing Unsplash, filtering results, downloading files, importing to Figma, resizing. Your creative momentum? Gone.
+Suddenly: browsing Unsplash, filtering, downloading, importing, resizing.
 
-### Stock Photo Limitations
-The perfect image for your mockup does not exist. Every stock photo feels generic, overused, or slightly off-brand. You settle for "close enough."
-
-### Client Presentation Gaps
-Presenting wireframes with grey boxes never lands well. But finding appropriate placeholder content for every screen takes longer than the design work itself.
-
-### Asset Inconsistency
-User avatars from one site, product images from another, illustrations from a third. The visual inconsistency is subtle but noticeable.
+Your momentum? Gone.
 
 ---
 
-## Solution Section
+## The Solution
 
-**Section Header:** Generate exactly what you need. Right where you need it.
+**Stay in Figma**
+Generate without leaving your canvas.
 
-### Stay in Figma
-Generate images without leaving your canvas. Type a prompt, select a size, and your image appears exactly where you want it.
+**Get Exactly What You Need**
+Describe it. Generate it. No "close enough."
 
-### Get Specific Results
-Stop settling for "close enough" stock photos. Describe the exact scene, style, or composition you need. AI generates it in seconds.
+**Keep It Consistent**
+Same prompting style = cohesive visual set.
 
-### Maintain Visual Consistency
-Use the same prompting style across your project. Generate a cohesive set of avatars, product shots, or illustrations that feel like they belong together.
-
-### Iterate Faster
-Need variations? Generate 2, 3, or 4 alternatives at once. The smart grid places them automatically. Pick the best, delete the rest.
+**Iterate Fast**
+4 variations at once. Pick the best.
 
 ---
 
-## Use Cases Section
+## Common Use Cases
 
 ### Placeholder Hero Images
-**The Challenge:** Landing page mockups need compelling hero visuals.
-**The Solution:** Describe your hero scene and generate it instantly.
-**Example Prompts:**
-- "Modern home office desk with laptop, plants, natural lighting"
-- "Abstract 3D shapes floating in space, soft purple and blue gradient"
+Describe your hero scene. Generate instantly.
+- "Modern home office, laptop, plants, natural light"
+- "Abstract 3D shapes, soft purple gradient"
 
-### App Screenshots and Interfaces
-**The Challenge:** Designing a mobile app that displays user content, but the content doesn't exist yet.
-**The Solution:** Generate the content your app would display—photo galleries, social feeds, product listings.
+### User Avatars
+Consistent, diverse profile pictures.
+- "Professional headshot, woman, 30s, warm smile"
+- "Casual portrait, young man, glasses, outdoor"
 
-### User Avatars and Profile Pictures
-**The Challenge:** Your user list needs diverse, realistic avatars.
-**The Solution:** Generate a consistent set of professional portraits directly in Figma.
-**Example Prompts:**
-- "Professional headshot, woman in her 30s, warm smile, soft studio lighting"
-- "Friendly portrait, young man with glasses, casual style, natural outdoor lighting"
+### App Content
+Photos your app would display—before they exist.
+- E-commerce product shots
+- Social feed content
+- Gallery images
 
-### Dashboard Visualizations
-**The Challenge:** Data dashboards need charts and visual content.
-**The Solution:** Generate chart images, data visualization mockups, and infographic elements.
+### Empty States
+Friendly illustrations for empty screens.
 
-### Onboarding Illustrations
-**The Challenge:** Onboarding flows need custom illustrations that match your brand style.
-**The Solution:** Generate illustrations in a consistent style across your onboarding sequence.
-
-### Empty State Graphics
-**The Challenge:** Empty states need friendly illustrations to guide users.
-**The Solution:** Generate empty state illustrations that match each situation.
-
----
-
-## Workflow Benefits Section
-
-### Native Plugin Architecture
-VM Studio runs as a Figma plugin. No external apps, no browser tabs, no export-import cycles.
-
-### Smart Grid Placement
-Generate multiple images and they arrange automatically in a collision-free grid.
-
-### Keyboard-First Workflow
-Cmd/Ctrl + Enter to generate. Arrow keys to navigate prompt history.
-
-### Multiple Aspect Ratios
-10 aspect ratios from square to ultrawide. Match your frame size without cropping.
-
-### Batch Generation
-Generate 2, 3, or 4 variations with one prompt.
-
-### Prompt History
-Reuse and iterate on prompts with arrow key navigation.
+### Onboarding
+Custom illustrations matching your brand style.
 
 ---
 
 ## Model Recommendations
 
-| Task | Recommended Model | Why |
-|------|-------------------|-----|
-| Photorealistic mockups | FLUX.2 Turbo | Fast, high-quality photorealism |
-| UI with text elements | GPT-Image 1.5 | Superior text rendering accuracy |
-| Diverse illustrations | Nano Banana Pro | Strong prompt understanding |
-| High-resolution heroes | Seedream v4.5 | Cinematic 4K quality output |
-| Quick iterations | Z-Image Turbo | Fastest generation |
+| Task | Model | Why |
+|------|-------|-----|
+| Photorealistic mockups | FLUX.2 Turbo | Fast, high-quality |
+| UI with text | GPT-Image 1.5 | Perfect typography |
+| Illustrations | Nano Banana Pro | Strong prompt understanding |
+| High-res heroes | Seedream v4.5 | Cinematic 4K |
+| Quick iterations | Z-Image Turbo | Fastest |
+
+---
+
+## Workflow Features
+
+**Smart Grid** — Multiple images arrange automatically.
+
+**Prompt History** — Arrow keys recall previous prompts.
+
+**Keyboard-First** — Cmd+Enter to generate.
+
+**10 Aspect Ratios** — Match your frame size.
+
+**Batch Generation** — 2-4 variations per prompt.
 
 ---
 
 ## Example Prompts
 
-### Hero Images
-```
-Modern SaaS dashboard on laptop screen, minimal desk setup, soft shadows
+**Hero Image**
+"Modern SaaS dashboard on laptop, minimal desk, soft shadows"
 
-Abstract gradient background, flowing shapes, brand colors, subtle grain texture
-```
+**Avatar**
+"Professional headshot, friendly expression, neutral background"
 
-### Mobile App Content
-```
-E-commerce product card, white sneakers on plain background, clean studio lighting
-
-Social media post style, morning coffee and book, cozy aesthetic
-```
-
-### User Avatars
-```
-Professional headshot, friendly expression, neutral studio background
-
-Casual portrait, young professional, genuine smile, soft outdoor lighting
-```
-
-### Illustrations
-```
-Flat vector style illustration of workspace, color palette, simple geometric shapes
-
-Hand-drawn style sketch, single line weight, accent color, white background
-```
+**Illustration**
+"Flat vector workspace, laptop and coffee, pastel colors"
 
 ---
 
-## FAQ Section
+## FAQ
 
-### Will AI-generated images look out of place in my designs?
-The quality depends on your prompts and model choice. With specific, detailed prompts, AI-generated images can match or exceed stock photo quality.
+**Will AI images look out of place?**
+With specific prompts and right model, they match or exceed stock quality.
 
-### How do I maintain visual consistency across multiple generated images?
-Use consistent prompt structures and style descriptors. Create a "style guide" for your prompts.
+**Final assets or just mockups?**
+Both. Many use AI-generated images as final assets.
 
-### Is this suitable for final production assets or just mockups?
-Both. Many designers use AI-generated images as final assets, especially for hero backgrounds and illustrations.
-
-### How does this compare to searching stock photo sites?
-Speed and specificity. Stock searching requires browsing and settling for available options. VM Studio generates what you describe.
+**How does this compare to stock sites?**
+Faster. More specific. No licensing issues.
 
 ---
 
 ## CTA Section
 
 **Headline:** Stop searching. Start generating.
-**Subheadline:** Install VM Studio and generate your first placeholder image in under a minute.
+
 **Primary CTA:** Add to Figma - Free

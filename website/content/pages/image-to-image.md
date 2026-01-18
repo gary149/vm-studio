@@ -1,127 +1,98 @@
-# Image-to-Image Landing Page
+# Image-to-Image Figma Plugin
 
 ## Meta Information
 
-**Meta Title:** Image-to-Image AI in Figma | Transform Any Design | VM Studio
+**Meta Title:** Image-to-Image AI in Figma | Transform Designs | VM Studio
 
-**Meta Description:** Transform any Figma frame or image with AI. Style transfer, refinement, and variations with FLUX.2, GPT-Image, and Nano Banana Pro. Free plugin, use your own API keys.
+**Meta Description:** Transform any Figma frame with AI. Style transfer, refinement, variations—5 models including FLUX and GPT-Image. Free plugin.
 
 ---
 
 ## Hero Section
 
-**Badge:** 5 Models with Image-to-Image Support
+**Badge:** Image-to-Image
 
-**Headline:** Transform any image. Keep the essence, change everything else.
+**Headline:** Select. Describe. Transform.
 
-**Subheadline:** Select any frame or image in Figma, describe what you want, and watch AI reimagine it. Style transfer, refinement, variations—all without leaving your canvas.
+**Subheadline:** Pick any frame in Figma. Tell AI how to change it. Get results on your canvas.
 
-**Primary CTA:** Add to Figma
+**Primary CTA:** Add to Figma - Free
 
----
-
-## How It Works Section
-
-**Section Header:** Three steps to transformation.
-**Subhead:** From selection to new creation in seconds.
-
-### Step 1: Select your source
-Choose any frame, image, or design element on your Figma canvas. VM Studio captures it as the foundation for transformation.
-
-### Step 2: Describe the change
-Write a prompt describing how you want to transform the image. Restyle it, refine details, or reimagine it entirely.
-
-### Step 3: Generate and place
-AI transforms your image and places the result directly on your canvas. Compare side-by-side, iterate, or batch generate variations.
+**Secondary CTA:** See examples ↓
 
 ---
 
-## Supported Models Section
+## How It Works
 
-**Section Header:** 5 models built for transformation.
-**Subhead:** Each model brings different strengths to image-to-image workflows.
+### 1. Select Source
+Click any frame, image, or element on your canvas.
 
-| Model | Strengths | Best For | Provider |
-|-------|-----------|----------|----------|
-| **FLUX.2 Turbo** | Fast generation, photorealistic output | Quick iterations, realistic refinements | fal.ai |
-| **FLUX.2 Klein 9B** | 9B parameters, strong editing capabilities | Complex transformations, detail preservation | fal.ai |
-| **Nano Banana Pro** | Reasoning-powered understanding | Semantic changes, prompt interpretation | fal.ai, OpenRouter |
-| **GPT-Image 1.5** | Precise text rendering, instruction following | Text-heavy designs, specific edits | OpenAI, fal.ai |
-| **Seedream v4.5** | Cinematic 4K output, artistic quality | Style transfer, high-resolution finals | fal.ai |
+### 2. Describe the Change
+"Make it warmer" or "Convert to illustration style"—your call.
+
+### 3. Generate
+AI transforms your selection. Original stays intact.
 
 ---
 
-## Use Cases Section
+## Supported Models
 
-**Section Header:** Transform for any purpose.
-**Subhead:** Image-to-image unlocks workflows that text-to-image cannot.
-
-### Style Transfer
-Take a wireframe, sketch, or photo and transform it into a different visual style. Turn rough concepts into polished renders. Convert photographs into illustrations. Shift a daytime scene to golden hour.
-
-**Example prompt:** "Transform this wireframe into a high-fidelity mobile app screenshot with iOS styling, soft shadows, and a clean white background"
-
-### Refinement & Enhancement
-Start with a generated image that is close but not perfect. Use image-to-image to fix specific elements, enhance details, or improve composition without starting from scratch.
-
-**Example prompt:** "Keep the overall composition but make the lighting more dramatic, add subtle film grain, and sharpen the product details"
-
-### Design Variations
-Generate multiple interpretations of the same concept for A/B testing, client presentations, or creative exploration. Maintain core elements while exploring different directions.
-
-**Example prompt:** "Create a variation of this hero image with warmer colors and a more energetic mood while keeping the same subject and composition"
-
-### Concept Development
-Use quick sketches or rough compositions as input. AI understands your intent and develops the concept into a fully realized image, preserving your creative direction.
-
-**Example prompt:** "Develop this rough sketch into a detailed product render with studio lighting on a gradient background"
+| Model | Best For |
+|-------|----------|
+| FLUX.2 Turbo | Fast iterations, realistic refinements |
+| FLUX.2 Klein 9B | Complex edits, detail preservation |
+| Nano Banana Pro | Semantic changes, style interpretation |
+| GPT-Image 1.5 | Text corrections, specific edits |
+| Seedream v4.5 | High-res style transfer, 4K output |
 
 ---
 
-## Before/After Examples Section
+## Use Cases
 
-**Section Header:** See the transformation.
+**Style Transfer**
+Wireframe → high-fidelity mockup. Photo → illustration. Day → night.
 
-### Example 1
-**Before:** Basic wireframe of a mobile app interface
-**After:** High-fidelity iOS app design with realistic UI components
-**Model:** FLUX.2 Klein 9B
+**Refinement**
+Fix lighting. Sharpen details. Adjust composition. Keep what works.
 
-### Example 2
-**Before:** Flat product photo on white background
-**After:** Lifestyle scene with product in context
-**Model:** Seedream v4.5
+**Variations**
+Same concept, different directions. A/B test visuals instantly.
 
-### Example 3
-**Before:** AI-generated image with incorrect text
-**After:** Same image with corrected, readable text
-**Model:** GPT-Image 1.5
-
-### Example 4
-**Before:** Photograph of urban architecture
-**After:** Stylized illustration version
-**Model:** Nano Banana Pro
+**Concept Development**
+Rough sketch → polished render. Your intent, AI execution.
 
 ---
 
-## FAQ Section
+## Example Prompts
 
-### How is image-to-image different from text-to-image?
-Text-to-image generates images purely from a text description. Image-to-image takes an existing image as input and transforms it based on your prompt. This gives you more control over composition, structure, and style—the AI uses your source image as a foundation rather than starting from nothing.
+**Style Change**
+"Transform this wireframe into an iOS app screenshot with soft shadows"
 
-### What image formats and sizes work best?
-VM Studio accepts any frame or image on your Figma canvas. For best results, use images between 512px and 2048px on the longest side. Larger images are automatically resized before processing.
+**Refinement**
+"Keep composition, make lighting more dramatic, add film grain"
 
-### Can I control how much the image changes?
-The degree of transformation depends on your prompt and the model. More specific prompts that reference elements to keep result in closer outputs. More open-ended prompts allow for greater creative interpretation.
+**Variation**
+"Create a warmer version with more energetic mood"
 
-### Which model should I use for image-to-image?
-Use **FLUX.2 Turbo** for fast iterations. Choose **GPT-Image 1.5** when text rendering matters. Pick **Seedream v4.5** for high-resolution cinematic output. Try **Nano Banana Pro** for complex instructions.
+---
+
+## FAQ
+
+**How is this different from text-to-image?**
+Text-to-image starts from nothing. Image-to-image uses your selection as a foundation.
+
+**What formats work?**
+Any frame or image on your canvas. 512px-2048px works best.
+
+**Can I control how much it changes?**
+Specific prompts = smaller changes. Open prompts = more creative freedom.
 
 ---
 
 ## CTA Section
 
 **Headline:** Transform your next design.
-**Subhead:** Install VM Studio and start using image-to-image in Figma today. Free plugin, your own API keys.
-**Primary CTA:** Add to Figma
+
+**Primary CTA:** Add to Figma - Free
+
+**Note:** Free plugin. Your API keys, your data.

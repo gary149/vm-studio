@@ -1,142 +1,116 @@
-# FLUX Models Page
+# FLUX AI in Figma
 
 ## Meta Information
 
-**Meta Title:** FLUX AI Image Generator in Figma | FLUX.2 Turbo & Klein 9B | VM Studio
+**Meta Title:** FLUX Image Generator in Figma | FLUX.2 Turbo & Klein | VM Studio
 
-**Meta Description:** Generate photorealistic images with Black Forest Labs FLUX.2 models directly in Figma. Access FLUX.2 Turbo for speed and FLUX.2 Klein 9B for precision via fal.ai.
+**Meta Description:** Generate photorealistic images with FLUX.2 directly in Figma. Access Turbo for speed, Klein 9B for precision. Free plugin via fal.ai.
 
 ---
 
 ## Hero Section
 
-**Badge:** FLUX.2 Models Available
+**Badge:** FLUX.2 Models
 
-**Headline:** The photorealism standard, now in your Figma workflow.
+**Headline:** Photorealism that rivals photography. Now in Figma.
 
-**Subheadline:** Black Forest Labs FLUX.2 models deliver industry-leading image quality with precise prompt adherence. Generate photorealistic images directly on your canvas.
+**Subheadline:** Black Forest Labs FLUX.2 delivers industry-leading image quality. Generate directly on your canvas.
 
-**Primary CTA:** Add to Figma
-
----
-
-## Introduction Section
-
-### Why designers choose FLUX
-
-FLUX.2 from Black Forest Labs has redefined what AI image generation can achieve. Where other models produce recognizable "AI-looking" images, FLUX delivers photorealistic output that holds up to professional scrutiny.
-
-The FLUX architecture excels at three critical areas: accurate text rendering within images, precise anatomical details in human subjects, and faithful interpretation of complex prompts.
-
-VM Studio brings both FLUX.2 Turbo and FLUX.2 Klein 9B to your Figma workflow through the fal.ai API. No switching between tools. Generate, iterate, and refine without leaving your canvas.
+**Primary CTA:** Add to Figma - Free
 
 ---
 
-## FLUX.2 Turbo Deep Dive
+## Why FLUX
 
-**Tagline:** Speed meets photorealism
+FLUX.2 redefined AI image generation. Where others produce "AI-looking" images, FLUX delivers photorealism that holds up to scrutiny.
 
-### Overview
-FLUX.2 Turbo is optimized for rapid iteration. It maintains photorealistic quality while significantly reducing generation time. When you need to explore multiple concepts quickly, Turbo delivers.
+Three strengths:
+- **Accurate anatomy** — Hands, faces, poses that look right
+- **Material fidelity** — Skin, metal, fabric rendered correctly
+- **Prompt precision** — Complex descriptions, faithful output
 
-### Capabilities
-- **Photorealistic Output:** Skin textures, lighting conditions, material properties achieve a level of realism that sets FLUX apart
-- **Strong Prompt Adherence:** Interprets complex, multi-element prompts with high fidelity
-- **Text-to-Image Generation:** Create entirely new images from text prompts
-- **Image-to-Image Transformation:** Restyle, refine, or reimagine existing visuals
+---
 
-### Best For
-- Rapid concept exploration and ideation
+## FLUX.2 Turbo
+
+**Speed meets quality**
+
+Optimized for rapid iteration without sacrificing realism.
+
+**Best for:**
+- Concept exploration
 - Product photography mockups
-- Marketing asset generation
-- Quick iterations during design reviews
+- Quick iterations during reviews
+
+**Specs:** 1K resolution, text-to-image + image-to-image
 
 ---
 
-## FLUX.2 Klein 9B Deep Dive
+## FLUX.2 Klein 9B
 
-**Tagline:** 9 billion parameters of precision
+**9 billion parameters of precision**
 
-### Overview
-FLUX.2 Klein 9B is a distilled 9-billion parameter model that brings the full power of the FLUX architecture to image generation and editing workflows. The "klein" designation refers to its optimized parameter count, not its capabilities.
+Full FLUX power with advanced editing capabilities.
 
-### Capabilities
-- **High-Fidelity Generation:** Exceptional detail and coherence in complex scenes
-- **Advanced Image Editing:** Strong for image-to-image workflows
-- **Precise Control:** Responds well to detailed prompts with specific technical requirements
-- **Text-to-Image and Image-to-Image:** Supports both generation modes
+**Best for:**
+- Final asset production
+- Complex multi-subject scenes
+- Precise image refinement
 
-### Best For
-- Final asset production requiring maximum quality
-- Complex scenes with multiple subjects
-- Precise image editing and refinement
-- Consistent style application
+**Specs:** 1K resolution, text-to-image + image-to-image
 
 ---
 
-## When to Use Turbo vs Klein
+## When to Use Which
 
-| Consideration | FLUX.2 Turbo | FLUX.2 Klein 9B |
-|---------------|--------------|-----------------|
-| **Primary strength** | Generation speed | Detail precision |
-| **Best workflow** | Exploration, iteration | Refinement, final output |
-| **Project phase** | Early concepting | Final production |
-| **Recommended for** | Volume, speed | Quality-critical assets |
+| Phase | Model |
+|-------|-------|
+| Exploring concepts | Turbo |
+| Client review | Turbo |
+| Final production | Klein 9B |
+| Editing/refining | Klein 9B |
 
-**Guidance:** Start with Turbo, finish with Klein. Use FLUX.2 Turbo to quickly generate concepts. Once you've identified the approach, switch to Klein 9B for final production.
-
----
-
-## Technical Specifications
-
-- **Resolution:** Up to 1K (1024px). Multiple aspect ratios supported.
-- **Generation Modes:** Text-to-image and image-to-image
-- **Output Format:** PNG for maximum quality
-- **API Provider:** fal.ai
+**Rule of thumb:** Start with Turbo, finish with Klein.
 
 ---
 
-## Example Outputs
+## Example Uses
 
-### Product Photography
-High-end headphones with realistic material rendering—brushed aluminum, soft-touch plastic, woven fabric—with physically accurate lighting.
+**Product Photography**
+Headphones with brushed aluminum, soft-touch plastic, woven fabric—physically accurate lighting.
 
-### Environmental Portraits
-Human subjects with accurate proportions, natural poses, realistic skin tones. Complex lighting scenarios handled with precision.
+**Environmental Portraits**
+Natural poses, realistic skin tones, complex lighting handled with precision.
 
-### Architectural Visualization
-Correct perspective and proportion. Material distinction between concrete, glass, and natural elements.
-
-### Marketing Campaign Assets
-Multi-object commercial compositions with consistent lighting direction and accurate material properties.
+**Architecture**
+Correct perspective, material distinction between concrete, glass, wood.
 
 ---
 
-## How to Access
+## Get Started
 
-1. **Install VM Studio** from Figma Community
-2. **Get your fal.ai API key** at fal.ai/dashboard/keys
-3. **Configure your key** in plugin settings
-4. **Select a FLUX model** from the dropdown
-5. **Generate** with Cmd+Enter
+1. Add VM Studio to Figma (free)
+2. Get fal.ai API key
+3. Select FLUX model
+4. Generate with Cmd+Enter
 
 ---
 
-## FAQ Section
+## FAQ
 
-### How does FLUX compare to Midjourney for photorealism?
-FLUX.2 models consistently outperform Midjourney in photorealistic scenarios, particularly for human subjects and product photography. FLUX produces output that's harder to distinguish from actual photography.
+**FLUX vs Midjourney?**
+FLUX outperforms Midjourney for photorealism, especially human subjects and products.
 
-### What's the cost per image with FLUX through fal.ai?
-Fal.ai charges per generation, typically $0.01-0.03 per image depending on settings. No monthly subscriptions or minimums.
+**Cost per image?**
+$0.01-0.03 via fal.ai. No subscriptions.
 
-### Can I use FLUX-generated images commercially?
-Yes. Images generated through fal.ai's FLUX.2 endpoints can be used commercially. You own the output.
+**Commercial use?**
+Yes. You own the output.
 
 ---
 
 ## CTA Section
 
-**Headline:** Ready to generate with FLUX?
-**Subheadline:** Install VM Studio and start creating photorealistic images in Figma today.
-**Primary CTA:** Add to Figma
+**Headline:** Generate with FLUX in Figma.
+
+**Primary CTA:** Add to Figma - Free
