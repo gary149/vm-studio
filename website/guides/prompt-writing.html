@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>How to Write AI Image Prompts | Figma Plugin Guide | VM Studio</title>
+    <meta name="description"
+        content="Write better AI image prompts. The 4-part formula, model-specific tips, and 15+ ready-to-use examples for VM Studio in Figma.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://vmstudio.ai/guides/prompt-writing/">
+
+    <!-- Open Graph / Social -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="How to Write AI Image Prompts | Figma Plugin Guide | VM Studio">
+    <meta property="og:description"
+        content="Write better AI image prompts. The 4-part formula, model-specific tips, and 15+ ready-to-use examples for VM Studio in Figma.">
+    <meta property="og:image" content="https://vmstudio.ai/assets/vm-studio.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="VM Studio - AI Image Generator for Figma">
+    <meta property="og:url" content="https://vmstudio.ai/guides/prompt-writing/">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How to Write AI Image Prompts | Figma Plugin Guide | VM Studio">
+    <meta name="twitter:description"
+        content="Write better AI image prompts. The 4-part formula, model-specific tips, and 15+ ready-to-use examples for VM Studio in Figma.">
+    <meta name="twitter:image" content="https://vmstudio.ai/assets/vm-studio.png">
+    <meta name="twitter:image:alt" content="VM Studio - AI Image Generator for Figma">
+
+    <!-- Favicon & Touch Icons -->
+    <link rel="icon" type="image/png" href="../assets/favicon.png">
+    <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../assets/icon-192.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <div class="split-layout">
+        <aside class="left-panel">
+            <header class="header-content">
+                <a href="/" class="logo">
+                    <img src="../assets/logo.svg" alt="VM Studio Logo">
+                    <span>VM Studio</span>
+                </a>
+            </header>
+
+            <div class="hero-text-content">
+                <div class="badge">Prompt Guide</div>
+                <h1 class="hero-title">Write prompts that work.</h1>
+                <p class="hero-subtitle">The formula, the tips, the examples. Everything you need to generate better AI images in Figma.</p>
+                <div class="hero-actions">
+                    <a href="https://www.figma.com/community/plugin/1588675833256652136" target="_blank"
+                        class="btn btn-primary btn-lg">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 5.5A3.5 3.5 0 0 1 8.5 2H12v7H8.5A3.5 3.5 0 0 1 5 5.5z"></path>
+                            <path d="M12 2h3.5a3.5 3.5 0 1 1 0 7H12V2z"></path>
+                            <path d="M12 12.5a3.5 3.5 0 1 1 7 0 3.5 3.5 0 1 1-7 0z"></path>
+                            <path d="M5 19.5A3.5 3.5 0 0 1 8.5 16H12v3.5a3.5 3.5 0 1 1-7 0z"></path>
+                            <path d="M5 12.5A3.5 3.5 0 0 1 8.5 9H12v7H8.5A3.5 3.5 0 0 1 5 12.5z"></path>
+                        </svg>
+                        Try in Figma - Free
+                    </a>
+                </div>
+
+                <nav class="nav-links">
+                    <a href="#formula">The Formula</a>
+                    <a href="#model-tips">Model Tips</a>
+                    <a href="#examples">Examples</a>
+                </nav>
+            </div>
+
+            <footer class="footer-content">
+                <div class="footer-left">
+                    <span class="copyright">© 2026 VM Studio</span>
+                </div>
+                <div class="footer-right">
+                    <a href="https://www.figma.com/community/plugin/1588675833256652136" target="_blank">Figma
+                        Community</a>
+                </div>
+            </footer>
+        </aside>
+
+        <main class="right-panel">
+            <section id="formula" class="models">
+                <div class="container">
+                    <div class="section-header">
+                        <h2>The Formula</h2>
+                        <p>Subject + Style + Details + Technical Specs</p>
+                    </div>
+
+                    <div class="models-table">
+                        <div class="table-header">
+                            <span>Part</span>
+                            <span>What it does</span>
+                            <span class="align-right">Example</span>
+                        </div>
+                        <div class="table-row">
+                            <div class="col-model">
+                                <span class="model-name">Subject</span>
+                            </div>
+                            <div class="col-caps">
+                                <span>What the image shows</span>
+                            </div>
+                            <div class="col-provider align-right">
+                                <span>"A golden retriever puppy"</span>
+                            </div>
+                        </div>
+                        <div class="table-row">
+                            <div class="col-model">
+                                <span class="model-name">Style</span>
+                            </div>
+                            <div class="col-caps">
+                                <span>Artistic approach</span>
+                            </div>
+                            <div class="col-provider align-right">
+                                <span>"watercolor illustration"</span>
+                            </div>
+                        </div>
+                        <div class="table-row">
+                            <div class="col-model">
+                                <span class="model-name">Details</span>
+                            </div>
+                            <div class="col-caps">
+                                <span>Specific attributes</span>
+                            </div>
+                            <div class="col-provider align-right">
+                                <span>"autumn leaves, warm sunlight"</span>
+                            </div>
+                        </div>
+                        <div class="table-row">
+                            <div class="col-model">
+                                <span class="model-name">Tech Specs</span>
+                            </div>
+                            <div class="col-caps">
+                                <span>Output quality</span>
+                            </div>
+                            <div class="col-provider align-right">
+                                <span>"soft focus background, 4K"</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="comparison" class="features">
+                <div class="container">
+                    <div class="section-header">
+                        <h2>Basic vs Better</h2>
+                        <p>See the difference specificity makes.</p>
+                    </div>
+
+                    <div class="bento-grid">
+                        <div class="bento-card">
+                            <div class="card-content">
+                                <h3>Basic</h3>
+                                <p>"A dog"</p>
+                            </div>
+                        </div>
+                        <div class="bento-card card-large">
+                            <div class="card-content">
+                                <h3>Better</h3>
+                                <p>"Golden retriever puppy in autumn leaves, watercolor style, warm sunlight, playful expression, soft focus background"</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="subject-tips" class="models">
+                <div class="container">
+                    <div class="section-header">
+                        <h2>Subject Tips</h2>
+                        <p>Be specific, not generic.</p>
+                    </div>
+
+                    <div class="models-table">
+                        <div class="table-header">
+                            <span>Weak</span>
+                            <span class="align-right">Strong</span>
+                        </div>
+                        <div class="table-row">
+                            <div class="col-model">
+                                <span>"A person"</span>
+                            </div>
+                            <div class="col-provider align-right">
+                                <span>"Woman in her 30s, curly red hair"</span>
+                            </div>
+                        </div>
+                        <div class="table-row">
+                            <div class="col-model">
+                                <span>"A building"</span>
+                            </div>
+                            <div class="col-provider align-right">
+                                <span>"Victorian brick townhouse"</span>
+                            </div>
+                        </div>
+                        <div class="table-row">
+                            <div class="col-model">
+                                <span>"Food"</span>
+                            </div>
+                            <div class="col-provider align-right">
+                                <span>"Steaming ramen with soft-boiled egg"</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="style-options" class="features">
+                <div class="container">
+                    <div class="section-header">
+                        <h2>Style Options</h2>
+                        <p>Same subject, different styles.</p>
+                    </div>
+
+                    <div class="bento-grid">
+                        <div class="bento-card">
+                            <div class="card-content">
+                                <h3>Photography</h3>
+                                <p>Portrait, product, street, macro, aerial</p>
+                            </div>
+                        </div>
+                        <div class="bento-card">
+                            <div class="card-content">
+                                <h3>Illustration</h3>
+                                <p>Watercolor, vector, digital art, oil painting</p>
+                            </div>
+                        </div>
+                        <div class="bento-card">
+                            <div class="card-content">
+                                <h3>Era</h3>
+                                <p>1950s advertising, 80s synthwave, Victorian</p>
+                            </div>
+                        </div>
+                        <div class="bento-card">
+                            <div class="card-content">
+                                <h3>Medium</h3>
+                                <p>Film photography, Polaroid, 35mm grain</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="details" class="features">
+                <div class="container">
+                    <div class="section-header">
+                        <h2>Details That Matter</h2>
+                        <p>Add context to your prompts.</p>
+                    </div>
+
+                    <div class="bento-grid">
+                        <div class="bento-card">
+                            <div class="card-content">
+                                <h3>Physical</h3>
+                                <p>Colors, textures, materials, sizes</p>
+                            </div>
+                        </div>
+                        <div class="bento-card">
+                            <div class="card-content">
+                                <h3>Environment</h3>
+                                <p>Setting, time of day, weather</p>
+                            </div>
+                        </div>
+                        <div class="bento-card">
+                            <div class="card-content">
+                                <h3>Lighting</h3>
+                                <p>Direction, quality, temperature</p>
+                            </div>
+                        </div>
+                        <div class="bento-card">
+                            <div class="card-content">
+                                <h3>Mood</h3>
+                                <p>Emotional tone, energy</p>
+                            </div>
+                        </div>
+                        <div class="bento-card">
+                            <div class="card-content">
+                                <h3>Composition</h3>
+                                <p>Position, perspective, depth</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="model-tips" class="features">
+                <div class="container">
+                    <div class="section-header">
+                        <h2>Model-Specific Tips</h2>
+                        <p>Each model has strengths.</p>
+                    </div>
+
+                    <div class="bento-grid">
+                        <div class="bento-card">
+                            <div class="card-content">
+                                <h3>FLUX.2</h3>
+                                <p>Write conversationally. Detailed lighting works well. Great at spatial relationships.</p>
+                            </div>
+                        </div>
+                        <div class="bento-card">
+                            <div class="card-content">
+                                <h3>GPT-Image 1.5</h3>
+                                <p>Put exact text in quotes. Strong at conceptual imagery. Handles layout requests well.</p>
+                            </div>
+                        </div>
+                        <div class="bento-card">
+                            <div class="card-content">
+                                <h3>Nano Banana Pro</h3>
+                                <p>Artistic style references work great. Excellent color reproduction. Good for stylized output.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="mistakes" class="features">
+                <div class="container">
+                    <div class="section-header">
+                        <h2>Common Mistakes</h2>
+                        <p>What to avoid.</p>
+                    </div>
+
+                    <div class="bento-grid">
+                        <div class="bento-card">
+                            <div class="card-content">
+                                <h3>Too Vague</h3>
+                                <p><strong>Bad:</strong> "A nice landscape"</p>
+                                <p><strong>Good:</strong> "Rolling green hills, dramatic sunset, golden hour, scattered wildflowers"</p>
+                            </div>
+                        </div>
+                        <div class="bento-card">
+                            <div class="card-content">
+                                <h3>Contradictory</h3>
+                                <p><strong>Bad:</strong> "Minimalist with intricate details"</p>
+                                <p><strong>Good:</strong> Pick one direction</p>
+                            </div>
+                        </div>
+                        <div class="bento-card">
+                            <div class="card-content">
+                                <h3>Keyword Stuffing</h3>
+                                <p><strong>Bad:</strong> "Beautiful stunning amazing gorgeous"</p>
+                                <p><strong>Good:</strong> One quality word + specific details</p>
+                            </div>
+                        </div>
+                        <div class="bento-card">
+                            <div class="card-content">
+                                <h3>No Lighting</h3>
+                                <p>Always include: "soft diffused light," "dramatic side lighting," "warm golden hour"</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="examples" class="features">
+                <div class="container">
+                    <div class="section-header">
+                        <h2>Ready-to-Use Prompts</h2>
+                        <p>Copy and customize these.</p>
+                    </div>
+
+                    <div class="bento-grid">
+                        <div class="bento-card">
+                            <div class="card-content">
+                                <h3>Product</h3>
+                                <p>"White leather sneakers on concrete, product photography, soft studio lighting, subtle shadow, minimal"</p>
+                            </div>
+                        </div>
+                        <div class="bento-card">
+                            <div class="card-content">
+                                <h3>Portrait</h3>
+                                <p>"Business professional in navy blazer, warm smile, corporate headshot, soft lighting, neutral background"</p>
+                            </div>
+                        </div>
+                        <div class="bento-card">
+                            <div class="card-content">
+                                <h3>Abstract</h3>
+                                <p>"Geometric shapes, overlapping translucent, navy and coral, gold accents, modern art, asymmetrical"</p>
+                            </div>
+                        </div>
+                        <div class="bento-card">
+                            <div class="card-content">
+                                <h3>UI Context</h3>
+                                <p>"Smartphone showing meditation app, held against blurred bedroom, soft morning light, lifestyle tech"</p>
+                            </div>
+                        </div>
+                        <div class="bento-card">
+                            <div class="card-content">
+                                <h3>Food</h3>
+                                <p>"Plated salmon with microgreens, fine dining, dramatic side lighting, dark slate background"</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="advanced" class="features">
+                <div class="container">
+                    <div class="section-header">
+                        <h2>Advanced Techniques</h2>
+                        <p>Level up your prompts.</p>
+                    </div>
+
+                    <div class="bento-grid">
+                        <div class="bento-card">
+                            <div class="card-content">
+                                <h3>Priority Language</h3>
+                                <p>"Most importantly, the lighting should be dramatic. Background is secondary."</p>
+                            </div>
+                        </div>
+                        <div class="bento-card">
+                            <div class="card-content">
+                                <h3>Negative Prompting</h3>
+                                <p>"Professional headshot, natural expression, without heavy makeup, avoid stiff posing"</p>
+                            </div>
+                        </div>
+                        <div class="bento-card">
+                            <div class="card-content">
+                                <h3>Style Fusion</h3>
+                                <p>"Portrait with Wes Anderson colors and Leibovitz composition"</p>
+                            </div>
+                        </div>
+                        <div class="bento-card">
+                            <div class="card-content">
+                                <h3>Aspect Ratios</h3>
+                                <p>1:1 for social/portraits. 16:9 for presentations/heroes. 9:16 for stories/mobile.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="faq" class="faq">
+                <div class="container">
+                    <div class="section-header">
+                        <h2>Frequently Asked Questions</h2>
+                    </div>
+                    <div class="faq-grid">
+                        <div class="faq-item">
+                            <h3>How long should prompts be?</h3>
+                            <div class="faq-content">
+                                <p>30-75 words. Too short = generic. Too long = confusion.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <h3>Why doesn't AI include everything?</h3>
+                            <div class="faq-content">
+                                <p>Elements mentioned first appear more reliably. Put important things early.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <h3>How to get consistent results?</h3>
+                            <div class="faq-content">
+                                <p>Detailed prompts. Save what works. Reuse.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="cta">
+                <div class="container">
+                    <div class="cta-card">
+                        <h2>Put this into practice.</h2>
+                        <p>Install VM Studio and start generating.</p>
+                        <a href="https://www.figma.com/community/plugin/1588675833256652136" target="_blank"
+                            class="btn btn-primary btn-lg">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 5.5A3.5 3.5 0 0 1 8.5 2H12v7H8.5A3.5 3.5 0 0 1 5 5.5z"></path>
+                                <path d="M12 2h3.5a3.5 3.5 0 1 1 0 7H12V2z"></path>
+                                <path d="M12 12.5a3.5 3.5 0 1 1 7 0 3.5 3.5 0 1 1-7 0z"></path>
+                                <path d="M5 19.5A3.5 3.5 0 0 1 8.5 16H12v3.5a3.5 3.5 0 1 1-7 0z"></path>
+                                <path d="M5 12.5A3.5 3.5 0 0 1 8.5 9H12v7H8.5A3.5 3.5 0 0 1 5 12.5z"></path>
+                            </svg>
+                            Add VM Studio to Figma - Free
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>AI Image Generator for UI/UX Design | Figma Plugin | VM Studio</title>
+    <meta name="description"
+        content="Generate placeholder images, mockup assets, and UI illustrations directly in Figma. No stock photos. No context switching. Free plugin.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://vmstudio.ai/use-cases/ui-ux-design/">
+
+    <!-- Open Graph / Social -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="AI Image Generator for UI/UX Design | Figma Plugin | VM Studio">
+    <meta property="og:description"
+        content="Generate placeholder images, mockup assets, and UI illustrations directly in Figma. No stock photos. No context switching. Free plugin.">
+    <meta property="og:image" content="https://vmstudio.ai/assets/vm-studio.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="VM Studio - AI Image Generator for Figma">
+    <meta property="og:url" content="https://vmstudio.ai/use-cases/ui-ux-design/">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AI Image Generator for UI/UX Design | Figma Plugin | VM Studio">
+    <meta name="twitter:description"
+        content="Generate placeholder images, mockup assets, and UI illustrations directly in Figma. No stock photos. No context switching. Free plugin.">
+    <meta name="twitter:image" content="https://vmstudio.ai/assets/vm-studio.png">
+    <meta name="twitter:image:alt" content="VM Studio - AI Image Generator for Figma">
+
+    <!-- Favicon & Touch Icons -->
+    <link rel="icon" type="image/png" href="../assets/favicon.png">
+    <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../assets/icon-192.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <div class="split-layout">
+        <aside class="left-panel">
+            <header class="header-content">
+                <a href="/" class="logo">
+                    <img src="../assets/logo.svg" alt="VM Studio Logo">
+                    <span>VM Studio</span>
+                </a>
+            </header>
+
+            <div class="hero-text-content">
+                <div class="badge">For UI/UX Designers</div>
+                <h1 class="hero-title">Stop hunting stock photos. Start designing.</h1>
+                <p class="hero-subtitle">Generate placeholders, mockups, and illustrations on your Figma canvas. Stay in flow.</p>
+                <div class="hero-actions">
+                    <a href="https://www.figma.com/community/plugin/1588675833256652136" target="_blank"
+                        class="btn btn-primary btn-lg">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 5.5A3.5 3.5 0 0 1 8.5 2H12v7H8.5A3.5 3.5 0 0 1 5 5.5z"></path>
+                            <path d="M12 2h3.5a3.5 3.5 0 1 1 0 7H12V2z"></path>
+                            <path d="M12 12.5a3.5 3.5 0 1 1 7 0 3.5 3.5 0 1 1-7 0z"></path>
+                            <path d="M5 19.5A3.5 3.5 0 0 1 8.5 16H12v3.5a3.5 3.5 0 1 1-7 0z"></path>
+                            <path d="M5 12.5A3.5 3.5 0 0 1 8.5 9H12v7H8.5A3.5 3.5 0 0 1 5 12.5z"></path>
+                        </svg>
+                        Add to Figma - Free
+                    </a>
+                </div>
+
+                <nav class="nav-links">
+                    <a href="#problem">The Problem</a>
+                    <a href="#use-cases">Use Cases</a>
+                    <a href="#faq">FAQ</a>
+                </nav>
+            </div>
+
+            <footer class="footer-content">
+                <div class="footer-left">
+                    <span class="copyright">© 2026 VM Studio</span>
+                </div>
+                <div class="footer-right">
+                    <a href="https://www.figma.com/community/plugin/1588675833256652136" target="_blank">Figma
+                        Community</a>
+                </div>
+            </footer>
+        </aside>
+
+        <main class="right-panel">
+            <section id="problem" class="features">
+                <div class="container">
+                    <div class="section-header">
+                        <h2>The Problem</h2>
+                        <p>You're deep in a design flow. Then you need a hero image.</p>
+                    </div>
+
+                    <div class="bento-grid">
+                        <div class="bento-card card-large">
+                            <div class="card-content">
+                                <div class="icon-box">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="11" cy="11" r="8" />
+                                        <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                                    </svg>
+                                </div>
+                                <h3>The Context Switch</h3>
+                                <p>Suddenly: browsing Unsplash, filtering, downloading, importing, resizing. Your momentum? Gone.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="solution" class="features">
+                <div class="container">
+                    <div class="section-header">
+                        <h2>The Solution</h2>
+                        <p>Generate without leaving your canvas.</p>
+                    </div>
+
+                    <div class="bento-grid">
+                        <div class="bento-card">
+                            <div class="card-content">
+                                <div class="icon-box">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M5 5.5A3.5 3.5 0 0 1 8.5 2H12v7H8.5A3.5 3.5 0 0 1 5 5.5z"></path>
+                                        <path d="M12 2h3.5a3.5 3.5 0 1 1 0 7H12V2z"></path>
+                                        <path d="M12 12.5a3.5 3.5 0 1 1 7 0 3.5 3.5 0 1 1-7 0z"></path>
+                                        <path d="M5 19.5A3.5 3.5 0 0 1 8.5 16H12v3.5a3.5 3.5 0 1 1-7 0z"></path>
+                                        <path d="M5 12.5A3.5 3.5 0 0 1 8.5 9H12v7H8.5A3.5 3.5 0 0 1 5 12.5z"></path>
+                                    </svg>
+                                </div>
+                                <h3>Stay in Figma</h3>
+                                <p>Generate without leaving your canvas.</p>
+                            </div>
+                        </div>
+                        <div class="bento-card">
+                            <div class="card-content">
+                                <div class="icon-box">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10" />
+                                        <polyline points="12 6 12 12 16 14" />
+                                    </svg>
+                                </div>
+                                <h3>Get Exactly What You Need</h3>
+                                <p>Describe it. Generate it. No "close enough."</p>
+                            </div>
+                        </div>
+                        <div class="bento-card">
+                            <div class="card-content">
+                                <div class="icon-box">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect width="7" height="7" x="3" y="3" rx="1" />
+                                        <rect width="7" height="7" x="14" y="3" rx="1" />
+                                        <rect width="7" height="7" x="14" y="14" rx="1" />
+                                        <rect width="7" height="7" x="3" y="14" rx="1" />
+                                    </svg>
+                                </div>
+                                <h3>Keep It Consistent</h3>
+                                <p>Same prompting style = cohesive visual set.</p>
+                            </div>
+                        </div>
+                        <div class="bento-card">
+                            <div class="card-content">
+                                <div class="icon-box">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                                    </svg>
+                                </div>
+                                <h3>Iterate Fast</h3>
+                                <p>4 variations at once. Pick the best.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="use-cases" class="features">
+                <div class="container">
+                    <div class="section-header">
+                        <h2>Common Use Cases</h2>
+                        <p>What UI/UX designers generate.</p>
+                    </div>
+
+                    <div class="bento-grid">
+                        <div class="bento-card card-large">
+                            <div class="card-content">
+                                <div class="icon-box">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                                        <circle cx="8.5" cy="8.5" r="1.5" />
+                                        <polyline points="21 15 16 10 5 21" />
+                                    </svg>
+                                </div>
+                                <h3>Placeholder Hero Images</h3>
+                                <p>Describe your hero scene. Generate instantly.</p>
+                                <p><small>"Modern home office, laptop, plants, natural light"</small></p>
+                                <p><small>"Abstract 3D shapes, soft purple gradient"</small></p>
+                            </div>
+                        </div>
+                        <div class="bento-card">
+                            <div class="card-content">
+                                <div class="icon-box">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                                        <circle cx="12" cy="7" r="4" />
+                                    </svg>
+                                </div>
+                                <h3>User Avatars</h3>
+                                <p>Consistent, diverse profile pictures.</p>
+                                <p><small>"Professional headshot, woman, 30s, warm smile"</small></p>
+                            </div>
+                        </div>
+                        <div class="bento-card">
+                            <div class="card-content">
+                                <div class="icon-box">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
+                                        <line x1="12" y1="18" x2="12.01" y2="18" />
+                                    </svg>
+                                </div>
+                                <h3>App Content</h3>
+                                <p>Photos your app would display—before they exist. E-commerce product shots, social feed content, gallery images.</p>
+                            </div>
+                        </div>
+                        <div class="bento-card">
+                            <div class="card-content">
+                                <div class="icon-box">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                                        <path d="M3 9h18" />
+                                    </svg>
+                                </div>
+                                <h3>Empty States</h3>
+                                <p>Friendly illustrations for empty screens.</p>
+                            </div>
+                        </div>
+                        <div class="bento-card">
+                            <div class="card-content">
+                                <div class="icon-box">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                        <polyline points="14 2 14 8 20 8" />
+                                        <line x1="16" y1="13" x2="8" y2="13" />
+                                        <line x1="16" y1="17" x2="8" y2="17" />
+                                    </svg>
+                                </div>
+                                <h3>Onboarding</h3>
+                                <p>Custom illustrations matching your brand style.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="models" class="models">
+                <div class="container">
+                    <div class="section-header">
+                        <h2>Model Recommendations</h2>
+                        <p>Match the model to your task.</p>
+                    </div>
+
+                    <div class="models-table">
+                        <div class="table-header">
+                            <span>Task</span>
+                            <span>Model</span>
+                            <span class="align-right">Why</span>
+                        </div>
+                        <div class="table-row">
+                            <div class="col-model">
+                                <span>Photorealistic mockups</span>
+                            </div>
+                            <div class="col-caps">
+                                <span class="tag">FLUX.2 Turbo</span>
+                            </div>
+                            <div class="col-provider align-right">
+                                <span>Fast, high-quality</span>
+                            </div>
+                        </div>
+                        <div class="table-row">
+                            <div class="col-model">
+                                <span>UI with text</span>
+                            </div>
+                            <div class="col-caps">
+                                <span class="tag">GPT-Image 1.5</span>
+                            </div>
+                            <div class="col-provider align-right">
+                                <span>Perfect typography</span>
+                            </div>
+                        </div>
+                        <div class="table-row">
+                            <div class="col-model">
+                                <span>Illustrations</span>
+                            </div>
+                            <div class="col-caps">
+                                <span class="tag">Nano Banana Pro</span>
+                            </div>
+                            <div class="col-provider align-right">
+                                <span>Strong prompt understanding</span>
+                            </div>
+                        </div>
+                        <div class="table-row">
+                            <div class="col-model">
+                                <span>High-res heroes</span>
+                            </div>
+                            <div class="col-caps">
+                                <span class="tag">Seedream v4.5</span>
+                            </div>
+                            <div class="col-provider align-right">
+                                <span>Cinematic 4K</span>
+                            </div>
+                        </div>
+                        <div class="table-row">
+                            <div class="col-model">
+                                <span>Quick iterations</span>
+                            </div>
+                            <div class="col-caps">
+                                <span class="tag">Z-Image Turbo</span>
+                            </div>
+                            <div class="col-provider align-right">
+                                <span>Fastest</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="workflow" class="features">
+                <div class="container">
+                    <div class="section-header">
+                        <h2>Workflow Features</h2>
+                        <p>Built for designers.</p>
+                    </div>
+
+                    <div class="bento-grid">
+                        <div class="bento-card">
+                            <div class="card-content">
+                                <h3>Smart Grid</h3>
+                                <p>Multiple images arrange automatically.</p>
+                            </div>
+                        </div>
+                        <div class="bento-card">
+                            <div class="card-content">
+                                <h3>Prompt History</h3>
+                                <p>Arrow keys recall previous prompts.</p>
+                            </div>
+                        </div>
+                        <div class="bento-card">
+                            <div class="card-content">
+                                <h3>Keyboard-First</h3>
+                                <p><kbd class="kbd">Cmd</kbd>+<kbd class="kbd">Enter</kbd> to generate.</p>
+                            </div>
+                        </div>
+                        <div class="bento-card">
+                            <div class="card-content">
+                                <h3>10 Aspect Ratios</h3>
+                                <p>Match your frame size.</p>
+                            </div>
+                        </div>
+                        <div class="bento-card">
+                            <div class="card-content">
+                                <h3>Batch Generation</h3>
+                                <p>2-4 variations per prompt.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="examples" class="features">
+                <div class="container">
+                    <div class="section-header">
+                        <h2>Example Prompts</h2>
+                        <p>Try these in your next project.</p>
+                    </div>
+
+                    <div class="bento-grid">
+                        <div class="bento-card">
+                            <div class="card-content">
+                                <h3>Hero Image</h3>
+                                <p>"Modern SaaS dashboard on laptop, minimal desk, soft shadows"</p>
+                            </div>
+                        </div>
+                        <div class="bento-card">
+                            <div class="card-content">
+                                <h3>Avatar</h3>
+                                <p>"Professional headshot, friendly expression, neutral background"</p>
+                            </div>
+                        </div>
+                        <div class="bento-card">
+                            <div class="card-content">
+                                <h3>Illustration</h3>
+                                <p>"Flat vector workspace, laptop and coffee, pastel colors"</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="faq" class="faq">
+                <div class="container">
+                    <div class="section-header">
+                        <h2>Frequently Asked Questions</h2>
+                    </div>
+                    <div class="faq-grid">
+                        <div class="faq-item">
+                            <h3>Will AI images look out of place?</h3>
+                            <div class="faq-content">
+                                <p>With specific prompts and right model, they match or exceed stock quality.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <h3>Final assets or just mockups?</h3>
+                            <div class="faq-content">
+                                <p>Both. Many use AI-generated images as final assets.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <h3>How does this compare to stock sites?</h3>
+                            <div class="faq-content">
+                                <p>Faster. More specific. No licensing issues.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="cta">
+                <div class="container">
+                    <div class="cta-card">
+                        <h2>Stop searching. Start generating.</h2>
+                        <p>Install VM Studio and stay in your design flow.</p>
+                        <a href="https://www.figma.com/community/plugin/1588675833256652136" target="_blank"
+                            class="btn btn-primary btn-lg">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 5.5A3.5 3.5 0 0 1 8.5 2H12v7H8.5A3.5 3.5 0 0 1 5 5.5z"></path>
+                                <path d="M12 2h3.5a3.5 3.5 0 1 1 0 7H12V2z"></path>
+                                <path d="M12 12.5a3.5 3.5 0 1 1 7 0 3.5 3.5 0 1 1-7 0z"></path>
+                                <path d="M5 19.5A3.5 3.5 0 0 1 8.5 16H12v3.5a3.5 3.5 0 1 1-7 0z"></path>
+                                <path d="M5 12.5A3.5 3.5 0 0 1 8.5 9H12v7H8.5A3.5 3.5 0 0 1 5 12.5z"></path>
+                            </svg>
+                            Add to Figma - Free
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+
+</html>
