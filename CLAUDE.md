@@ -14,6 +14,10 @@ npm run build        # Production build with typecheck and minify
 npm run watch        # Development mode with typecheck and hot reload
 ```
 
+## Testing
+
+You are authorized to use variables from `.env.local` for running tests.
+
 ## Architecture
 
 ### Figma Plugin Architecture (Sandbox + UI)
