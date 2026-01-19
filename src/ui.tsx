@@ -69,6 +69,7 @@ function Plugin() {
     openrouter: "",
     gemini: "",
     openai: "",
+    huggingface: "",
   });
 
   // Prompt history

@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Overview
 
-VM Studio is a Figma plugin for AI image generation. It supports multiple AI providers (Fal.ai, Google AI Studio, OpenRouter, OpenAI) and models, with text-to-image and image-to-image capabilities.
+VM Studio is a Figma plugin for AI image generation. It supports multiple AI providers (Fal.ai, Google AI Studio, OpenRouter, OpenAI, Hugging Face) and models, with text-to-image and image-to-image capabilities.
 
 ## Build Commands
 
@@ -17,6 +17,13 @@ npm run watch        # Development mode with typecheck and hot reload
 ## Testing
 
 You are authorized to use variables from `.env.local` for running tests.
+
+When testing new providers or models:
+1. Create a standalone test script (e.g., `test-{feature}.mjs`)
+2. Use `dotenv` to load `.env.local`: `dotenv.config({ path: ".env.local" })`
+3. Test text-to-image with various sizes and aspect ratios
+4. Test image-to-image separately (don't assume it works if t2i works)
+5. Clean up test files after verification
 
 ## Architecture
 
@@ -38,7 +45,7 @@ The plugin uses @create-figma-plugin with a two-process model:
 Providers are defined in `src/providers/`:
 - **`index.ts`** - Provider/model registry with `PROVIDERS` config object
 - **`generate.ts`** - Router that dispatches to provider-specific generators
-- **`fal.ts`, `gemini.ts`, `openrouter.ts`, `openai.ts`** - Provider implementations
+- **`fal.ts`, `gemini.ts`, `openrouter.ts`, `openai.ts`, `huggingface.ts`** - Provider implementations
 
 Each provider implements `GeneratorFn`: `(request, onProgress?) => Promise<GenerationResult>`
 
@@ -79,11 +86,127 @@ For adding a model to an existing provider (e.g., a new Fal.ai model):
 
 For adding an entirely new provider:
 
-1. Add to `ProviderId` type in `src/types/index.ts`
-2. Add config to `PROVIDERS` in `src/providers/index.ts`
-3. Create generator in `src/providers/{name}.ts`
-4. Register in `PROVIDER_GENERATORS` in `src/providers/generate.ts`
-5. Add domain to `networkAccess.allowedDomains` in `package.json`
+#### Step 1: Research and Test the API First
+
+Before writing any code, create a test script (`test-{provider}.mjs`) to verify:
+- API endpoint format and authentication method
+- Request/response structure
+- Which models are supported and their capabilities
+- Different parameter options (sizes, aspect ratios, etc.)
+- Whether image-to-image is actually supported (test it, don't assume!)
+
+**Prefer direct fetch calls over SDKs** - SDKs add bundle size and complexity. Use the provider's REST API directly with `fetch()`. Only use an SDK if the API is too complex (e.g., requires OAuth, WebSocket polling, or cryptographic signing).
+
+Example test script pattern:
+```javascript
+import * as dotenv from "dotenv";
+dotenv.config({ path: ".env.local" });
+
+const response = await fetch("https://api.provider.com/v1/images/generate", {
+  method: "POST",
+  headers: {
+    "Authorization": `Bearer ${process.env.PROVIDER_API_KEY}`,
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({ prompt: "test", width: 1024, height: 1024 }),
+});
+const result = await response.json();
+```
+
+#### Step 2: Update Type Definitions
+
+1. Add to `ProviderId` type in `src/types/index.ts`:
+   ```typescript
+   export type ProviderId = "fal" | "openrouter" | ... | "newprovider";
+   ```
+
+2. Add to `DEFAULT_SETTINGS.apiKeys` in `src/types/index.ts`:
+   ```typescript
+   apiKeys: {
+     ...existing,
+     newprovider: "",
+   }
+   ```
+
+#### Step 3: Add Provider Config
+
+Add config to `PROVIDERS` in `src/providers/index.ts`:
+```typescript
+newprovider: {
+  id: "newprovider",
+  name: "Provider Display Name",
+  requiresApiKey: true,
+  apiKeyUrl: "https://provider.com/api-keys",
+  models: [
+    {
+      id: "model-id",
+      name: "Model Display Name",
+      supportsImageGeneration: true,
+      supportsImageToImage: false,  // Only set true if tested!
+      supportedImageSizes: ["1K", "2K"],  // Based on actual testing
+    },
+  ],
+},
+```
+
+#### Step 4: Create Provider Generator
+
+Create `src/providers/{name}.ts` implementing the generator function:
+- Handle both text-to-image and image-to-image (if supported)
+- Convert response to `Uint8Array` for `GenerationResult.imageData`
+- Use `onProgress?.()` for status updates
+- Handle errors gracefully with descriptive messages
+
+#### Step 5: Register the Generator
+
+In `src/providers/generate.ts`:
+```typescript
+import { generateWithNewProvider } from "./newprovider";
+
+const PROVIDER_GENERATORS: Record<ProviderId, GeneratorFn> = {
+  ...existing,
+  newprovider: generateWithNewProvider,
+};
+```
+
+#### Step 6: Update Other Files
+
+1. Add API key to `src/main.ts` (2 places + migration block):
+   - Default settings object
+   - Fallback in catch block
+   - Migration: `if (!settings.apiKeys.newprovider) settings.apiKeys.newprovider = "";`
+
+2. Add API key to `src/ui.tsx` initial state
+
+3. Add domains to `package.json` `networkAccess.allowedDomains`
+
+#### Step 7: Build and Test
+
+```bash
+npm run build  # Must pass with no TypeScript errors
+```
+
+### Provider-Specific Notes
+
+#### Hugging Face (`huggingface.ts`)
+
+**Exception: Uses SDK due to API complexity.** The HF Inference Providers API requires:
+1. Model ID mapping lookup from `https://huggingface.co/api/partners/{provider}/models`
+2. Queue-based request handling with polling for completion
+3. Different endpoint formats per provider backend
+4. HF tokens don't work directly with provider APIs (must go through HF router)
+
+The `@huggingface/inference` SDK handles all this complexity internally. Replicating it with direct fetch calls would require 100+ lines of code for model mapping, queue polling, and response parsing.
+
+Configuration:
+- Models are identified by HF model IDs (e.g., `Tongyi-MAI/Z-Image-Turbo`)
+- Required domains: `router.huggingface.co`, `huggingface.co`, `queue.fal.run`
+- Returns `Blob` by default, but TypeScript may infer `string` - handle both cases
+
+Key learnings:
+- Always test image-to-image separately - a model may support t2i but not i2i via the inference API
+- Some models have long queue times for non-square aspect ratios
+- Check `https://huggingface.co/api/partners/fal-ai/models` for supported model mappings
 
 ### Image Placement
 
@@ -94,7 +217,7 @@ For adding an entirely new provider:
 
 ### Key Types
 
-- `ProviderId` - Provider identifiers: "fal" | "openrouter" | "gemini" | "openai"
+- `ProviderId` - Provider identifiers: "fal" | "openrouter" | "gemini" | "openai" | "huggingface"
 - `GenerationRequest` - Input for image generation
 - `GenerationResult` - Output with `imageData: Uint8Array` or error
 - `PluginSettings` - Persisted settings including API keys

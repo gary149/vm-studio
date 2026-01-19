@@ -3,6 +3,7 @@ import { generateWithFal } from "./fal";
 import { generateWithGemini } from "./gemini";
 import { generateWithOpenRouter } from "./openrouter";
 import { generateWithOpenAI } from "./openai";
+import { generateWithHuggingFace } from "./huggingface";
 
 type GeneratorFn = (
   request: GenerationRequest,
@@ -15,6 +16,7 @@ const PROVIDER_GENERATORS: Record<ProviderId, GeneratorFn> = {
   gemini: generateWithGemini,
   openrouter: generateWithOpenRouter,
   openai: generateWithOpenAI,
+  huggingface: generateWithHuggingFace,
 };
 
 export async function generateImage(

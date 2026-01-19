@@ -97,6 +97,28 @@ export const PROVIDERS: Record<ProviderId, ProviderConfig> = {
       },
     ],
   },
+  huggingface: {
+    id: "huggingface",
+    name: "Hugging Face",
+    requiresApiKey: true,
+    apiKeyUrl: "https://huggingface.co/settings/tokens",
+    models: [
+      {
+        id: "Tongyi-MAI/Z-Image-Turbo",
+        name: "Z-Image Turbo",
+        supportsImageGeneration: true,
+        supportsImageToImage: false,
+        supportedImageSizes: ["1K", "2K", "4K"],
+      },
+      {
+        id: "fal/FLUX.2-dev-Turbo",
+        name: "FLUX.2 [dev] Turbo",
+        supportsImageGeneration: true,
+        supportsImageToImage: false,
+        supportedImageSizes: ["1K"],
+      },
+    ],
+  },
 };
 
 export function getProvider(providerId: ProviderId): ProviderConfig {
