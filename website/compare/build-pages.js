@@ -83,16 +83,16 @@ const MODELS = {
 };
 
 const PROMPTS = [
-  { id: "01-portrait", category: "Portrait" },
-  { id: "02-text", category: "Text Rendering" },
-  { id: "03-product", category: "Product" },
-  { id: "04-architecture", category: "Architecture" },
-  { id: "05-fantasy", category: "Fantasy" },
-  { id: "06-food", category: "Food" },
-  { id: "07-fashion", category: "Fashion" },
-  { id: "08-wildlife", category: "Wildlife" },
-  { id: "09-abstract", category: "Abstract" },
-  { id: "10-scifi", category: "Sci-Fi" },
+  { id: "01-portrait", category: "Portrait", prompt: "Professional headshot of a 35-year-old woman with auburn hair, natural freckles, wearing a navy blazer, soft window lighting, shallow depth of field" },
+  { id: "02-text", category: "Text Rendering", prompt: "Vintage coffee shop chalkboard menu with handwritten text 'DAILY SPECIALS' at the top, listing 'Espresso $3.50' and 'Cappuccino $4.75', rustic wooden frame" },
+  { id: "03-product", category: "Product", prompt: "Luxury perfume bottle on white marble surface, dramatic rim lighting, crystal-clear glass with amber liquid inside, minimalist product photography" },
+  { id: "04-architecture", category: "Architecture", prompt: "Modern minimalist living room with floor-to-ceiling windows overlooking city skyline at dusk, white sectional sofa, polished concrete floors" },
+  { id: "05-fantasy", category: "Fantasy", prompt: "Mystical elven warrior with silver armor and flowing white cape, holding a glowing blue sword, standing in ancient forest with magical particles" },
+  { id: "06-food", category: "Food", prompt: "Gourmet burger on wooden board, toasted brioche bun, melting cheddar cheese, crispy bacon, fresh lettuce, dripping sauce, food magazine style" },
+  { id: "07-fashion", category: "Fashion", prompt: "Fashion model in oversized beige trench coat, standing on rainy Paris street at night, neon reflections on wet pavement, editorial Vogue style" },
+  { id: "08-wildlife", category: "Wildlife", prompt: "Majestic snow leopard resting on rocky mountain ledge, piercing blue-green eyes, thick spotted fur with snowflakes, golden hour backlighting" },
+  { id: "09-abstract", category: "Abstract", prompt: "Fluid abstract painting with swirling navy blue and gold metallic tones, organic flowing shapes, high contrast, modern art gallery piece" },
+  { id: "10-scifi", category: "Sci-Fi", prompt: "Futuristic cyberpunk cityscape at night, massive holographic advertisements, flying vehicles between towering skyscrapers, rain-slicked streets with neon reflections" },
 ];
 
 // Get timing for a model/prompt combo
@@ -223,14 +223,18 @@ function generateComparisonPage(modelA, modelB) {
                     ${winnerBadge}
                 </div>
 
+                <div class="prompt-text">${prompt.prompt}</div>
+
                 <div class="comparison-grid">
                     <div class="comparison-card model-a">
                         <div class="image-container">
                             <img src="/compare/images/${modelA}/${prompt.id}.png" alt="${metaA.name} - ${prompt.category}" loading="lazy">
-                            <span class="result-badge ${evalA && evalA.criteria_failed.length === 0 ? "pass" : "fail"}">
-                                ${evalA && evalA.criteria_failed.length === 0
+                            <span class="result-badge ${winner === modelA ? "pass" : winner === modelB ? "fail" : "tie"}">
+                                ${winner === modelA
                                   ? `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>`
-                                  : `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>`}
+                                  : winner === modelB
+                                    ? `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>`
+                                    : `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line></svg>`}
                             </span>
                             ${winner === modelA ? `<span class="award-badge gold"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>Winner</span>` : ""}
                         </div>
@@ -246,10 +250,12 @@ function generateComparisonPage(modelA, modelB) {
                     <div class="comparison-card model-b">
                         <div class="image-container">
                             <img src="/compare/images/${modelB}/${prompt.id}.png" alt="${metaB.name} - ${prompt.category}" loading="lazy">
-                            <span class="result-badge ${evalB && evalB.criteria_failed.length === 0 ? "pass" : "fail"}">
-                                ${evalB && evalB.criteria_failed.length === 0
+                            <span class="result-badge ${winner === modelB ? "pass" : winner === modelA ? "fail" : "tie"}">
+                                ${winner === modelB
                                   ? `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>`
-                                  : `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>`}
+                                  : winner === modelA
+                                    ? `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>`
+                                    : `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line></svg>`}
                             </span>
                             ${winner === modelB ? `<span class="award-badge gold"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>Winner</span>` : ""}
                         </div>
@@ -300,9 +306,9 @@ function generateComparisonPage(modelA, modelB) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- SEO Meta Tags -->
-    <title>${metaA.name} vs ${metaB.name}: AI Image Comparison 2026 | VM Studio</title>
+    <title>${metaA.name} vs ${metaB.name}: Side-by-Side Image Gallery Comparison | VM Studio</title>
     <meta name="description"
-        content="Compare ${metaA.name} and ${metaB.name} with 10 test prompts. See actual outputs, generation times, and feature differences.">
+        content="Compare ${metaA.name} vs ${metaB.name} with 10 test prompts. See side-by-side AI images, speed benchmarks, and pricing to pick the best model.">
     <meta name="keywords" content="${metaA.name} vs ${metaB.name}, AI image generator comparison, best AI image model, text to image comparison">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://vmstudio.ai/compare/${getComparisonSlug(modelA, modelB)}/">
@@ -312,11 +318,15 @@ function generateComparisonPage(modelA, modelB) {
     <meta property="og:title" content="${metaA.name} vs ${metaB.name}: Complete AI Image Comparison">
     <meta property="og:description" content="10 test prompts with side-by-side results. Compare portraits, text rendering, landscapes, and more.">
     <meta property="og:url" content="https://vmstudio.ai/compare/${getComparisonSlug(modelA, modelB)}/">
+    <meta property="og:image" content="https://vmstudio.ai/compare/images/${modelA}/01-portrait.png">
+    <meta property="og:image:width" content="1024">
+    <meta property="og:image:height" content="1024">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="${metaA.name} vs ${metaB.name}: AI Image Comparison">
     <meta name="twitter:description" content="10 test prompts, actual outputs, speed measurements.">
+    <meta name="twitter:image" content="https://vmstudio.ai/compare/images/${modelA}/01-portrait.png">
 
     <!-- Favicon -->
     <link rel="icon" href="/favicon.ico" sizes="48x48">
@@ -338,9 +348,16 @@ function generateComparisonPage(modelA, modelB) {
         "@type": "Article",
         "headline": "${metaA.name} vs ${metaB.name}: AI Image Model Comparison",
         "description": "${metaA.name} and ${metaB.name} compared with 10 test prompts and side-by-side outputs.",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://vmstudio.ai/compare/images/${modelA}/01-portrait.png",
+            "width": 1024,
+            "height": 1024
+        },
         "author": {
             "@type": "Organization",
-            "name": "VM Studio"
+            "name": "VM Studio",
+            "url": "https://vmstudio.ai"
         },
         "publisher": {
             "@type": "Organization",
@@ -369,7 +386,16 @@ function generateComparisonPage(modelA, modelB) {
                 <a href="/#models">Models</a>
                 <a href="/compare/">All Comparisons</a>
                 <a href="https://www.figma.com/community/plugin/1588675833256652136" target="_blank"
-                    class="btn btn-sm btn-primary">Add to Figma</a>
+                    class="btn btn-sm btn-primary">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 5.5A3.5 3.5 0 0 1 8.5 2H12v7H8.5A3.5 3.5 0 0 1 5 5.5z"></path>
+                        <path d="M12 2h3.5a3.5 3.5 0 1 1 0 7H12V2z"></path>
+                        <path d="M12 12.5a3.5 3.5 0 1 1 7 0 3.5 3.5 0 1 1-7 0z"></path>
+                        <path d="M5 19.5A3.5 3.5 0 0 1 8.5 16H12v3.5a3.5 3.5 0 1 1-7 0z"></path>
+                        <path d="M5 12.5A3.5 3.5 0 0 1 8.5 9H12v7H8.5A3.5 3.5 0 0 1 5 12.5z"></path>
+                    </svg>
+                    Add to Figma
+                </a>
             </nav>
         </header>
 
@@ -525,7 +551,7 @@ ${promptSections}
         <!-- CTA Section -->
         <section class="compare-cta">
             <div class="cta-card">
-                <h2>Try both models in Figma</h2>
+                <h2>Use both models in VM Studio</h2>
                 <p>Install VM Studio and compare ${metaA.name} vs ${metaB.name} on your own prompts.</p>
                 <a href="https://www.figma.com/community/plugin/1588675833256652136" target="_blank"
                     class="btn btn-primary btn-lg">
@@ -574,6 +600,31 @@ ${relatedLinks}
   return html;
 }
 
+// Generate sitemap.xml
+function generateSitemap(pairs) {
+  const urls = [
+    // Hub page
+    `  <url>
+    <loc>https://vmstudio.ai/compare/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>`,
+    // Comparison pages
+    ...pairs.map(
+      ([modelA, modelB]) => `  <url>
+    <loc>https://vmstudio.ai/compare/${getComparisonSlug(modelA, modelB)}/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>`
+    ),
+  ];
+
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${urls.join("\n")}
+</urlset>`;
+}
+
 // Main execution
 function main() {
   const pairs = getAllPairs();
@@ -596,7 +647,12 @@ function main() {
     console.log(`  ✓ ${slug}/ (${stats.winsA}-${stats.winsB})`);
   }
 
-  console.log(`\nDone! Generated ${pairs.length} comparison pages.`);
+  // Generate sitemap
+  const sitemap = generateSitemap(pairs);
+  fs.writeFileSync(path.join(__dirname, "sitemap.xml"), sitemap);
+  console.log(`  ✓ sitemap.xml (${pairs.length + 1} URLs)`);
+
+  console.log(`\nDone! Generated ${pairs.length} comparison pages + sitemap.`);
 }
 
 main();
