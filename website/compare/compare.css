@@ -187,12 +187,12 @@
     line-height: 1.5;
 }
 
-.verdict-summary {
-    font-size: 14px;
-    color: var(--text-secondary);
-    line-height: 1.6;
-    padding-top: 16px;
+.verdict-stats-bar {
+    display: flex;
+    gap: 32px;
+    padding-top: 20px;
     border-top: 1px solid var(--border-subtle);
+    flex-wrap: wrap;
 }
 
 /* Quick Stats Bar */
