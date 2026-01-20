@@ -476,33 +476,30 @@ function generateComparisonPage(modelA, modelB) {
                         <span class="verdict-strength">${strengthsB.length > 0 ? strengthsB.join(", ") : "Balanced performance"}</span>
                     </div>
                 </div>
-                <p class="verdict-summary"><strong>Score:</strong> ${stats.winsA}-${stats.winsB}${overallWinner ? ` (${MODELS[overallWinner].shortName} leads)` : " (Tie)"}</p>
+                <div class="verdict-stats-bar">
+                    <div class="stat-item">
+                        <span class="stat-label">Winner Score</span>
+                        <span class="stat-value">${stats.winsA}-${stats.winsB} ${overallWinner ? `<span class="${overallWinner === modelA ? "winner-a" : "winner-b"}">(${MODELS[overallWinner].shortName})</span>` : ""}</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Avg Speed</span>
+                        <span class="stat-value ${stats.avgSpeedA < stats.avgSpeedB ? "winner-a" : ""}">${metaA.shortName}: ${formatTime(stats.avgSpeedA)}</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Avg Speed</span>
+                        <span class="stat-value ${stats.avgSpeedB < stats.avgSpeedA ? "winner-b" : ""}">${metaB.shortName}: ${formatTime(stats.avgSpeedB)}</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Best at Text</span>
+                        <span class="stat-value ${stats.textWinner === modelA ? "winner-a" : stats.textWinner === modelB ? "winner-b" : ""}">${stats.textWinner ? MODELS[stats.textWinner].shortName : "Tie"}</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Best at Photos</span>
+                        <span class="stat-value ${stats.photoWinner === modelA ? "winner-a" : stats.photoWinner === modelB ? "winner-b" : ""}">${stats.photoWinner ? MODELS[stats.photoWinner].shortName : "Tie"}</span>
+                    </div>
+                </div>
             </div>
         </section>
-
-        <!-- Stats Bar -->
-        <div class="stats-bar">
-            <div class="stat-item">
-                <span class="stat-label">Winner Score</span>
-                <span class="stat-value">${stats.winsA}-${stats.winsB} ${overallWinner ? `<span class="${overallWinner === modelA ? "winner-a" : "winner-b"}">(${MODELS[overallWinner].shortName})</span>` : ""}</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-label">Avg Speed</span>
-                <span class="stat-value ${stats.avgSpeedA < stats.avgSpeedB ? "winner-a" : ""}">${metaA.shortName}: ${formatTime(stats.avgSpeedA)}</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-label">Avg Speed</span>
-                <span class="stat-value ${stats.avgSpeedB < stats.avgSpeedA ? "winner-b" : ""}">${metaB.shortName}: ${formatTime(stats.avgSpeedB)}</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-label">Best at Text</span>
-                <span class="stat-value ${stats.textWinner === modelA ? "winner-a" : stats.textWinner === modelB ? "winner-b" : ""}">${stats.textWinner ? MODELS[stats.textWinner].shortName : "Tie"}</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-label">Best at Photos</span>
-                <span class="stat-value ${stats.photoWinner === modelA ? "winner-a" : stats.photoWinner === modelB ? "winner-b" : ""}">${stats.photoWinner ? MODELS[stats.photoWinner].shortName : "Tie"}</span>
-            </div>
-        </div>
 
         <!-- Visual Comparison Gallery -->
         <section class="compare-gallery" id="gallery">
