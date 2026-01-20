@@ -39,6 +39,31 @@
     color: var(--text-primary);
 }
 
+.compare-nav .btn-primary {
+    background: #FFFFFF;
+    color: #000000;
+    border: 1px solid #FFFFFF;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 500;
+    border-radius: 99px;
+    height: 32px;
+    padding: 0 16px;
+    font-size: 13px;
+    text-decoration: none;
+}
+
+.compare-nav .btn-primary:hover {
+    background: #E5E5E5;
+    border-color: #E5E5E5;
+    color: #000000;
+}
+
+.compare-nav .btn-primary svg {
+    stroke: #000000;
+}
+
 /* Breadcrumb */
 .breadcrumb {
     display: flex;
@@ -405,6 +430,12 @@
     color: #EF4444;
 }
 
+.result-badge.tie {
+    background: rgba(156, 163, 175, 0.2);
+    border: 1px solid rgba(156, 163, 175, 0.4);
+    color: #9CA3AF;
+}
+
 /* Award Badge */
 .award-badge {
     position: absolute;
@@ -668,6 +699,30 @@
 .compare-cta {
     padding: 64px 48px;
     border-bottom: 1px solid var(--border-subtle);
+}
+
+.compare-cta .cta-card .btn-primary {
+    background: #FFFFFF;
+    color: #000000;
+    border: 1px solid #FFFFFF;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+    border-radius: 99px;
+    height: 48px;
+    padding: 0 24px;
+    font-size: 15px;
+    text-decoration: none;
+}
+
+.compare-cta .cta-card .btn-primary:hover {
+    background: #E5E5E5;
+    border-color: #E5E5E5;
+}
+
+.compare-cta .cta-card .btn-primary svg {
+    stroke: #000000;
 }
 
 .related-comparisons {
