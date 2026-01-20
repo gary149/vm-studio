@@ -228,7 +228,7 @@ function generateComparisonPage(modelA, modelB) {
                 <div class="comparison-grid">
                     <div class="comparison-card model-a">
                         <div class="image-container">
-                            <img src="/compare/images/${modelA}/${prompt.id}.png" alt="${metaA.name} - ${prompt.category}" width="1024" height="1024" loading="lazy">
+                            <img src="/compare/images/${modelA}/${prompt.id}.png" alt="${metaA.name} - ${prompt.category}" width="1024" height="1024"${i === 0 ? ' fetchpriority="high"' : ' loading="lazy"'}>
                             <span class="result-badge ${winner === modelA ? "pass" : winner === modelB ? "fail" : "tie"}">
                                 ${winner === modelA
                                   ? `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>`
@@ -249,7 +249,7 @@ function generateComparisonPage(modelA, modelB) {
 
                     <div class="comparison-card model-b">
                         <div class="image-container">
-                            <img src="/compare/images/${modelB}/${prompt.id}.png" alt="${metaB.name} - ${prompt.category}" width="1024" height="1024" loading="lazy">
+                            <img src="/compare/images/${modelB}/${prompt.id}.png" alt="${metaB.name} - ${prompt.category}" width="1024" height="1024"${i === 0 ? ' fetchpriority="high"' : ' loading="lazy"'}>
                             <span class="result-badge ${winner === modelB ? "pass" : winner === modelA ? "fail" : "tie"}">
                                 ${winner === modelB
                                   ? `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>`
@@ -404,7 +404,7 @@ function generateComparisonPage(modelA, modelB) {
         <!-- Header -->
         <header class="compare-header">
             <a href="/" class="logo">
-                <img src="/assets/logo.svg" alt="VM Studio Logo">
+                <img src="/assets/logo.svg" alt="VM Studio Logo" width="24" height="24">
                 <span>VM Studio</span>
             </a>
             <nav class="compare-nav">
@@ -606,7 +606,7 @@ ${relatedLinks}
         <footer class="compare-footer">
             <div class="footer-content">
                 <a href="/" class="logo">
-                    <img src="/assets/logo.svg" alt="VM Studio Logo">
+                    <img src="/assets/logo.svg" alt="VM Studio Logo" width="24" height="24">
                     <span>VM Studio</span>
                 </a>
                 <div class="footer-links">
