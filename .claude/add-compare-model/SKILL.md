@@ -155,6 +155,10 @@ Edit `website/compare/index.html`:
    - Add all N-1 new comparison links
    - Include score and winner for each
 
+4. **Update ItemList schema** in `<head>`:
+   - Update `numberOfItems` count
+   - Add new ListItem entries for each new comparison
+
 ### 10. Verify
 
 ```bash
@@ -175,6 +179,6 @@ Check:
 - [ ] generation-results.json has timing data
 - [ ] 10 evaluations in evaluations.json
 - [ ] Model in build-pages.js MODELS with pricing
-- [ ] Comparison pages regenerated
-- [ ] Hub page updated (stats, leaderboard, links)
+- [ ] Comparison pages + sitemap regenerated
+- [ ] Hub page updated (stats, leaderboard, links, ItemList schema)
 - [ ] Verified in browser
