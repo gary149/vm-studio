@@ -228,7 +228,7 @@ function generateComparisonPage(modelA, modelB) {
                 <div class="comparison-grid">
                     <div class="comparison-card model-a">
                         <div class="image-container">
-                            <img src="/compare/images/${modelA}/${prompt.id}.png" alt="${metaA.name} - ${prompt.category}" loading="lazy">
+                            <img src="/compare/images/${modelA}/${prompt.id}.png" alt="${metaA.name} - ${prompt.category}" width="1024" height="1024" loading="lazy">
                             <span class="result-badge ${winner === modelA ? "pass" : winner === modelB ? "fail" : "tie"}">
                                 ${winner === modelA
                                   ? `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>`
@@ -249,7 +249,7 @@ function generateComparisonPage(modelA, modelB) {
 
                     <div class="comparison-card model-b">
                         <div class="image-container">
-                            <img src="/compare/images/${modelB}/${prompt.id}.png" alt="${metaB.name} - ${prompt.category}" loading="lazy">
+                            <img src="/compare/images/${modelB}/${prompt.id}.png" alt="${metaB.name} - ${prompt.category}" width="1024" height="1024" loading="lazy">
                             <span class="result-badge ${winner === modelB ? "pass" : winner === modelA ? "fail" : "tie"}">
                                 ${winner === modelB
                                   ? `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>`
@@ -306,7 +306,7 @@ function generateComparisonPage(modelA, modelB) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- SEO Meta Tags -->
-    <title>${metaA.name} vs ${metaB.name}: Side-by-Side Image Gallery Comparison | VM Studio</title>
+    <title>${metaA.name} vs ${metaB.name} | Side-by-Side AI Comparison</title>
     <meta name="description"
         content="Compare ${metaA.name} vs ${metaB.name} with 10 test prompts. See side-by-side AI images, speed benchmarks, and pricing to pick the best model.">
     <meta name="keywords" content="${metaA.name} vs ${metaB.name}, AI image generator comparison, best AI image model, text to image comparison">
@@ -369,6 +369,32 @@ function generateComparisonPage(modelA, modelB) {
         },
         "datePublished": "2026-01-20",
         "dateModified": "2026-01-20"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://vmstudio.ai/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Compare",
+                "item": "https://vmstudio.ai/compare/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "${metaA.name} vs ${metaB.name}",
+                "item": "https://vmstudio.ai/compare/${getComparisonSlug(modelA, modelB)}/"
+            }
+        ]
     }
     </script>
 </head>
