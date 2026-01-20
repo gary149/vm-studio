@@ -1,0 +1,602 @@
+[
+  {
+    "model_id": "fal-ai/nano-banana-pro",
+    "model_slug": "nano-banana-pro",
+    "prompt_id": "01-portrait",
+    "prompt_category": "Portrait",
+    "prompt_text": "Professional headshot of a 35-year-old woman with auburn hair, natural freckles, wearing a navy blazer, soft window lighting, shallow depth of field",
+    "generation_time_ms": 18572,
+    "image_path": "images/nano-banana-pro/01-portrait.png",
+    "success": true
+  },
+  {
+    "model_id": "fal-ai/nano-banana-pro",
+    "model_slug": "nano-banana-pro",
+    "prompt_id": "02-text",
+    "prompt_category": "Text Rendering",
+    "prompt_text": "Vintage coffee shop chalkboard menu with handwritten text 'DAILY SPECIALS' at the top, listing 'Espresso $3.50' and 'Cappuccino $4.75', rustic wooden frame",
+    "generation_time_ms": 21387,
+    "image_path": "images/nano-banana-pro/02-text.png",
+    "success": true
+  },
+  {
+    "model_id": "fal-ai/nano-banana-pro",
+    "model_slug": "nano-banana-pro",
+    "prompt_id": "03-product",
+    "prompt_category": "Product",
+    "prompt_text": "Luxury perfume bottle on white marble surface, dramatic rim lighting, crystal-clear glass with amber liquid inside, minimalist product photography",
+    "generation_time_ms": 16682,
+    "image_path": "images/nano-banana-pro/03-product.png",
+    "success": true
+  },
+  {
+    "model_id": "fal-ai/nano-banana-pro",
+    "model_slug": "nano-banana-pro",
+    "prompt_id": "04-architecture",
+    "prompt_category": "Architecture",
+    "prompt_text": "Modern minimalist living room with floor-to-ceiling windows overlooking city skyline at dusk, white sectional sofa, polished concrete floors",
+    "generation_time_ms": 19020,
+    "image_path": "images/nano-banana-pro/04-architecture.png",
+    "success": true
+  },
+  {
+    "model_id": "fal-ai/nano-banana-pro",
+    "model_slug": "nano-banana-pro",
+    "prompt_id": "05-fantasy",
+    "prompt_category": "Fantasy",
+    "prompt_text": "Mystical elven warrior with silver armor and flowing white cape, holding a glowing blue sword, standing in ancient forest with magical particles",
+    "generation_time_ms": 18542,
+    "image_path": "images/nano-banana-pro/05-fantasy.png",
+    "success": true
+  },
+  {
+    "model_id": "fal-ai/nano-banana-pro",
+    "model_slug": "nano-banana-pro",
+    "prompt_id": "06-food",
+    "prompt_category": "Food",
+    "prompt_text": "Gourmet burger on wooden board, toasted brioche bun, melting cheddar cheese, crispy bacon, fresh lettuce, dripping sauce, food magazine style",
+    "generation_time_ms": 15755,
+    "image_path": "images/nano-banana-pro/06-food.png",
+    "success": true
+  },
+  {
+    "model_id": "fal-ai/nano-banana-pro",
+    "model_slug": "nano-banana-pro",
+    "prompt_id": "07-fashion",
+    "prompt_category": "Fashion",
+    "prompt_text": "Fashion model in oversized beige trench coat, standing on rainy Paris street at night, neon reflections on wet pavement, editorial Vogue style",
+    "generation_time_ms": 19371,
+    "image_path": "images/nano-banana-pro/07-fashion.png",
+    "success": true
+  },
+  {
+    "model_id": "fal-ai/nano-banana-pro",
+    "model_slug": "nano-banana-pro",
+    "prompt_id": "08-wildlife",
+    "prompt_category": "Wildlife",
+    "prompt_text": "Majestic snow leopard resting on rocky mountain ledge, piercing blue-green eyes, thick spotted fur with snowflakes, golden hour backlighting",
+    "generation_time_ms": 18546,
+    "image_path": "images/nano-banana-pro/08-wildlife.png",
+    "success": true
+  },
+  {
+    "model_id": "fal-ai/nano-banana-pro",
+    "model_slug": "nano-banana-pro",
+    "prompt_id": "09-abstract",
+    "prompt_category": "Abstract",
+    "prompt_text": "Fluid abstract painting with swirling navy blue and gold metallic tones, organic flowing shapes, high contrast, modern art gallery piece",
+    "generation_time_ms": 19275,
+    "image_path": "images/nano-banana-pro/09-abstract.png",
+    "success": true
+  },
+  {
+    "model_id": "fal-ai/nano-banana-pro",
+    "model_slug": "nano-banana-pro",
+    "prompt_id": "10-scifi",
+    "prompt_category": "Sci-Fi",
+    "prompt_text": "Futuristic cyberpunk cityscape at night, massive holographic advertisements, flying vehicles between towering skyscrapers, rain-slicked streets with neon reflections",
+    "generation_time_ms": 19119,
+    "image_path": "images/nano-banana-pro/10-scifi.png",
+    "success": true
+  },
+  {
+    "model_id": "fal-ai/flux-2/turbo",
+    "model_slug": "flux2-turbo",
+    "prompt_id": "01-portrait",
+    "prompt_category": "Portrait",
+    "prompt_text": "Professional headshot of a 35-year-old woman with auburn hair, natural freckles, wearing a navy blazer, soft window lighting, shallow depth of field",
+    "generation_time_ms": 3107,
+    "image_path": "images/flux2-turbo/01-portrait.png",
+    "success": true
+  },
+  {
+    "model_id": "fal-ai/flux-2/turbo",
+    "model_slug": "flux2-turbo",
+    "prompt_id": "02-text",
+    "prompt_category": "Text Rendering",
+    "prompt_text": "Vintage coffee shop chalkboard menu with handwritten text 'DAILY SPECIALS' at the top, listing 'Espresso $3.50' and 'Cappuccino $4.75', rustic wooden frame",
+    "generation_time_ms": 2054,
+    "image_path": "images/flux2-turbo/02-text.png",
+    "success": true
+  },
+  {
+    "model_id": "fal-ai/flux-2/turbo",
+    "model_slug": "flux2-turbo",
+    "prompt_id": "03-product",
+    "prompt_category": "Product",
+    "prompt_text": "Luxury perfume bottle on white marble surface, dramatic rim lighting, crystal-clear glass with amber liquid inside, minimalist product photography",
+    "generation_time_ms": 3340,
+    "image_path": "images/flux2-turbo/03-product.png",
+    "success": true
+  },
+  {
+    "model_id": "fal-ai/flux-2/turbo",
+    "model_slug": "flux2-turbo",
+    "prompt_id": "04-architecture",
+    "prompt_category": "Architecture",
+    "prompt_text": "Modern minimalist living room with floor-to-ceiling windows overlooking city skyline at dusk, white sectional sofa, polished concrete floors",
+    "generation_time_ms": 2154,
+    "image_path": "images/flux2-turbo/04-architecture.png",
+    "success": true
+  },
+  {
+    "model_id": "fal-ai/flux-2/turbo",
+    "model_slug": "flux2-turbo",
+    "prompt_id": "05-fantasy",
+    "prompt_category": "Fantasy",
+    "prompt_text": "Mystical elven warrior with silver armor and flowing white cape, holding a glowing blue sword, standing in ancient forest with magical particles",
+    "generation_time_ms": 2545,
+    "image_path": "images/flux2-turbo/05-fantasy.png",
+    "success": true
+  },
+  {
+    "model_id": "fal-ai/flux-2/turbo",
+    "model_slug": "flux2-turbo",
+    "prompt_id": "06-food",
+    "prompt_category": "Food",
+    "prompt_text": "Gourmet burger on wooden board, toasted brioche bun, melting cheddar cheese, crispy bacon, fresh lettuce, dripping sauce, food magazine style",
+    "generation_time_ms": 2785,
+    "image_path": "images/flux2-turbo/06-food.png",
+    "success": true
+  },
+  {
+    "model_id": "fal-ai/flux-2/turbo",
+    "model_slug": "flux2-turbo",
+    "prompt_id": "07-fashion",
+    "prompt_category": "Fashion",
+    "prompt_text": "Fashion model in oversized beige trench coat, standing on rainy Paris street at night, neon reflections on wet pavement, editorial Vogue style",
+    "generation_time_ms": 2997,
+    "image_path": "images/flux2-turbo/07-fashion.png",
+    "success": true
+  },
+  {
+    "model_id": "fal-ai/flux-2/turbo",
+    "model_slug": "flux2-turbo",
+    "prompt_id": "08-wildlife",
+    "prompt_category": "Wildlife",
+    "prompt_text": "Majestic snow leopard resting on rocky mountain ledge, piercing blue-green eyes, thick spotted fur with snowflakes, golden hour backlighting",
+    "generation_time_ms": 2407,
+    "image_path": "images/flux2-turbo/08-wildlife.png",
+    "success": true
+  },
+  {
+    "model_id": "fal-ai/flux-2/turbo",
+    "model_slug": "flux2-turbo",
+    "prompt_id": "09-abstract",
+    "prompt_category": "Abstract",
+    "prompt_text": "Fluid abstract painting with swirling navy blue and gold metallic tones, organic flowing shapes, high contrast, modern art gallery piece",
+    "generation_time_ms": 2183,
+    "image_path": "images/flux2-turbo/09-abstract.png",
+    "success": true
+  },
+  {
+    "model_id": "fal-ai/flux-2/turbo",
+    "model_slug": "flux2-turbo",
+    "prompt_id": "10-scifi",
+    "prompt_category": "Sci-Fi",
+    "prompt_text": "Futuristic cyberpunk cityscape at night, massive holographic advertisements, flying vehicles between towering skyscrapers, rain-slicked streets with neon reflections",
+    "generation_time_ms": 2166,
+    "image_path": "images/flux2-turbo/10-scifi.png",
+    "success": true
+  },
+  {
+    "model_id": "fal-ai/flux-2/klein/9b",
+    "model_slug": "flux2-klein-9b",
+    "prompt_id": "01-portrait",
+    "prompt_category": "Portrait",
+    "prompt_text": "Professional headshot of a 35-year-old woman with auburn hair, natural freckles, wearing a navy blazer, soft window lighting, shallow depth of field",
+    "generation_time_ms": 1937,
+    "image_path": "images/flux2-klein-9b/01-portrait.png",
+    "success": true
+  },
+  {
+    "model_id": "fal-ai/flux-2/klein/9b",
+    "model_slug": "flux2-klein-9b",
+    "prompt_id": "02-text",
+    "prompt_category": "Text Rendering",
+    "prompt_text": "Vintage coffee shop chalkboard menu with handwritten text 'DAILY SPECIALS' at the top, listing 'Espresso $3.50' and 'Cappuccino $4.75', rustic wooden frame",
+    "generation_time_ms": 1488,
+    "image_path": "images/flux2-klein-9b/02-text.png",
+    "success": true
+  },
+  {
+    "model_id": "fal-ai/flux-2/klein/9b",
+    "model_slug": "flux2-klein-9b",
+    "prompt_id": "03-product",
+    "prompt_category": "Product",
+    "prompt_text": "Luxury perfume bottle on white marble surface, dramatic rim lighting, crystal-clear glass with amber liquid inside, minimalist product photography",
+    "generation_time_ms": 1481,
+    "image_path": "images/flux2-klein-9b/03-product.png",
+    "success": true
+  },
+  {
+    "model_id": "fal-ai/flux-2/klein/9b",
+    "model_slug": "flux2-klein-9b",
+    "prompt_id": "04-architecture",
+    "prompt_category": "Architecture",
+    "prompt_text": "Modern minimalist living room with floor-to-ceiling windows overlooking city skyline at dusk, white sectional sofa, polished concrete floors",
+    "generation_time_ms": 1474,
+    "image_path": "images/flux2-klein-9b/04-architecture.png",
+    "success": true
+  },
+  {
+    "model_id": "fal-ai/flux-2/klein/9b",
+    "model_slug": "flux2-klein-9b",
+    "prompt_id": "05-fantasy",
+    "prompt_category": "Fantasy",
+    "prompt_text": "Mystical elven warrior with silver armor and flowing white cape, holding a glowing blue sword, standing in ancient forest with magical particles",
+    "generation_time_ms": 1515,
+    "image_path": "images/flux2-klein-9b/05-fantasy.png",
+    "success": true
+  },
+  {
+    "model_id": "fal-ai/flux-2/klein/9b",
+    "model_slug": "flux2-klein-9b",
+    "prompt_id": "06-food",
+    "prompt_category": "Food",
+    "prompt_text": "Gourmet burger on wooden board, toasted brioche bun, melting cheddar cheese, crispy bacon, fresh lettuce, dripping sauce, food magazine style",
+    "generation_time_ms": 1424,
+    "image_path": "images/flux2-klein-9b/06-food.png",
+    "success": true
+  },
+  {
+    "model_id": "fal-ai/flux-2/klein/9b",
+    "model_slug": "flux2-klein-9b",
+    "prompt_id": "07-fashion",
+    "prompt_category": "Fashion",
+    "prompt_text": "Fashion model in oversized beige trench coat, standing on rainy Paris street at night, neon reflections on wet pavement, editorial Vogue style",
+    "generation_time_ms": 1344,
+    "image_path": "images/flux2-klein-9b/07-fashion.png",
+    "success": true
+  },
+  {
+    "model_id": "fal-ai/flux-2/klein/9b",
+    "model_slug": "flux2-klein-9b",
+    "prompt_id": "08-wildlife",
+    "prompt_category": "Wildlife",
+    "prompt_text": "Majestic snow leopard resting on rocky mountain ledge, piercing blue-green eyes, thick spotted fur with snowflakes, golden hour backlighting",
+    "generation_time_ms": 1452,
+    "image_path": "images/flux2-klein-9b/08-wildlife.png",
+    "success": true
+  },
+  {
+    "model_id": "fal-ai/flux-2/klein/9b",
+    "model_slug": "flux2-klein-9b",
+    "prompt_id": "09-abstract",
+    "prompt_category": "Abstract",
+    "prompt_text": "Fluid abstract painting with swirling navy blue and gold metallic tones, organic flowing shapes, high contrast, modern art gallery piece",
+    "generation_time_ms": 1391,
+    "image_path": "images/flux2-klein-9b/09-abstract.png",
+    "success": true
+  },
+  {
+    "model_id": "fal-ai/flux-2/klein/9b",
+    "model_slug": "flux2-klein-9b",
+    "prompt_id": "10-scifi",
+    "prompt_category": "Sci-Fi",
+    "prompt_text": "Futuristic cyberpunk cityscape at night, massive holographic advertisements, flying vehicles between towering skyscrapers, rain-slicked streets with neon reflections",
+    "generation_time_ms": 1392,
+    "image_path": "images/flux2-klein-9b/10-scifi.png",
+    "success": true
+  },
+  {
+    "model_id": "fal-ai/gpt-image-1.5",
+    "model_slug": "gpt-image-1-5",
+    "prompt_id": "01-portrait",
+    "prompt_category": "Portrait",
+    "prompt_text": "Professional headshot of a 35-year-old woman with auburn hair, natural freckles, wearing a navy blazer, soft window lighting, shallow depth of field",
+    "generation_time_ms": 38269,
+    "image_path": "images/gpt-image-1-5/01-portrait.png",
+    "success": true
+  },
+  {
+    "model_id": "fal-ai/gpt-image-1.5",
+    "model_slug": "gpt-image-1-5",
+    "prompt_id": "02-text",
+    "prompt_category": "Text Rendering",
+    "prompt_text": "Vintage coffee shop chalkboard menu with handwritten text 'DAILY SPECIALS' at the top, listing 'Espresso $3.50' and 'Cappuccino $4.75', rustic wooden frame",
+    "generation_time_ms": 38118,
+    "image_path": "images/gpt-image-1-5/02-text.png",
+    "success": true
+  },
+  {
+    "model_id": "fal-ai/gpt-image-1.5",
+    "model_slug": "gpt-image-1-5",
+    "prompt_id": "03-product",
+    "prompt_category": "Product",
+    "prompt_text": "Luxury perfume bottle on white marble surface, dramatic rim lighting, crystal-clear glass with amber liquid inside, minimalist product photography",
+    "generation_time_ms": 37359,
+    "image_path": "images/gpt-image-1-5/03-product.png",
+    "success": true
+  },
+  {
+    "model_id": "fal-ai/gpt-image-1.5",
+    "model_slug": "gpt-image-1-5",
+    "prompt_id": "04-architecture",
+    "prompt_category": "Architecture",
+    "prompt_text": "Modern minimalist living room with floor-to-ceiling windows overlooking city skyline at dusk, white sectional sofa, polished concrete floors",
+    "generation_time_ms": 40426,
+    "image_path": "images/gpt-image-1-5/04-architecture.png",
+    "success": true
+  },
+  {
+    "model_id": "fal-ai/gpt-image-1.5",
+    "model_slug": "gpt-image-1-5",
+    "prompt_id": "05-fantasy",
+    "prompt_category": "Fantasy",
+    "prompt_text": "Mystical elven warrior with silver armor and flowing white cape, holding a glowing blue sword, standing in ancient forest with magical particles",
+    "generation_time_ms": 45282,
+    "image_path": "images/gpt-image-1-5/05-fantasy.png",
+    "success": true
+  },
+  {
+    "model_id": "fal-ai/gpt-image-1.5",
+    "model_slug": "gpt-image-1-5",
+    "prompt_id": "06-food",
+    "prompt_category": "Food",
+    "prompt_text": "Gourmet burger on wooden board, toasted brioche bun, melting cheddar cheese, crispy bacon, fresh lettuce, dripping sauce, food magazine style",
+    "generation_time_ms": 36388,
+    "image_path": "images/gpt-image-1-5/06-food.png",
+    "success": true
+  },
+  {
+    "model_id": "fal-ai/gpt-image-1.5",
+    "model_slug": "gpt-image-1-5",
+    "prompt_id": "07-fashion",
+    "prompt_category": "Fashion",
+    "prompt_text": "Fashion model in oversized beige trench coat, standing on rainy Paris street at night, neon reflections on wet pavement, editorial Vogue style",
+    "generation_time_ms": 36637,
+    "image_path": "images/gpt-image-1-5/07-fashion.png",
+    "success": true
+  },
+  {
+    "model_id": "fal-ai/gpt-image-1.5",
+    "model_slug": "gpt-image-1-5",
+    "prompt_id": "08-wildlife",
+    "prompt_category": "Wildlife",
+    "prompt_text": "Majestic snow leopard resting on rocky mountain ledge, piercing blue-green eyes, thick spotted fur with snowflakes, golden hour backlighting",
+    "generation_time_ms": 39450,
+    "image_path": "images/gpt-image-1-5/08-wildlife.png",
+    "success": true
+  },
+  {
+    "model_id": "fal-ai/gpt-image-1.5",
+    "model_slug": "gpt-image-1-5",
+    "prompt_id": "09-abstract",
+    "prompt_category": "Abstract",
+    "prompt_text": "Fluid abstract painting with swirling navy blue and gold metallic tones, organic flowing shapes, high contrast, modern art gallery piece",
+    "generation_time_ms": 34844,
+    "image_path": "images/gpt-image-1-5/09-abstract.png",
+    "success": true
+  },
+  {
+    "model_id": "fal-ai/gpt-image-1.5",
+    "model_slug": "gpt-image-1-5",
+    "prompt_id": "10-scifi",
+    "prompt_category": "Sci-Fi",
+    "prompt_text": "Futuristic cyberpunk cityscape at night, massive holographic advertisements, flying vehicles between towering skyscrapers, rain-slicked streets with neon reflections",
+    "generation_time_ms": 53395,
+    "image_path": "images/gpt-image-1-5/10-scifi.png",
+    "success": true
+  },
+  {
+    "model_id": "fal-ai/bytedance/seedream/v4.5",
+    "model_slug": "seedream-v4-5",
+    "prompt_id": "01-portrait",
+    "prompt_category": "Portrait",
+    "prompt_text": "Professional headshot of a 35-year-old woman with auburn hair, natural freckles, wearing a navy blazer, soft window lighting, shallow depth of field",
+    "generation_time_ms": 14675,
+    "image_path": "images/seedream-v4-5/01-portrait.png",
+    "success": true
+  },
+  {
+    "model_id": "fal-ai/bytedance/seedream/v4.5",
+    "model_slug": "seedream-v4-5",
+    "prompt_id": "02-text",
+    "prompt_category": "Text Rendering",
+    "prompt_text": "Vintage coffee shop chalkboard menu with handwritten text 'DAILY SPECIALS' at the top, listing 'Espresso $3.50' and 'Cappuccino $4.75', rustic wooden frame",
+    "generation_time_ms": 31654,
+    "image_path": "images/seedream-v4-5/02-text.png",
+    "success": true
+  },
+  {
+    "model_id": "fal-ai/bytedance/seedream/v4.5",
+    "model_slug": "seedream-v4-5",
+    "prompt_id": "03-product",
+    "prompt_category": "Product",
+    "prompt_text": "Luxury perfume bottle on white marble surface, dramatic rim lighting, crystal-clear glass with amber liquid inside, minimalist product photography",
+    "generation_time_ms": 12547,
+    "image_path": "images/seedream-v4-5/03-product.png",
+    "success": true
+  },
+  {
+    "model_id": "fal-ai/bytedance/seedream/v4.5",
+    "model_slug": "seedream-v4-5",
+    "prompt_id": "04-architecture",
+    "prompt_category": "Architecture",
+    "prompt_text": "Modern minimalist living room with floor-to-ceiling windows overlooking city skyline at dusk, white sectional sofa, polished concrete floors",
+    "generation_time_ms": 12915,
+    "image_path": "images/seedream-v4-5/04-architecture.png",
+    "success": true
+  },
+  {
+    "model_id": "fal-ai/bytedance/seedream/v4.5",
+    "model_slug": "seedream-v4-5",
+    "prompt_id": "05-fantasy",
+    "prompt_category": "Fantasy",
+    "prompt_text": "Mystical elven warrior with silver armor and flowing white cape, holding a glowing blue sword, standing in ancient forest with magical particles",
+    "generation_time_ms": 16816,
+    "image_path": "images/seedream-v4-5/05-fantasy.png",
+    "success": true
+  },
+  {
+    "model_id": "fal-ai/bytedance/seedream/v4.5",
+    "model_slug": "seedream-v4-5",
+    "prompt_id": "06-food",
+    "prompt_category": "Food",
+    "prompt_text": "Gourmet burger on wooden board, toasted brioche bun, melting cheddar cheese, crispy bacon, fresh lettuce, dripping sauce, food magazine style",
+    "generation_time_ms": 14477,
+    "image_path": "images/seedream-v4-5/06-food.png",
+    "success": true
+  },
+  {
+    "model_id": "fal-ai/bytedance/seedream/v4.5",
+    "model_slug": "seedream-v4-5",
+    "prompt_id": "07-fashion",
+    "prompt_category": "Fashion",
+    "prompt_text": "Fashion model in oversized beige trench coat, standing on rainy Paris street at night, neon reflections on wet pavement, editorial Vogue style",
+    "generation_time_ms": 13463,
+    "image_path": "images/seedream-v4-5/07-fashion.png",
+    "success": true
+  },
+  {
+    "model_id": "fal-ai/bytedance/seedream/v4.5",
+    "model_slug": "seedream-v4-5",
+    "prompt_id": "08-wildlife",
+    "prompt_category": "Wildlife",
+    "prompt_text": "Majestic snow leopard resting on rocky mountain ledge, piercing blue-green eyes, thick spotted fur with snowflakes, golden hour backlighting",
+    "generation_time_ms": 12862,
+    "image_path": "images/seedream-v4-5/08-wildlife.png",
+    "success": true
+  },
+  {
+    "model_id": "fal-ai/bytedance/seedream/v4.5",
+    "model_slug": "seedream-v4-5",
+    "prompt_id": "09-abstract",
+    "prompt_category": "Abstract",
+    "prompt_text": "Fluid abstract painting with swirling navy blue and gold metallic tones, organic flowing shapes, high contrast, modern art gallery piece",
+    "generation_time_ms": 16946,
+    "image_path": "images/seedream-v4-5/09-abstract.png",
+    "success": true
+  },
+  {
+    "model_id": "fal-ai/bytedance/seedream/v4.5",
+    "model_slug": "seedream-v4-5",
+    "prompt_id": "10-scifi",
+    "prompt_category": "Sci-Fi",
+    "prompt_text": "Futuristic cyberpunk cityscape at night, massive holographic advertisements, flying vehicles between towering skyscrapers, rain-slicked streets with neon reflections",
+    "generation_time_ms": 12785,
+    "image_path": "images/seedream-v4-5/10-scifi.png",
+    "success": true
+  },
+  {
+    "model_id": "fal-ai/z-image/turbo",
+    "model_slug": "z-image-turbo",
+    "prompt_id": "01-portrait",
+    "prompt_category": "Portrait",
+    "prompt_text": "Professional headshot of a 35-year-old woman with auburn hair, natural freckles, wearing a navy blazer, soft window lighting, shallow depth of field",
+    "generation_time_ms": 1267,
+    "image_path": "images/z-image-turbo/01-portrait.png",
+    "success": true
+  },
+  {
+    "model_id": "fal-ai/z-image/turbo",
+    "model_slug": "z-image-turbo",
+    "prompt_id": "02-text",
+    "prompt_category": "Text Rendering",
+    "prompt_text": "Vintage coffee shop chalkboard menu with handwritten text 'DAILY SPECIALS' at the top, listing 'Espresso $3.50' and 'Cappuccino $4.75', rustic wooden frame",
+    "generation_time_ms": 1253,
+    "image_path": "images/z-image-turbo/02-text.png",
+    "success": true
+  },
+  {
+    "model_id": "fal-ai/z-image/turbo",
+    "model_slug": "z-image-turbo",
+    "prompt_id": "03-product",
+    "prompt_category": "Product",
+    "prompt_text": "Luxury perfume bottle on white marble surface, dramatic rim lighting, crystal-clear glass with amber liquid inside, minimalist product photography",
+    "generation_time_ms": 1869,
+    "image_path": "images/z-image-turbo/03-product.png",
+    "success": true
+  },
+  {
+    "model_id": "fal-ai/z-image/turbo",
+    "model_slug": "z-image-turbo",
+    "prompt_id": "04-architecture",
+    "prompt_category": "Architecture",
+    "prompt_text": "Modern minimalist living room with floor-to-ceiling windows overlooking city skyline at dusk, white sectional sofa, polished concrete floors",
+    "generation_time_ms": 1553,
+    "image_path": "images/z-image-turbo/04-architecture.png",
+    "success": true
+  },
+  {
+    "model_id": "fal-ai/z-image/turbo",
+    "model_slug": "z-image-turbo",
+    "prompt_id": "05-fantasy",
+    "prompt_category": "Fantasy",
+    "prompt_text": "Mystical elven warrior with silver armor and flowing white cape, holding a glowing blue sword, standing in ancient forest with magical particles",
+    "generation_time_ms": 3545,
+    "image_path": "images/z-image-turbo/05-fantasy.png",
+    "success": true
+  },
+  {
+    "model_id": "fal-ai/z-image/turbo",
+    "model_slug": "z-image-turbo",
+    "prompt_id": "06-food",
+    "prompt_category": "Food",
+    "prompt_text": "Gourmet burger on wooden board, toasted brioche bun, melting cheddar cheese, crispy bacon, fresh lettuce, dripping sauce, food magazine style",
+    "generation_time_ms": 1190,
+    "image_path": "images/z-image-turbo/06-food.png",
+    "success": true
+  },
+  {
+    "model_id": "fal-ai/z-image/turbo",
+    "model_slug": "z-image-turbo",
+    "prompt_id": "07-fashion",
+    "prompt_category": "Fashion",
+    "prompt_text": "Fashion model in oversized beige trench coat, standing on rainy Paris street at night, neon reflections on wet pavement, editorial Vogue style",
+    "generation_time_ms": 1224,
+    "image_path": "images/z-image-turbo/07-fashion.png",
+    "success": true
+  },
+  {
+    "model_id": "fal-ai/z-image/turbo",
+    "model_slug": "z-image-turbo",
+    "prompt_id": "08-wildlife",
+    "prompt_category": "Wildlife",
+    "prompt_text": "Majestic snow leopard resting on rocky mountain ledge, piercing blue-green eyes, thick spotted fur with snowflakes, golden hour backlighting",
+    "generation_time_ms": 1141,
+    "image_path": "images/z-image-turbo/08-wildlife.png",
+    "success": true
+  },
+  {
+    "model_id": "fal-ai/z-image/turbo",
+    "model_slug": "z-image-turbo",
+    "prompt_id": "09-abstract",
+    "prompt_category": "Abstract",
+    "prompt_text": "Fluid abstract painting with swirling navy blue and gold metallic tones, organic flowing shapes, high contrast, modern art gallery piece",
+    "generation_time_ms": 1130,
+    "image_path": "images/z-image-turbo/09-abstract.png",
+    "success": true
+  },
+  {
+    "model_id": "fal-ai/z-image/turbo",
+    "model_slug": "z-image-turbo",
+    "prompt_id": "10-scifi",
+    "prompt_category": "Sci-Fi",
+    "prompt_text": "Futuristic cyberpunk cityscape at night, massive holographic advertisements, flying vehicles between towering skyscrapers, rain-slicked streets with neon reflections",
+    "generation_time_ms": 1209,
+    "image_path": "images/z-image-turbo/10-scifi.png",
+    "success": true
+  }
+]
