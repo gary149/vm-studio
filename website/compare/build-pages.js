@@ -318,15 +318,11 @@ function generateComparisonPage(modelA, modelB) {
     <meta property="og:title" content="${metaA.name} vs ${metaB.name}: Complete AI Image Comparison">
     <meta property="og:description" content="10 test prompts with side-by-side results. Compare portraits, text rendering, landscapes, and more.">
     <meta property="og:url" content="https://vmstudio.ai/compare/${getComparisonSlug(modelA, modelB)}/">
-    <meta property="og:image" content="https://vmstudio.ai/compare/images/${modelA}/01-portrait.png">
-    <meta property="og:image:width" content="1024">
-    <meta property="og:image:height" content="1024">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="${metaA.name} vs ${metaB.name}: AI Image Comparison">
     <meta name="twitter:description" content="10 test prompts, actual outputs, speed measurements.">
-    <meta name="twitter:image" content="https://vmstudio.ai/compare/images/${modelA}/01-portrait.png">
 
     <!-- Favicon -->
     <link rel="icon" href="/favicon.ico" sizes="48x48">
