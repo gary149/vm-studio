@@ -115,3 +115,13 @@ The `website/` directory contains a static landing page for vmstudio.ai:
 - **`assets/`** - Logo SVG, favicons, hero video (`hero-demo.mp4`), and OG image
 
 The page is pure HTML/CSS/JS with no build step. Do not change the title or meta descriptions when updating.
+
+## Comparison Pages
+
+The `website/compare/` directory contains model comparison pages:
+
+- **`build-pages.js`** - Generator script that creates all comparison page HTML files
+- **`index.html`** - Hub page (manually created, not generated)
+- **`{model-a}-vs-{model-b}/index.html`** - Generated comparison pages
+
+**Important:** The individual comparison pages are generated from `build-pages.js`. Do not edit them directly - modify the template in `build-pages.js` and run `node website/compare/build-pages.js` to regenerate.
