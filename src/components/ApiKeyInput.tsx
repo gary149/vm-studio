@@ -5,6 +5,7 @@ interface ApiKeyInputProps {
   value: string;
   onChange: (value: string) => void;
   providerName: string;
+  modelCount: number;
   apiKeyUrl?: string;
   disabled?: boolean;
 }
@@ -13,6 +14,7 @@ export function ApiKeyInput({
   value,
   onChange,
   providerName,
+  modelCount,
   apiKeyUrl,
   disabled,
 }: ApiKeyInputProps) {
@@ -25,7 +27,7 @@ export function ApiKeyInput({
   return (
     <div class="field">
       <div class="field-label-row">
-        <label class="field-label">{providerName} API Key</label>
+        <label class="field-label">{providerName} ({modelCount} {modelCount === 1 ? "model" : "models"}) API Key</label>
         {apiKeyUrl && (
           <a
             href={apiKeyUrl}
