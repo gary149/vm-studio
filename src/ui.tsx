@@ -433,6 +433,7 @@ function Plugin() {
               value={apiKeys[provider.id] || ""}
               onChange={(value) => handleApiKeyChange(provider.id, value)}
               providerName={provider.name}
+              modelCount={provider.models.length}
               apiKeyUrl={provider.apiKeyUrl}
             />
           ))}
