@@ -25,24 +25,27 @@ import {
 } from "./positioning";
 
 // Convert Uint8Array to base64 (atob/btoa not available in Figma sandbox)
+// Optimized: uses array accumulation + join instead of string concatenation (O(n) vs O(n²))
 function uint8ArrayToBase64(bytes: Uint8Array): string {
   const chars =
     "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
-  let result = "";
   const len = bytes.length;
+  const numChunks = Math.ceil(len / 3);
+  const result = new Array<string>(numChunks * 4);
+  let resultIndex = 0;
 
   for (let i = 0; i < len; i += 3) {
     const b1 = bytes[i];
     const b2 = i + 1 < len ? bytes[i + 1] : 0;
     const b3 = i + 2 < len ? bytes[i + 2] : 0;
 
-    result += chars[b1 >> 2];
-    result += chars[((b1 & 3) << 4) | (b2 >> 4)];
-    result += i + 1 < len ? chars[((b2 & 15) << 2) | (b3 >> 6)] : "=";
-    result += i + 2 < len ? chars[b3 & 63] : "=";
+    result[resultIndex++] = chars[b1 >> 2];
+    result[resultIndex++] = chars[((b1 & 3) << 4) | (b2 >> 4)];
+    result[resultIndex++] = i + 1 < len ? chars[((b2 & 15) << 2) | (b3 >> 6)] : "=";
+    result[resultIndex++] = i + 2 < len ? chars[b3 & 63] : "=";
   }
 
-  return result;
+  return result.join("");
 }
 
 // Export selected images/frames as thumbnails only (fast)
