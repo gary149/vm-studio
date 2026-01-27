@@ -90,14 +90,24 @@ async function exportFullResolutionImages(
   nodeIds: string[],
 ): Promise<string[]> {
   const images: string[] = [];
+  const MAX_INPUT_EDGE = 1024;
 
   for (const nodeId of nodeIds) {
     const node = await figma.getNodeByIdAsync(nodeId);
     if (!node || !("exportAsync" in node)) continue;
 
     try {
+      const nodeWidth =
+        "width" in node ? (node as { width: number }).width : 0;
+      const nodeHeight =
+        "height" in node ? (node as { height: number }).height : 0;
+      const maxEdge = Math.max(nodeWidth, nodeHeight);
+      const scale =
+        maxEdge > 0 ? Math.min(1, MAX_INPUT_EDGE / maxEdge) : 1;
+
       const pngData = await (node as ExportMixin).exportAsync({
         format: "PNG",
+        ...(scale < 1 ? { constraint: { type: "SCALE", value: scale } } : {}),
       });
       const base64 = uint8ArrayToBase64(pngData);
       images.push(base64);
