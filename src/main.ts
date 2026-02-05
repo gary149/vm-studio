@@ -162,7 +162,19 @@ function createPlaceholder(
   node.resize(width, height);
   node.x = x;
   node.y = y;
-  node.fills = [{ type: "SOLID", color: { r: 0.9, g: 0.9, b: 0.9 } }];
+  node.fills = [
+    {
+      type: "GRADIENT_LINEAR",
+      gradientTransform: [
+        [1, 0, 0],
+        [0, 1, 0],
+      ],
+      gradientStops: [
+        { position: 0, color: { r: 0.95, g: 0.95, b: 0.97, a: 1 } },
+        { position: 1, color: { r: 0.8, g: 0.8, b: 0.85, a: 1 } },
+      ],
+    },
+  ];
   node.cornerRadius = 8;
   // Lock placeholder to prevent user from deleting/moving during generation
   node.locked = true;
