@@ -18,6 +18,8 @@
     <meta property="og:title" content="AI Image Model Comparisons 2026 | VM Studio">
     <meta property="og:description" content="15 head-to-head comparisons with 10 test prompts each. See actual outputs and generation times.">
     <meta property="og:url" content="https://vmstudio.ai/compare/">
+    <meta property="og:site_name" content="VM Studio">
+    <meta property="og:image" content="https://vmstudio.ai/assets/vm-studio.png">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
@@ -408,24 +410,6 @@
         "@context": "https://schema.org",
         "@type": "CollectionPage",
         "name": "AI Image Model Comparisons",
-        "description": "Compare the best AI image generation models side-by-side with 15 head-to-head comparisons.",
-        "publisher": {
-            "@type": "Organization",
-            "name": "VM Studio",
-            "logo": {
-                "@type": "ImageObject",
-                "url": "https://vmstudio.ai/assets/logo.svg"
-            }
-        },
-        "datePublished": "2026-01-20",
-        "dateModified": "2026-01-20"
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "CollectionPage",
-        "name": "AI Image Model Comparisons",
         "description": "Compare the best AI image generation models side-by-side with real outputs.",
         "url": "https://vmstudio.ai/compare/",
         "mainEntity": {
@@ -449,6 +433,38 @@
                 {"@type": "ListItem", "position": 15, "url": "https://vmstudio.ai/compare/seedream-v4-5-vs-z-image-turbo/", "name": "Seedream v4.5 vs Z-Image Turbo"}
             ]
         }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "How were these AI models compared?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Each model was tested with 10 identical prompts covering portraits, text rendering, product shots, architecture, fantasy, food, fashion, wildlife, abstract art, and sci-fi. All images were generated at 1024x1024 with default parameters."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Which AI image model is the best?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Based on our benchmark, GPT-Image 1.5 leads with the most wins, followed by Seedream v4.5. However, the best model depends on your specific use case, speed requirements, and budget."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How often are model comparisons updated?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "We update our comparisons whenever new model versions are released or significant updates are made to existing models."
+                }
+            }
+        ]
     }
     </script>
 </head>
@@ -955,6 +971,27 @@
                         <span class="comparison-winner model-a">FLUX.2 Turbo wins</span>
                     </div>
                 </a>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="comparisons-section" id="faq">
+            <div class="section-header">
+                <h2>Frequently Asked Questions</h2>
+            </div>
+            <div class="faq-grid" style="display: grid; gap: 24px; margin-top: 32px;">
+                <div class="faq-item" style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 24px;">
+                    <h3 style="font-size: 15px; font-weight: 500; color: var(--text-primary); margin-bottom: 8px;">How were these AI models compared?</h3>
+                    <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.6;">Each model was tested with 10 identical prompts covering portraits, text rendering, product shots, architecture, fantasy, food, fashion, wildlife, abstract art, and sci-fi. All images were generated at 1024x1024 with default parameters.</p>
+                </div>
+                <div class="faq-item" style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 24px;">
+                    <h3 style="font-size: 15px; font-weight: 500; color: var(--text-primary); margin-bottom: 8px;">Which AI image model is the best?</h3>
+                    <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.6;">Based on our benchmark, GPT-Image 1.5 leads with the most wins, followed by Seedream v4.5. However, the best model depends on your specific use case, speed requirements, and budget.</p>
+                </div>
+                <div class="faq-item" style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 24px;">
+                    <h3 style="font-size: 15px; font-weight: 500; color: var(--text-primary); margin-bottom: 8px;">How often are model comparisons updated?</h3>
+                    <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.6;">We update our comparisons whenever new model versions are released or significant updates are made to existing models.</p>
+                </div>
             </div>
         </section>
 

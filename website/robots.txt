@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://vmstudio.ai/compare/sitemap.xml
+Sitemap: https://vmstudio.ai/sitemap.xml

@@ -318,6 +318,8 @@ function generateComparisonPage(modelA, modelB) {
     <meta property="og:title" content="${metaA.name} vs ${metaB.name}: Complete AI Image Comparison">
     <meta property="og:description" content="10 test prompts with side-by-side results. Compare portraits, text rendering, landscapes, and more.">
     <meta property="og:url" content="https://vmstudio.ai/compare/${getComparisonSlug(modelA, modelB)}/">
+    <meta property="og:site_name" content="VM Studio">
+    <meta property="og:image" content="https://vmstudio.ai/compare/images/${modelA}/01-portrait.png">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
@@ -364,7 +366,7 @@ function generateComparisonPage(modelA, modelB) {
             }
         },
         "datePublished": "2026-01-20",
-        "dateModified": "2026-01-20"
+        "dateModified": "2026-02-06"
     }
     </script>
     <script type="application/ld+json">
@@ -389,6 +391,38 @@ function generateComparisonPage(modelA, modelB) {
                 "position": 3,
                 "name": "${metaA.name} vs ${metaB.name}",
                 "item": "https://vmstudio.ai/compare/${getComparisonSlug(modelA, modelB)}/"
+            }
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Which is better, ${metaA.name} or ${metaB.name}?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "In our 10-prompt benchmark, ${overallWinner ? MODELS[overallWinner].name + ' won ' + stats.winsA + '-' + stats.winsB : 'it was a tie at ' + stats.winsA + '-' + stats.winsB}. ${metaA.name} ${strengthsA.length > 0 ? 'excels at ' + strengthsA.join(' and ').toLowerCase() : 'offers balanced performance'}, while ${metaB.name} ${strengthsB.length > 0 ? 'excels at ' + strengthsB.join(' and ').toLowerCase() : 'offers balanced performance'}."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How fast is ${metaA.name} compared to ${metaB.name}?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "${metaA.name} averages ${formatTime(stats.avgSpeedA)} per image while ${metaB.name} averages ${formatTime(stats.avgSpeedB)} per image. ${stats.avgSpeedA < stats.avgSpeedB ? metaA.name : metaB.name} is the faster model."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I use ${metaA.name} and ${metaB.name} in Figma?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, VM Studio is a free Figma plugin that supports both ${metaA.name} and ${metaB.name} along with 4 other AI image generation models. Install it from the Figma Community and bring your own API keys."
+                }
             }
         ]
     }
@@ -625,6 +659,7 @@ function generateSitemap(pairs) {
     // Hub page
     `  <url>
     <loc>https://vmstudio.ai/compare/</loc>
+    <lastmod>2026-02-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>`,
@@ -632,6 +667,7 @@ function generateSitemap(pairs) {
     ...pairs.map(
       ([modelA, modelB]) => `  <url>
     <loc>https://vmstudio.ai/compare/${getComparisonSlug(modelA, modelB)}/</loc>
+    <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>`

@@ -10,6 +10,7 @@
     <meta name="description"
         content="Free Figma plugin to generate AI images with Nano Banana Pro, FLUX, GPT-Image and more. Text-to-image, image-to-image, batch generation up to 4K. Bring your own API keys.">
     <meta name="robots" content="index, follow">
+    <meta name="keywords" content="AI image generator, Figma plugin, text to image, image to image, FLUX, GPT-Image, Seedream, AI design tool, batch image generation">
     <link rel="canonical" href="https://vmstudio.ai/">
 
     <!-- Open Graph / Social -->
@@ -22,6 +23,7 @@
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="VM Studio - AI Image Generator for Figma">
     <meta property="og:url" content="https://vmstudio.ai/">
+    <meta property="og:site_name" content="VM Studio">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
@@ -69,6 +71,90 @@
         "screenshot": "https://vmstudio.ai/assets/hero-poster.jpg"
     }
     </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What AI models does VM Studio support?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "VM Studio supports 6 AI models: Nano Banana Pro, Z-Image Turbo, Seedream v4.5, FLUX.2 Turbo, FLUX.2 Klein 9B, and GPT-Image 1.5. Each model has unique strengths for different creative needs."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Do I need to pay for VM Studio?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The plugin is free to install. VM Studio uses a BYOK (Bring Your Own Key) model. You use your own API keys from providers like fal.ai, OpenAI, Google AI Studio, or OpenRouter and pay directly to them based on usage."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Are my API keys safe?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. Your API keys are stored locally on your device using Figma's client storage. They are never sent to our servers, only directly to the AI provider to generate your images."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How does the smart grid work?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "When you generate multiple images, VM Studio automatically finds empty space on your canvas to place them, avoiding overlaps with existing designs. It wraps after 12 columns and auto-centers your view."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Are there keyboard shortcuts?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes! Press Cmd + Enter (or Ctrl + Enter) to generate instantly. Use up and down arrows in the prompt box to cycle through your prompt history."
+                }
+            }
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "VideoObject",
+        "name": "VM Studio Demo - AI Image Generation in Figma",
+        "description": "See how VM Studio generates AI images directly on your Figma canvas with text-to-image, image-to-image, and batch generation.",
+        "thumbnailUrl": "https://vmstudio.ai/assets/hero-poster.jpg",
+        "contentUrl": "https://vmstudio.ai/assets/hero-demo.mp4",
+        "uploadDate": "2026-01-01",
+        "publisher": {
+            "@type": "Organization",
+            "name": "VM Studio",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://vmstudio.ai/assets/logo.svg"
+            }
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "VM Studio",
+        "url": "https://vmstudio.ai/"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "VM Studio",
+        "url": "https://vmstudio.ai/",
+        "logo": "https://vmstudio.ai/assets/logo.svg"
+    }
+    </script>
 </head>
 
 <body>
@@ -114,6 +200,7 @@
                     <span class="copyright">© 2026 VM Studio</span>
                 </div>
                 <div class="footer-right">
+                    <a href="/compare/">Compare Models</a>
                     <a href="https://www.figma.com/community/plugin/1588675833256652136" target="_blank">Figma
                         Community</a>
                 </div>
@@ -137,7 +224,7 @@
                 </div>
             </div>
 
-            <section id="features" class="features">
+            <section id="features" class="features" aria-label="Features">
                 <div class="container">
                     <div class="section-header">
                         <h2>Designed for control.</h2>
@@ -225,7 +312,7 @@
                 </div>
             </section>
 
-            <section id="models" class="models">
+            <section id="models" class="models" aria-label="Models and Providers">
                 <div class="container">
                     <div class="section-header">
                         <h2>Models & Providers</h2>
@@ -391,10 +478,13 @@
                             </div>
                         </div>
                     </div>
+                    <p class="models-compare-link" style="text-align: center; margin-top: 32px;">
+                        <a href="/compare/" style="color: var(--text-secondary); font-size: 14px; text-decoration: none; transition: color 0.2s;">See all model comparisons with side-by-side outputs &rarr;</a>
+                    </p>
                 </div>
             </section>
 
-            <section id="faq" class="faq">
+            <section id="faq" class="faq" aria-label="Frequently Asked Questions">
                 <div class="container">
                     <div class="section-header">
                         <h2>Frequently Asked Questions</h2>
@@ -446,7 +536,7 @@
                 </div>
             </section>
 
-            <section class="cta">
+            <section class="cta" aria-label="Call to Action">
                 <div class="container">
                     <div class="cta-card">
                         <h2>Ready to create?</h2>
