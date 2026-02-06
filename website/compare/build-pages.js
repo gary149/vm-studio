@@ -23,6 +23,7 @@ const MODELS = {
     costNote: "per image",
     architecture: "Multimodal LLM",
     providers: "fal.ai, OpenRouter, Google AI",
+    supportsI2I: true,
     icon: `<svg width="14" height="14" viewBox="0 0 65 65" fill="currentColor"><path d="M32.447 0c.68 0 1.273.465 1.439 1.125a38.904 38.904 0 001.999 5.905c2.152 5 5.105 9.376 8.854 13.125 3.751 3.75 8.126 6.703 13.125 8.855a38.98 38.98 0 005.906 1.999c.66.166 1.124.758 1.124 1.438 0 .68-.464 1.273-1.125 1.439a38.902 38.902 0 00-5.905 1.999c-5 2.152-9.375 5.105-13.125 8.854-3.749 3.751-6.702 8.126-8.854 13.125a38.973 38.973 0 00-2 5.906 1.485 1.485 0 01-1.438 1.124c-.68 0-1.272-.464-1.438-1.125a38.913 38.913 0 00-2-5.905c-2.151-5-5.103-9.375-8.854-13.125-3.75-3.749-8.125-6.702-13.125-8.854a38.973 38.973 0 00-5.905-2A1.485 1.485 0 010 32.448c0-.68.465-1.272 1.125-1.438a38.903 38.903 0 005.905-2c5-2.151 9.376-5.104 13.125-8.854 3.75-3.749 6.703-8.125 8.855-13.125a38.972 38.972 0 001.999-5.905A1.485 1.485 0 0132.447 0z"/></svg>`,
   },
   "flux2-turbo": {
@@ -34,6 +35,7 @@ const MODELS = {
     costNote: "per megapixel",
     architecture: "Diffusion (Turbo)",
     providers: "fal.ai",
+    supportsI2I: true,
     icon: `<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M0 20.683L12.01 2.5 24 20.683h-2.233L12.009 5.878 3.471 18.806h12.122l1.239 1.877H0z"/></svg>`,
   },
   "flux2-klein-9b": {
@@ -45,6 +47,7 @@ const MODELS = {
     costNote: "per megapixel",
     architecture: "Diffusion (Klein)",
     providers: "fal.ai",
+    supportsI2I: true,
     icon: `<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M0 20.683L12.01 2.5 24 20.683h-2.233L12.009 5.878 3.471 18.806h12.122l1.239 1.877H0z"/></svg>`,
   },
   "gpt-image-1-5": {
@@ -56,28 +59,31 @@ const MODELS = {
     costNote: "low–high quality",
     architecture: "Multimodal LLM",
     providers: "fal.ai, OpenAI",
+    supportsI2I: true,
     icon: `<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>`,
   },
   "seedream-v4-5": {
     id: "fal-ai/bytedance/seedream/v4.5",
     name: "Seedream v4.5",
     shortName: "Seedream",
-    maxRes: "2K (2048×2048)",
+    maxRes: "4K (4096×4096)",
     cost: "$0.04",
     costNote: "per image",
     architecture: "Diffusion",
     providers: "fal.ai",
+    supportsI2I: true,
     icon: `<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>`,
   },
   "z-image-turbo": {
     id: "fal-ai/z-image/turbo",
     name: "Z-Image Turbo",
     shortName: "Z-Image",
-    maxRes: "1K (1024×1024)",
+    maxRes: "4K (4096×4096)",
     cost: "$0.005",
     costNote: "per megapixel",
     architecture: "Diffusion (Turbo)",
     providers: "fal.ai",
+    supportsI2I: false,
     icon: `<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M4 4h16l-8 8 8 8H4l8-8-8-8z"/></svg>`,
   },
 };
@@ -564,8 +570,8 @@ ${promptSections}
 
                 <div class="table-row">
                     <span class="feature-name">Image-to-Image</span>
-                    <span class="col-value"><span class="check">Yes</span></span>
-                    <span class="col-value"><span class="check">Yes</span></span>
+                    <span class="col-value"><span class="${metaA.supportsI2I ? 'check' : 'cross'}">${metaA.supportsI2I ? 'Yes' : 'No'}</span></span>
+                    <span class="col-value"><span class="${metaB.supportsI2I ? 'check' : 'cross'}">${metaB.supportsI2I ? 'Yes' : 'No'}</span></span>
                 </div>
 
                 <div class="table-row">
