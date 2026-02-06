@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://vmstudio.ai/</loc>
+    <lastmod>2026-02-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
     <loc>https://vmstudio.ai/compare/</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>weekly</changefreq>
@@ -8,91 +14,91 @@
   </url>
   <url>
     <loc>https://vmstudio.ai/compare/nano-banana-pro-vs-flux2-turbo/</loc>
-    <lastmod>2026-02-06</lastmod>
+    <lastmod>2026-01-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://vmstudio.ai/compare/nano-banana-pro-vs-flux2-klein-9b/</loc>
-    <lastmod>2026-02-06</lastmod>
+    <lastmod>2026-01-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://vmstudio.ai/compare/nano-banana-pro-vs-gpt-image-1-5/</loc>
-    <lastmod>2026-02-06</lastmod>
+    <lastmod>2026-01-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://vmstudio.ai/compare/nano-banana-pro-vs-seedream-v4-5/</loc>
-    <lastmod>2026-02-06</lastmod>
+    <lastmod>2026-01-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://vmstudio.ai/compare/nano-banana-pro-vs-z-image-turbo/</loc>
-    <lastmod>2026-02-06</lastmod>
+    <lastmod>2026-01-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://vmstudio.ai/compare/flux2-turbo-vs-flux2-klein-9b/</loc>
-    <lastmod>2026-02-06</lastmod>
+    <lastmod>2026-01-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://vmstudio.ai/compare/flux2-turbo-vs-gpt-image-1-5/</loc>
-    <lastmod>2026-02-06</lastmod>
+    <lastmod>2026-01-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://vmstudio.ai/compare/flux2-turbo-vs-seedream-v4-5/</loc>
-    <lastmod>2026-02-06</lastmod>
+    <lastmod>2026-01-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://vmstudio.ai/compare/flux2-turbo-vs-z-image-turbo/</loc>
-    <lastmod>2026-02-06</lastmod>
+    <lastmod>2026-01-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://vmstudio.ai/compare/flux2-klein-9b-vs-gpt-image-1-5/</loc>
-    <lastmod>2026-02-06</lastmod>
+    <lastmod>2026-01-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://vmstudio.ai/compare/flux2-klein-9b-vs-seedream-v4-5/</loc>
-    <lastmod>2026-02-06</lastmod>
+    <lastmod>2026-01-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://vmstudio.ai/compare/flux2-klein-9b-vs-z-image-turbo/</loc>
-    <lastmod>2026-02-06</lastmod>
+    <lastmod>2026-01-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://vmstudio.ai/compare/gpt-image-1-5-vs-seedream-v4-5/</loc>
-    <lastmod>2026-02-06</lastmod>
+    <lastmod>2026-01-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://vmstudio.ai/compare/gpt-image-1-5-vs-z-image-turbo/</loc>
-    <lastmod>2026-02-06</lastmod>
+    <lastmod>2026-01-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://vmstudio.ai/compare/seedream-v4-5-vs-z-image-turbo/</loc>
-    <lastmod>2026-02-06</lastmod>
+    <lastmod>2026-01-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
