@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>Guides | VM Studio</title>
+    <meta name="description"
+        content="Tutorials and guides for generating AI images in Figma with VM Studio. Learn text-to-image, image-to-image, prompt writing, and model selection.">
+    <meta name="keywords"
+        content="VM Studio guides, Figma AI tutorial, AI image generation guide, text to image tutorial, Figma plugin guide">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://vmstudio.ai/guides/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Guides | VM Studio">
+    <meta property="og:description" content="Tutorials and guides for generating AI images in Figma with VM Studio.">
+    <meta property="og:url" content="https://vmstudio.ai/guides/">
+    <meta property="og:site_name" content="VM Studio">
+    <meta property="og:image" content="https://vmstudio.ai/assets/vm-studio.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Guides | VM Studio">
+    <meta name="twitter:description" content="Tutorials and guides for generating AI images in Figma with VM Studio.">
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" sizes="48x48">
+    <link rel="icon" type="image/svg+xml" href="/assets/logo.svg">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/compare/compare.css">
+
+    <style>
+        /* Hub-specific styles */
+        .guides-hero {
+            padding: 64px 48px;
+            border-bottom: 1px solid var(--border-subtle);
+            background: linear-gradient(180deg, rgba(255,255,255,0.02) 0%, transparent 100%);
+        }
+
+        .guides-hero .hub-title {
+            font-size: 48px;
+            font-weight: 600;
+            letter-spacing: -0.03em;
+            margin-bottom: 16px;
+            background: linear-gradient(to bottom right, #FFF 30%, #999 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.15;
+        }
+
+        .guides-hero .hub-subtitle {
+            font-size: 18px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            line-height: 1.6;
+        }
+
+        /* Guides Grid */
+        .guides-section {
+            padding: 64px 48px;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .guides-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+            margin-top: 32px;
+        }
+
+        .guide-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 28px;
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .guide-card:hover {
+            border-color: var(--border-strong);
+            background: var(--bg-surface-hover);
+            transform: translateY(-2px);
+        }
+
+        .guide-card-icon {
+            width: 48px;
+            height: 48px;
+            min-width: 48px;
+            border-radius: 12px;
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #A5B4FC;
+        }
+
+        .guide-card-content {
+            flex: 1;
+        }
+
+        .guide-card-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 8px;
+            font-size: 12px;
+            color: var(--text-tertiary);
+        }
+
+        .guide-card-tag {
+            padding: 3px 8px;
+            border-radius: 4px;
+            background: rgba(99, 102, 241, 0.12);
+            color: #A5B4FC;
+            font-weight: 500;
+        }
+
+        .guide-card-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+            letter-spacing: -0.01em;
+        }
+
+        .guide-card-desc {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .guide-card-arrow {
+            color: var(--text-tertiary);
+            transition: transform 0.2s ease;
+            margin-top: 4px;
+        }
+
+        .guide-card:hover .guide-card-arrow {
+            transform: translateX(4px);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .guides-hero,
+            .guides-section {
+                padding: 48px 24px;
+            }
+
+            .guides-hero .hub-title {
+                font-size: 36px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .guide-card {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .guide-card-arrow {
+                display: none;
+            }
+        }
+    </style>
+
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "VM Studio Guides",
+        "description": "Tutorials and guides for generating AI images in Figma with VM Studio.",
+        "url": "https://vmstudio.ai/guides/",
+        "mainEntity": {
+            "@type": "ItemList",
+            "numberOfItems": 2,
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "url": "https://vmstudio.ai/guides/how-to-generate-ai-images-in-figma/",
+                    "name": "How to Generate AI Images in Figma"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "url": "https://vmstudio.ai/guides/best-ai-image-generators-for-designers/",
+                    "name": "Best AI Image Generators for Designers in 2026"
+                }
+            ]
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://vmstudio.ai/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Guides",
+                "item": "https://vmstudio.ai/guides/"
+            }
+        ]
+    }
+    </script>
+</head>
+
+<body>
+    <div class="compare-layout">
+        <!-- Header -->
+        <header class="compare-header">
+            <a href="/" class="logo">
+                <img src="/assets/logo.svg" alt="VM Studio Logo" width="24" height="24">
+                <span>VM Studio</span>
+            </a>
+            <nav class="compare-nav">
+                <a href="/#features">Features</a>
+                <a href="/#models">Models</a>
+                <a href="/compare/">Compare</a>
+                <a href="/guides/">Guides</a>
+                <a href="https://www.figma.com/community/plugin/1588675833256652136" target="_blank"
+                    class="btn btn-sm btn-primary">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 5.5A3.5 3.5 0 0 1 8.5 2H12v7H8.5A3.5 3.5 0 0 1 5 5.5z"></path>
+                        <path d="M12 2h3.5a3.5 3.5 0 1 1 0 7H12V2z"></path>
+                        <path d="M12 12.5a3.5 3.5 0 1 1 7 0 3.5 3.5 0 1 1-7 0z"></path>
+                        <path d="M5 19.5A3.5 3.5 0 0 1 8.5 16H12v3.5a3.5 3.5 0 1 1-7 0z"></path>
+                        <path d="M5 12.5A3.5 3.5 0 0 1 8.5 9H12v7H8.5A3.5 3.5 0 0 1 5 12.5z"></path>
+                    </svg>
+                    Add to Figma
+                </a>
+            </nav>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="guides-hero">
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+                <a href="/">Home</a>
+                <span>/</span>
+                <span aria-current="page">Guides</span>
+            </nav>
+
+            <h1 class="hub-title">Guides</h1>
+            <p class="hub-subtitle">Tutorials and walkthroughs for getting the most out of AI image generation in Figma with VM Studio.</p>
+        </section>
+
+        <!-- Guides Grid -->
+        <section class="guides-section">
+            <div class="guides-grid">
+                <a href="/guides/how-to-generate-ai-images-in-figma/" class="guide-card">
+                    <div class="guide-card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                            <polyline points="21 15 16 10 5 21"></polyline>
+                        </svg>
+                    </div>
+                    <div class="guide-card-content">
+                        <div class="guide-card-meta">
+                            <span class="guide-card-tag">Tutorial</span>
+                            <span>7 steps</span>
+                            <span>10 min read</span>
+                        </div>
+                        <h2 class="guide-card-title">How to Generate AI Images in Figma</h2>
+                        <p class="guide-card-desc">Install VM Studio, configure your API key, pick a model, write prompts, and generate images directly on your canvas. Covers text-to-image, image-to-image, batch generation, and pro tips.</p>
+                    </div>
+                    <div class="guide-card-arrow">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </div>
+                </a>
+
+                <a href="/guides/best-ai-image-generators-for-designers/" class="guide-card">
+                    <div class="guide-card-icon" style="background: rgba(74, 222, 128, 0.1); border-color: rgba(74, 222, 128, 0.2); color: #4ADE80;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                        </svg>
+                    </div>
+                    <div class="guide-card-content">
+                        <div class="guide-card-meta">
+                            <span class="guide-card-tag" style="background: rgba(74, 222, 128, 0.12); color: #4ADE80;">Guide</span>
+                            <span>6 models ranked</span>
+                            <span>8 min read</span>
+                        </div>
+                        <h2 class="guide-card-title">Best AI Image Generators for Designers in 2026</h2>
+                        <p class="guide-card-desc">We benchmarked 6 AI image models across 150 outputs. Ranked by quality, speed, and cost with a decision matrix for matching models to design use cases.</p>
+                    </div>
+                    <div class="guide-card-arrow">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="compare-cta">
+            <div class="cta-card">
+                <h2>Try VM Studio in Figma</h2>
+                <p>Generate AI images on your canvas in seconds.</p>
+                <a href="https://www.figma.com/community/plugin/1588675833256652136" target="_blank"
+                    class="btn btn-primary btn-lg">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 5.5A3.5 3.5 0 0 1 8.5 2H12v7H8.5A3.5 3.5 0 0 1 5 5.5z"></path>
+                        <path d="M12 2h3.5a3.5 3.5 0 1 1 0 7H12V2z"></path>
+                        <path d="M12 12.5a3.5 3.5 0 1 1 7 0 3.5 3.5 0 1 1-7 0z"></path>
+                        <path d="M5 19.5A3.5 3.5 0 0 1 8.5 16H12v3.5a3.5 3.5 0 1 1-7 0z"></path>
+                        <path d="M5 12.5A3.5 3.5 0 0 1 8.5 9H12v7H8.5A3.5 3.5 0 0 1 5 12.5z"></path>
+                    </svg>
+                    Add to Figma
+                </a>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="compare-footer">
+            <div class="footer-content">
+                <a href="/" class="logo">
+                    <img src="/assets/logo.svg" alt="VM Studio Logo" width="24" height="24">
+                    <span>VM Studio</span>
+                </a>
+                <div class="footer-links">
+                    <a href="/#features">Features</a>
+                    <a href="/#models">Models</a>
+                    <a href="/compare/">Compare</a>
+                    <a href="/guides/">Guides</a>
+                    <a href="https://www.figma.com/community/plugin/1588675833256652136" target="_blank">Figma</a>
+                </div>
+                <span class="copyright">&copy; 2026 VM Studio</span>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>

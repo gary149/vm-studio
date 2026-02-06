@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>AI Image Generation Pricing | VM Studio</title>
+    <meta name="description"
+        content="Compare AI image generation costs across 6 models. Pay-per-image pricing from $0.005 to $0.20. No subscription — bring your own API key and only pay for what you generate.">
+    <meta name="keywords"
+        content="AI image generation cost, AI image pricing comparison, cheapest AI image generator, FLUX.2 pricing, GPT-Image cost, Seedream pricing, fal.ai pricing, AI art cost">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://vmstudio.ai/pricing/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="AI Image Generation Pricing | VM Studio">
+    <meta property="og:description"
+        content="Compare costs across 6 AI image models. No subscription — bring your own API key and pay per image from $0.005.">
+    <meta property="og:url" content="https://vmstudio.ai/pricing/">
+    <meta property="og:site_name" content="VM Studio">
+    <meta property="og:image" content="https://vmstudio.ai/assets/vm-studio.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AI Image Generation Pricing | VM Studio">
+    <meta name="twitter:description"
+        content="Compare costs across 6 AI image models. No subscription — pay per image from $0.005.">
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" sizes="48x48">
+    <link rel="icon" type="image/svg+xml" href="/assets/logo.svg">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/compare/compare.css">
+
+    <style>
+        /* Pricing page styles */
+        .pricing-hero {
+            padding: 64px 48px;
+            border-bottom: 1px solid var(--border-subtle);
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.02) 0%, transparent 100%);
+        }
+
+        .pricing-subtitle {
+            font-size: 18px;
+            color: var(--text-secondary);
+            max-width: 640px;
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+
+        .pricing-highlight {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: #4ADE80;
+            background: rgba(74, 222, 128, 0.08);
+            border: 1px solid rgba(74, 222, 128, 0.2);
+            border-radius: 8px;
+            padding: 8px 16px;
+        }
+
+        .pricing-highlight svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Pricing table — extends feature-table from compare.css */
+        .pricing-section {
+            padding: 64px 48px;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .pricing-table .table-header {
+            grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+        }
+
+        .pricing-table .table-row {
+            grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+        }
+
+        .model-name-cell {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .model-provider {
+            font-size: 12px;
+            color: var(--text-tertiary);
+        }
+
+        .price-value {
+            font-variant-numeric: tabular-nums;
+        }
+
+        .price-value.best {
+            color: #4ADE80;
+            font-weight: 500;
+        }
+
+        .quality-badge {
+            display: inline-block;
+            font-size: 11px;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
+        .quality-badge.premium {
+            background: rgba(251, 191, 36, 0.12);
+            color: #FCD34D;
+        }
+
+        .quality-badge.high {
+            background: rgba(99, 102, 241, 0.12);
+            color: #A5B4FC;
+        }
+
+        .quality-badge.mid {
+            background: rgba(74, 222, 128, 0.12);
+            color: #4ADE80;
+        }
+
+        .quality-badge.budget {
+            background: rgba(156, 163, 175, 0.12);
+            color: #9CA3AF;
+        }
+
+        /* Cost per 100 section */
+        .cost-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-top: 32px;
+        }
+
+        .cost-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .cost-card-model {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .cost-card-price {
+            font-size: 32px;
+            font-weight: 600;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
+        }
+
+        .cost-card-price.cheapest {
+            color: #4ADE80;
+        }
+
+        .cost-card-detail {
+            font-size: 13px;
+            color: var(--text-tertiary);
+            line-height: 1.5;
+        }
+
+        /* BYOK section */
+        .byok-section {
+            padding: 64px 48px;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .byok-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-top: 32px;
+        }
+
+        .byok-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 28px;
+        }
+
+        .byok-card h3 {
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+
+        .byok-card p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .byok-comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-top: 32px;
+        }
+
+        .byok-option {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 28px;
+        }
+
+        .byok-option.recommended {
+            border-color: rgba(74, 222, 128, 0.3);
+        }
+
+        .byok-option-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-tertiary);
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .byok-option-label.green {
+            color: #4ADE80;
+        }
+
+        .byok-option h3 {
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 4px;
+            color: var(--text-primary);
+        }
+
+        .byok-option .price-range {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+        }
+
+        .byok-option ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .byok-option li {
+            font-size: 14px;
+            color: var(--text-secondary);
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .byok-option li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--text-tertiary);
+        }
+
+        .byok-option.recommended li::before {
+            background: #4ADE80;
+        }
+
+        /* API Keys section */
+        .keys-section {
+            padding: 64px 48px;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .keys-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-top: 32px;
+        }
+
+        .key-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .key-card:hover {
+            border-color: var(--border-strong);
+            background: var(--bg-surface-hover);
+        }
+
+        .key-card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .key-card-name {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .key-card-arrow {
+            color: var(--text-tertiary);
+            transition: transform 0.2s ease;
+        }
+
+        .key-card:hover .key-card-arrow {
+            transform: translateX(4px);
+        }
+
+        .key-card-desc {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .key-card-models {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .key-card-model {
+            font-size: 11px;
+            padding: 3px 8px;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-tertiary);
+            border: 1px solid var(--border-subtle);
+        }
+
+        /* FAQ section */
+        .faq-section {
+            padding: 64px 48px;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .faq-grid {
+            display: grid;
+            gap: 16px;
+            margin-top: 32px;
+        }
+
+        .faq-item {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .faq-item h3 {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .faq-item p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Section header */
+        .section-header {
+            margin-bottom: 8px;
+        }
+
+        .section-header h2 {
+            font-size: 24px;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 8px;
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+            font-size: 15px;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+
+            .pricing-hero,
+            .pricing-section,
+            .byok-section,
+            .keys-section,
+            .faq-section {
+                padding: 48px 24px;
+            }
+
+            .cost-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .pricing-table .table-header,
+            .pricing-table .table-row {
+                grid-template-columns: 2fr 1fr 1fr 1fr;
+            }
+
+            .pricing-table .table-header span:nth-child(5),
+            .pricing-table .table-row span:nth-child(5) {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+
+            .cost-grid,
+            .byok-grid,
+            .byok-comparison,
+            .keys-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-table .table-header,
+            .pricing-table .table-row {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+
+            .pricing-table .col-value::before {
+                font-size: 10px;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+                color: var(--text-tertiary);
+                margin-right: 8px;
+            }
+        }
+    </style>
+
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "AI Image Generation Pricing Comparison",
+        "description": "Compare AI image generation costs across 6 models. Pay-per-image pricing from $0.005 to $0.20 with no subscription.",
+        "url": "https://vmstudio.ai/pricing/",
+        "publisher": {
+            "@type": "Organization",
+            "name": "VM Studio",
+            "url": "https://vmstudio.ai"
+        },
+        "datePublished": "2026-02-06",
+        "dateModified": "2026-02-06"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://vmstudio.ai/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Pricing",
+                "item": "https://vmstudio.ai/pricing/"
+            }
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "How much does AI image generation cost with VM Studio?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "VM Studio itself is free. You pay only for API usage directly to the AI provider. Costs range from $0.005 per megapixel (Z-Image Turbo) to $0.20 per image (GPT-Image 1.5 at high quality). Most models cost between $0.01 and $0.04 per image."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is BYOK and why is it cheaper than subscription tools?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "BYOK means Bring Your Own Key. Instead of paying a monthly subscription that bundles markup on top of API costs, you get an API key directly from the provider (like fal.ai or OpenAI) and pay only for the images you generate. There is no monthly fee, no per-seat charge, and no middleman markup."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Which AI image model gives the best value for money?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "It depends on your priorities. Z-Image Turbo is the cheapest at $0.005/megapixel and generates in 1.5 seconds, but ranks lowest in quality. FLUX.2 Klein 9B offers a strong balance of quality (ranked #3), speed (1.5s), and cost ($0.011/megapixel). Seedream v4.5 is the best mid-range option at $0.04/image with high quality."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Do I need separate API keys for each model?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Not necessarily. A single fal.ai API key gives you access to 5 of the 6 models (all except GPT-Image via OpenAI direct). For GPT-Image 1.5, you can either use fal.ai or get a separate OpenAI API key. OpenRouter provides access to Nano Banana Pro as an alternative."
+                }
+            }
+        ]
+    }
+    </script>
+</head>
+
+<body>
+    <div class="compare-layout">
+        <!-- Header -->
+        <header class="compare-header">
+            <a href="/" class="logo">
+                <img src="/assets/logo.svg" alt="VM Studio Logo" width="24" height="24">
+                <span>VM Studio</span>
+            </a>
+            <nav class="compare-nav">
+                <a href="/#features">Features</a>
+                <a href="/#models">Models</a>
+                <a href="/compare/">Compare</a>
+                <a href="https://www.figma.com/community/plugin/1588675833256652136" target="_blank"
+                    class="btn btn-sm btn-primary">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 5.5A3.5 3.5 0 0 1 8.5 2H12v7H8.5A3.5 3.5 0 0 1 5 5.5z"></path>
+                        <path d="M12 2h3.5a3.5 3.5 0 1 1 0 7H12V2z"></path>
+                        <path d="M12 12.5a3.5 3.5 0 1 1 7 0 3.5 3.5 0 1 1-7 0z"></path>
+                        <path d="M5 19.5A3.5 3.5 0 0 1 8.5 16H12v3.5a3.5 3.5 0 1 1-7 0z"></path>
+                        <path d="M5 12.5A3.5 3.5 0 0 1 8.5 9H12v7H8.5A3.5 3.5 0 0 1 5 12.5z"></path>
+                    </svg>
+                    Add to Figma
+                </a>
+            </nav>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="pricing-hero" aria-label="Pricing overview">
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+                <a href="/">Home</a>
+                <span>/</span>
+                <span aria-current="page">Pricing</span>
+            </nav>
+
+            <h1 class="compare-title">AI Image Generation Pricing</h1>
+            <p class="pricing-subtitle">VM Studio is free. You pay only for the images you generate, directly to the AI provider. No subscription, no per-seat fee, no markup. Bring your own API key and keep costs transparent.</p>
+
+            <span class="pricing-highlight">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                Starting from $0.005 per megapixel
+            </span>
+        </section>
+
+        <!-- Pricing Table -->
+        <section class="pricing-section" id="pricing-table" aria-label="Model pricing table">
+            <div class="section-header">
+                <h2>Model Pricing</h2>
+                <p>All prices are what the provider charges. VM Studio adds no markup.</p>
+            </div>
+
+            <div class="feature-table pricing-table" style="margin-top: 32px;">
+                <div class="table-header">
+                    <span>Model</span>
+                    <span>Price</span>
+                    <span>Speed</span>
+                    <span>Quality Rank</span>
+                    <span>Image-to-Image</span>
+                </div>
+
+                <div class="table-row">
+                    <span class="feature-name">
+                        <span class="model-name-cell">
+                            Z-Image Turbo
+                            <span class="model-provider">fal.ai</span>
+                        </span>
+                    </span>
+                    <span class="col-value price-value best">$0.005/MP</span>
+                    <span class="col-value">1.5s</span>
+                    <span class="col-value"><span class="quality-badge budget">#6</span></span>
+                    <span class="col-value"><span class="check">&#10003;</span></span>
+                </div>
+
+                <div class="table-row">
+                    <span class="feature-name">
+                        <span class="model-name-cell">
+                            FLUX.2 Turbo
+                            <span class="model-provider">fal.ai</span>
+                        </span>
+                    </span>
+                    <span class="col-value price-value">$0.008/MP</span>
+                    <span class="col-value">2.6s</span>
+                    <span class="col-value"><span class="quality-badge mid">#5</span></span>
+                    <span class="col-value"><span class="check">&#10003;</span></span>
+                </div>
+
+                <div class="table-row">
+                    <span class="feature-name">
+                        <span class="model-name-cell">
+                            FLUX.2 Klein 9B
+                            <span class="model-provider">fal.ai</span>
+                        </span>
+                    </span>
+                    <span class="col-value price-value">$0.011/MP</span>
+                    <span class="col-value"><span class="highlight">1.5s</span></span>
+                    <span class="col-value"><span class="quality-badge high">#3</span></span>
+                    <span class="col-value"><span class="check">&#10003;</span></span>
+                </div>
+
+                <div class="table-row">
+                    <span class="feature-name">
+                        <span class="model-name-cell">
+                            Seedream v4.5
+                            <span class="model-provider">fal.ai</span>
+                        </span>
+                    </span>
+                    <span class="col-value price-value">$0.04/image</span>
+                    <span class="col-value">15.9s</span>
+                    <span class="col-value"><span class="quality-badge high">#2</span></span>
+                    <span class="col-value"><span class="check">&#10003;</span></span>
+                </div>
+
+                <div class="table-row">
+                    <span class="feature-name">
+                        <span class="model-name-cell">
+                            Nano Banana Pro
+                            <span class="model-provider">fal.ai, OpenRouter</span>
+                        </span>
+                    </span>
+                    <span class="col-value price-value">$0.15/image</span>
+                    <span class="col-value">18.6s</span>
+                    <span class="col-value"><span class="quality-badge high">#4</span></span>
+                    <span class="col-value"><span class="check">&#10003;</span></span>
+                </div>
+
+                <div class="table-row">
+                    <span class="feature-name">
+                        <span class="model-name-cell">
+                            GPT-Image 1.5
+                            <span class="model-provider">fal.ai, OpenAI</span>
+                        </span>
+                    </span>
+                    <span class="col-value price-value">$0.009&ndash;$0.20/image</span>
+                    <span class="col-value">40.0s</span>
+                    <span class="col-value"><span class="quality-badge premium">#1</span></span>
+                    <span class="col-value"><span class="check">&#10003;</span></span>
+                </div>
+            </div>
+
+            <p style="font-size: 13px; color: var(--text-tertiary); margin-top: 16px; line-height: 1.6;">
+                MP = megapixel. A standard 1024&times;1024 image is ~1.05 MP. GPT-Image 1.5 pricing varies by quality setting: low ($0.009), medium ($0.07), high ($0.20). Quality rank is based on our <a href="/compare/" style="color: var(--text-secondary); text-decoration: underline;">head-to-head benchmark</a> of 15 comparisons.
+            </p>
+        </section>
+
+        <!-- Cost per 100 Images -->
+        <section class="pricing-section" id="cost-calculator" aria-label="Cost per 100 images">
+            <div class="section-header">
+                <h2>Cost per 100 Images</h2>
+                <p>What you'd actually spend generating 100 images at 1024&times;1024 resolution.</p>
+            </div>
+
+            <div class="cost-grid">
+                <div class="cost-card">
+                    <span class="cost-card-model">Z-Image Turbo</span>
+                    <span class="cost-card-price cheapest">$0.53</span>
+                    <span class="cost-card-detail">Fastest budget option. Good for rapid iteration and exploration where top-tier quality isn't critical.</span>
+                </div>
+
+                <div class="cost-card">
+                    <span class="cost-card-model">FLUX.2 Turbo</span>
+                    <span class="cost-card-price">$0.84</span>
+                    <span class="cost-card-detail">Fast and affordable. Solid general-purpose model for design moodboards and concept work.</span>
+                </div>
+
+                <div class="cost-card">
+                    <span class="cost-card-model">FLUX.2 Klein 9B</span>
+                    <span class="cost-card-price">$1.16</span>
+                    <span class="cost-card-detail">Best value overall. Ranked #3 in quality at just over a penny per image, and generates in 1.5 seconds.</span>
+                </div>
+
+                <div class="cost-card">
+                    <span class="cost-card-model">Seedream v4.5</span>
+                    <span class="cost-card-price">$4.00</span>
+                    <span class="cost-card-detail">Strong mid-range pick. Ranked #2 in quality with reliable prompt adherence across styles.</span>
+                </div>
+
+                <div class="cost-card">
+                    <span class="cost-card-model">Nano Banana Pro</span>
+                    <span class="cost-card-price">$15.00</span>
+                    <span class="cost-card-detail">Premium model with distinctive artistic style. Best for final-quality hero imagery and presentations.</span>
+                </div>
+
+                <div class="cost-card">
+                    <span class="cost-card-model">GPT-Image 1.5</span>
+                    <span class="cost-card-price">$0.90&ndash;$20</span>
+                    <span class="cost-card-detail">Quality leader. Low quality at $0.009 for drafts, high quality at $0.20 for polished outputs. Use low for exploration, high for finals.</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- BYOK Explainer -->
+        <section class="byok-section" id="byok" aria-label="Bring Your Own Key explained">
+            <div class="section-header">
+                <h2>Why Bring Your Own Key?</h2>
+                <p>How VM Studio's pricing model compares to subscription-based AI image tools.</p>
+            </div>
+
+            <div class="byok-comparison">
+                <div class="byok-option recommended">
+                    <span class="byok-option-label green">VM Studio (BYOK)</span>
+                    <h3>Pay per image, no middleman</h3>
+                    <p class="price-range">$0.005&ndash;$0.20 per image</p>
+                    <ul>
+                        <li>No monthly subscription fee</li>
+                        <li>Pay the provider directly at their published rates</li>
+                        <li>Switch models freely &mdash; no lock-in</li>
+                        <li>Scale up or down without plan changes</li>
+                        <li>Use the same API key across multiple tools</li>
+                        <li>Full control over your spend</li>
+                    </ul>
+                </div>
+                <div class="byok-option">
+                    <span class="byok-option-label">Typical subscription tool</span>
+                    <h3>Monthly fee + limited credits</h3>
+                    <p class="price-range">$10&ndash;$60/month</p>
+                    <ul>
+                        <li>Fixed monthly cost regardless of usage</li>
+                        <li>Provider markup baked into the subscription price</li>
+                        <li>Credits expire at the end of the billing cycle</li>
+                        <li>Overage charges or hard generation limits</li>
+                        <li>Often limited to one or two models</li>
+                        <li>Per-seat pricing for teams</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="byok-grid">
+                <div class="byok-card">
+                    <h3>Low-volume users save the most</h3>
+                    <p>If you generate 50 images a month with FLUX.2 Klein, you'd spend about $0.58. A $15/month subscription is 25x more expensive for the same output. You only pay when you actually generate.</p>
+                </div>
+                <div class="byok-card">
+                    <h3>High-volume users stay in control</h3>
+                    <p>At 1,000 images/month with Seedream v4.5, you'd spend $40. That's competitive with mid-tier subscriptions, but with no credits cap, no expiry, and the flexibility to use cheaper models for drafts and expensive ones for finals.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- API Keys Section -->
+        <section class="keys-section" id="api-keys" aria-label="How to get API keys">
+            <div class="section-header">
+                <h2>How to Get API Keys</h2>
+                <p>Each provider offers a free tier or pay-as-you-go pricing. Setup takes under 2 minutes.</p>
+            </div>
+
+            <div class="keys-grid">
+                <a href="https://fal.ai/dashboard/keys" target="_blank" rel="noopener" class="key-card">
+                    <div class="key-card-header">
+                        <span class="key-card-name">fal.ai</span>
+                        <svg class="key-card-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                    </div>
+                    <p class="key-card-desc">The primary provider for VM Studio. Covers 5 of 6 models with pay-per-use pricing and no minimum spend. Sign up, add a payment method, and copy your API key.</p>
+                    <div class="key-card-models">
+                        <span class="key-card-model">FLUX.2 Turbo</span>
+                        <span class="key-card-model">FLUX.2 Klein</span>
+                        <span class="key-card-model">Seedream v4.5</span>
+                        <span class="key-card-model">Z-Image Turbo</span>
+                        <span class="key-card-model">GPT-Image 1.5</span>
+                        <span class="key-card-model">Nano Banana Pro</span>
+                    </div>
+                </a>
+
+                <a href="https://platform.openai.com/api-keys" target="_blank" rel="noopener" class="key-card">
+                    <div class="key-card-header">
+                        <span class="key-card-name">OpenAI</span>
+                        <svg class="key-card-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                    </div>
+                    <p class="key-card-desc">Direct access to GPT-Image 1.5 via OpenAI's API. Useful if you already have an OpenAI account with credits. Same quality, sometimes different availability.</p>
+                    <div class="key-card-models">
+                        <span class="key-card-model">GPT-Image 1.5</span>
+                    </div>
+                </a>
+
+                <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener" class="key-card">
+                    <div class="key-card-header">
+                        <span class="key-card-name">Google AI Studio</span>
+                        <svg class="key-card-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                    </div>
+                    <p class="key-card-desc">Access Google's Gemini models for image generation. Includes a generous free tier for experimentation before committing to paid usage.</p>
+                    <div class="key-card-models">
+                        <span class="key-card-model">Gemini models</span>
+                    </div>
+                </a>
+
+                <a href="https://openrouter.ai/keys" target="_blank" rel="noopener" class="key-card">
+                    <div class="key-card-header">
+                        <span class="key-card-name">OpenRouter</span>
+                        <svg class="key-card-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                    </div>
+                    <p class="key-card-desc">A model aggregator that routes to multiple providers. An alternative way to access Nano Banana Pro and other models through a single API key.</p>
+                    <div class="key-card-models">
+                        <span class="key-card-model">Nano Banana Pro</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section" id="faq" aria-label="Frequently asked questions">
+            <div class="section-header">
+                <h2>Frequently Asked Questions</h2>
+            </div>
+
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3>How much does AI image generation cost with VM Studio?</h3>
+                    <p>VM Studio itself is free. You pay only for API usage directly to the AI provider. Costs range from $0.005 per megapixel (Z-Image Turbo) to $0.20 per image (GPT-Image 1.5 at high quality). Most models cost between $0.01 and $0.04 per image at standard resolution.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>What is BYOK and why is it cheaper than subscription tools?</h3>
+                    <p>BYOK means Bring Your Own Key. Instead of paying a monthly subscription that bundles markup on top of API costs, you get an API key directly from the provider (like fal.ai or OpenAI) and pay only for the images you generate. There is no monthly fee, no per-seat charge, and no middleman markup.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Which AI image model gives the best value for money?</h3>
+                    <p>It depends on your priorities. Z-Image Turbo is the cheapest at $0.005/megapixel and generates in 1.5 seconds, but ranks lowest in quality. FLUX.2 Klein 9B offers a strong balance of quality (ranked #3), speed (1.5s), and cost ($0.011/megapixel). Seedream v4.5 is the best mid-range option at $0.04/image with near-top quality.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Do I need separate API keys for each model?</h3>
+                    <p>Not necessarily. A single fal.ai API key gives you access to 5 of the 6 models (all except GPT-Image via OpenAI direct). For GPT-Image 1.5, you can either use fal.ai or get a separate OpenAI API key. OpenRouter provides access to Nano Banana Pro as an alternative.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="compare-cta" aria-label="Call to action">
+            <div class="cta-card">
+                <h2>Start generating for pennies</h2>
+                <p>Install VM Studio, paste your API key, and generate your first image in under a minute.</p>
+                <a href="https://www.figma.com/community/plugin/1588675833256652136" target="_blank"
+                    class="btn btn-primary btn-lg">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 5.5A3.5 3.5 0 0 1 8.5 2H12v7H8.5A3.5 3.5 0 0 1 5 5.5z"></path>
+                        <path d="M12 2h3.5a3.5 3.5 0 1 1 0 7H12V2z"></path>
+                        <path d="M12 12.5a3.5 3.5 0 1 1 7 0 3.5 3.5 0 1 1-7 0z"></path>
+                        <path d="M5 19.5A3.5 3.5 0 0 1 8.5 16H12v3.5a3.5 3.5 0 1 1-7 0z"></path>
+                        <path d="M5 12.5A3.5 3.5 0 0 1 8.5 9H12v7H8.5A3.5 3.5 0 0 1 5 12.5z"></path>
+                    </svg>
+                    Add to Figma
+                </a>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="compare-footer">
+            <div class="footer-content">
+                <a href="/" class="logo">
+                    <img src="/assets/logo.svg" alt="VM Studio Logo" width="24" height="24">
+                    <span>VM Studio</span>
+                </a>
+                <div class="footer-links">
+                    <a href="/#features">Features</a>
+                    <a href="/#models">Models</a>
+                    <a href="/compare/">Compare</a>
+                    <a href="/pricing/">Pricing</a>
+                    <a href="https://www.figma.com/community/plugin/1588675833256652136" target="_blank">Figma</a>
+                </div>
+                <span class="copyright">&copy; 2026 VM Studio</span>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>
