@@ -22,6 +22,7 @@ import {
   getPlacementOrigin,
   getEstimatedCellSize,
   getCollisionFreePositions,
+  getCollisionFreePositionNearAnchor,
 } from "./positioning";
 
 // Convert Uint8Array to base64 (atob/btoa not available in Figma sandbox)
@@ -136,18 +137,38 @@ function debounce<T extends (...args: unknown[]) => void>(
 // Track current input image IDs for generation
 let currentInputImageIds: string[] = [];
 
-// Track grid cursor for sequential generations (wraps after 12 columns)
-let gridCursor: {
+interface GridCursorState {
   originX: number;
   originY: number;
-  col: number;
-  row: number;
+  nextSlotIndex: number;
   cellWidth: number;
   cellHeight: number;
-} | null = null;
-let gridCursorTime = 0;
+  updatedAt: number;
+}
+
+interface PlaceholderPlacementMeta {
+  slotAnchorX: number;
+  slotAnchorY: number;
+  stepX: number;
+  stepY: number;
+}
+
+const gridCursorsByPage = new Map<string, GridCursorState>();
+const GRID_CURSOR_TTL_MS = 30000;
 const MAX_COLUMNS = 12;
 const GRID_SPACING = 60;
+
+function pruneStaleGridCursors(now: number): void {
+  const stalePageIds: string[] = [];
+  gridCursorsByPage.forEach((cursor, pageId) => {
+    if (now - cursor.updatedAt >= GRID_CURSOR_TTL_MS) {
+      stalePageIds.push(pageId);
+    }
+  });
+  for (const pageId of stalePageIds) {
+    gridCursorsByPage.delete(pageId);
+  }
+}
 
 // Create a placeholder rectangle for an image being generated
 function createPlaceholder(
@@ -182,85 +203,54 @@ function createPlaceholder(
   return node;
 }
 
-// Check if a rectangle overlaps any page objects (excluding itself)
-function checkOverlap(
-  x: number,
-  y: number,
-  width: number,
-  height: number,
-  excludeNodeId: string,
-): boolean {
-  const right = x + width;
-  const bottom = y + height;
-
-  for (const node of figma.currentPage.children) {
-    if (node.id === excludeNodeId) continue;
-
-    const nodeRight = node.x + node.width;
-    const nodeBottom = node.y + node.height;
-
-    // Check overlap
-    if (!(right <= node.x || nodeRight <= x || bottom <= node.y || nodeBottom <= y)) {
-      return true;
-    }
-  }
-  return false;
-}
-
-// Find a non-overlapping position using diagonal expansion (checks right and down equally)
-function findNonOverlappingPosition(
-  startX: number,
-  startY: number,
-  width: number,
-  height: number,
-  excludeNodeId: string,
-): { x: number; y: number } {
-  const stepX = width + GRID_SPACING;
-  const stepY = height + GRID_SPACING;
-  const maxSteps = 100;
-
-  // Diagonal expansion: check positions in order of distance from start
-  for (let distance = 0; distance < maxSteps; distance++) {
-    for (let col = 0; col <= distance; col++) {
-      const row = distance - col;
-
-      const x = startX + col * stepX;
-      const y = startY + row * stepY;
-
-      if (!checkOverlap(x, y, width, height, excludeNodeId)) {
-        return { x, y };
-      }
-    }
-  }
-  return { x: startX, y: startY };
-}
-
 // Replace a placeholder with the generated image
 async function replacePlaceholder(
   placeholder: RectangleNode,
   imageData: Uint8Array,
   prompt: string,
+  placement: PlaceholderPlacementMeta,
 ): Promise<void> {
   const image = figma.createImage(imageData);
   const { width, height } = await image.getSizeAsync();
   const actualWidth = width || 512;
   const actualHeight = height || 512;
+  const previousWidth = Math.round(placeholder.width);
+  const previousHeight = Math.round(placeholder.height);
+  const sizeChanged =
+    previousWidth !== actualWidth || previousHeight !== actualHeight;
 
   // Resize to actual image dimensions
   placeholder.resize(actualWidth, actualHeight);
 
-  // Check if resized image overlaps other objects
-  if (checkOverlap(placeholder.x, placeholder.y, actualWidth, actualHeight, placeholder.id)) {
-    // Find a non-overlapping position and move
-    const newPos = findNonOverlappingPosition(
-      placeholder.x,
-      placeholder.y,
+  if (sizeChanged) {
+    const currentFreePosition = getCollisionFreePositionNearAnchor(
+      { x: placeholder.x, y: placeholder.y },
       actualWidth,
       actualHeight,
+      placement.stepX,
+      placement.stepY,
+      figma.currentPage.children,
       placeholder.id,
     );
-    placeholder.x = newPos.x;
-    placeholder.y = newPos.y;
+
+    const overlapsAtCurrentPosition =
+      currentFreePosition.x !== placeholder.x ||
+      currentFreePosition.y !== placeholder.y;
+
+    // Re-anchor near the slot position if resize introduced a collision.
+    if (overlapsAtCurrentPosition) {
+      const reanchoredPosition = getCollisionFreePositionNearAnchor(
+        { x: placement.slotAnchorX, y: placement.slotAnchorY },
+        actualWidth,
+        actualHeight,
+        placement.stepX,
+        placement.stepY,
+        figma.currentPage.children,
+        placeholder.id,
+      );
+      placeholder.x = reanchoredPosition.x;
+      placeholder.y = reanchoredPosition.y;
+    }
   }
 
   // Apply image fill
@@ -336,15 +326,20 @@ export default function () {
 
         // Calculate grid positions
         const selection = figma.currentPage.selection;
+        const pageId = figma.currentPage.id;
         const now = Date.now();
+        pruneStaleGridCursors(now);
+        const pageCursor = gridCursorsByPage.get(pageId);
 
         // Check if we should continue an existing grid or start fresh
         const shouldContinueGrid =
           selection.length === 0 &&
-          gridCursor &&
-          now - gridCursorTime < 30000 &&
-          gridCursor.cellWidth === cellWidth &&
-          gridCursor.cellHeight === cellHeight;
+          pageCursor !== undefined &&
+          now - pageCursor.updatedAt < GRID_CURSOR_TTL_MS &&
+          pageCursor.cellWidth === cellWidth &&
+          pageCursor.cellHeight === cellHeight;
+
+        let activeCursor: GridCursorState;
 
         if (!shouldContinueGrid) {
           // Start a fresh grid
@@ -354,48 +349,50 @@ export default function () {
             cellWidth,
             cellHeight,
           );
-          gridCursor = {
+          activeCursor = {
             originX: origin.x,
             originY: origin.y,
-            col: 0,
-            row: 0,
+            nextSlotIndex: 0,
             cellWidth,
             cellHeight,
+            updatedAt: now,
           };
+        } else {
+          activeCursor = pageCursor!;
         }
+        const startIndex = activeCursor.nextSlotIndex;
 
         // Calculate collision-free positions
         const positions = getCollisionFreePositions(
-          { x: gridCursor!.originX, y: gridCursor!.originY },
+          { x: activeCursor.originX, y: activeCursor.originY },
           total,
           cellWidth,
           cellHeight,
           GRID_SPACING,
           MAX_COLUMNS,
           figma.currentPage.children,
+          startIndex,
         );
 
-        // Update grid cursor based on last position for sequential generations
-        if (positions.length > 0) {
-          const lastPos = positions[positions.length - 1];
-          // Calculate which column/row the last position landed in (considering both X and Y)
-          const lastCol = Math.round(
-            (lastPos.x - gridCursor!.originX) / (cellWidth + GRID_SPACING),
-          );
-          const lastRow = Math.round(
-            (lastPos.y - gridCursor!.originY) / (cellHeight + GRID_SPACING),
-          );
-          // Advance to next position
-          const nextCol = lastCol + 1;
-          gridCursor!.col = nextCol % MAX_COLUMNS;
-          gridCursor!.row = lastRow + (nextCol >= MAX_COLUMNS ? 1 : 0);
-        }
-
-        gridCursorTime = now;
+        // Advance by attempted slots to keep strict append progression.
+        activeCursor.nextSlotIndex += total;
+        activeCursor.updatedAt = now;
+        gridCursorsByPage.set(pageId, activeCursor);
 
         // Create placeholders immediately
-        const placeholders: RectangleNode[] = [];
+        const placeholders: Array<{
+          node: RectangleNode;
+          placement: PlaceholderPlacementMeta;
+        }> = [];
+        const stepX = cellWidth + GRID_SPACING;
+        const stepY = cellHeight + GRID_SPACING;
         for (let i = 0; i < total; i++) {
+          const slotIndex = startIndex + i;
+          const col = slotIndex % MAX_COLUMNS;
+          const row = Math.floor(slotIndex / MAX_COLUMNS);
+          const slotAnchorX = activeCursor.originX + col * stepX;
+          const slotAnchorY = activeCursor.originY + row * stepY;
+
           const placeholder = createPlaceholder(
             positions[i].x,
             positions[i].y,
@@ -403,7 +400,10 @@ export default function () {
             cellHeight,
             i,
           );
-          placeholders.push(placeholder);
+          placeholders.push({
+            node: placeholder,
+            placement: { slotAnchorX, slotAnchorY, stepX, stepY },
+          });
         }
 
         // Scroll to center on placeholders (without changing zoom)
@@ -423,7 +423,7 @@ export default function () {
         let successCount = 0;
         let lastError = "";
 
-        const promises = placeholders.map(async (placeholder, i) => {
+        const promises = placeholders.map(async ({ node: placeholder, placement }) => {
           try {
             const result = await generateImage(request, () => {
               onProgress(statusText);
@@ -434,6 +434,7 @@ export default function () {
                 placeholder,
                 result.imageData,
                 request.prompt,
+                placement,
               );
               successCount++;
             } else {

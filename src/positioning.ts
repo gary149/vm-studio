@@ -33,13 +33,15 @@ export function calculateGridPositions(
   cellHeight: number,
   origin: Position,
   config: GridConfig = DEFAULT_CONFIG,
+  startIndex: number = 0,
 ): Position[] {
   const positions: Position[] = [];
-  const columns = Math.min(count, config.maxColumns);
+  const columns = Math.max(config.maxColumns, 1);
 
   for (let i = 0; i < count; i++) {
-    const col = i % columns;
-    const row = Math.floor(i / columns);
+    const slotIndex = startIndex + i;
+    const col = slotIndex % columns;
+    const row = Math.floor(slotIndex / columns);
 
     positions.push({
       x: origin.x + col * (cellWidth + config.spacing),
@@ -154,6 +156,27 @@ function collectPageBounds(pageChildren: readonly SceneNode[]): NormalizedBounds
   return bounds;
 }
 
+function collectPageBoundsExcludingNode(
+  pageChildren: readonly SceneNode[],
+  excludeNodeId?: string,
+): NormalizedBounds[] {
+  if (!excludeNodeId) {
+    return collectPageBounds(pageChildren);
+  }
+
+  const bounds: NormalizedBounds[] = [];
+  for (const node of pageChildren) {
+    if (node.id === excludeNodeId) continue;
+    bounds.push({
+      x: node.x,
+      y: node.y,
+      right: node.x + node.width,
+      bottom: node.y + node.height,
+    });
+  }
+  return bounds;
+}
+
 /**
  * Check if two rectangles overlap
  */
@@ -221,6 +244,31 @@ function findFreePosition(
 }
 
 /**
+ * Find the nearest collision-free position around an anchor.
+ * Uses diagonal expansion in right/down directions only.
+ */
+export function getCollisionFreePositionNearAnchor(
+  anchor: Position,
+  width: number,
+  height: number,
+  stepX: number,
+  stepY: number,
+  pageChildren: readonly SceneNode[],
+  excludeNodeId?: string,
+): Position {
+  const existingBounds = collectPageBoundsExcludingNode(pageChildren, excludeNodeId);
+  return findFreePosition(
+    anchor.x,
+    anchor.y,
+    width,
+    height,
+    existingBounds,
+    stepX,
+    stepY,
+  );
+}
+
+/**
  * Get collision-free positions for N images
  * Scans from intended grid positions to find free space
  */
@@ -232,6 +280,7 @@ export function getCollisionFreePositions(
   spacing: number,
   maxColumns: number,
   pageChildren: readonly SceneNode[],
+  startIndex: number = 0,
 ): Position[] {
   // Collect existing bounds
   const existingBounds = collectPageBounds(pageChildren);
@@ -241,7 +290,7 @@ export function getCollisionFreePositions(
     return calculateGridPositions(count, cellWidth, cellHeight, origin, {
       maxColumns,
       spacing,
-    });
+    }, startIndex);
   }
 
   const positions: Position[] = [];
@@ -250,8 +299,9 @@ export function getCollisionFreePositions(
 
   for (let i = 0; i < count; i++) {
     // Calculate intended grid position
-    const col = i % maxColumns;
-    const row = Math.floor(i / maxColumns);
+    const slotIndex = startIndex + i;
+    const col = slotIndex % maxColumns;
+    const row = Math.floor(slotIndex / maxColumns);
     const intendedX = origin.x + col * stepX;
     const intendedY = origin.y + row * stepY;
 
