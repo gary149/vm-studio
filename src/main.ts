@@ -214,17 +214,28 @@ async function replacePlaceholder(
   const { width, height } = await image.getSizeAsync();
   const actualWidth = width || 512;
   const actualHeight = height || 512;
-  const previousWidth = Math.round(placeholder.width);
-  const previousHeight = Math.round(placeholder.height);
-  const sizeChanged =
-    previousWidth !== actualWidth || previousHeight !== actualHeight;
 
   // Resize to actual image dimensions
   placeholder.resize(actualWidth, actualHeight);
 
-  if (sizeChanged) {
-    const currentFreePosition = getCollisionFreePositionNearAnchor(
-      { x: placeholder.x, y: placeholder.y },
+  const currentFreePosition = getCollisionFreePositionNearAnchor(
+    { x: placeholder.x, y: placeholder.y },
+    actualWidth,
+    actualHeight,
+    placement.stepX,
+    placement.stepY,
+    figma.currentPage.children,
+    placeholder.id,
+  );
+
+  const overlapsAtCurrentPosition =
+    currentFreePosition.x !== placeholder.x ||
+    currentFreePosition.y !== placeholder.y;
+
+  // Re-anchor near the slot position only when overlap exists.
+  if (overlapsAtCurrentPosition) {
+    const reanchoredPosition = getCollisionFreePositionNearAnchor(
+      { x: placement.slotAnchorX, y: placement.slotAnchorY },
       actualWidth,
       actualHeight,
       placement.stepX,
@@ -232,25 +243,8 @@ async function replacePlaceholder(
       figma.currentPage.children,
       placeholder.id,
     );
-
-    const overlapsAtCurrentPosition =
-      currentFreePosition.x !== placeholder.x ||
-      currentFreePosition.y !== placeholder.y;
-
-    // Re-anchor near the slot position if resize introduced a collision.
-    if (overlapsAtCurrentPosition) {
-      const reanchoredPosition = getCollisionFreePositionNearAnchor(
-        { x: placement.slotAnchorX, y: placement.slotAnchorY },
-        actualWidth,
-        actualHeight,
-        placement.stepX,
-        placement.stepY,
-        figma.currentPage.children,
-        placeholder.id,
-      );
-      placeholder.x = reanchoredPosition.x;
-      placeholder.y = reanchoredPosition.y;
-    }
+    placeholder.x = reanchoredPosition.x;
+    placeholder.y = reanchoredPosition.y;
   }
 
   // Apply image fill
