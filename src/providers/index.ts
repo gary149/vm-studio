@@ -66,6 +66,13 @@ export const PROVIDERS: Record<ProviderId, ProviderConfig> = {
     apiKeyUrl: "https://openrouter.ai/keys",
     models: [
       {
+        id: "google/gemini-3.1-flash-image-preview",
+        name: "Nano Banana 2",
+        supportsImageGeneration: true,
+        supportsImageToImage: true,
+        supportedImageSizes: ["1K", "2K", "4K"],
+      },
+      {
         id: "google/gemini-3-pro-image-preview",
         name: "Nano Banana Pro",
         supportsImageGeneration: true,
@@ -80,6 +87,13 @@ export const PROVIDERS: Record<ProviderId, ProviderConfig> = {
     requiresApiKey: true,
     apiKeyUrl: "https://aistudio.google.com/apikey",
     models: [
+      {
+        id: "gemini-3.1-flash-image-preview",
+        name: "Nano Banana 2",
+        supportsImageGeneration: true,
+        supportsImageToImage: true,
+        supportedImageSizes: ["1K", "2K", "4K"],
+      },
       {
         id: "gemini-3-pro-image-preview",
         name: "Nano Banana Pro",
