@@ -9,6 +9,13 @@ export const PROVIDERS: Record<ProviderId, ProviderConfig> = {
     apiKeyUrl: "https://fal.ai/dashboard/keys",
     models: [
       {
+        id: "fal-ai/nano-banana-2",
+        name: "Nano Banana 2",
+        supportsImageGeneration: true,
+        supportsImageToImage: true,
+        supportedImageSizes: ["1K", "2K", "4K"],
+      },
+      {
         id: "fal-ai/nano-banana-pro",
         name: "Nano Banana Pro",
         supportsImageGeneration: true,
