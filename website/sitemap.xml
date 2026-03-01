@@ -13,18 +13,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vmstudio.ai/guides/</loc>
-    <lastmod>2026-02-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://vmstudio.ai/guides/how-to-generate-ai-images-in-figma/</loc>
-    <lastmod>2026-02-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://vmstudio.ai/compare/</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>weekly</changefreq>
@@ -117,12 +105,6 @@
   <url>
     <loc>https://vmstudio.ai/compare/seedream-v4-5-vs-z-image-turbo/</loc>
     <lastmod>2026-01-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vmstudio.ai/guides/best-ai-image-generators-for-designers/</loc>
-    <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
