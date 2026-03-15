@@ -4,8 +4,11 @@ import { fileURLToPath } from "url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-const FAL_API_KEY =
-  "REDACTED_KEY";
+const FAL_API_KEY = process.env.FAL_API_KEY;
+if (!FAL_API_KEY) {
+  console.error("FAL_API_KEY environment variable is required");
+  process.exit(1);
+}
 const FAL_BASE_URL = "https://fal.run";
 
 const MODELS = [

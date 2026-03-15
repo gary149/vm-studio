@@ -1,6 +1,8 @@
 {
   "name": "vm-studio",
   "version": "1.0.0",
+  "private": true,
+  "license": "MIT",
   "description": "Generate images via AI and drop them onto Figma",
   "dependencies": {
     "@create-figma-plugin/ui": "^4.0.3",
