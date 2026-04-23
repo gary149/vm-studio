@@ -44,6 +44,13 @@ export const PROVIDERS: Record<ProviderId, ProviderConfig> = {
         supportedImageSizes: ["1K"],
       },
       {
+        id: "openai/gpt-image-2",
+        name: "GPT-Image 2",
+        supportsImageGeneration: true,
+        supportsImageToImage: true,
+        supportedImageSizes: ["1K", "2K", "4K"],
+      },
+      {
         id: "fal-ai/flux-2/turbo",
         name: "FLUX.2 [dev] Turbo",
         supportsImageGeneration: true,
@@ -75,6 +82,13 @@ export const PROVIDERS: Record<ProviderId, ProviderConfig> = {
       {
         id: "google/gemini-3-pro-image-preview",
         name: "Nano Banana Pro",
+        supportsImageGeneration: true,
+        supportsImageToImage: true,
+        supportedImageSizes: ["1K", "2K", "4K"],
+      },
+      {
+        id: "openai/gpt-5.4-image-2",
+        name: "GPT-Image 2",
         supportsImageGeneration: true,
         supportsImageToImage: true,
         supportedImageSizes: ["1K", "2K", "4K"],
@@ -115,6 +129,13 @@ export const PROVIDERS: Record<ProviderId, ProviderConfig> = {
         supportsImageGeneration: true,
         supportsImageToImage: true,
         supportedImageSizes: ["1K"],
+      },
+      {
+        id: "gpt-image-2",
+        name: "GPT-Image 2",
+        supportsImageGeneration: true,
+        supportsImageToImage: true,
+        supportedImageSizes: ["1K", "2K", "4K"],
       },
     ],
   },
