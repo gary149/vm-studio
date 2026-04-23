@@ -61,9 +61,11 @@ export async function generateWithOpenAI(
       output_format: "png",
     };
 
-    // Add input images for editing
+    // Add input images for editing. JSON /v1/images/edits expects `images`: [{image_url: "<url|data URI>"}].
     if (hasInputImages) {
-      body.image = inputImages.map((b64) => `data:image/png;base64,${b64}`);
+      body.images = inputImages.map((b64) => ({
+        image_url: `data:image/png;base64,${b64}`,
+      }));
     }
 
     const response = await fetch(endpoint, {
