@@ -1,0 +1,66 @@
+[
+  {
+    "model_slug": "flux2-turbo",
+    "prompt_id": "08-wildlife",
+    "criteria_passed": ["snow_leopard", "rocky_ledge", "blue_green_eyes", "spotted_fur", "snowflakes", "golden_hour_light", "majestic_pose", "photorealism"],
+    "criteria_failed": [],
+    "quality_score": 9.5,
+    "commentary": "Front-facing resting pose on a rocky ledge with striking teal eyes that dominate the frame; scattered snowflakes catch the warm golden backlighting beautifully. Fur texture is exceptionally crisp with accurate snow-leopard rosette patterning and a thick, plush white chest. The golden hour rim light from behind gives the image a cinematic glow without washing out fine detail."
+  },
+  {
+    "model_slug": "gpt-image-1-5",
+    "prompt_id": "08-wildlife",
+    "criteria_passed": ["snow_leopard", "rocky_ledge", "blue_green_eyes", "spotted_fur", "snowflakes", "golden_hour_light", "majestic_pose", "photorealism"],
+    "criteria_failed": [],
+    "quality_score": 9.1,
+    "commentary": "A richly lit composition with dramatic orange-gold sky and abundant snowflakes suspended mid-air around a calmly resting snow leopard. The blue-green eyes are vivid and anatomically correct, and the spotted fur carries snow accumulation convincingly. Backlighting is strong and atmospheric, though the composition feels slightly tighter than the very best entry."
+  },
+  {
+    "model_slug": "nano-banana-2",
+    "prompt_id": "08-wildlife",
+    "criteria_passed": ["snow_leopard", "rocky_ledge", "blue_green_eyes", "spotted_fur", "snowflakes", "golden_hour_light", "majestic_pose", "photorealism"],
+    "criteria_failed": [],
+    "quality_score": 8.6,
+    "commentary": "Wide environmental shot showing the snow leopard resting on a snow-dusted rocky ledge against a sweeping mountain panorama bathed in golden sunrise light. The blue-green eyes are clearly rendered and the spotted markings are accurate. The composition excels at conveying scale and habitat context, though the animal's fur detail is slightly softer than the top-ranked entries."
+  },
+  {
+    "model_slug": "seedream-v4-5",
+    "prompt_id": "08-wildlife",
+    "criteria_passed": ["snow_leopard", "rocky_ledge", "blue_green_eyes", "spotted_fur", "snowflakes", "golden_hour_light", "majestic_pose", "photorealism"],
+    "criteria_failed": [],
+    "quality_score": 8.2,
+    "commentary": "All prompt elements are present — vivid teal eyes, snow-covered rocky ledge, warm golden hour sky, and correct spotted patterning — but the rendering leans slightly illustrative rather than photorealistic, with oversaturated orange sky and hyper-vivid eye colors that push the image toward concept art rather than wildlife photography. The upright alert pose reads as majestic and the snow coverage is excellent."
+  },
+  {
+    "model_slug": "flux2-klein-9b",
+    "prompt_id": "08-wildlife",
+    "criteria_passed": ["snow_leopard", "rocky_ledge", "blue_green_eyes", "spotted_fur", "snowflakes", "golden_hour_light", "majestic_pose", "photorealism"],
+    "criteria_failed": [],
+    "quality_score": 7.7,
+    "commentary": "Solid prompt adherence with the leopard resting on a snow-dusted ledge and warm golden side-light from behind illuminating the mountain backdrop. Eyes have a cool blue-teal tone and spotting is anatomically plausible. The overall image is competent but lacks the dramatic lighting intensity or compositional ambition seen in the top-ranked images, resulting in a pleasant but less memorable execution."
+  },
+  {
+    "model_slug": "gpt-image-2",
+    "prompt_id": "08-wildlife",
+    "criteria_passed": ["snow_leopard", "rocky_ledge", "blue_green_eyes", "spotted_fur", "snowflakes", "golden_hour_light", "majestic_pose"],
+    "criteria_failed": ["photorealism"],
+    "quality_score": 7.2,
+    "commentary": "The snow leopard rests on a rocky ledge with green eyes, snow/snowflakes present, and golden hour clouds visible behind. However the rendering is noticeably softer and more painterly than photorealistic, with the heavily cloud-obscured background reducing environmental clarity. Fur markings are present but lack the crisp definition of higher-ranked entries."
+  },
+  {
+    "model_slug": "z-image-turbo",
+    "prompt_id": "08-wildlife",
+    "criteria_passed": ["snow_leopard", "rocky_ledge", "blue_green_eyes", "spotted_fur", "snowflakes", "majestic_pose", "photorealism"],
+    "criteria_failed": ["golden_hour_light"],
+    "quality_score": 6.5,
+    "commentary": "Tight crop of the snow leopard resting on a rocky surface with clear blue-green eyes and accurate spotted fur; snowflakes are lightly dusted on the coat. The anatomy and photorealism are good, but the extremely shallow depth of field eliminates any mountain ledge context and the background is a plain warm bokeh rather than a golden hour scene. The missing environmental framing significantly reduces prompt adherence."
+  },
+  {
+    "model_slug": "nano-banana-pro",
+    "prompt_id": "08-wildlife",
+    "criteria_passed": ["snow_leopard", "rocky_ledge", "blue_green_eyes", "spotted_fur", "snowflakes", "golden_hour_light"],
+    "criteria_failed": ["majestic_pose", "photorealism"],
+    "quality_score": 5.8,
+    "commentary": "The snow leopard is positioned on a snowy rocky ledge with warm golden side-light and teal eyes visible, but the crouching, slightly hunched posture reads as cautious or alert rather than majestic and resting. The rendering quality is decent but the smaller animal-to-frame ratio and less dramatic lighting reduce overall impact. Snowflake detail is minimal compared to competitors."
+  }
+]
