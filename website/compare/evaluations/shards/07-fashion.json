@@ -1,0 +1,140 @@
+[
+  {
+    "model_slug": "flux2-turbo",
+    "prompt_id": "07-fashion",
+    "criteria_passed": [
+      "beige_trench_coat_oversized",
+      "rainy_paris_street_night",
+      "neon_reflections_wet_pavement",
+      "editorial_vogue_style",
+      "model_posture",
+      "lighting_mood",
+      "urban_detail",
+      "color_grading"
+    ],
+    "criteria_failed": [],
+    "quality_score": 8.2,
+    "commentary": "Strong all-around execution with a clearly oversized beige trench coat, vivid neon reflections on a wet Paris boulevard, and a confident frontal editorial pose. The color grading delivers rich blue and red neon contrasts with a cinematic feel. A baked-in 'VOGUE' watermark gives it an editorial stamp but reads as slightly artificial rather than organically composed."
+  },
+  {
+    "model_slug": "gpt-image-2",
+    "prompt_id": "07-fashion",
+    "criteria_passed": [
+      "beige_trench_coat_oversized",
+      "rainy_paris_street_night",
+      "neon_reflections_wet_pavement",
+      "editorial_vogue_style",
+      "model_posture",
+      "lighting_mood",
+      "urban_detail",
+      "color_grading"
+    ],
+    "criteria_failed": [],
+    "quality_score": 9.0,
+    "commentary": "Exceptional editorial quality with a warm amber palette that evokes authentic high-fashion photography. The Café de Flore sign and Eiffel Tower ground it unmistakably in Paris, the wet pavement reflections are elegantly rendered, and the model's three-quarter turn is graceful and magazine-worthy. Color grading is sophisticated and cohesive without feeling artificially processed."
+  },
+  {
+    "model_slug": "nano-banana-2",
+    "prompt_id": "07-fashion",
+    "criteria_passed": [
+      "beige_trench_coat_oversized",
+      "rainy_paris_street_night",
+      "neon_reflections_wet_pavement",
+      "urban_detail",
+      "lighting_mood",
+      "color_grading"
+    ],
+    "criteria_failed": [
+      "editorial_vogue_style",
+      "model_posture"
+    ],
+    "quality_score": 7.4,
+    "commentary": "Rich urban detail with authentic Parisian brasserie signage, bustling street atmosphere, and vivid neon reflections on the wet pavement. The model's posture is more candid street-photography than runway editorial — holding a handbag mid-stride rather than commanding the frame. The composition reads as documentary rather than Vogue, missing the polished editorial stillness the prompt calls for."
+  },
+  {
+    "model_slug": "seedream-v4-5",
+    "prompt_id": "07-fashion",
+    "criteria_passed": [
+      "beige_trench_coat_oversized",
+      "rainy_paris_street_night",
+      "neon_reflections_wet_pavement",
+      "editorial_vogue_style",
+      "model_posture",
+      "lighting_mood",
+      "urban_detail",
+      "color_grading"
+    ],
+    "criteria_failed": [],
+    "quality_score": 8.7,
+    "commentary": "Dramatically cinematic with a striking blue-twilight sky, vibrant magenta/pink neon reflections on wet cobblestones, and the Eiffel Tower silhouetted in the background. The model's pose — three-quarter turn with face tilted upward — is powerfully editorial. The bold blue-to-magenta color palette is distinctive and atmospheric, elevating this beyond a standard fashion shot."
+  },
+  {
+    "model_slug": "gpt-image-1-5",
+    "prompt_id": "07-fashion",
+    "criteria_passed": [
+      "beige_trench_coat_oversized",
+      "rainy_paris_street_night",
+      "neon_reflections_wet_pavement",
+      "editorial_vogue_style",
+      "model_posture",
+      "lighting_mood",
+      "urban_detail",
+      "color_grading"
+    ],
+    "criteria_failed": [],
+    "quality_score": 8.8,
+    "commentary": "A high-impact editorial image combining the Eiffel Tower, neon-lit Brasserie/Café signage, and brilliantly rendered warm-red reflections on the wet pavement. The model's frontal stance with hands in pockets is self-assured and distinctly Vogue in character, and the bold warm-cool neon contrast gives the image strong visual drama. The Vogue text overlay adds editorial context but is partially obscured, keeping the composition clean."
+  },
+  {
+    "model_slug": "nano-banana-pro",
+    "prompt_id": "07-fashion",
+    "criteria_passed": [
+      "beige_trench_coat_oversized",
+      "rainy_paris_street_night",
+      "neon_reflections_wet_pavement",
+      "urban_detail",
+      "lighting_mood"
+    ],
+    "criteria_failed": [
+      "editorial_vogue_style",
+      "model_posture",
+      "color_grading"
+    ],
+    "quality_score": 6.5,
+    "commentary": "Captures the rainy Paris night atmosphere well with cobblestone streets, the Eiffel Tower, and French café signage, but the model holding an umbrella and standing in a casual posture lacks the commanding editorial presence the prompt demands. The color grading is cool and muted — serviceable but without the high-contrast neon drama expected in a Vogue editorial shoot. Overall execution is closer to street photography than fashion editorial."
+  },
+  {
+    "model_slug": "z-image-turbo",
+    "prompt_id": "07-fashion",
+    "criteria_passed": [
+      "beige_trench_coat_oversized",
+      "rainy_paris_street_night",
+      "neon_reflections_wet_pavement",
+      "editorial_vogue_style",
+      "model_posture",
+      "lighting_mood",
+      "urban_detail",
+      "color_grading"
+    ],
+    "criteria_failed": [],
+    "quality_score": 7.9,
+    "commentary": "Clean, well-composed fashion image with a classic oversized beige trench coat, wet Paris boulevard, and red-and-blue neon reflections on the pavement. The model's stance is editorial and confident. The color grading is relatively natural compared to some peers — technically sound but lacking the heightened drama and cinematic intensity that a top-tier Vogue editorial would demand."
+  },
+  {
+    "model_slug": "flux2-klein-9b",
+    "prompt_id": "07-fashion",
+    "criteria_passed": [
+      "beige_trench_coat_oversized",
+      "rainy_paris_street_night",
+      "neon_reflections_wet_pavement",
+      "editorial_vogue_style",
+      "model_posture",
+      "lighting_mood",
+      "urban_detail",
+      "color_grading"
+    ],
+    "criteria_failed": [],
+    "quality_score": 9.2,
+    "commentary": "The standout image of the set: a narrow Parisian alley drenched in multi-colored neon light — purple, red, and green — with extraordinary reflections on wet cobblestones and a model in a flawlessly oversized beige trench coat commanding the frame with a powerful frontal stance. Urban detail is exceptional with authentic neon shop signage and parked cars framing the depth of the street. The color grading is cinematic and editorial at the highest level."
+  }
+]
