@@ -1,0 +1,66 @@
+[
+  {
+    "model_slug": "nano-banana-2",
+    "prompt_id": "05-fantasy",
+    "criteria_passed": ["elven_warrior", "silver_armor", "white_cape", "glowing_blue_sword", "ancient_forest", "magical_particles", "character_coherence", "atmosphere"],
+    "criteria_failed": [],
+    "quality_score": 9.2,
+    "commentary": "Richest overall execution: the elf warrior stands confidently in a lush, moss-covered ancient forest bursting with blue magical particles and glowing crystals, with clearly pointed ears, long white hair, and engraved silver armor over leather. The large flowing white cape features intricate embroidery, and the blue sword glows vividly at a combat-ready angle. Particle density and environmental depth push this to the top rank."
+  },
+  {
+    "model_slug": "gpt-image-1-5",
+    "prompt_id": "05-fantasy",
+    "criteria_passed": ["elven_warrior", "silver_armor", "white_cape", "glowing_blue_sword", "ancient_forest", "magical_particles", "character_coherence", "atmosphere"],
+    "criteria_failed": [],
+    "quality_score": 8.9,
+    "commentary": "Photorealistic render with an imposing female elf warrior (pointed ears, long silver-white hair) in detailed ornate silver armor and a billowing white cape. The blue sword glows intensely with crisp luminescence as the character strides forward through a dark mossy forest strewn with blue sparkle particles. Armor articulation and cloth physics are excellent; slight edge softness in the midground prevents a perfect score."
+  },
+  {
+    "model_slug": "seedream-v4-5",
+    "prompt_id": "05-fantasy",
+    "criteria_passed": ["elven_warrior", "silver_armor", "white_cape", "glowing_blue_sword", "ancient_forest", "magical_particles", "character_coherence", "atmosphere"],
+    "criteria_failed": [],
+    "quality_score": 8.5,
+    "commentary": "Cinematic moonlit composition with a regal elven warrior (tiara headpiece, pointed ears, long white hair) in intricate white-silver plate armor and a long flowing white cape. The blue glowing sword is held lowered at the side, and blue magical particles dot the gnarled moonlit forest. The nocturnal atmosphere is the most immersive of the set; the sword pose is passive rather than aggressive, which slightly reduces impact."
+  },
+  {
+    "model_slug": "nano-banana-pro",
+    "prompt_id": "05-fantasy",
+    "criteria_passed": ["elven_warrior", "silver_armor", "white_cape", "glowing_blue_sword", "ancient_forest", "magical_particles", "character_coherence", "atmosphere"],
+    "criteria_failed": [],
+    "quality_score": 8.0,
+    "commentary": "Cinematic three-quarter profile pose of a female elf (braided white hair, pointed ears) in engraved silver armor with a flowing tattered white cape set against moss-covered ancient trunks. Teal and blue magical particles drift throughout the forest depth, and the blue sword emits a clear luminescent glow. The unconventional pose and atmospheric depth are strengths; the relatively dim sword glow and worn cape edges read as stylistic choices rather than errors."
+  },
+  {
+    "model_slug": "gpt-image-2",
+    "prompt_id": "05-fantasy",
+    "criteria_passed": ["elven_warrior", "silver_armor", "white_cape", "glowing_blue_sword", "ancient_forest", "magical_particles", "character_coherence", "atmosphere"],
+    "criteria_failed": [],
+    "quality_score": 7.5,
+    "commentary": "Well-executed digital art of a female elf warrior in white-silver armor with flowing white cape and a forward-angled blue glowing sword. The sunlit forest backdrop has soft bokeh particles lending a gentle magical quality. All prompt criteria are present, but the lighter daytime lighting and softer particle effects yield a less dramatic fantasy atmosphere compared to higher-ranked entries."
+  },
+  {
+    "model_slug": "flux2-turbo",
+    "prompt_id": "05-fantasy",
+    "criteria_passed": ["elven_warrior", "silver_armor", "white_cape", "glowing_blue_sword", "ancient_forest", "magical_particles", "character_coherence", "atmosphere"],
+    "criteria_failed": [],
+    "quality_score": 7.1,
+    "commentary": "Square-format illustration of an androgynous elven warrior (sharply pointed ears, pale complexion, white hair) in silver spiked armor with a silver-grey flowing cape and a bright blue sword. Colorful magical particles (blue, purple, pink) enhance the mystical quality of the forest setting. The cape reads as silver-grey rather than white, and the illustration flatness is slightly more apparent than in photorealistic competitors, but the character design and particle variety are distinctive strengths."
+  },
+  {
+    "model_slug": "flux2-klein-9b",
+    "prompt_id": "05-fantasy",
+    "criteria_passed": ["elven_warrior", "silver_armor", "white_cape", "glowing_blue_sword", "ancient_forest", "magical_particles", "character_coherence", "atmosphere"],
+    "criteria_failed": [],
+    "quality_score": 6.2,
+    "commentary": "Illustration-style render in a smaller square format showing a female elf (pointed ears, white hair) in silver plate armor with a white cape and blue glowing sword held forward. The ancient forest background includes faint blue sparkles. All core prompt elements are present and coherent, but the illustration style is noticeably flatter and less detailed than peer entries — armor texturing lacks depth and the particle effects are sparse."
+  },
+  {
+    "model_slug": "z-image-turbo",
+    "prompt_id": "05-fantasy",
+    "criteria_passed": ["elven_warrior", "silver_armor", "white_cape", "glowing_blue_sword", "ancient_forest", "magical_particles", "character_coherence", "atmosphere"],
+    "criteria_failed": [],
+    "quality_score": 5.8,
+    "commentary": "Smaller-format digital illustration of a female elf warrior in silver armor with flowing white cape and blue glowing sword standing in a dense forest with scattered blue particles. All required prompt elements are present and the composition is legible, but the rendering lacks fine detail — armor surfaces are low-texture, facial refinement is minimal, and the particle effects are barely visible, resulting in the weakest overall technical execution of the eight images."
+  }
+]
