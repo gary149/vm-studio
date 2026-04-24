@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-23",
+  "generated_at": "2026-04-24",
   "total_images": 80,
   "models": [
     "nano-banana-2",
@@ -24,15 +24,1415 @@
     "10-scifi"
   ],
   "evaluations": {
-    "01-portrait": [],
-    "02-text": [],
-    "03-product": [],
-    "04-architecture": [],
-    "05-fantasy": [],
-    "06-food": [],
-    "07-fashion": [],
-    "08-wildlife": [],
-    "09-abstract": [],
-    "10-scifi": []
+    "01-portrait": [
+      {
+        "model_slug": "flux2-klein-9b",
+        "prompt_id": "01-portrait",
+        "criteria_passed": [
+          "skin_texture",
+          "auburn_hair",
+          "freckles",
+          "navy_blazer",
+          "soft_window_lighting",
+          "depth_of_field",
+          "age_representation",
+          "composition"
+        ],
+        "criteria_failed": [],
+        "quality_score": 9.2,
+        "commentary": "Exceptional match across all criteria: rich auburn hair, clearly visible natural freckles, navy blazer, and soft diffused window light from the left. Shallow depth of field is well-executed with a plausibly blurred background. The subject reads authentically as a 35-year-old professional."
+      },
+      {
+        "model_slug": "gpt-image-1-5",
+        "prompt_id": "01-portrait",
+        "criteria_passed": [
+          "skin_texture",
+          "auburn_hair",
+          "freckles",
+          "navy_blazer",
+          "soft_window_lighting",
+          "depth_of_field",
+          "age_representation",
+          "composition"
+        ],
+        "criteria_failed": [],
+        "quality_score": 9,
+        "commentary": "Strong portrait with copper-red auburn hair, clearly visible freckles across the nose and cheeks, and a navy blazer. Soft window backlighting is evident and the background blur is subtle but appropriate. Age representation and framing are both convincing for a professional headshot."
+      },
+      {
+        "model_slug": "seedream-v4-5",
+        "prompt_id": "01-portrait",
+        "criteria_passed": [
+          "skin_texture",
+          "auburn_hair",
+          "freckles",
+          "navy_blazer",
+          "soft_window_lighting",
+          "depth_of_field",
+          "age_representation",
+          "composition"
+        ],
+        "criteria_failed": [],
+        "quality_score": 9.4,
+        "commentary": "Highest quality result: vibrant auburn hair, prominent natural freckles, navy blazer, and beautiful warm window light visible in the background. The skin texture is highly photorealistic and the subject looks naturally mid-30s. Freckles are more pronounced and natural-looking than any other image."
+      },
+      {
+        "model_slug": "z-image-turbo",
+        "prompt_id": "01-portrait",
+        "criteria_passed": [
+          "skin_texture",
+          "auburn_hair",
+          "freckles",
+          "navy_blazer",
+          "soft_window_lighting",
+          "depth_of_field",
+          "age_representation",
+          "composition"
+        ],
+        "criteria_failed": [],
+        "quality_score": 8.5,
+        "commentary": "Solid professional portrait with auburn hair, light freckles, and a navy blazer against a soft window background. All criteria are technically met but the image has slightly less warmth and visual impact than the top scorers. The depth of field is less pronounced than ideal for the described shallow-DOF look."
+      },
+      {
+        "model_slug": "flux2-turbo",
+        "prompt_id": "01-portrait",
+        "criteria_passed": [
+          "skin_texture",
+          "auburn_hair",
+          "navy_blazer",
+          "soft_window_lighting",
+          "depth_of_field",
+          "composition"
+        ],
+        "criteria_failed": [
+          "freckles",
+          "age_representation"
+        ],
+        "quality_score": 7.8,
+        "commentary": "Competent headshot with auburn hair and navy blazer, clear window lighting from the side. Freckles are nearly invisible — only the faintest hint is present. The subject reads as late 30s to early 40s rather than 35, missing the specified age target noticeably."
+      },
+      {
+        "model_slug": "gpt-image-2",
+        "prompt_id": "01-portrait",
+        "criteria_passed": [
+          "skin_texture",
+          "auburn_hair",
+          "navy_blazer",
+          "depth_of_field",
+          "age_representation",
+          "composition"
+        ],
+        "criteria_failed": [
+          "freckles",
+          "soft_window_lighting"
+        ],
+        "quality_score": 7.2,
+        "commentary": "Polished and professional image with dark auburn hair and a clear navy blazer, but freckles are entirely absent. The lighting reads as generic office/studio rather than the soft natural window light specified in the prompt. The image is technically clean but misses two key descriptive elements."
+      },
+      {
+        "model_slug": "nano-banana-2",
+        "prompt_id": "01-portrait",
+        "criteria_passed": [
+          "skin_texture",
+          "auburn_hair",
+          "navy_blazer",
+          "soft_window_lighting",
+          "depth_of_field",
+          "age_representation",
+          "composition"
+        ],
+        "criteria_failed": [
+          "freckles"
+        ],
+        "quality_score": 7.5,
+        "commentary": "Natural and warmly lit portrait with good window light from the left and a blurred office background. The auburn hair and navy blazer are accurate, and the age reads correctly. However, freckles are completely absent, and the crop is wider than a standard professional headshot, giving it more of an environmental portrait feel."
+      },
+      {
+        "model_slug": "nano-banana-pro",
+        "prompt_id": "01-portrait",
+        "criteria_passed": [
+          "skin_texture",
+          "auburn_hair",
+          "freckles",
+          "navy_blazer",
+          "soft_window_lighting",
+          "depth_of_field",
+          "composition"
+        ],
+        "criteria_failed": [
+          "age_representation"
+        ],
+        "quality_score": 8,
+        "commentary": "Authentic and naturally lit portrait with clear window light, subtle freckles, and a navy blazer. The auburn hair has a lighter reddish tone but is within range. The wider environmental framing with a bookshelf background is less typical for a headshot but still professional. The subject reads as late 20s to early 30s, slightly under the specified 35-year age target."
+      }
+    ],
+    "02-text": [
+      {
+        "model_slug": "flux2-klein-9b",
+        "prompt_id": "02-text",
+        "criteria_passed": [
+          "spelling_daily_specials",
+          "spelling_espresso",
+          "spelling_cappuccino",
+          "price_3_50",
+          "price_4_75",
+          "handwritten_chalk_style",
+          "wooden_frame",
+          "vintage_feel"
+        ],
+        "criteria_failed": [],
+        "quality_score": 7.5,
+        "commentary": "All required text elements are spelled and priced correctly on a clean chalkboard with a rustic wooden frame. The chalk lettering has a genuine handwritten quality and the composition feels authentically vintage. Layout is minimal but well-balanced; a bit more decorative detail would push it higher."
+      },
+      {
+        "model_slug": "nano-banana-pro",
+        "prompt_id": "02-text",
+        "criteria_passed": [
+          "spelling_daily_specials",
+          "spelling_espresso",
+          "spelling_cappuccino",
+          "price_3_50",
+          "price_4_75",
+          "handwritten_chalk_style",
+          "wooden_frame",
+          "vintage_feel"
+        ],
+        "criteria_failed": [],
+        "quality_score": 9.2,
+        "commentary": "An outstanding result: every required text item is perfectly spelled and priced, rendered in expressive chalk lettering with decorative flourishes and coffee cup illustrations. The heavily weathered wooden frame, warm ambient café background, and overall compositional richness make this the most atmospherically convincing entry. Nothing material is missing from the prompt."
+      },
+      {
+        "model_slug": "gpt-image-2",
+        "prompt_id": "02-text",
+        "criteria_passed": [
+          "spelling_daily_specials",
+          "spelling_espresso",
+          "spelling_cappuccino",
+          "price_3_50",
+          "price_4_75",
+          "handwritten_chalk_style",
+          "wooden_frame",
+          "vintage_feel"
+        ],
+        "criteria_failed": [],
+        "quality_score": 8.5,
+        "commentary": "All text elements are accurately spelled and priced, presented in elegant chalk script with tasteful ornamental dividers on a dark chalkboard set in a rustic wooden frame. The composition is clean and refined, conveying a strong vintage café aesthetic. Slightly less atmospheric than the top entry but highly polished overall."
+      },
+      {
+        "model_slug": "flux2-turbo",
+        "prompt_id": "02-text",
+        "criteria_passed": [
+          "spelling_daily_specials",
+          "spelling_espresso",
+          "spelling_cappuccino",
+          "price_3_50",
+          "price_4_75",
+          "handwritten_chalk_style",
+          "wooden_frame",
+          "vintage_feel"
+        ],
+        "criteria_failed": [],
+        "quality_score": 7.8,
+        "commentary": "Text fidelity is excellent — all spellings and prices are accurate, delivered in a chalk-style font within a solid wooden frame. The chalkboard reads clearly and has a believable vintage tone. The design is functional but sparse in decorative detail, leaving it a step behind more expressive entries."
+      },
+      {
+        "model_slug": "nano-banana-2",
+        "prompt_id": "02-text",
+        "criteria_passed": [
+          "spelling_daily_specials",
+          "spelling_espresso",
+          "spelling_cappuccino",
+          "price_3_50",
+          "price_4_75",
+          "handwritten_chalk_style",
+          "wooden_frame",
+          "vintage_feel"
+        ],
+        "criteria_failed": [],
+        "quality_score": 7,
+        "commentary": "Required text is correctly spelled and priced, and the handwritten chalk style within a decorative wooden frame creates a convincing vintage café atmosphere. However, the image adds several unrequested menu items (Latte, Flat White, Mocha, Croissants) that deviate from the prompt, diluting focus on the specified content. Visual execution is otherwise strong."
+      },
+      {
+        "model_slug": "z-image-turbo",
+        "prompt_id": "02-text",
+        "criteria_passed": [
+          "spelling_daily_specials",
+          "spelling_espresso",
+          "spelling_cappuccino",
+          "price_3_50",
+          "price_4_75",
+          "wooden_frame"
+        ],
+        "criteria_failed": [
+          "handwritten_chalk_style",
+          "vintage_feel"
+        ],
+        "quality_score": 6.5,
+        "commentary": "All text is spelled and priced correctly, which is a clear win for legibility. The wooden frame is present and the chalkboard surface is rendered, but the lettering reads as printed block text rather than genuine handwritten chalk, losing the artisanal quality the prompt calls for. The overall aesthetic feels more modern and generic than authentically vintage."
+      },
+      {
+        "model_slug": "gpt-image-1-5",
+        "prompt_id": "02-text",
+        "criteria_passed": [
+          "spelling_daily_specials",
+          "spelling_espresso",
+          "spelling_cappuccino",
+          "price_3_50",
+          "price_4_75",
+          "handwritten_chalk_style",
+          "wooden_frame",
+          "vintage_feel"
+        ],
+        "criteria_failed": [],
+        "quality_score": 9,
+        "commentary": "A visually rich chalkboard menu with perfectly accurate text, decorative chalk typography, elegant ornamental styling, and charming coffee cup illustrations. The warm wooden frame and classic chalk-art aesthetic create a strong vintage coffee shop feel. It ranks just behind the top entry due to slightly less environmental context but delivers exceptional prompt compliance and visual polish."
+      },
+      {
+        "model_slug": "seedream-v4-5",
+        "prompt_id": "02-text",
+        "criteria_passed": [
+          "spelling_daily_specials",
+          "spelling_espresso",
+          "spelling_cappuccino",
+          "price_3_50",
+          "price_4_75",
+          "handwritten_chalk_style",
+          "wooden_frame",
+          "vintage_feel"
+        ],
+        "criteria_failed": [],
+        "quality_score": 8,
+        "commentary": "All specified text is correctly spelled and priced, rendered in a casual but convincing handwritten chalk style on an authentic-looking chalkboard with a real-wood frame. The photo-realistic rendering gives it a genuine, tactile quality. The composition is simpler and less ornate than the top performers, but it achieves a believable vintage coffee shop aesthetic with no errors."
+      }
+    ],
+    "03-product": [
+      {
+        "model_slug": "nano-banana-pro",
+        "prompt_id": "03-product",
+        "criteria_passed": [
+          "perfume_bottle",
+          "white_marble_surface",
+          "crystal_clear_glass",
+          "amber_liquid",
+          "minimalist_composition",
+          "product_photo_lighting"
+        ],
+        "criteria_failed": [
+          "rim_lighting",
+          "reflections_highlights"
+        ],
+        "quality_score": 7.5,
+        "commentary": "Strong product shot with a faceted crystal bottle on marble displaying vivid amber liquid. The lighting is warm and dramatic but leans toward frontal/top illumination rather than dedicated rim lighting. Reflections on the marble surface are modest but the overall presentation is polished and commercial."
+      },
+      {
+        "model_slug": "flux2-turbo",
+        "prompt_id": "03-product",
+        "criteria_passed": [
+          "perfume_bottle",
+          "white_marble_surface",
+          "rim_lighting",
+          "crystal_clear_glass",
+          "amber_liquid",
+          "minimalist_composition",
+          "product_photo_lighting",
+          "reflections_highlights"
+        ],
+        "criteria_failed": [],
+        "quality_score": 8.5,
+        "commentary": "Excellent product photography execution with a crystal-clear rectangular bottle under focused spot lighting on white marble. Rim lighting is evident in the halo effect on the marble below the bottle. All major prompt criteria are met with professional-quality execution."
+      },
+      {
+        "model_slug": "gpt-image-1-5",
+        "prompt_id": "03-product",
+        "criteria_passed": [
+          "perfume_bottle",
+          "white_marble_surface",
+          "rim_lighting",
+          "crystal_clear_glass",
+          "amber_liquid",
+          "minimalist_composition",
+          "product_photo_lighting",
+          "reflections_highlights"
+        ],
+        "criteria_failed": [],
+        "quality_score": 9,
+        "commentary": "Exceptional product photography with dramatic rim lighting that beautifully catches the bottle edges and illuminates the amber liquid. The dark background creates high contrast while the white marble adds luxury context. Surface reflections are clean and the overall image reads as top-tier commercial product photography."
+      },
+      {
+        "model_slug": "flux2-klein-9b",
+        "prompt_id": "03-product",
+        "criteria_passed": [
+          "perfume_bottle",
+          "white_marble_surface",
+          "rim_lighting",
+          "crystal_clear_glass",
+          "amber_liquid",
+          "minimalist_composition",
+          "product_photo_lighting",
+          "reflections_highlights"
+        ],
+        "criteria_failed": [],
+        "quality_score": 8.8,
+        "commentary": "Strong product image with excellent rim lighting creating prominent edge highlights on the crystal bottle. The marble surface shows detailed veining with dramatic light casting and reflections. The composition is clean and the amber liquid appears rich and saturated."
+      },
+      {
+        "model_slug": "seedream-v4-5",
+        "prompt_id": "03-product",
+        "criteria_passed": [
+          "perfume_bottle",
+          "white_marble_surface",
+          "rim_lighting",
+          "crystal_clear_glass",
+          "amber_liquid",
+          "minimalist_composition",
+          "reflections_highlights"
+        ],
+        "criteria_failed": [
+          "product_photo_lighting"
+        ],
+        "quality_score": 8,
+        "commentary": "Beautiful natural-light editorial image with a cylindrical bottle casting a dramatic warm shadow across white marble. The amber liquid and clear glass are well-executed, but the lighting style is editorial/natural rather than the controlled studio product photography feel specified. The marble and rim lighting are excellent."
+      },
+      {
+        "model_slug": "nano-banana-2",
+        "prompt_id": "03-product",
+        "criteria_passed": [
+          "perfume_bottle",
+          "white_marble_surface",
+          "crystal_clear_glass",
+          "amber_liquid",
+          "minimalist_composition",
+          "product_photo_lighting"
+        ],
+        "criteria_failed": [
+          "rim_lighting",
+          "reflections_highlights"
+        ],
+        "quality_score": 7.2,
+        "commentary": "Competent product shot on marble with clear amber liquid in a well-shaped bottle, but the lighting is diffuse rather than the dramatic rim lighting specified. The text label is prominently displayed but the overall image lacks the high-contrast drama of true rim lighting. Reflections are minimal."
+      },
+      {
+        "model_slug": "gpt-image-2",
+        "prompt_id": "03-product",
+        "criteria_passed": [
+          "perfume_bottle",
+          "white_marble_surface",
+          "rim_lighting",
+          "crystal_clear_glass",
+          "amber_liquid",
+          "minimalist_composition",
+          "product_photo_lighting",
+          "reflections_highlights"
+        ],
+        "criteria_failed": [],
+        "quality_score": 9.2,
+        "commentary": "Outstanding product photography with a beautifully faceted crystal bottle displaying dramatic rim lighting that creates brilliant edge highlights and internal light refraction. The marble surface reflections are crisp and the amber liquid glows through the crystal glass. This is the most technically accomplished image in the set."
+      },
+      {
+        "model_slug": "z-image-turbo",
+        "prompt_id": "03-product",
+        "criteria_passed": [
+          "perfume_bottle",
+          "white_marble_surface",
+          "rim_lighting",
+          "crystal_clear_glass",
+          "amber_liquid",
+          "minimalist_composition",
+          "product_photo_lighting"
+        ],
+        "criteria_failed": [
+          "reflections_highlights"
+        ],
+        "quality_score": 8,
+        "commentary": "Clean professional product shot with good rim lighting creating edge definition on the rectangular bottle. The amber liquid is well-rendered and the composition is minimalist with a dark gradient background. Surface reflections exist but are understated compared to the best in the set."
+      }
+    ],
+    "04-architecture": [
+      {
+        "model_slug": "z-image-turbo",
+        "prompt_id": "04-architecture",
+        "criteria_passed": [
+          "floor_to_ceiling_windows",
+          "city_skyline_at_dusk",
+          "white_sectional_sofa",
+          "polished_concrete_floor",
+          "minimalist_style",
+          "architectural_accuracy"
+        ],
+        "criteria_failed": [
+          "lighting_realism",
+          "spatial_depth"
+        ],
+        "quality_score": 7.5,
+        "commentary": "The scene correctly places a large white sectional in front of floor-to-ceiling windows with a city skyline at dusk, and polished concrete floors are clearly visible. Interior lighting appears flat and overly uniform, lacking the nuanced warm-cool interplay expected at dusk. The space reads slightly cramped and compressed, reducing the sense of architectural grandeur the prompt implies."
+      },
+      {
+        "model_slug": "flux2-klein-9b",
+        "prompt_id": "04-architecture",
+        "criteria_passed": [
+          "floor_to_ceiling_windows",
+          "city_skyline_at_dusk",
+          "white_sectional_sofa",
+          "polished_concrete_floor",
+          "minimalist_style",
+          "lighting_realism",
+          "spatial_depth",
+          "architectural_accuracy"
+        ],
+        "criteria_failed": [],
+        "quality_score": 8.8,
+        "commentary": "All prompt elements are present and well-executed: panoramic floor-to-ceiling glazing with a warm dusk skyline, a large white sectional with chaise, and shiny polished concrete floors. The dusk light reads convincingly with golden tones washing in from outside while the interior remains softly lit. Spatial depth is strong, giving a genuine sense of a high-rise penthouse living space."
+      },
+      {
+        "model_slug": "gpt-image-1-5",
+        "prompt_id": "04-architecture",
+        "criteria_passed": [
+          "floor_to_ceiling_windows",
+          "city_skyline_at_dusk",
+          "white_sectional_sofa",
+          "polished_concrete_floor",
+          "minimalist_style",
+          "lighting_realism",
+          "spatial_depth",
+          "architectural_accuracy"
+        ],
+        "criteria_failed": [],
+        "quality_score": 9.2,
+        "commentary": "An outstanding execution with expansive floor-to-ceiling glazing framing a richly detailed night-transition cityscape, perfectly capturing the dusk-to-dark transition with city lights activating across the skyline. The off-white sectional, highly reflective polished concrete floor, and minimal furniture arrangement are all faithful to the brief. Interior ambient lighting is warm and photorealistic, with a convincing balance against the cooler exterior twilight."
+      },
+      {
+        "model_slug": "flux2-turbo",
+        "prompt_id": "04-architecture",
+        "criteria_passed": [
+          "floor_to_ceiling_windows",
+          "city_skyline_at_dusk",
+          "white_sectional_sofa",
+          "polished_concrete_floor",
+          "minimalist_style",
+          "lighting_realism",
+          "spatial_depth",
+          "architectural_accuracy"
+        ],
+        "criteria_failed": [],
+        "quality_score": 8.5,
+        "commentary": "A high-quality minimalist living room with corner floor-to-ceiling windows and a dusk skyline rendered with good tonal depth. The white sectional, polished concrete floor, and cove accent lighting all align well with the brief. The space feels open and architecturally plausible, though the skyline detail is slightly less intricate than the best entries."
+      },
+      {
+        "model_slug": "nano-banana-pro",
+        "prompt_id": "04-architecture",
+        "criteria_passed": [
+          "floor_to_ceiling_windows",
+          "city_skyline_at_dusk",
+          "white_sectional_sofa",
+          "lighting_realism",
+          "spatial_depth",
+          "architectural_accuracy"
+        ],
+        "criteria_failed": [
+          "polished_concrete_floor",
+          "minimalist_style"
+        ],
+        "quality_score": 8.2,
+        "commentary": "Strong photorealistic rendering with excellent dusk lighting and a sprawling city view through large glass walls. The white sectional is present, but the concrete floor is partially obscured by a large area rug, weakening that criterion. Warm-toned wood furniture and accessories reduce the strictly minimalist character of the space, making it feel more transitional than minimal."
+      },
+      {
+        "model_slug": "gpt-image-2",
+        "prompt_id": "04-architecture",
+        "criteria_passed": [
+          "floor_to_ceiling_windows",
+          "city_skyline_at_dusk",
+          "white_sectional_sofa",
+          "polished_concrete_floor",
+          "minimalist_style",
+          "lighting_realism",
+          "spatial_depth",
+          "architectural_accuracy"
+        ],
+        "criteria_failed": [],
+        "quality_score": 8.6,
+        "commentary": "A well-composed minimalist interior with full-height windows framing a dusk skyline and concrete floors clearly visible. The white sofa, fireplace feature wall, and sparse accessories maintain a clean aesthetic aligned with the minimalist brief. Lighting is convincing with a natural dusk gradient and subtle interior warmth, and the overall architectural quality is high."
+      },
+      {
+        "model_slug": "nano-banana-2",
+        "prompt_id": "04-architecture",
+        "criteria_passed": [
+          "floor_to_ceiling_windows",
+          "city_skyline_at_dusk",
+          "white_sectional_sofa",
+          "polished_concrete_floor",
+          "minimalist_style",
+          "lighting_realism",
+          "spatial_depth",
+          "architectural_accuracy"
+        ],
+        "criteria_failed": [],
+        "quality_score": 8.3,
+        "commentary": "A clean minimalist living room with floor-to-ceiling glazing, a white sectional sofa, polished concrete floors, and a dusk city skyline all rendered faithfully. Lighting is warm and believable with good indoor-outdoor contrast. The space is slightly less refined in material detail compared to top performers, but all prompt elements are fully represented."
+      },
+      {
+        "model_slug": "seedream-v4-5",
+        "prompt_id": "04-architecture",
+        "criteria_passed": [
+          "floor_to_ceiling_windows",
+          "city_skyline_at_dusk",
+          "white_sectional_sofa",
+          "polished_concrete_floor",
+          "minimalist_style",
+          "lighting_realism",
+          "spatial_depth",
+          "architectural_accuracy"
+        ],
+        "criteria_failed": [],
+        "quality_score": 9.5,
+        "commentary": "The best-in-class result: a strikingly photorealistic rendering with floor-to-ceiling windows bathed in spectacular golden-hour dusk light, a highly reflective polished concrete floor, and a crisp white sectional in a beautifully spare minimalist space. The skyline is detailed and glowing with warm sunset tones reflecting off the city towers. Spatial depth and architectural scale are exceptional, making this feel like a real premium high-rise interior."
+      }
+    ],
+    "05-fantasy": [
+      {
+        "model_slug": "seedream-v4-5",
+        "prompt_id": "05-fantasy",
+        "criteria_passed": [
+          "elven_warrior",
+          "silver_armor",
+          "flowing_white_cape",
+          "glowing_blue_sword",
+          "ancient_forest",
+          "magical_particles",
+          "character_coherence",
+          "atmosphere"
+        ],
+        "criteria_failed": [],
+        "quality_score": 9.5,
+        "commentary": "Outstanding cinematic fantasy image with a moonlit ancient forest setting and dramatic lighting. The elven warrior wears intricate white-silver armor and a large flowing white cape, holds a clearly glowing blue sword, and stands among twisted dark trees with scattered blue magical particles. All eight criteria are strongly met with exceptional compositional depth and atmosphere."
+      },
+      {
+        "model_slug": "nano-banana-2",
+        "prompt_id": "05-fantasy",
+        "criteria_passed": [
+          "elven_warrior",
+          "silver_armor",
+          "flowing_white_cape",
+          "glowing_blue_sword",
+          "ancient_forest",
+          "magical_particles",
+          "character_coherence",
+          "atmosphere"
+        ],
+        "criteria_failed": [],
+        "quality_score": 9.4,
+        "commentary": "Richly detailed photorealistic fantasy scene with a female elf warrior standing in a lush moss-covered ancient forest. Silver armor with ornate scrollwork, a large flowing white cape, and a vivid blue glowing sword are all faithfully rendered. Abundant magical particles including glowing crystals and scattered light orbs fill the scene, creating an immersive enchanted atmosphere."
+      },
+      {
+        "model_slug": "nano-banana-pro",
+        "prompt_id": "05-fantasy",
+        "criteria_passed": [
+          "elven_warrior",
+          "silver_armor",
+          "flowing_white_cape",
+          "glowing_blue_sword",
+          "ancient_forest",
+          "magical_particles",
+          "character_coherence",
+          "atmosphere"
+        ],
+        "criteria_failed": [],
+        "quality_score": 9.2,
+        "commentary": "Strong photorealistic render of a female elven warrior in detailed silver plate armor with a flowing white cape in a moody mossy old-growth forest. The glowing blue sword emits visible magical energy and subtle blue particle effects appear throughout the scene. Composition and character coherence are both excellent, and the forest atmosphere feels genuinely ancient and magical."
+      },
+      {
+        "model_slug": "gpt-image-1-5",
+        "prompt_id": "05-fantasy",
+        "criteria_passed": [
+          "elven_warrior",
+          "flowing_white_cape",
+          "glowing_blue_sword",
+          "ancient_forest",
+          "magical_particles",
+          "character_coherence",
+          "atmosphere"
+        ],
+        "criteria_failed": [
+          "silver_armor"
+        ],
+        "quality_score": 8.5,
+        "commentary": "Well-executed fantasy illustration with a confident female elf warrior holding a prominently glowing blue sword in an ancient mossy forest. The flowing white cape is large and dynamic, and blue magical sparkles are scattered throughout the scene. The armor reads as dark steel rather than silver, falling short of the specified silver tone, but all other elements are faithfully present."
+      },
+      {
+        "model_slug": "gpt-image-2",
+        "prompt_id": "05-fantasy",
+        "criteria_passed": [
+          "elven_warrior",
+          "silver_armor",
+          "flowing_white_cape",
+          "glowing_blue_sword",
+          "ancient_forest",
+          "magical_particles",
+          "character_coherence",
+          "atmosphere"
+        ],
+        "criteria_failed": [],
+        "quality_score": 8,
+        "commentary": "Competent fantasy portrait of a silver-armored elven warrior with a white cape and glowing blue sword in a forest setting. All prompt elements are present and correctly rendered, though the lower resolution and portrait crop limit compositional depth. The magical atmosphere is present but less elaborate than the top performers, with fewer and less vivid particle effects."
+      },
+      {
+        "model_slug": "z-image-turbo",
+        "prompt_id": "05-fantasy",
+        "criteria_passed": [
+          "elven_warrior",
+          "silver_armor",
+          "flowing_white_cape",
+          "glowing_blue_sword",
+          "ancient_forest",
+          "magical_particles",
+          "character_coherence",
+          "atmosphere"
+        ],
+        "criteria_failed": [],
+        "quality_score": 7.8,
+        "commentary": "Solid fantasy scene with a female elf warrior in full silver armor and a white cape, holding a bright blue glowing sword in a forested setting with rocky ground. Blue magical particle effects are visible. The image meets all criteria but has a somewhat generic presentation — the forest lacks the ancient, overgrown grandeur of the prompt and the magical ambiance feels understated."
+      },
+      {
+        "model_slug": "flux2-turbo",
+        "prompt_id": "05-fantasy",
+        "criteria_passed": [
+          "elven_warrior",
+          "silver_armor",
+          "flowing_white_cape",
+          "glowing_blue_sword",
+          "ancient_forest",
+          "magical_particles",
+          "character_coherence",
+          "atmosphere"
+        ],
+        "criteria_failed": [],
+        "quality_score": 7.2,
+        "commentary": "Digital illustration style rendering of an elven warrior that checks all the key prompt elements: pointed ears, silver armor, flowing white cape, glowing blue sword, and a forest background with colorful magical particles. The flat illustration style and lower image resolution reduce visual impact compared to photorealistic entries, and the ancient forest setting lacks textural richness."
+      },
+      {
+        "model_slug": "flux2-klein-9b",
+        "prompt_id": "05-fantasy",
+        "criteria_passed": [
+          "elven_warrior",
+          "silver_armor",
+          "flowing_white_cape",
+          "glowing_blue_sword",
+          "ancient_forest",
+          "magical_particles",
+          "character_coherence",
+          "atmosphere"
+        ],
+        "criteria_failed": [],
+        "quality_score": 7,
+        "commentary": "Illustration-style image of a female elf warrior with all required elements present: silver armor, white cape, blue glowing sword, forest background, and subtle magical particles. The artwork is technically competent but stylistically flat — the ancient forest lacks depth and atmosphere, the figure proportions are slightly stiff, and the overall scene conveys little sense of magical wonder compared to higher-scoring entries."
+      }
+    ],
+    "06-food": [
+      {
+        "model_slug": "flux2-klein-9b",
+        "prompt_id": "06-food",
+        "criteria_passed": [
+          "wooden_board",
+          "brioche_bun_toasted",
+          "melting_cheddar",
+          "crispy_bacon",
+          "fresh_lettuce",
+          "dripping_sauce",
+          "texture_realism"
+        ],
+        "criteria_failed": [
+          "food_magazine_styling"
+        ],
+        "quality_score": 6.5,
+        "commentary": "A well-composed burger with all required ingredients clearly present—wooden board, toasted brioche, melting cheddar, crispy bacon, fresh lettuce, and dripping sauce. However, a large nonsensical text overlay (magazine-cover style lettering) dominates the upper half of the image, severely undermining the food magazine styling criterion. The underlying food photography is competent but the corrupted text element makes this unsuitable for professional use."
+      },
+      {
+        "model_slug": "flux2-turbo",
+        "prompt_id": "06-food",
+        "criteria_passed": [
+          "wooden_board",
+          "brioche_bun_toasted",
+          "melting_cheddar",
+          "crispy_bacon",
+          "fresh_lettuce",
+          "dripping_sauce",
+          "texture_realism"
+        ],
+        "criteria_failed": [
+          "food_magazine_styling"
+        ],
+        "quality_score": 7.5,
+        "commentary": "A solid burger image with all required elements: sesame-topped toasted brioche bun, melting cheddar, crispy bacon, fresh lettuce, dripping sauce, and a wooden board. The composition is appealing but slightly soft and lacks the dramatic lighting or prop styling that food magazines typically demand. Textures are convincing and the overall feel is appetizing, placing it above average but not at editorial level."
+      },
+      {
+        "model_slug": "gpt-image-1-5",
+        "prompt_id": "06-food",
+        "criteria_passed": [
+          "wooden_board",
+          "brioche_bun_toasted",
+          "melting_cheddar",
+          "crispy_bacon",
+          "fresh_lettuce",
+          "dripping_sauce",
+          "food_magazine_styling",
+          "texture_realism"
+        ],
+        "criteria_failed": [],
+        "quality_score": 9.2,
+        "commentary": "An outstanding food magazine-quality image with every element of the prompt executed to a high standard. The brioche bun is perfectly golden and toasted, cheddar melts dramatically over thick crispy bacon, fresh lettuce peeks out attractively, and creamy sauce drips down onto the rustic wooden board. Shallow depth of field, warm studio lighting, and well-chosen props (glass, fries) elevate this to professional editorial level."
+      },
+      {
+        "model_slug": "gpt-image-2",
+        "prompt_id": "06-food",
+        "criteria_passed": [
+          "wooden_board",
+          "brioche_bun_toasted",
+          "melting_cheddar",
+          "crispy_bacon",
+          "fresh_lettuce",
+          "dripping_sauce",
+          "food_magazine_styling",
+          "texture_realism"
+        ],
+        "criteria_failed": [],
+        "quality_score": 8.5,
+        "commentary": "A dramatic, high-impact burger shot with excellent commercial food photography aesthetics. The glossy toasted brioche bun, boldly melting cheddar, well-crisped bacon, and fresh lettuce are all sharply rendered with strong textural detail. The dark background creates professional contrast, and the slight upward camera angle gives the burger commanding presence. Sauce and cheese flow realistically, and fries in the background complete the scene."
+      },
+      {
+        "model_slug": "nano-banana-2",
+        "prompt_id": "06-food",
+        "criteria_passed": [
+          "wooden_board",
+          "brioche_bun_toasted",
+          "melting_cheddar",
+          "crispy_bacon",
+          "fresh_lettuce",
+          "dripping_sauce",
+          "food_magazine_styling",
+          "texture_realism"
+        ],
+        "criteria_failed": [],
+        "quality_score": 8.8,
+        "commentary": "A beautifully styled food magazine spread with excellent scene-setting: a rustic wooden board populated with a beer glass, metal basket of fries, and a small sauce pot creates genuine editorial context. The burger itself shows all required elements—toasted brioche bun, melting cheddar, crispy bacon, fresh lettuce, tomato, and dripping sauce—with convincing textures and warm natural lighting. Composition depth and prop styling place this firmly in editorial territory."
+      },
+      {
+        "model_slug": "nano-banana-pro",
+        "prompt_id": "06-food",
+        "criteria_passed": [
+          "wooden_board",
+          "brioche_bun_toasted",
+          "melting_cheddar",
+          "crispy_bacon",
+          "fresh_lettuce",
+          "dripping_sauce",
+          "food_magazine_styling",
+          "texture_realism"
+        ],
+        "criteria_failed": [],
+        "quality_score": 9,
+        "commentary": "A polished, professional food magazine image with clean bright styling. The brioche bun is toasted to a perfect golden color with attractive sesame seeds, the cheddar melts realistically, crispy bacon is visible, fresh lettuce adds color, and a cream sauce drips appealingly onto the wooden board. Garnishes including rosemary, sea salt flakes, and a side of fries complete the editorial look. Textures throughout are highly convincing and the composition is well-balanced."
+      },
+      {
+        "model_slug": "seedream-v4-5",
+        "prompt_id": "06-food",
+        "criteria_passed": [
+          "wooden_board",
+          "melting_cheddar",
+          "crispy_bacon",
+          "fresh_lettuce",
+          "dripping_sauce",
+          "food_magazine_styling",
+          "texture_realism"
+        ],
+        "criteria_failed": [
+          "brioche_bun_toasted"
+        ],
+        "quality_score": 7.8,
+        "commentary": "Atmospheric and inviting food photography with warm amber lighting that suits the subject. The brioche bun is unfortunately over-charred with very dark burn marks, failing the toasted criterion convincingly. All other ingredients—melting cheddar, crispy bacon, fresh lettuce, and a dark BBQ-style dripping sauce—are well-represented on a proper wooden board. The overall styling reads as food-magazine quality despite the bun issue."
+      },
+      {
+        "model_slug": "z-image-turbo",
+        "prompt_id": "06-food",
+        "criteria_passed": [
+          "wooden_board",
+          "brioche_bun_toasted",
+          "melting_cheddar",
+          "crispy_bacon",
+          "fresh_lettuce",
+          "dripping_sauce",
+          "texture_realism"
+        ],
+        "criteria_failed": [
+          "food_magazine_styling"
+        ],
+        "quality_score": 7.2,
+        "commentary": "A clean, technically correct burger image on a wooden cutting board with all key ingredients present: toasted bun, melting cheddar, bacon, lettuce, and dripping sauce. The composition feels modest and slightly flat compared to food-magazine standards—the angle is functional rather than aspirational, the background is understated, and there is little narrative or prop styling to elevate the image beyond a straightforward product shot."
+      }
+    ],
+    "07-fashion": [
+      {
+        "model_slug": "flux2-turbo",
+        "prompt_id": "07-fashion",
+        "criteria_passed": [
+          "beige_trench_coat_oversized",
+          "rainy_paris_street_night",
+          "neon_reflections_wet_pavement",
+          "editorial_vogue_style",
+          "model_posture",
+          "lighting_mood",
+          "urban_detail",
+          "color_grading"
+        ],
+        "criteria_failed": [],
+        "quality_score": 8.2,
+        "commentary": "Strong all-around execution with a clearly oversized beige trench coat, vivid neon reflections on a wet Paris boulevard, and a confident frontal editorial pose. The color grading delivers rich blue and red neon contrasts with a cinematic feel. A baked-in 'VOGUE' watermark gives it an editorial stamp but reads as slightly artificial rather than organically composed."
+      },
+      {
+        "model_slug": "gpt-image-2",
+        "prompt_id": "07-fashion",
+        "criteria_passed": [
+          "beige_trench_coat_oversized",
+          "rainy_paris_street_night",
+          "neon_reflections_wet_pavement",
+          "editorial_vogue_style",
+          "model_posture",
+          "lighting_mood",
+          "urban_detail",
+          "color_grading"
+        ],
+        "criteria_failed": [],
+        "quality_score": 9,
+        "commentary": "Exceptional editorial quality with a warm amber palette that evokes authentic high-fashion photography. The Café de Flore sign and Eiffel Tower ground it unmistakably in Paris, the wet pavement reflections are elegantly rendered, and the model's three-quarter turn is graceful and magazine-worthy. Color grading is sophisticated and cohesive without feeling artificially processed."
+      },
+      {
+        "model_slug": "nano-banana-2",
+        "prompt_id": "07-fashion",
+        "criteria_passed": [
+          "beige_trench_coat_oversized",
+          "rainy_paris_street_night",
+          "neon_reflections_wet_pavement",
+          "urban_detail",
+          "lighting_mood",
+          "color_grading"
+        ],
+        "criteria_failed": [
+          "editorial_vogue_style",
+          "model_posture"
+        ],
+        "quality_score": 7.4,
+        "commentary": "Rich urban detail with authentic Parisian brasserie signage, bustling street atmosphere, and vivid neon reflections on the wet pavement. The model's posture is more candid street-photography than runway editorial — holding a handbag mid-stride rather than commanding the frame. The composition reads as documentary rather than Vogue, missing the polished editorial stillness the prompt calls for."
+      },
+      {
+        "model_slug": "seedream-v4-5",
+        "prompt_id": "07-fashion",
+        "criteria_passed": [
+          "beige_trench_coat_oversized",
+          "rainy_paris_street_night",
+          "neon_reflections_wet_pavement",
+          "editorial_vogue_style",
+          "model_posture",
+          "lighting_mood",
+          "urban_detail",
+          "color_grading"
+        ],
+        "criteria_failed": [],
+        "quality_score": 8.7,
+        "commentary": "Dramatically cinematic with a striking blue-twilight sky, vibrant magenta/pink neon reflections on wet cobblestones, and the Eiffel Tower silhouetted in the background. The model's pose — three-quarter turn with face tilted upward — is powerfully editorial. The bold blue-to-magenta color palette is distinctive and atmospheric, elevating this beyond a standard fashion shot."
+      },
+      {
+        "model_slug": "gpt-image-1-5",
+        "prompt_id": "07-fashion",
+        "criteria_passed": [
+          "beige_trench_coat_oversized",
+          "rainy_paris_street_night",
+          "neon_reflections_wet_pavement",
+          "editorial_vogue_style",
+          "model_posture",
+          "lighting_mood",
+          "urban_detail",
+          "color_grading"
+        ],
+        "criteria_failed": [],
+        "quality_score": 8.8,
+        "commentary": "A high-impact editorial image combining the Eiffel Tower, neon-lit Brasserie/Café signage, and brilliantly rendered warm-red reflections on the wet pavement. The model's frontal stance with hands in pockets is self-assured and distinctly Vogue in character, and the bold warm-cool neon contrast gives the image strong visual drama. The Vogue text overlay adds editorial context but is partially obscured, keeping the composition clean."
+      },
+      {
+        "model_slug": "nano-banana-pro",
+        "prompt_id": "07-fashion",
+        "criteria_passed": [
+          "beige_trench_coat_oversized",
+          "rainy_paris_street_night",
+          "neon_reflections_wet_pavement",
+          "urban_detail",
+          "lighting_mood"
+        ],
+        "criteria_failed": [
+          "editorial_vogue_style",
+          "model_posture",
+          "color_grading"
+        ],
+        "quality_score": 6.5,
+        "commentary": "Captures the rainy Paris night atmosphere well with cobblestone streets, the Eiffel Tower, and French café signage, but the model holding an umbrella and standing in a casual posture lacks the commanding editorial presence the prompt demands. The color grading is cool and muted — serviceable but without the high-contrast neon drama expected in a Vogue editorial shoot. Overall execution is closer to street photography than fashion editorial."
+      },
+      {
+        "model_slug": "z-image-turbo",
+        "prompt_id": "07-fashion",
+        "criteria_passed": [
+          "beige_trench_coat_oversized",
+          "rainy_paris_street_night",
+          "neon_reflections_wet_pavement",
+          "editorial_vogue_style",
+          "model_posture",
+          "lighting_mood",
+          "urban_detail",
+          "color_grading"
+        ],
+        "criteria_failed": [],
+        "quality_score": 7.9,
+        "commentary": "Clean, well-composed fashion image with a classic oversized beige trench coat, wet Paris boulevard, and red-and-blue neon reflections on the pavement. The model's stance is editorial and confident. The color grading is relatively natural compared to some peers — technically sound but lacking the heightened drama and cinematic intensity that a top-tier Vogue editorial would demand."
+      },
+      {
+        "model_slug": "flux2-klein-9b",
+        "prompt_id": "07-fashion",
+        "criteria_passed": [
+          "beige_trench_coat_oversized",
+          "rainy_paris_street_night",
+          "neon_reflections_wet_pavement",
+          "editorial_vogue_style",
+          "model_posture",
+          "lighting_mood",
+          "urban_detail",
+          "color_grading"
+        ],
+        "criteria_failed": [],
+        "quality_score": 9.2,
+        "commentary": "The standout image of the set: a narrow Parisian alley drenched in multi-colored neon light — purple, red, and green — with extraordinary reflections on wet cobblestones and a model in a flawlessly oversized beige trench coat commanding the frame with a powerful frontal stance. Urban detail is exceptional with authentic neon shop signage and parked cars framing the depth of the street. The color grading is cinematic and editorial at the highest level."
+      }
+    ],
+    "08-wildlife": [
+      {
+        "model_slug": "nano-banana-2",
+        "prompt_id": "08-wildlife",
+        "criteria_passed": [
+          "snow_leopard_anatomy",
+          "rocky_mountain_ledge",
+          "blue_green_eyes",
+          "spotted_fur_texture",
+          "golden_hour_backlight",
+          "pose_majestic",
+          "photorealism"
+        ],
+        "criteria_failed": [
+          "snowflakes_on_fur"
+        ],
+        "quality_score": 8.6,
+        "commentary": "Beautifully composed scene with the snow leopard resting confidently on a rocky ledge against a stunning golden-hour mountain backdrop; the blue-green eyes are vivid and the anatomy is accurate. The rocky terrain and warm backlighting from the setting sun are excellently rendered, creating a cinematic feel. The main shortcoming is that snowflakes directly on the fur are largely absent — snow is present on the rocks but not settling on the animal itself."
+      },
+      {
+        "model_slug": "nano-banana-pro",
+        "prompt_id": "08-wildlife",
+        "criteria_passed": [
+          "snow_leopard_anatomy",
+          "blue_green_eyes",
+          "spotted_fur_texture",
+          "golden_hour_backlight",
+          "photorealism"
+        ],
+        "criteria_failed": [
+          "rocky_mountain_ledge",
+          "snowflakes_on_fur",
+          "pose_majestic"
+        ],
+        "quality_score": 7.2,
+        "commentary": "The snow leopard is captured with good photographic realism and correct spotted fur detail, and the blue-green eyes are clearly visible in the golden light. However the composition feels cropped and lacks the sense of height or dramatic mountain ledge context the prompt calls for; the pose is tense and alert rather than the majestic resting posture requested. Snowflakes on or around the fur are essentially absent."
+      },
+      {
+        "model_slug": "seedream-v4-5",
+        "prompt_id": "08-wildlife",
+        "criteria_passed": [
+          "snow_leopard_anatomy",
+          "rocky_mountain_ledge",
+          "blue_green_eyes",
+          "spotted_fur_texture",
+          "snowflakes_on_fur",
+          "golden_hour_backlight",
+          "pose_majestic"
+        ],
+        "criteria_failed": [
+          "photorealism"
+        ],
+        "quality_score": 8.1,
+        "commentary": "A visually impressive image covering nearly all prompt elements: the leopard rests on a rocky ledge with snow-dusted mountains behind it, saturated blue-green eyes glow vividly, and falling snowflakes are visible on the fur. The warm golden-orange sky and mountain silhouettes reinforce the golden hour atmosphere well. The rendering style is somewhat painterly and the eye color is hyper-saturated beyond natural range, slightly undermining photorealism."
+      },
+      {
+        "model_slug": "gpt-image-1-5",
+        "prompt_id": "08-wildlife",
+        "criteria_passed": [
+          "snow_leopard_anatomy",
+          "rocky_mountain_ledge",
+          "blue_green_eyes",
+          "spotted_fur_texture",
+          "snowflakes_on_fur",
+          "golden_hour_backlight",
+          "pose_majestic",
+          "photorealism"
+        ],
+        "criteria_failed": [],
+        "quality_score": 8.6,
+        "commentary": "All eight criteria are satisfied in a single striking image: the leopard rests regally on a snow-dusted rocky ledge, blue-green eyes catching the warm golden light, with heavy and convincing snowfall throughout the scene. The golden-hour backlighting is dramatic and warm, and the spotted fur is sharply rendered. The close framing limits the full mountain panorama context slightly, but the composition is emotionally impactful and technically precise."
+      },
+      {
+        "model_slug": "flux2-klein-9b",
+        "prompt_id": "08-wildlife",
+        "criteria_passed": [
+          "snow_leopard_anatomy",
+          "rocky_mountain_ledge",
+          "spotted_fur_texture",
+          "golden_hour_backlight",
+          "pose_majestic",
+          "photorealism"
+        ],
+        "criteria_failed": [
+          "blue_green_eyes",
+          "snowflakes_on_fur"
+        ],
+        "quality_score": 7.4,
+        "commentary": "The image shows a photorealistic snow leopard in a calm resting pose on a snowy rocky ledge with warm golden-hour mountain light, and the anatomy and fur spotting are well-executed. The blue-green eye color is present but quite muted — the eyes read more as pale grey-blue than the vivid blue-green specified in the prompt. Snowflakes on the fur are not clearly present beyond some general snow dusting on the surface."
+      },
+      {
+        "model_slug": "z-image-turbo",
+        "prompt_id": "08-wildlife",
+        "criteria_passed": [
+          "snow_leopard_anatomy",
+          "blue_green_eyes",
+          "spotted_fur_texture",
+          "pose_majestic",
+          "photorealism"
+        ],
+        "criteria_failed": [
+          "rocky_mountain_ledge",
+          "snowflakes_on_fur",
+          "golden_hour_backlight"
+        ],
+        "quality_score": 7,
+        "commentary": "The snow leopard itself is rendered with exceptional photographic realism — anatomy is accurate, the spotted fur is finely detailed, and the vivid blue-green eyes are striking. However the environmental context is nearly absent: the background is a plain warm blur with no discernible mountain ledge or snowy terrain, golden-hour backlighting is missing, and there are no snowflakes anywhere in the scene. The animal quality is high but the prompt's setting requirements are largely unmet."
+      },
+      {
+        "model_slug": "gpt-image-2",
+        "prompt_id": "08-wildlife",
+        "criteria_passed": [
+          "snow_leopard_anatomy",
+          "rocky_mountain_ledge",
+          "blue_green_eyes",
+          "spotted_fur_texture",
+          "snowflakes_on_fur",
+          "golden_hour_backlight",
+          "pose_majestic",
+          "photorealism"
+        ],
+        "criteria_failed": [],
+        "quality_score": 7.6,
+        "commentary": "The image captures all key elements: the snow leopard rests on rocky terrain against a warm cloud-lit sunset sky with scattered snow particles visible in the air and on the cat. The golden atmospheric light and blue-green eyes are both present. Compared to top-scoring images the fur texture appears somewhat soft and the overall rendering is slightly less sharp, and the rocky ledge framing could be more dramatic, but the completeness of prompt coverage is commendable."
+      },
+      {
+        "model_slug": "flux2-turbo",
+        "prompt_id": "08-wildlife",
+        "criteria_passed": [
+          "snow_leopard_anatomy",
+          "rocky_mountain_ledge",
+          "blue_green_eyes",
+          "spotted_fur_texture",
+          "snowflakes_on_fur",
+          "golden_hour_backlight",
+          "pose_majestic",
+          "photorealism"
+        ],
+        "criteria_failed": [],
+        "quality_score": 9.2,
+        "commentary": "The strongest result of the set: the snow leopard dominates the frame in a powerful frontal resting pose on a moss-and-snow-covered rocky ledge with mountains behind and vivid golden-hour rim light catching the fur. The blue-green eyes are brilliantly rendered and emotionally compelling, the large rosette spots on thick fur are exquisitely detailed, and golden bokeh-like snowflakes fall throughout the scene adding depth and atmosphere. Every criterion is met at a high level of technical and artistic quality."
+      }
+    ],
+    "09-abstract": [
+      {
+        "model_slug": "seedream-v4-5",
+        "prompt_id": "09-abstract",
+        "criteria_passed": [
+          "navy_blue_tones",
+          "gold_metallic_tones",
+          "swirling_motion",
+          "organic_flowing_shapes",
+          "high_contrast",
+          "fluid_paint_texture",
+          "gallery_caliber",
+          "composition_balance"
+        ],
+        "criteria_failed": [],
+        "quality_score": 9.2,
+        "commentary": "Exceptional gallery-context presentation with the painting shown hung on a white wall under track lighting. Deep saturated navy blues are dominated by a luminous gold metallic river flowing diagonally across the canvas with iridescent highlights adding visual depth. All prompt criteria are met at a high level — swirling motion is dynamic, contrast is striking, and the fluid paint texture reads as genuinely painterly."
+      },
+      {
+        "model_slug": "gpt-image-1-5",
+        "prompt_id": "09-abstract",
+        "criteria_passed": [
+          "navy_blue_tones",
+          "gold_metallic_tones",
+          "swirling_motion",
+          "organic_flowing_shapes",
+          "high_contrast",
+          "fluid_paint_texture",
+          "composition_balance"
+        ],
+        "criteria_failed": [
+          "gallery_caliber"
+        ],
+        "quality_score": 7.8,
+        "commentary": "Strong fluid marbling with bold navy and glittering gold metallic veins and multiple visible swirl vortexes. However, prominent white and light-blue areas dilute the navy-and-gold palette away from the requested color scheme. The composition is dynamic but somewhat chaotic, and the image reads more as decorative stock art than a curated gallery piece."
+      },
+      {
+        "model_slug": "nano-banana-pro",
+        "prompt_id": "09-abstract",
+        "criteria_passed": [
+          "gold_metallic_tones",
+          "swirling_motion",
+          "organic_flowing_shapes",
+          "fluid_paint_texture",
+          "gallery_caliber",
+          "composition_balance"
+        ],
+        "criteria_failed": [
+          "navy_blue_tones",
+          "high_contrast"
+        ],
+        "quality_score": 6.8,
+        "commentary": "Presented in a gallery context with good framing and lighting, but the blue tones skew slate-grey rather than the requested deep navy, significantly weakening the color fidelity. Gold veining is present but muted and earthy rather than metallic. Contrast is moderate at best, resulting in a painting that feels washed-out compared to the high-contrast specification."
+      },
+      {
+        "model_slug": "z-image-turbo",
+        "prompt_id": "09-abstract",
+        "criteria_passed": [
+          "navy_blue_tones",
+          "gold_metallic_tones",
+          "swirling_motion",
+          "organic_flowing_shapes",
+          "high_contrast",
+          "fluid_paint_texture",
+          "composition_balance"
+        ],
+        "criteria_failed": [
+          "gallery_caliber"
+        ],
+        "quality_score": 7.5,
+        "commentary": "Deep navy with a strong centrifugal swirl radiating outward from a clear focal point, with golden veining providing high contrast. The composition is well-balanced with confident directional energy. The gold reads more as yellow-gold than metallic, lacking the reflective sheen implied by 'metallic tones,' and the image has no gallery context, giving it a decorative rather than fine-art feeling."
+      },
+      {
+        "model_slug": "flux2-turbo",
+        "prompt_id": "09-abstract",
+        "criteria_passed": [
+          "navy_blue_tones",
+          "gold_metallic_tones",
+          "swirling_motion",
+          "organic_flowing_shapes",
+          "high_contrast",
+          "fluid_paint_texture",
+          "gallery_caliber",
+          "composition_balance"
+        ],
+        "criteria_failed": [],
+        "quality_score": 8.6,
+        "commentary": "Framed canvas in a minimal gallery setting with deep navy blues interweaving with gold metallic streams and visible paint texture variation. Swirling motion flows naturally across the canvas with good organic variety. Some lighter silverish-blue areas add tonal richness without undermining the navy palette. Gallery presentation and composition balance are both strong."
+      },
+      {
+        "model_slug": "nano-banana-2",
+        "prompt_id": "09-abstract",
+        "criteria_passed": [
+          "navy_blue_tones",
+          "gold_metallic_tones",
+          "swirling_motion",
+          "organic_flowing_shapes",
+          "high_contrast",
+          "fluid_paint_texture",
+          "gallery_caliber",
+          "composition_balance"
+        ],
+        "criteria_failed": [],
+        "quality_score": 8.9,
+        "commentary": "Shown wall-hung in a gallery setting with neighboring artwork visible, reinforcing its fine-art credibility. Dominant deep navy is richly contrasted by vibrant gold-amber flowing streams with excellent fluid, organic curling shapes. Small bubble and circle elements add compositional interest. Very high contrast and genuine metallic quality in the gold tones make this one of the strongest executions of the prompt."
+      },
+      {
+        "model_slug": "gpt-image-2",
+        "prompt_id": "09-abstract",
+        "criteria_passed": [
+          "navy_blue_tones",
+          "gold_metallic_tones",
+          "swirling_motion",
+          "organic_flowing_shapes",
+          "high_contrast",
+          "composition_balance"
+        ],
+        "criteria_failed": [
+          "fluid_paint_texture",
+          "gallery_caliber"
+        ],
+        "quality_score": 7.2,
+        "commentary": "Excellent navy and brilliant metallic gold tones with strong contrast and clean, precise veining patterns. The composition is solid with varied vein widths and directions. However, the execution feels more like polished marble than fluid acrylic painting — lacking the painterly brushstroke texture specified by the prompt — and there is no gallery context to support the 'modern art gallery piece' requirement."
+      },
+      {
+        "model_slug": "flux2-klein-9b",
+        "prompt_id": "09-abstract",
+        "criteria_passed": [
+          "navy_blue_tones",
+          "gold_metallic_tones",
+          "swirling_motion",
+          "organic_flowing_shapes",
+          "high_contrast",
+          "fluid_paint_texture",
+          "gallery_caliber",
+          "composition_balance"
+        ],
+        "criteria_failed": [],
+        "quality_score": 8.4,
+        "commentary": "Framed canvas against a clean minimal background with deep navy and bold gold swirling bands executed with large, confident strokes. The gold is genuinely metallic-looking with high contrast against the dark navy. Strong diagonal compositional movement creates energy. The image is slightly simpler in layering and detail than the top-scoring entries, but the assured execution and framed gallery presentation make it a high-quality result."
+      }
+    ],
+    "10-scifi": [
+      {
+        "model_slug": "nano-banana-2",
+        "prompt_id": "10-scifi",
+        "criteria_passed": [
+          "cyberpunk_atmosphere",
+          "holographic_advertisements",
+          "flying_vehicles",
+          "towering_skyscrapers",
+          "rain_slicked_streets",
+          "neon_reflections",
+          "night_lighting",
+          "scene_depth"
+        ],
+        "criteria_failed": [],
+        "quality_score": 9,
+        "commentary": "A richly layered wide-format cyberpunk scene with a large anime-character billboard (NEO-TOKYO CYBERNETICS), multiple branded storefronts, and several flying vehicles at varying altitudes against foggy skyscrapers. The wet street carries vivid neon reflections and rain streaks are clearly visible throughout. Scene depth is strong, with the city receding into atmospheric haze."
+      },
+      {
+        "model_slug": "z-image-turbo",
+        "prompt_id": "10-scifi",
+        "criteria_passed": [
+          "cyberpunk_atmosphere",
+          "flying_vehicles",
+          "towering_skyscrapers",
+          "rain_slicked_streets",
+          "neon_reflections",
+          "night_lighting"
+        ],
+        "criteria_failed": [
+          "holographic_advertisements",
+          "scene_depth"
+        ],
+        "quality_score": 6.5,
+        "commentary": "The image establishes a nighttime cyberpunk mood with a central tower, flanking skyscrapers, and flat billboard screens showing face portraits. Flying vehicles are present but sparse, and the billboard displays read as ordinary flat screens rather than holographic projections. Scene depth is limited by the portrait framing and compressed composition."
+      },
+      {
+        "model_slug": "gpt-image-2",
+        "prompt_id": "10-scifi",
+        "criteria_passed": [
+          "cyberpunk_atmosphere",
+          "holographic_advertisements",
+          "flying_vehicles",
+          "towering_skyscrapers",
+          "neon_reflections",
+          "night_lighting",
+          "scene_depth"
+        ],
+        "criteria_failed": [
+          "rain_slicked_streets"
+        ],
+        "quality_score": 7.2,
+        "commentary": "A purple-hued cyberpunk cityscape with a large face billboard, Japanese kanji signage, CYBERNETICS branding, and clearly visible flying craft between tall buildings. Neon glow and atmospheric haze create decent depth. Rain presence is subtle and street wetness is understated, weakening the rain-slicked element of the prompt."
+      },
+      {
+        "model_slug": "seedream-v4-5",
+        "prompt_id": "10-scifi",
+        "criteria_passed": [
+          "cyberpunk_atmosphere",
+          "holographic_advertisements",
+          "towering_skyscrapers",
+          "rain_slicked_streets",
+          "neon_reflections",
+          "night_lighting",
+          "scene_depth"
+        ],
+        "criteria_failed": [
+          "flying_vehicles"
+        ],
+        "quality_score": 8.3,
+        "commentary": "A dramatic low-angle road composition with massive NEO TECH and CYBER FASHION text blazing across building faces and a luminous cylindrical holographic structure at center. Rain-slicked asphalt with vivid cyan and magenta reflections is the visual highlight, executed with exceptional quality. Flying vehicles are nearly absent, appearing only as tiny barely-visible shapes in the far background."
+      },
+      {
+        "model_slug": "nano-banana-pro",
+        "prompt_id": "10-scifi",
+        "criteria_passed": [
+          "cyberpunk_atmosphere",
+          "holographic_advertisements",
+          "flying_vehicles",
+          "towering_skyscrapers",
+          "rain_slicked_streets",
+          "neon_reflections",
+          "night_lighting",
+          "scene_depth"
+        ],
+        "criteria_failed": [],
+        "quality_score": 9,
+        "commentary": "An architecturally precise neo-Tokyo scene featuring NEO-TOKYO and CYBER-RAMEN branded skyscrapers, four clearly visible flying vehicles at mid-altitude, and crowds with glowing umbrellas on rain-soaked streets. The balanced composition delivers strong depth from foreground pedestrians to distant towers. All prompt elements are represented with coherence and visual clarity."
+      },
+      {
+        "model_slug": "gpt-image-1-5",
+        "prompt_id": "10-scifi",
+        "criteria_passed": [
+          "cyberpunk_atmosphere",
+          "holographic_advertisements",
+          "flying_vehicles",
+          "towering_skyscrapers",
+          "rain_slicked_streets",
+          "neon_reflections",
+          "night_lighting",
+          "scene_depth"
+        ],
+        "criteria_failed": [],
+        "quality_score": 9.4,
+        "commentary": "The most cinematically complete entry: massive holographic character displays (anime girl, armored robot), a floating MEGA CORP globe advertisement, multiple flying vehicles at varying distances, dense crowd with umbrellas, and vivid orange-purple neon reflecting off heavily rain-soaked streets. The layered depth from foreground street level to distant towers is exceptional, and the overall atmosphere feels genuinely futuristic."
+      },
+      {
+        "model_slug": "flux2-turbo",
+        "prompt_id": "10-scifi",
+        "criteria_passed": [
+          "cyberpunk_atmosphere",
+          "holographic_advertisements",
+          "flying_vehicles",
+          "towering_skyscrapers",
+          "rain_slicked_streets",
+          "neon_reflections",
+          "night_lighting",
+          "scene_depth"
+        ],
+        "criteria_failed": [],
+        "quality_score": 7,
+        "commentary": "A portrait-mode cyberpunk street scene with a robotic-figure billboard at center, pink and purple neon atmosphere, flying ships overhead, and flanking skyscrapers. Rain and wet-street reflections are present but understated, and the square portrait crop limits the sense of cityscape breadth. Visually competent but lacks the density and cinematic scale of the top performers."
+      },
+      {
+        "model_slug": "flux2-klein-9b",
+        "prompt_id": "10-scifi",
+        "criteria_passed": [
+          "cyberpunk_atmosphere",
+          "holographic_advertisements",
+          "flying_vehicles",
+          "towering_skyscrapers",
+          "rain_slicked_streets",
+          "neon_reflections",
+          "night_lighting",
+          "scene_depth"
+        ],
+        "criteria_failed": [],
+        "quality_score": 7.3,
+        "commentary": "Similar portrait-format cyberpunk composition with large face-portrait billboards, multiple flying craft, neon-lit wet streets, and tall flanking skyscrapers. Billboard clarity and compositional symmetry are slightly better than the comparable portrait entry, and the neon reflections on the pavement read well. The scene is convincing but constrained by format and lacks the atmospheric depth of wider-format competitors."
+      }
+    ]
   }
 }

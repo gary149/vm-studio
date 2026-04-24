@@ -105,7 +105,7 @@
                 "name": "Which is better, GPT-Image 1.5 or Seedream v4.5?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "In our 10-prompt benchmark, GPT-Image 1.5 won 6-4. GPT-Image 1.5 excels at better photorealism, while Seedream v4.5 excels at faster generation and better text rendering."
+                    "text": "In our 10-prompt benchmark, GPT-Image 1.5 won 6-4. GPT-Image 1.5 excels at better text rendering, while Seedream v4.5 excels at faster generation and better photorealism."
                 }
             },
             {
@@ -198,14 +198,14 @@
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>
                             GPT-Image 1.5
                         </span>
-                        <span class="verdict-strength">Better photorealism</span>
+                        <span class="verdict-strength">Better text rendering</span>
                     </div>
                     <div class="verdict-model">
                         <span class="model-badge model-b">
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
                             Seedream v4.5
                         </span>
-                        <span class="verdict-strength">Faster generation, Better text rendering</span>
+                        <span class="verdict-strength">Faster generation, Better photorealism</span>
                     </div>
                 </div>
                 <div class="verdict-stats-bar">
@@ -223,11 +223,11 @@
                     </div>
                     <div class="stat-item">
                         <span class="stat-label">Best at Text</span>
-                        <span class="stat-value winner-b">Seedream</span>
+                        <span class="stat-value winner-a">GPT-Image</span>
                     </div>
                     <div class="stat-item">
                         <span class="stat-label">Best at Photos</span>
-                        <span class="stat-value winner-a">GPT-Image</span>
+                        <span class="stat-value winner-b">Seedream</span>
                     </div>
                 </div>
             </div>
@@ -246,11 +246,11 @@
                         <span class="prompt-number">01</span>
                         <span class="prompt-category">Portrait</span>
                     </div>
-                    <span class="prompt-winner winner-a">
+                    <span class="prompt-winner winner-b">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
           </svg>
-          GPT-Image wins
+          Seedream wins
         </span>
                 </div>
 
@@ -260,23 +260,6 @@
                     <div class="comparison-card model-a">
                         <div class="image-container">
                             <img src="/compare/images/gpt-image-1-5/01-portrait.png" alt="GPT-Image 1.5 - Portrait" width="1024" height="1024" fetchpriority="high">
-                            <span class="result-badge pass">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                            </span>
-                            <span class="award-badge gold"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>Winner</span>
-                        </div>
-                        <div class="card-footer">
-                            <div class="card-header-row">
-                                <span class="card-model-name">GPT-Image 1.5</span>
-                                <span class="card-gen-time">38.3s</span>
-                            </div>
-                            <p class="card-commentary">Clean, professional headshot with good composition and excellent background blur. Freckles are visible and the auburn hair color is accurate. The navy blazer is well-rendered. However, the skin appears slightly too smooth and idealized, lacking natural pores and texture. The subject also appears younger than 35, closer to late 20s.</p>
-                        </div>
-                    </div>
-
-                    <div class="comparison-card model-b">
-                        <div class="image-container">
-                            <img src="/compare/images/seedream-v4-5/01-portrait.png" alt="Seedream v4.5 - Portrait" width="1024" height="1024" fetchpriority="high">
                             <span class="result-badge fail">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                             </span>
@@ -284,10 +267,27 @@
                         </div>
                         <div class="card-footer">
                             <div class="card-header-row">
+                                <span class="card-model-name">GPT-Image 1.5</span>
+                                <span class="card-gen-time">38.3s</span>
+                            </div>
+                            <p class="card-commentary">Strong portrait with copper-red auburn hair, clearly visible freckles across the nose and cheeks, and a navy blazer. Soft window backlighting is evident and the background blur is subtle but appropriate. Age representation and framing are both convincing for a professional headshot.</p>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card model-b">
+                        <div class="image-container">
+                            <img src="/compare/images/seedream-v4-5/01-portrait.png" alt="Seedream v4.5 - Portrait" width="1024" height="1024" fetchpriority="high">
+                            <span class="result-badge pass">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            </span>
+                            <span class="award-badge gold"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>Winner</span>
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-header-row">
                                 <span class="card-model-name">Seedream v4.5</span>
                                 <span class="card-gen-time">14.7s</span>
                             </div>
-                            <p class="card-commentary">Polished portrait with good professional composition and warm lighting. The auburn hair is rendered with attractive volume and waves. However, the skin is overly smoothed with an airbrushed quality lacking natural texture. Freckles are minimal and barely noticeable. The subject appears to be in her late 20s rather than 35, giving an overly glamorized look.</p>
+                            <p class="card-commentary">Highest quality result: vibrant auburn hair, prominent natural freckles, navy blazer, and beautiful warm window light visible in the background. The skin texture is highly photorealistic and the subject looks naturally mid-30s. Freckles are more pronounced and natural-looking than any other image.</p>
                         </div>
                     </div>
                 </div>
@@ -298,11 +298,11 @@
                         <span class="prompt-number">02</span>
                         <span class="prompt-category">Text Rendering</span>
                     </div>
-                    <span class="prompt-winner winner-b">
+                    <span class="prompt-winner winner-a">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
           </svg>
-          Seedream wins
+          GPT-Image wins
         </span>
                 </div>
 
@@ -312,23 +312,6 @@
                     <div class="comparison-card model-a">
                         <div class="image-container">
                             <img src="/compare/images/gpt-image-1-5/02-text.png" alt="GPT-Image 1.5 - Text Rendering" width="1024" height="1024" loading="lazy">
-                            <span class="result-badge fail">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-                            </span>
-                            
-                        </div>
-                        <div class="card-footer">
-                            <div class="card-header-row">
-                                <span class="card-model-name">GPT-Image 1.5</span>
-                                <span class="card-gen-time">38.1s</span>
-                            </div>
-                            <p class="card-commentary">All text is rendered perfectly: 'DAILY SPECIALS', 'Espresso $3.50', and 'Cappuccino $4.75' are all correctly spelled with accurate prices. Beautiful decorative banner treatment on the title and coffee cup illustrations add artistic flair. The wooden frame has a rich, rustic appearance.</p>
-                        </div>
-                    </div>
-
-                    <div class="comparison-card model-b">
-                        <div class="image-container">
-                            <img src="/compare/images/seedream-v4-5/02-text.png" alt="Seedream v4.5 - Text Rendering" width="1024" height="1024" loading="lazy">
                             <span class="result-badge pass">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
                             </span>
@@ -336,10 +319,27 @@
                         </div>
                         <div class="card-footer">
                             <div class="card-header-row">
+                                <span class="card-model-name">GPT-Image 1.5</span>
+                                <span class="card-gen-time">38.1s</span>
+                            </div>
+                            <p class="card-commentary">A visually rich chalkboard menu with perfectly accurate text, decorative chalk typography, elegant ornamental styling, and charming coffee cup illustrations. The warm wooden frame and classic chalk-art aesthetic create a strong vintage coffee shop feel. It ranks just behind the top entry due to slightly less environmental context but delivers exceptional prompt compliance and visual polish.</p>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card model-b">
+                        <div class="image-container">
+                            <img src="/compare/images/seedream-v4-5/02-text.png" alt="Seedream v4.5 - Text Rendering" width="1024" height="1024" loading="lazy">
+                            <span class="result-badge fail">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                            </span>
+                            
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-header-row">
                                 <span class="card-model-name">Seedream v4.5</span>
                                 <span class="card-gen-time">31.7s</span>
                             </div>
-                            <p class="card-commentary">Perfect text rendering with all words spelled correctly: 'DAILY SPECIALS', 'Espresso $3.50', and 'Cappuccino $4.75'. The chalkboard aesthetic is excellent with authentic chalk texture, and the wooden frame is prominently visible. Outstanding overall execution.</p>
+                            <p class="card-commentary">All specified text is correctly spelled and priced, rendered in a casual but convincing handwritten chalk style on an authentic-looking chalkboard with a real-wood frame. The photo-realistic rendering gives it a genuine, tactile quality. The composition is simpler and less ornate than the top performers, but it achieves a believable vintage coffee shop aesthetic with no errors.</p>
                         </div>
                     </div>
                 </div>
@@ -374,7 +374,7 @@
                                 <span class="card-model-name">GPT-Image 1.5</span>
                                 <span class="card-gen-time">37.4s</span>
                             </div>
-                            <p class="card-commentary">Highly polished product shot with excellent glass clarity and realistic light refraction through the amber liquid. The rim lighting creates subtle but effective edge highlights on the bottle corners. The marble surface shows authentic veining patterns with good surface reflection. Clean, professional composition that could easily appear in a luxury magazine advertisement.</p>
+                            <p class="card-commentary">Exceptional product photography with dramatic rim lighting that beautifully catches the bottle edges and illuminates the amber liquid. The dark background creates high contrast while the white marble adds luxury context. Surface reflections are clean and the overall image reads as top-tier commercial product photography.</p>
                         </div>
                     </div>
 
@@ -391,7 +391,7 @@
                                 <span class="card-model-name">Seedream v4.5</span>
                                 <span class="card-gen-time">12.5s</span>
                             </div>
-                            <p class="card-commentary">The weakest of the six images. While the amber liquid color is pleasant and the marble has visible veining, the bottle design is a simple cylinder lacking the crystal-clear faceted glass requested. The image has a more casual, lifestyle aesthetic rather than dramatic rim-lit product photography. The glass appears more like regular clear glass without the premium refraction qualities. Background elements and softer lighting reduce the minimalist, commercial impact.</p>
+                            <p class="card-commentary">Beautiful natural-light editorial image with a cylindrical bottle casting a dramatic warm shadow across white marble. The amber liquid and clear glass are well-executed, but the lighting style is editorial/natural rather than the controlled studio product photography feel specified. The marble and rim lighting are excellent.</p>
                         </div>
                     </div>
                 </div>
@@ -402,11 +402,11 @@
                         <span class="prompt-number">04</span>
                         <span class="prompt-category">Architecture</span>
                     </div>
-                    <span class="prompt-winner winner-a">
+                    <span class="prompt-winner winner-b">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
           </svg>
-          GPT-Image wins
+          Seedream wins
         </span>
                 </div>
 
@@ -416,23 +416,6 @@
                     <div class="comparison-card model-a">
                         <div class="image-container">
                             <img src="/compare/images/gpt-image-1-5/04-architecture.png" alt="GPT-Image 1.5 - Architecture" width="1024" height="1024" loading="lazy">
-                            <span class="result-badge pass">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                            </span>
-                            <span class="award-badge gold"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>Winner</span>
-                        </div>
-                        <div class="card-footer">
-                            <div class="card-header-row">
-                                <span class="card-model-name">GPT-Image 1.5</span>
-                                <span class="card-gen-time">40.4s</span>
-                            </div>
-                            <p class="card-commentary">Exceptional execution with stunning floor-to-ceiling corner windows showcasing a dramatic dusk cityscape with warm building lights against a blue hour sky. The white sectional sofa is perfectly rendered, and the polished concrete floors have excellent reflective quality. The minimalist styling with restrained decor elements creates a highly realistic and aspirational interior.</p>
-                        </div>
-                    </div>
-
-                    <div class="comparison-card model-b">
-                        <div class="image-container">
-                            <img src="/compare/images/seedream-v4-5/04-architecture.png" alt="Seedream v4.5 - Architecture" width="1024" height="1024" loading="lazy">
                             <span class="result-badge fail">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                             </span>
@@ -440,10 +423,27 @@
                         </div>
                         <div class="card-footer">
                             <div class="card-header-row">
+                                <span class="card-model-name">GPT-Image 1.5</span>
+                                <span class="card-gen-time">40.4s</span>
+                            </div>
+                            <p class="card-commentary">An outstanding execution with expansive floor-to-ceiling glazing framing a richly detailed night-transition cityscape, perfectly capturing the dusk-to-dark transition with city lights activating across the skyline. The off-white sectional, highly reflective polished concrete floor, and minimal furniture arrangement are all faithful to the brief. Interior ambient lighting is warm and photorealistic, with a convincing balance against the cooler exterior twilight.</p>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card model-b">
+                        <div class="image-container">
+                            <img src="/compare/images/seedream-v4-5/04-architecture.png" alt="Seedream v4.5 - Architecture" width="1024" height="1024" loading="lazy">
+                            <span class="result-badge pass">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            </span>
+                            <span class="award-badge gold"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>Winner</span>
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-header-row">
                                 <span class="card-model-name">Seedream v4.5</span>
                                 <span class="card-gen-time">12.9s</span>
                             </div>
-                            <p class="card-commentary">Outstanding polished concrete floor with excellent sheen and reflective properties. The dusk lighting captures golden hour beautifully with buildings illuminated against the sunset gradient. The white sectional is clean and modern, though slightly simpler in form. The ultra-minimalist space is highly convincing with great photorealistic quality.</p>
+                            <p class="card-commentary">The best-in-class result: a strikingly photorealistic rendering with floor-to-ceiling windows bathed in spectacular golden-hour dusk light, a highly reflective polished concrete floor, and a crisp white sectional in a beautifully spare minimalist space. The skyline is detailed and glowing with warm sunset tones reflecting off the city towers. Spatial depth and architectural scale are exceptional, making this feel like a real premium high-rise interior.</p>
                         </div>
                     </div>
                 </div>
@@ -478,7 +478,7 @@
                                 <span class="card-model-name">GPT-Image 1.5</span>
                                 <span class="card-gen-time">45.3s</span>
                             </div>
-                            <p class="card-commentary">Strong fantasy illustration with excellent elven features and long flowing white hair. The silver armor is well-rendered with good reflections, and the white cape shows dynamic flowing movement. The glowing blue sword has a strong luminous effect, and the forest background with magical particles creates an epic adventurer composition.</p>
+                            <p class="card-commentary">Well-executed fantasy illustration with a confident female elf warrior holding a prominently glowing blue sword in an ancient mossy forest. The flowing white cape is large and dynamic, and blue magical sparkles are scattered throughout the scene. The armor reads as dark steel rather than silver, falling short of the specified silver tone, but all other elements are faithfully present.</p>
                         </div>
                     </div>
 
@@ -495,7 +495,7 @@
                                 <span class="card-model-name">Seedream v4.5</span>
                                 <span class="card-gen-time">16.8s</span>
                             </div>
-                            <p class="card-commentary">Exceptional execution across all criteria. The elven warrior has distinctly pointed ears and ethereal features, with intricately detailed silver armor featuring ornate engravings. The glowing blue sword effect is the most impressive of all models with brilliant particle dispersion, and the moonlit ancient forest setting with twisted trees creates a truly epic cinematic composition.</p>
+                            <p class="card-commentary">Outstanding cinematic fantasy image with a moonlit ancient forest setting and dramatic lighting. The elven warrior wears intricate white-silver armor and a large flowing white cape, holds a clearly glowing blue sword, and stands among twisted dark trees with scattered blue magical particles. All eight criteria are strongly met with exceptional compositional depth and atmosphere.</p>
                         </div>
                     </div>
                 </div>
@@ -530,7 +530,7 @@
                                 <span class="card-model-name">GPT-Image 1.5</span>
                                 <span class="card-gen-time">36.4s</span>
                             </div>
-                            <p class="card-commentary">Extremely appetizing with excellent caramelization on the bun and generous crispy bacon. The melting cheese drips beautifully and the warm lighting creates a cozy atmosphere. The composition is slightly more casual than magazine-perfect but still very compelling.</p>
+                            <p class="card-commentary">An outstanding food magazine-quality image with every element of the prompt executed to a high standard. The brioche bun is perfectly golden and toasted, cheddar melts dramatically over thick crispy bacon, fresh lettuce peeks out attractively, and creamy sauce drips down onto the rustic wooden board. Shallow depth of field, warm studio lighting, and well-chosen props (glass, fries) elevate this to professional editorial level.</p>
                         </div>
                     </div>
 
@@ -547,7 +547,7 @@
                                 <span class="card-model-name">Seedream v4.5</span>
                                 <span class="card-gen-time">14.5s</span>
                             </div>
-                            <p class="card-commentary">Rich, indulgent presentation with abundant crispy bacon and dramatic dripping BBQ sauce. The bun shows excellent char marks and the cheese melts appealingly. The warm amber lighting creates a rustic steakhouse atmosphere, though the bun appears slightly darker than ideal brioche.</p>
+                            <p class="card-commentary">Atmospheric and inviting food photography with warm amber lighting that suits the subject. The brioche bun is unfortunately over-charred with very dark burn marks, failing the toasted criterion convincingly. All other ingredients—melting cheddar, crispy bacon, fresh lettuce, and a dark BBQ-style dripping sauce—are well-represented on a proper wooden board. The overall styling reads as food-magazine quality despite the bun issue.</p>
                         </div>
                     </div>
                 </div>
@@ -582,7 +582,7 @@
                                 <span class="card-model-name">GPT-Image 1.5</span>
                                 <span class="card-gen-time">36.6s</span>
                             </div>
-                            <p class="card-commentary">Exceptional editorial quality with dramatic rain visible, the Eiffel Tower and Brasserie Cafe creating unmistakable Parisian ambiance. The oversized beige trench is beautifully rendered with dynamic movement, and the wet pavement reflections with warm red/orange neon tones create a cinematic Vogue cover aesthetic.</p>
+                            <p class="card-commentary">A high-impact editorial image combining the Eiffel Tower, neon-lit Brasserie/Café signage, and brilliantly rendered warm-red reflections on the wet pavement. The model's frontal stance with hands in pockets is self-assured and distinctly Vogue in character, and the bold warm-cool neon contrast gives the image strong visual drama. The Vogue text overlay adds editorial context but is partially obscured, keeping the composition clean.</p>
                         </div>
                     </div>
 
@@ -599,7 +599,7 @@
                                 <span class="card-model-name">Seedream v4.5</span>
                                 <span class="card-gen-time">13.5s</span>
                             </div>
-                            <p class="card-commentary">Stunning atmospheric composition with the Eiffel Tower prominent in background and dramatic pink/blue neon reflections on wet cobblestones. The model's pose pulling the coat collar up feels natural and editorial. Visible rain adds authenticity, and the cinematic blue hour lighting with vivid reflections creates a moody, high-fashion feel.</p>
+                            <p class="card-commentary">Dramatically cinematic with a striking blue-twilight sky, vibrant magenta/pink neon reflections on wet cobblestones, and the Eiffel Tower silhouetted in the background. The model's pose — three-quarter turn with face tilted upward — is powerfully editorial. The bold blue-to-magenta color palette is distinctive and atmospheric, elevating this beyond a standard fashion shot.</p>
                         </div>
                     </div>
                 </div>
@@ -610,11 +610,11 @@
                         <span class="prompt-number">08</span>
                         <span class="prompt-category">Wildlife</span>
                     </div>
-                    <span class="prompt-winner winner-b">
+                    <span class="prompt-winner winner-a">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
           </svg>
-          Seedream wins
+          GPT-Image wins
         </span>
                 </div>
 
@@ -624,23 +624,6 @@
                     <div class="comparison-card model-a">
                         <div class="image-container">
                             <img src="/compare/images/gpt-image-1-5/08-wildlife.png" alt="GPT-Image 1.5 - Wildlife" width="1024" height="1024" loading="lazy">
-                            <span class="result-badge fail">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-                            </span>
-                            
-                        </div>
-                        <div class="card-footer">
-                            <div class="card-header-row">
-                                <span class="card-model-name">GPT-Image 1.5</span>
-                                <span class="card-gen-time">39.5s</span>
-                            </div>
-                            <p class="card-commentary">Beautiful golden hour rendering with prominent snowfall and warm backlighting that bathes the scene in atmospheric light. The snow leopard has accurate markings, blue-tinted eyes, and visible snow accumulation on fur. The mountain setting is well-rendered though slightly dreamier in style compared to photorealistic options.</p>
-                        </div>
-                    </div>
-
-                    <div class="comparison-card model-b">
-                        <div class="image-container">
-                            <img src="/compare/images/seedream-v4-5/08-wildlife.png" alt="Seedream v4.5 - Wildlife" width="1024" height="1024" loading="lazy">
                             <span class="result-badge pass">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
                             </span>
@@ -648,10 +631,27 @@
                         </div>
                         <div class="card-footer">
                             <div class="card-header-row">
+                                <span class="card-model-name">GPT-Image 1.5</span>
+                                <span class="card-gen-time">39.5s</span>
+                            </div>
+                            <p class="card-commentary">All eight criteria are satisfied in a single striking image: the leopard rests regally on a snow-dusted rocky ledge, blue-green eyes catching the warm golden light, with heavy and convincing snowfall throughout the scene. The golden-hour backlighting is dramatic and warm, and the spotted fur is sharply rendered. The close framing limits the full mountain panorama context slightly, but the composition is emotionally impactful and technically precise.</p>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card model-b">
+                        <div class="image-container">
+                            <img src="/compare/images/seedream-v4-5/08-wildlife.png" alt="Seedream v4.5 - Wildlife" width="1024" height="1024" loading="lazy">
+                            <span class="result-badge fail">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                            </span>
+                            
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-header-row">
                                 <span class="card-model-name">Seedream v4.5</span>
                                 <span class="card-gen-time">12.9s</span>
                             </div>
-                            <p class="card-commentary">Exceptional execution hitting every prompt element. The piercing cyan-green eyes are strikingly accurate, the snow leopard has perfect rosette markings with visible snowflakes on thick fur, and the golden hour backlighting creates dramatic rim lighting against the majestic mountain backdrop. The regal pose and intense gaze convey powerful presence.</p>
+                            <p class="card-commentary">A visually impressive image covering nearly all prompt elements: the leopard rests on a rocky ledge with snow-dusted mountains behind it, saturated blue-green eyes glow vividly, and falling snowflakes are visible on the fur. The warm golden-orange sky and mountain silhouettes reinforce the golden hour atmosphere well. The rendering style is somewhat painterly and the eye color is hyper-saturated beyond natural range, slightly undermining photorealism.</p>
                         </div>
                     </div>
                 </div>
@@ -686,7 +686,7 @@
                                 <span class="card-model-name">GPT-Image 1.5</span>
                                 <span class="card-gen-time">34.8s</span>
                             </div>
-                            <p class="card-commentary">Good fluid movement with dramatic swirling composition and strong contrast. Navy blue and gold are present with white accents adding energy. However, it lacks the gallery context presentation and has a more digital/processed appearance. The composition feels more turbulent than refined, reducing the fine art quality.</p>
+                            <p class="card-commentary">Strong fluid marbling with bold navy and glittering gold metallic veins and multiple visible swirl vortexes. However, prominent white and light-blue areas dilute the navy-and-gold palette away from the requested color scheme. The composition is dynamic but somewhat chaotic, and the image reads more as decorative stock art than a curated gallery piece.</p>
                         </div>
                     </div>
 
@@ -703,7 +703,7 @@
                                 <span class="card-model-name">Seedream v4.5</span>
                                 <span class="card-gen-time">16.9s</span>
                             </div>
-                            <p class="card-commentary">Exceptional execution with stunning depth and dimensionality. The navy blue dominates beautifully with luminous gold metallic accents creating a sophisticated interplay. The gallery setting presentation with dramatic lighting and gold frame elevates it to true fine art status. Remarkable fluid movement with organic shapes that feel natural and dynamic.</p>
+                            <p class="card-commentary">Exceptional gallery-context presentation with the painting shown hung on a white wall under track lighting. Deep saturated navy blues are dominated by a luminous gold metallic river flowing diagonally across the canvas with iridescent highlights adding visual depth. All prompt criteria are met at a high level — swirling motion is dynamic, contrast is striking, and the fluid paint texture reads as genuinely painterly.</p>
                         </div>
                     </div>
                 </div>
@@ -738,7 +738,7 @@
                                 <span class="card-model-name">GPT-Image 1.5</span>
                                 <span class="card-gen-time">53.4s</span>
                             </div>
-                            <p class="card-commentary">Exceptional execution with stunning neon-drenched visuals featuring a robot figure, holographic female face, MEGA CORP signage, and a sleek flying vehicle. The rain effects create gorgeous reflections on the wet streets, and the composition feels authentically like a Blade Runner-inspired cyberpunk world with dense visual layering.</p>
+                            <p class="card-commentary">The most cinematically complete entry: massive holographic character displays (anime girl, armored robot), a floating MEGA CORP globe advertisement, multiple flying vehicles at varying distances, dense crowd with umbrellas, and vivid orange-purple neon reflecting off heavily rain-soaked streets. The layered depth from foreground street level to distant towers is exceptional, and the overall atmosphere feels genuinely futuristic.</p>
                         </div>
                     </div>
 
@@ -755,7 +755,7 @@
                                 <span class="card-model-name">Seedream v4.5</span>
                                 <span class="card-gen-time">12.8s</span>
                             </div>
-                            <p class="card-commentary">Features bold NEO TECH and CYBER FASHION vertical signage with striking motion blur on ground vehicles. However, the advertisements appear more as flat neon signs rather than holographic, and there are no visible flying vehicles. The composition feels more like a racing game aesthetic than a lived-in cyberpunk cityscape, missing some key environmental depth.</p>
+                            <p class="card-commentary">A dramatic low-angle road composition with massive NEO TECH and CYBER FASHION text blazing across building faces and a luminous cylindrical holographic structure at center. Rain-slicked asphalt with vivid cyan and magenta reflections is the visual highlight, executed with exceptional quality. Flying vehicles are nearly absent, appearing only as tiny barely-visible shapes in the far background.</p>
                         </div>
                     </div>
                 </div>

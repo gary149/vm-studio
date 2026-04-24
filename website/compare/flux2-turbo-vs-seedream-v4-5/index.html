@@ -105,7 +105,7 @@
                 "name": "Which is better, FLUX.2 Turbo or Seedream v4.5?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "In our 10-prompt benchmark, Seedream v4.5 won 3-7. FLUX.2 Turbo excels at faster generation and better photorealism, while Seedream v4.5 excels at better text rendering."
+                    "text": "In our 10-prompt benchmark, Seedream v4.5 won 2-8. FLUX.2 Turbo excels at faster generation, while Seedream v4.5 excels at better photorealism and better text rendering."
                 }
             },
             {
@@ -198,20 +198,20 @@
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M0 20.683L12.01 2.5 24 20.683h-2.233L12.009 5.878 3.471 18.806h12.122l1.239 1.877H0z"/></svg>
                             FLUX.2 Turbo
                         </span>
-                        <span class="verdict-strength">Faster generation, Better photorealism</span>
+                        <span class="verdict-strength">Faster generation</span>
                     </div>
                     <div class="verdict-model">
                         <span class="model-badge model-b">
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
                             Seedream v4.5
                         </span>
-                        <span class="verdict-strength">Better text rendering</span>
+                        <span class="verdict-strength">Better photorealism, Better text rendering</span>
                     </div>
                 </div>
                 <div class="verdict-stats-bar">
                     <div class="stat-item">
                         <span class="stat-label">Winner Score</span>
-                        <span class="stat-value">3-7 <span class="winner-b">(Seedream)</span></span>
+                        <span class="stat-value">2-8 <span class="winner-b">(Seedream)</span></span>
                     </div>
                     <div class="stat-item">
                         <span class="stat-label">Avg Speed</span>
@@ -227,7 +227,7 @@
                     </div>
                     <div class="stat-item">
                         <span class="stat-label">Best at Photos</span>
-                        <span class="stat-value winner-a">FLUX.2 Turbo</span>
+                        <span class="stat-value winner-b">Seedream</span>
                     </div>
                 </div>
             </div>
@@ -246,11 +246,11 @@
                         <span class="prompt-number">01</span>
                         <span class="prompt-category">Portrait</span>
                     </div>
-                    <span class="prompt-winner winner-a">
+                    <span class="prompt-winner winner-b">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
           </svg>
-          FLUX.2 Turbo wins
+          Seedream wins
         </span>
                 </div>
 
@@ -260,23 +260,6 @@
                     <div class="comparison-card model-a">
                         <div class="image-container">
                             <img src="/compare/images/flux2-turbo/01-portrait.png" alt="FLUX.2 Turbo - Portrait" width="1024" height="1024" fetchpriority="high">
-                            <span class="result-badge pass">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                            </span>
-                            <span class="award-badge gold"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>Winner</span>
-                        </div>
-                        <div class="card-footer">
-                            <div class="card-header-row">
-                                <span class="card-model-name">FLUX.2 Turbo</span>
-                                <span class="card-gen-time">3.1s</span>
-                            </div>
-                            <p class="card-commentary">Highly realistic portrait with excellent freckle rendering that appears very natural. The auburn hair color is vibrant and accurate, and the navy blazer is well-rendered. Window lighting from the left creates pleasing soft shadows. However, the subject appears slightly older than 35, closer to early 40s, which affects age accuracy.</p>
-                        </div>
-                    </div>
-
-                    <div class="comparison-card model-b">
-                        <div class="image-container">
-                            <img src="/compare/images/seedream-v4-5/01-portrait.png" alt="Seedream v4.5 - Portrait" width="1024" height="1024" fetchpriority="high">
                             <span class="result-badge fail">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                             </span>
@@ -284,10 +267,27 @@
                         </div>
                         <div class="card-footer">
                             <div class="card-header-row">
+                                <span class="card-model-name">FLUX.2 Turbo</span>
+                                <span class="card-gen-time">3.1s</span>
+                            </div>
+                            <p class="card-commentary">Competent headshot with auburn hair and navy blazer, clear window lighting from the side. Freckles are nearly invisible — only the faintest hint is present. The subject reads as late 30s to early 40s rather than 35, missing the specified age target noticeably.</p>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card model-b">
+                        <div class="image-container">
+                            <img src="/compare/images/seedream-v4-5/01-portrait.png" alt="Seedream v4.5 - Portrait" width="1024" height="1024" fetchpriority="high">
+                            <span class="result-badge pass">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            </span>
+                            <span class="award-badge gold"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>Winner</span>
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-header-row">
                                 <span class="card-model-name">Seedream v4.5</span>
                                 <span class="card-gen-time">14.7s</span>
                             </div>
-                            <p class="card-commentary">Polished portrait with good professional composition and warm lighting. The auburn hair is rendered with attractive volume and waves. However, the skin is overly smoothed with an airbrushed quality lacking natural texture. Freckles are minimal and barely noticeable. The subject appears to be in her late 20s rather than 35, giving an overly glamorized look.</p>
+                            <p class="card-commentary">Highest quality result: vibrant auburn hair, prominent natural freckles, navy blazer, and beautiful warm window light visible in the background. The skin texture is highly photorealistic and the subject looks naturally mid-30s. Freckles are more pronounced and natural-looking than any other image.</p>
                         </div>
                     </div>
                 </div>
@@ -322,7 +322,7 @@
                                 <span class="card-model-name">FLUX.2 Turbo</span>
                                 <span class="card-gen-time">2.1s</span>
                             </div>
-                            <p class="card-commentary">Text is correctly rendered: 'DAILY SPECIALS', 'Espresso $3.50', and 'Cappuccino $4.75' all spelled accurately. Good chalkboard aesthetic with decorative underline and a rustic wooden frame. Slightly less polished presentation than top-tier models but solid text accuracy.</p>
+                            <p class="card-commentary">Text fidelity is excellent — all spellings and prices are accurate, delivered in a chalk-style font within a solid wooden frame. The chalkboard reads clearly and has a believable vintage tone. The design is functional but sparse in decorative detail, leaving it a step behind more expressive entries.</p>
                         </div>
                     </div>
 
@@ -339,7 +339,7 @@
                                 <span class="card-model-name">Seedream v4.5</span>
                                 <span class="card-gen-time">31.7s</span>
                             </div>
-                            <p class="card-commentary">Perfect text rendering with all words spelled correctly: 'DAILY SPECIALS', 'Espresso $3.50', and 'Cappuccino $4.75'. The chalkboard aesthetic is excellent with authentic chalk texture, and the wooden frame is prominently visible. Outstanding overall execution.</p>
+                            <p class="card-commentary">All specified text is correctly spelled and priced, rendered in a casual but convincing handwritten chalk style on an authentic-looking chalkboard with a real-wood frame. The photo-realistic rendering gives it a genuine, tactile quality. The composition is simpler and less ornate than the top performers, but it achieves a believable vintage coffee shop aesthetic with no errors.</p>
                         </div>
                     </div>
                 </div>
@@ -374,7 +374,7 @@
                                 <span class="card-model-name">FLUX.2 Turbo</span>
                                 <span class="card-gen-time">3.3s</span>
                             </div>
-                            <p class="card-commentary">Clean, studio-quality product shot with excellent glass transparency and accurate amber liquid coloring. The spotlight effect on the marble creates an elegant circular highlight that draws focus to the product. The marble veining is subtle but realistic. While the image lacks strong rim lighting (the edge glow is minimal), the overall commercial quality remains high with good minimalist composition.</p>
+                            <p class="card-commentary">Excellent product photography execution with a crystal-clear rectangular bottle under focused spot lighting on white marble. Rim lighting is evident in the halo effect on the marble below the bottle. All major prompt criteria are met with professional-quality execution.</p>
                         </div>
                     </div>
 
@@ -391,7 +391,7 @@
                                 <span class="card-model-name">Seedream v4.5</span>
                                 <span class="card-gen-time">12.5s</span>
                             </div>
-                            <p class="card-commentary">The weakest of the six images. While the amber liquid color is pleasant and the marble has visible veining, the bottle design is a simple cylinder lacking the crystal-clear faceted glass requested. The image has a more casual, lifestyle aesthetic rather than dramatic rim-lit product photography. The glass appears more like regular clear glass without the premium refraction qualities. Background elements and softer lighting reduce the minimalist, commercial impact.</p>
+                            <p class="card-commentary">Beautiful natural-light editorial image with a cylindrical bottle casting a dramatic warm shadow across white marble. The amber liquid and clear glass are well-executed, but the lighting style is editorial/natural rather than the controlled studio product photography feel specified. The marble and rim lighting are excellent.</p>
                         </div>
                     </div>
                 </div>
@@ -426,7 +426,7 @@
                                 <span class="card-model-name">FLUX.2 Turbo</span>
                                 <span class="card-gen-time">2.2s</span>
                             </div>
-                            <p class="card-commentary">Strong floor-to-ceiling windows with an impressive city skyline, but the lighting reads more as twilight/early evening rather than characteristic golden-hour dusk tones. The polished concrete floors have excellent reflective quality, and the white sectional is well-executed. Overall very realistic but missing the warm dusk color palette.</p>
+                            <p class="card-commentary">A high-quality minimalist living room with corner floor-to-ceiling windows and a dusk skyline rendered with good tonal depth. The white sectional, polished concrete floor, and cove accent lighting all align well with the brief. The space feels open and architecturally plausible, though the skyline detail is slightly less intricate than the best entries.</p>
                         </div>
                     </div>
 
@@ -443,7 +443,7 @@
                                 <span class="card-model-name">Seedream v4.5</span>
                                 <span class="card-gen-time">12.9s</span>
                             </div>
-                            <p class="card-commentary">Outstanding polished concrete floor with excellent sheen and reflective properties. The dusk lighting captures golden hour beautifully with buildings illuminated against the sunset gradient. The white sectional is clean and modern, though slightly simpler in form. The ultra-minimalist space is highly convincing with great photorealistic quality.</p>
+                            <p class="card-commentary">The best-in-class result: a strikingly photorealistic rendering with floor-to-ceiling windows bathed in spectacular golden-hour dusk light, a highly reflective polished concrete floor, and a crisp white sectional in a beautifully spare minimalist space. The skyline is detailed and glowing with warm sunset tones reflecting off the city towers. Spatial depth and architectural scale are exceptional, making this feel like a real premium high-rise interior.</p>
                         </div>
                     </div>
                 </div>
@@ -478,7 +478,7 @@
                                 <span class="card-model-name">FLUX.2 Turbo</span>
                                 <span class="card-gen-time">2.5s</span>
                             </div>
-                            <p class="card-commentary">Well-executed fantasy warrior with very prominent pointed ears and ethereal appearance. The silver-toned armor has a unique spiked shoulder design, and the white cape flows naturally. The bright glowing blue sword is excellently rendered, and the mystical forest with floating particles creates strong atmosphere. Full-body composition is well balanced.</p>
+                            <p class="card-commentary">Digital illustration style rendering of an elven warrior that checks all the key prompt elements: pointed ears, silver armor, flowing white cape, glowing blue sword, and a forest background with colorful magical particles. The flat illustration style and lower image resolution reduce visual impact compared to photorealistic entries, and the ancient forest setting lacks textural richness.</p>
                         </div>
                     </div>
 
@@ -495,7 +495,7 @@
                                 <span class="card-model-name">Seedream v4.5</span>
                                 <span class="card-gen-time">16.8s</span>
                             </div>
-                            <p class="card-commentary">Exceptional execution across all criteria. The elven warrior has distinctly pointed ears and ethereal features, with intricately detailed silver armor featuring ornate engravings. The glowing blue sword effect is the most impressive of all models with brilliant particle dispersion, and the moonlit ancient forest setting with twisted trees creates a truly epic cinematic composition.</p>
+                            <p class="card-commentary">Outstanding cinematic fantasy image with a moonlit ancient forest setting and dramatic lighting. The elven warrior wears intricate white-silver armor and a large flowing white cape, holds a clearly glowing blue sword, and stands among twisted dark trees with scattered blue magical particles. All eight criteria are strongly met with exceptional compositional depth and atmosphere.</p>
                         </div>
                     </div>
                 </div>
@@ -530,7 +530,7 @@
                                 <span class="card-model-name">FLUX.2 Turbo</span>
                                 <span class="card-gen-time">2.8s</span>
                             </div>
-                            <p class="card-commentary">Solid execution with a nice golden brioche bun and good cheese drip effect. The lettuce is fresh and vibrant, and bacon texture is visible. The composition is somewhat plain compared to others, missing the extra styling elements that make it magazine-worthy.</p>
+                            <p class="card-commentary">A solid burger image with all required elements: sesame-topped toasted brioche bun, melting cheddar, crispy bacon, fresh lettuce, dripping sauce, and a wooden board. The composition is appealing but slightly soft and lacks the dramatic lighting or prop styling that food magazines typically demand. Textures are convincing and the overall feel is appetizing, placing it above average but not at editorial level.</p>
                         </div>
                     </div>
 
@@ -547,7 +547,7 @@
                                 <span class="card-model-name">Seedream v4.5</span>
                                 <span class="card-gen-time">14.5s</span>
                             </div>
-                            <p class="card-commentary">Rich, indulgent presentation with abundant crispy bacon and dramatic dripping BBQ sauce. The bun shows excellent char marks and the cheese melts appealingly. The warm amber lighting creates a rustic steakhouse atmosphere, though the bun appears slightly darker than ideal brioche.</p>
+                            <p class="card-commentary">Atmospheric and inviting food photography with warm amber lighting that suits the subject. The brioche bun is unfortunately over-charred with very dark burn marks, failing the toasted criterion convincingly. All other ingredients—melting cheddar, crispy bacon, fresh lettuce, and a dark BBQ-style dripping sauce—are well-represented on a proper wooden board. The overall styling reads as food-magazine quality despite the bun issue.</p>
                         </div>
                     </div>
                 </div>
@@ -582,7 +582,7 @@
                                 <span class="card-model-name">FLUX.2 Turbo</span>
                                 <span class="card-gen-time">3.0s</span>
                             </div>
-                            <p class="card-commentary">Strong editorial execution with a perfectly centered model in a well-fitted beige trench coat. Haussmannian architecture and wet Parisian streets are clearly rendered with colorful neon reflections. The confident centered pose nails the editorial brief, though the composition feels slightly more commercial than high-fashion artistic.</p>
+                            <p class="card-commentary">Strong all-around execution with a clearly oversized beige trench coat, vivid neon reflections on a wet Paris boulevard, and a confident frontal editorial pose. The color grading delivers rich blue and red neon contrasts with a cinematic feel. A baked-in 'VOGUE' watermark gives it an editorial stamp but reads as slightly artificial rather than organically composed.</p>
                         </div>
                     </div>
 
@@ -599,7 +599,7 @@
                                 <span class="card-model-name">Seedream v4.5</span>
                                 <span class="card-gen-time">13.5s</span>
                             </div>
-                            <p class="card-commentary">Stunning atmospheric composition with the Eiffel Tower prominent in background and dramatic pink/blue neon reflections on wet cobblestones. The model's pose pulling the coat collar up feels natural and editorial. Visible rain adds authenticity, and the cinematic blue hour lighting with vivid reflections creates a moody, high-fashion feel.</p>
+                            <p class="card-commentary">Dramatically cinematic with a striking blue-twilight sky, vibrant magenta/pink neon reflections on wet cobblestones, and the Eiffel Tower silhouetted in the background. The model's pose — three-quarter turn with face tilted upward — is powerfully editorial. The bold blue-to-magenta color palette is distinctive and atmospheric, elevating this beyond a standard fashion shot.</p>
                         </div>
                     </div>
                 </div>
@@ -610,11 +610,11 @@
                         <span class="prompt-number">08</span>
                         <span class="prompt-category">Wildlife</span>
                     </div>
-                    <span class="prompt-winner winner-b">
+                    <span class="prompt-winner winner-a">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
           </svg>
-          Seedream wins
+          FLUX.2 Turbo wins
         </span>
                 </div>
 
@@ -624,23 +624,6 @@
                     <div class="comparison-card model-a">
                         <div class="image-container">
                             <img src="/compare/images/flux2-turbo/08-wildlife.png" alt="FLUX.2 Turbo - Wildlife" width="1024" height="1024" loading="lazy">
-                            <span class="result-badge fail">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-                            </span>
-                            
-                        </div>
-                        <div class="card-footer">
-                            <div class="card-header-row">
-                                <span class="card-model-name">FLUX.2 Turbo</span>
-                                <span class="card-gen-time">2.4s</span>
-                            </div>
-                            <p class="card-commentary">Strong photorealistic rendering with beautiful golden backlighting and visible snowfall in the scene. The snow leopard's markings and thick fur are accurately depicted in a confident forward-facing pose. However, the eyes appear more amber/neutral rather than the specified blue-green color.</p>
-                        </div>
-                    </div>
-
-                    <div class="comparison-card model-b">
-                        <div class="image-container">
-                            <img src="/compare/images/seedream-v4-5/08-wildlife.png" alt="Seedream v4.5 - Wildlife" width="1024" height="1024" loading="lazy">
                             <span class="result-badge pass">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
                             </span>
@@ -648,10 +631,27 @@
                         </div>
                         <div class="card-footer">
                             <div class="card-header-row">
+                                <span class="card-model-name">FLUX.2 Turbo</span>
+                                <span class="card-gen-time">2.4s</span>
+                            </div>
+                            <p class="card-commentary">The strongest result of the set: the snow leopard dominates the frame in a powerful frontal resting pose on a moss-and-snow-covered rocky ledge with mountains behind and vivid golden-hour rim light catching the fur. The blue-green eyes are brilliantly rendered and emotionally compelling, the large rosette spots on thick fur are exquisitely detailed, and golden bokeh-like snowflakes fall throughout the scene adding depth and atmosphere. Every criterion is met at a high level of technical and artistic quality.</p>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card model-b">
+                        <div class="image-container">
+                            <img src="/compare/images/seedream-v4-5/08-wildlife.png" alt="Seedream v4.5 - Wildlife" width="1024" height="1024" loading="lazy">
+                            <span class="result-badge fail">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                            </span>
+                            
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-header-row">
                                 <span class="card-model-name">Seedream v4.5</span>
                                 <span class="card-gen-time">12.9s</span>
                             </div>
-                            <p class="card-commentary">Exceptional execution hitting every prompt element. The piercing cyan-green eyes are strikingly accurate, the snow leopard has perfect rosette markings with visible snowflakes on thick fur, and the golden hour backlighting creates dramatic rim lighting against the majestic mountain backdrop. The regal pose and intense gaze convey powerful presence.</p>
+                            <p class="card-commentary">A visually impressive image covering nearly all prompt elements: the leopard rests on a rocky ledge with snow-dusted mountains behind it, saturated blue-green eyes glow vividly, and falling snowflakes are visible on the fur. The warm golden-orange sky and mountain silhouettes reinforce the golden hour atmosphere well. The rendering style is somewhat painterly and the eye color is hyper-saturated beyond natural range, slightly undermining photorealism.</p>
                         </div>
                     </div>
                 </div>
@@ -686,7 +686,7 @@
                                 <span class="card-model-name">FLUX.2 Turbo</span>
                                 <span class="card-gen-time">2.2s</span>
                             </div>
-                            <p class="card-commentary">Strong abstract composition with dynamic swirling patterns and cosmic energy. Good balance of navy blue and gold tones with interesting splatter details. The framed gallery presentation works well. Movement feels slightly more chaotic than elegant, and the smaller image size limits detail appreciation.</p>
+                            <p class="card-commentary">Framed canvas in a minimal gallery setting with deep navy blues interweaving with gold metallic streams and visible paint texture variation. Swirling motion flows naturally across the canvas with good organic variety. Some lighter silverish-blue areas add tonal richness without undermining the navy palette. Gallery presentation and composition balance are both strong.</p>
                         </div>
                     </div>
 
@@ -703,7 +703,7 @@
                                 <span class="card-model-name">Seedream v4.5</span>
                                 <span class="card-gen-time">16.9s</span>
                             </div>
-                            <p class="card-commentary">Exceptional execution with stunning depth and dimensionality. The navy blue dominates beautifully with luminous gold metallic accents creating a sophisticated interplay. The gallery setting presentation with dramatic lighting and gold frame elevates it to true fine art status. Remarkable fluid movement with organic shapes that feel natural and dynamic.</p>
+                            <p class="card-commentary">Exceptional gallery-context presentation with the painting shown hung on a white wall under track lighting. Deep saturated navy blues are dominated by a luminous gold metallic river flowing diagonally across the canvas with iridescent highlights adding visual depth. All prompt criteria are met at a high level — swirling motion is dynamic, contrast is striking, and the fluid paint texture reads as genuinely painterly.</p>
                         </div>
                     </div>
                 </div>
@@ -714,11 +714,11 @@
                         <span class="prompt-number">10</span>
                         <span class="prompt-category">Sci-Fi</span>
                     </div>
-                    <span class="prompt-winner winner-a">
+                    <span class="prompt-winner winner-b">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
           </svg>
-          FLUX.2 Turbo wins
+          Seedream wins
         </span>
                 </div>
 
@@ -728,23 +728,6 @@
                     <div class="comparison-card model-a">
                         <div class="image-container">
                             <img src="/compare/images/flux2-turbo/10-scifi.png" alt="FLUX.2 Turbo - Sci-Fi" width="1024" height="1024" loading="lazy">
-                            <span class="result-badge pass">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                            </span>
-                            <span class="award-badge gold"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>Winner</span>
-                        </div>
-                        <div class="card-footer">
-                            <div class="card-header-row">
-                                <span class="card-model-name">FLUX.2 Turbo</span>
-                                <span class="card-gen-time">2.2s</span>
-                            </div>
-                            <p class="card-commentary">Good rendition with prominent holographic whale/creature displays and flying vehicles between buildings. Rain and wet street reflections are visible, though the overall palette feels more desaturated gray-blue than the vibrant neon typically associated with cyberpunk. The scene feels slightly sterile compared to more atmospheric competitors.</p>
-                        </div>
-                    </div>
-
-                    <div class="comparison-card model-b">
-                        <div class="image-container">
-                            <img src="/compare/images/seedream-v4-5/10-scifi.png" alt="Seedream v4.5 - Sci-Fi" width="1024" height="1024" loading="lazy">
                             <span class="result-badge fail">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                             </span>
@@ -752,10 +735,27 @@
                         </div>
                         <div class="card-footer">
                             <div class="card-header-row">
+                                <span class="card-model-name">FLUX.2 Turbo</span>
+                                <span class="card-gen-time">2.2s</span>
+                            </div>
+                            <p class="card-commentary">A portrait-mode cyberpunk street scene with a robotic-figure billboard at center, pink and purple neon atmosphere, flying ships overhead, and flanking skyscrapers. Rain and wet-street reflections are present but understated, and the square portrait crop limits the sense of cityscape breadth. Visually competent but lacks the density and cinematic scale of the top performers.</p>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card model-b">
+                        <div class="image-container">
+                            <img src="/compare/images/seedream-v4-5/10-scifi.png" alt="Seedream v4.5 - Sci-Fi" width="1024" height="1024" loading="lazy">
+                            <span class="result-badge pass">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            </span>
+                            <span class="award-badge gold"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>Winner</span>
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-header-row">
                                 <span class="card-model-name">Seedream v4.5</span>
                                 <span class="card-gen-time">12.8s</span>
                             </div>
-                            <p class="card-commentary">Features bold NEO TECH and CYBER FASHION vertical signage with striking motion blur on ground vehicles. However, the advertisements appear more as flat neon signs rather than holographic, and there are no visible flying vehicles. The composition feels more like a racing game aesthetic than a lived-in cyberpunk cityscape, missing some key environmental depth.</p>
+                            <p class="card-commentary">A dramatic low-angle road composition with massive NEO TECH and CYBER FASHION text blazing across building faces and a luminous cylindrical holographic structure at center. Rain-slicked asphalt with vivid cyan and magenta reflections is the visual highlight, executed with exceptional quality. Flying vehicles are nearly absent, appearing only as tiny barely-visible shapes in the far background.</p>
                         </div>
                     </div>
                 </div>
