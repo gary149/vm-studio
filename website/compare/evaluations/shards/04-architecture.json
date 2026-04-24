@@ -1,0 +1,140 @@
+[
+  {
+    "model_slug": "z-image-turbo",
+    "prompt_id": "04-architecture",
+    "criteria_passed": [
+      "floor_to_ceiling_windows",
+      "city_skyline_at_dusk",
+      "white_sectional_sofa",
+      "polished_concrete_floor",
+      "minimalist_style",
+      "architectural_accuracy"
+    ],
+    "criteria_failed": [
+      "lighting_realism",
+      "spatial_depth"
+    ],
+    "quality_score": 7.5,
+    "commentary": "The scene correctly places a large white sectional in front of floor-to-ceiling windows with a city skyline at dusk, and polished concrete floors are clearly visible. Interior lighting appears flat and overly uniform, lacking the nuanced warm-cool interplay expected at dusk. The space reads slightly cramped and compressed, reducing the sense of architectural grandeur the prompt implies."
+  },
+  {
+    "model_slug": "flux2-klein-9b",
+    "prompt_id": "04-architecture",
+    "criteria_passed": [
+      "floor_to_ceiling_windows",
+      "city_skyline_at_dusk",
+      "white_sectional_sofa",
+      "polished_concrete_floor",
+      "minimalist_style",
+      "lighting_realism",
+      "spatial_depth",
+      "architectural_accuracy"
+    ],
+    "criteria_failed": [],
+    "quality_score": 8.8,
+    "commentary": "All prompt elements are present and well-executed: panoramic floor-to-ceiling glazing with a warm dusk skyline, a large white sectional with chaise, and shiny polished concrete floors. The dusk light reads convincingly with golden tones washing in from outside while the interior remains softly lit. Spatial depth is strong, giving a genuine sense of a high-rise penthouse living space."
+  },
+  {
+    "model_slug": "gpt-image-1-5",
+    "prompt_id": "04-architecture",
+    "criteria_passed": [
+      "floor_to_ceiling_windows",
+      "city_skyline_at_dusk",
+      "white_sectional_sofa",
+      "polished_concrete_floor",
+      "minimalist_style",
+      "lighting_realism",
+      "spatial_depth",
+      "architectural_accuracy"
+    ],
+    "criteria_failed": [],
+    "quality_score": 9.2,
+    "commentary": "An outstanding execution with expansive floor-to-ceiling glazing framing a richly detailed night-transition cityscape, perfectly capturing the dusk-to-dark transition with city lights activating across the skyline. The off-white sectional, highly reflective polished concrete floor, and minimal furniture arrangement are all faithful to the brief. Interior ambient lighting is warm and photorealistic, with a convincing balance against the cooler exterior twilight."
+  },
+  {
+    "model_slug": "flux2-turbo",
+    "prompt_id": "04-architecture",
+    "criteria_passed": [
+      "floor_to_ceiling_windows",
+      "city_skyline_at_dusk",
+      "white_sectional_sofa",
+      "polished_concrete_floor",
+      "minimalist_style",
+      "lighting_realism",
+      "spatial_depth",
+      "architectural_accuracy"
+    ],
+    "criteria_failed": [],
+    "quality_score": 8.5,
+    "commentary": "A high-quality minimalist living room with corner floor-to-ceiling windows and a dusk skyline rendered with good tonal depth. The white sectional, polished concrete floor, and cove accent lighting all align well with the brief. The space feels open and architecturally plausible, though the skyline detail is slightly less intricate than the best entries."
+  },
+  {
+    "model_slug": "nano-banana-pro",
+    "prompt_id": "04-architecture",
+    "criteria_passed": [
+      "floor_to_ceiling_windows",
+      "city_skyline_at_dusk",
+      "white_sectional_sofa",
+      "lighting_realism",
+      "spatial_depth",
+      "architectural_accuracy"
+    ],
+    "criteria_failed": [
+      "polished_concrete_floor",
+      "minimalist_style"
+    ],
+    "quality_score": 8.2,
+    "commentary": "Strong photorealistic rendering with excellent dusk lighting and a sprawling city view through large glass walls. The white sectional is present, but the concrete floor is partially obscured by a large area rug, weakening that criterion. Warm-toned wood furniture and accessories reduce the strictly minimalist character of the space, making it feel more transitional than minimal."
+  },
+  {
+    "model_slug": "gpt-image-2",
+    "prompt_id": "04-architecture",
+    "criteria_passed": [
+      "floor_to_ceiling_windows",
+      "city_skyline_at_dusk",
+      "white_sectional_sofa",
+      "polished_concrete_floor",
+      "minimalist_style",
+      "lighting_realism",
+      "spatial_depth",
+      "architectural_accuracy"
+    ],
+    "criteria_failed": [],
+    "quality_score": 8.6,
+    "commentary": "A well-composed minimalist interior with full-height windows framing a dusk skyline and concrete floors clearly visible. The white sofa, fireplace feature wall, and sparse accessories maintain a clean aesthetic aligned with the minimalist brief. Lighting is convincing with a natural dusk gradient and subtle interior warmth, and the overall architectural quality is high."
+  },
+  {
+    "model_slug": "nano-banana-2",
+    "prompt_id": "04-architecture",
+    "criteria_passed": [
+      "floor_to_ceiling_windows",
+      "city_skyline_at_dusk",
+      "white_sectional_sofa",
+      "polished_concrete_floor",
+      "minimalist_style",
+      "lighting_realism",
+      "spatial_depth",
+      "architectural_accuracy"
+    ],
+    "criteria_failed": [],
+    "quality_score": 8.3,
+    "commentary": "A clean minimalist living room with floor-to-ceiling glazing, a white sectional sofa, polished concrete floors, and a dusk city skyline all rendered faithfully. Lighting is warm and believable with good indoor-outdoor contrast. The space is slightly less refined in material detail compared to top performers, but all prompt elements are fully represented."
+  },
+  {
+    "model_slug": "seedream-v4-5",
+    "prompt_id": "04-architecture",
+    "criteria_passed": [
+      "floor_to_ceiling_windows",
+      "city_skyline_at_dusk",
+      "white_sectional_sofa",
+      "polished_concrete_floor",
+      "minimalist_style",
+      "lighting_realism",
+      "spatial_depth",
+      "architectural_accuracy"
+    ],
+    "criteria_failed": [],
+    "quality_score": 9.5,
+    "commentary": "The best-in-class result: a strikingly photorealistic rendering with floor-to-ceiling windows bathed in spectacular golden-hour dusk light, a highly reflective polished concrete floor, and a crisp white sectional in a beautifully spare minimalist space. The skyline is detailed and glowing with warm sunset tones reflecting off the city towers. Spatial depth and architectural scale are exceptional, making this feel like a real premium high-rise interior."
+  }
+]
