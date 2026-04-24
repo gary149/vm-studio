@@ -1,0 +1,66 @@
+[
+  {
+    "model_slug": "seedream-v4-5",
+    "prompt_id": "09-abstract",
+    "criteria_passed": ["navy_blue_tones", "gold_metallic_tones", "swirling_motion", "organic_flowing_shapes", "high_contrast", "fluid_paint_texture", "gallery_caliber", "composition_balance"],
+    "criteria_failed": [],
+    "quality_score": 9.2,
+    "commentary": "Exceptional gallery-context presentation with the painting shown hung on a white wall under track lighting. Deep saturated navy blues are dominated by a luminous gold metallic river flowing diagonally across the canvas with iridescent highlights adding visual depth. All prompt criteria are met at a high level — swirling motion is dynamic, contrast is striking, and the fluid paint texture reads as genuinely painterly."
+  },
+  {
+    "model_slug": "gpt-image-1-5",
+    "prompt_id": "09-abstract",
+    "criteria_passed": ["navy_blue_tones", "gold_metallic_tones", "swirling_motion", "organic_flowing_shapes", "high_contrast", "fluid_paint_texture", "composition_balance"],
+    "criteria_failed": ["gallery_caliber"],
+    "quality_score": 7.8,
+    "commentary": "Strong fluid marbling with bold navy and glittering gold metallic veins and multiple visible swirl vortexes. However, prominent white and light-blue areas dilute the navy-and-gold palette away from the requested color scheme. The composition is dynamic but somewhat chaotic, and the image reads more as decorative stock art than a curated gallery piece."
+  },
+  {
+    "model_slug": "nano-banana-pro",
+    "prompt_id": "09-abstract",
+    "criteria_passed": ["gold_metallic_tones", "swirling_motion", "organic_flowing_shapes", "fluid_paint_texture", "gallery_caliber", "composition_balance"],
+    "criteria_failed": ["navy_blue_tones", "high_contrast"],
+    "quality_score": 6.8,
+    "commentary": "Presented in a gallery context with good framing and lighting, but the blue tones skew slate-grey rather than the requested deep navy, significantly weakening the color fidelity. Gold veining is present but muted and earthy rather than metallic. Contrast is moderate at best, resulting in a painting that feels washed-out compared to the high-contrast specification."
+  },
+  {
+    "model_slug": "z-image-turbo",
+    "prompt_id": "09-abstract",
+    "criteria_passed": ["navy_blue_tones", "gold_metallic_tones", "swirling_motion", "organic_flowing_shapes", "high_contrast", "fluid_paint_texture", "composition_balance"],
+    "criteria_failed": ["gallery_caliber"],
+    "quality_score": 7.5,
+    "commentary": "Deep navy with a strong centrifugal swirl radiating outward from a clear focal point, with golden veining providing high contrast. The composition is well-balanced with confident directional energy. The gold reads more as yellow-gold than metallic, lacking the reflective sheen implied by 'metallic tones,' and the image has no gallery context, giving it a decorative rather than fine-art feeling."
+  },
+  {
+    "model_slug": "flux2-turbo",
+    "prompt_id": "09-abstract",
+    "criteria_passed": ["navy_blue_tones", "gold_metallic_tones", "swirling_motion", "organic_flowing_shapes", "high_contrast", "fluid_paint_texture", "gallery_caliber", "composition_balance"],
+    "criteria_failed": [],
+    "quality_score": 8.6,
+    "commentary": "Framed canvas in a minimal gallery setting with deep navy blues interweaving with gold metallic streams and visible paint texture variation. Swirling motion flows naturally across the canvas with good organic variety. Some lighter silverish-blue areas add tonal richness without undermining the navy palette. Gallery presentation and composition balance are both strong."
+  },
+  {
+    "model_slug": "nano-banana-2",
+    "prompt_id": "09-abstract",
+    "criteria_passed": ["navy_blue_tones", "gold_metallic_tones", "swirling_motion", "organic_flowing_shapes", "high_contrast", "fluid_paint_texture", "gallery_caliber", "composition_balance"],
+    "criteria_failed": [],
+    "quality_score": 8.9,
+    "commentary": "Shown wall-hung in a gallery setting with neighboring artwork visible, reinforcing its fine-art credibility. Dominant deep navy is richly contrasted by vibrant gold-amber flowing streams with excellent fluid, organic curling shapes. Small bubble and circle elements add compositional interest. Very high contrast and genuine metallic quality in the gold tones make this one of the strongest executions of the prompt."
+  },
+  {
+    "model_slug": "gpt-image-2",
+    "prompt_id": "09-abstract",
+    "criteria_passed": ["navy_blue_tones", "gold_metallic_tones", "swirling_motion", "organic_flowing_shapes", "high_contrast", "composition_balance"],
+    "criteria_failed": ["fluid_paint_texture", "gallery_caliber"],
+    "quality_score": 7.2,
+    "commentary": "Excellent navy and brilliant metallic gold tones with strong contrast and clean, precise veining patterns. The composition is solid with varied vein widths and directions. However, the execution feels more like polished marble than fluid acrylic painting — lacking the painterly brushstroke texture specified by the prompt — and there is no gallery context to support the 'modern art gallery piece' requirement."
+  },
+  {
+    "model_slug": "flux2-klein-9b",
+    "prompt_id": "09-abstract",
+    "criteria_passed": ["navy_blue_tones", "gold_metallic_tones", "swirling_motion", "organic_flowing_shapes", "high_contrast", "fluid_paint_texture", "gallery_caliber", "composition_balance"],
+    "criteria_failed": [],
+    "quality_score": 8.4,
+    "commentary": "Framed canvas against a clean minimal background with deep navy and bold gold swirling bands executed with large, confident strokes. The gold is genuinely metallic-looking with high contrast against the dark navy. Strong diagonal compositional movement creates energy. The image is slightly simpler in layering and detail than the top-scoring entries, but the assured execution and framed gallery presentation make it a high-quality result."
+  }
+]
