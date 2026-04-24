@@ -1,0 +1,139 @@
+[
+  {
+    "model_slug": "flux2-klein-9b",
+    "prompt_id": "02-text",
+    "criteria_passed": [
+      "spelling_daily_specials",
+      "spelling_espresso",
+      "spelling_cappuccino",
+      "price_3_50",
+      "price_4_75",
+      "handwritten_chalk_style",
+      "wooden_frame",
+      "vintage_feel"
+    ],
+    "criteria_failed": [],
+    "quality_score": 7.5,
+    "commentary": "All required text elements are spelled and priced correctly on a clean chalkboard with a rustic wooden frame. The chalk lettering has a genuine handwritten quality and the composition feels authentically vintage. Layout is minimal but well-balanced; a bit more decorative detail would push it higher."
+  },
+  {
+    "model_slug": "nano-banana-pro",
+    "prompt_id": "02-text",
+    "criteria_passed": [
+      "spelling_daily_specials",
+      "spelling_espresso",
+      "spelling_cappuccino",
+      "price_3_50",
+      "price_4_75",
+      "handwritten_chalk_style",
+      "wooden_frame",
+      "vintage_feel"
+    ],
+    "criteria_failed": [],
+    "quality_score": 9.2,
+    "commentary": "An outstanding result: every required text item is perfectly spelled and priced, rendered in expressive chalk lettering with decorative flourishes and coffee cup illustrations. The heavily weathered wooden frame, warm ambient café background, and overall compositional richness make this the most atmospherically convincing entry. Nothing material is missing from the prompt."
+  },
+  {
+    "model_slug": "gpt-image-2",
+    "prompt_id": "02-text",
+    "criteria_passed": [
+      "spelling_daily_specials",
+      "spelling_espresso",
+      "spelling_cappuccino",
+      "price_3_50",
+      "price_4_75",
+      "handwritten_chalk_style",
+      "wooden_frame",
+      "vintage_feel"
+    ],
+    "criteria_failed": [],
+    "quality_score": 8.5,
+    "commentary": "All text elements are accurately spelled and priced, presented in elegant chalk script with tasteful ornamental dividers on a dark chalkboard set in a rustic wooden frame. The composition is clean and refined, conveying a strong vintage café aesthetic. Slightly less atmospheric than the top entry but highly polished overall."
+  },
+  {
+    "model_slug": "flux2-turbo",
+    "prompt_id": "02-text",
+    "criteria_passed": [
+      "spelling_daily_specials",
+      "spelling_espresso",
+      "spelling_cappuccino",
+      "price_3_50",
+      "price_4_75",
+      "handwritten_chalk_style",
+      "wooden_frame",
+      "vintage_feel"
+    ],
+    "criteria_failed": [],
+    "quality_score": 7.8,
+    "commentary": "Text fidelity is excellent — all spellings and prices are accurate, delivered in a chalk-style font within a solid wooden frame. The chalkboard reads clearly and has a believable vintage tone. The design is functional but sparse in decorative detail, leaving it a step behind more expressive entries."
+  },
+  {
+    "model_slug": "nano-banana-2",
+    "prompt_id": "02-text",
+    "criteria_passed": [
+      "spelling_daily_specials",
+      "spelling_espresso",
+      "spelling_cappuccino",
+      "price_3_50",
+      "price_4_75",
+      "handwritten_chalk_style",
+      "wooden_frame",
+      "vintage_feel"
+    ],
+    "criteria_failed": [],
+    "quality_score": 7.0,
+    "commentary": "Required text is correctly spelled and priced, and the handwritten chalk style within a decorative wooden frame creates a convincing vintage café atmosphere. However, the image adds several unrequested menu items (Latte, Flat White, Mocha, Croissants) that deviate from the prompt, diluting focus on the specified content. Visual execution is otherwise strong."
+  },
+  {
+    "model_slug": "z-image-turbo",
+    "prompt_id": "02-text",
+    "criteria_passed": [
+      "spelling_daily_specials",
+      "spelling_espresso",
+      "spelling_cappuccino",
+      "price_3_50",
+      "price_4_75",
+      "wooden_frame"
+    ],
+    "criteria_failed": [
+      "handwritten_chalk_style",
+      "vintage_feel"
+    ],
+    "quality_score": 6.5,
+    "commentary": "All text is spelled and priced correctly, which is a clear win for legibility. The wooden frame is present and the chalkboard surface is rendered, but the lettering reads as printed block text rather than genuine handwritten chalk, losing the artisanal quality the prompt calls for. The overall aesthetic feels more modern and generic than authentically vintage."
+  },
+  {
+    "model_slug": "gpt-image-1-5",
+    "prompt_id": "02-text",
+    "criteria_passed": [
+      "spelling_daily_specials",
+      "spelling_espresso",
+      "spelling_cappuccino",
+      "price_3_50",
+      "price_4_75",
+      "handwritten_chalk_style",
+      "wooden_frame",
+      "vintage_feel"
+    ],
+    "criteria_failed": [],
+    "quality_score": 9.0,
+    "commentary": "A visually rich chalkboard menu with perfectly accurate text, decorative chalk typography, elegant ornamental styling, and charming coffee cup illustrations. The warm wooden frame and classic chalk-art aesthetic create a strong vintage coffee shop feel. It ranks just behind the top entry due to slightly less environmental context but delivers exceptional prompt compliance and visual polish."
+  },
+  {
+    "model_slug": "seedream-v4-5",
+    "prompt_id": "02-text",
+    "criteria_passed": [
+      "spelling_daily_specials",
+      "spelling_espresso",
+      "spelling_cappuccino",
+      "price_3_50",
+      "price_4_75",
+      "handwritten_chalk_style",
+      "wooden_frame",
+      "vintage_feel"
+    ],
+    "criteria_failed": [],
+    "quality_score": 8.0,
+    "commentary": "All specified text is correctly spelled and priced, rendered in a casual but convincing handwritten chalk style on an authentic-looking chalkboard with a real-wood frame. The photo-realistic rendering gives it a genuine, tactile quality. The composition is simpler and less ornate than the top performers, but it achieves a believable vintage coffee shop aesthetic with no errors."
+  }
+]
