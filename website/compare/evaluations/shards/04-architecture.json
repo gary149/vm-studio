@@ -1,0 +1,140 @@
+[
+  {
+    "model_slug": "gpt-image-1-5",
+    "prompt_id": "04-architecture",
+    "criteria_passed": [
+      "floor_to_ceiling_windows",
+      "dusk_skyline",
+      "white_sectional",
+      "concrete_floor",
+      "minimalist_style",
+      "lighting_realism",
+      "spatial_depth",
+      "polish"
+    ],
+    "criteria_failed": [],
+    "quality_score": 9.5,
+    "commentary": "Photorealistic corner suite with sweeping floor-to-ceiling glass on two walls, revealing a dense NYC-style dusk skyline bathed in deep blue-orange twilight. The white sectional sofa and accent chair are impeccably staged, and the highly polished concrete floor delivers mirror-like reflections of the city glow. Technical execution and artistic polish are best-in-class among the eight images."
+  },
+  {
+    "model_slug": "gpt-image-2",
+    "prompt_id": "04-architecture",
+    "criteria_passed": [
+      "floor_to_ceiling_windows",
+      "dusk_skyline",
+      "white_sectional",
+      "concrete_floor",
+      "minimalist_style",
+      "lighting_realism",
+      "spatial_depth",
+      "polish"
+    ],
+    "criteria_failed": [],
+    "quality_score": 9.0,
+    "commentary": "Crisp minimalist room with full-height glazing framing a dusk city skyline in warm orange and blue hues. The white L-shaped sectional anchors the space elegantly, a wall-mounted fireplace and minimal side furnishings add magazine-grade staging without cluttering the scene. Concrete floors are smooth and reflective, and lighting is soft yet precise."
+  },
+  {
+    "model_slug": "seedream-v4-5",
+    "prompt_id": "04-architecture",
+    "criteria_passed": [
+      "floor_to_ceiling_windows",
+      "dusk_skyline",
+      "white_sectional",
+      "concrete_floor",
+      "minimalist_style",
+      "lighting_realism",
+      "spatial_depth",
+      "polish"
+    ],
+    "criteria_failed": [],
+    "quality_score": 8.5,
+    "commentary": "Wide-angle view of a near-empty minimalist loft with large floor-to-ceiling glass panels and a dramatically lit golden-hour skyline — tall downtown towers catching the last warm sunlight against a blue-gradient sky. The white sectional sits on highly polished reflective concrete, and the sparse staging emphasizes architectural grandeur. Slightly barren decor keeps it from the very top tier but the dusk drama and floor quality are excellent."
+  },
+  {
+    "model_slug": "flux2-klein-9b",
+    "prompt_id": "04-architecture",
+    "criteria_passed": [
+      "floor_to_ceiling_windows",
+      "dusk_skyline",
+      "white_sectional",
+      "concrete_floor",
+      "minimalist_style",
+      "lighting_realism",
+      "spatial_depth",
+      "polish"
+    ],
+    "criteria_failed": [],
+    "quality_score": 8.0,
+    "commentary": "Generous U-shaped white sectional fills a clean minimalist room with corner floor-to-ceiling windows showing a pink-orange dusk skyline. The space is very tidy and compositionally balanced, with visible polished concrete and only a small round coffee table as accent. The image reads slightly flat in terms of depth cues and artistic staging compared to higher-ranked entries."
+  },
+  {
+    "model_slug": "flux2-turbo",
+    "prompt_id": "04-architecture",
+    "criteria_passed": [
+      "floor_to_ceiling_windows",
+      "dusk_skyline",
+      "white_sectional",
+      "concrete_floor",
+      "minimalist_style",
+      "lighting_realism",
+      "spatial_depth"
+    ],
+    "criteria_failed": [
+      "polish"
+    ],
+    "quality_score": 7.5,
+    "commentary": "Corner glass walls reach ceiling height and the dusk skyline is clearly visible in pinkish twilight tones. White sectional and polished concrete floor are both present and correctly rendered. The overall image is competent but lacks the atmospheric lighting drama and fine-detail polish of the top contenders — ambient illumination feels uniform and the composition is less engaging."
+  },
+  {
+    "model_slug": "nano-banana-pro",
+    "prompt_id": "04-architecture",
+    "criteria_passed": [
+      "floor_to_ceiling_windows",
+      "dusk_skyline",
+      "white_sectional",
+      "concrete_floor",
+      "lighting_realism",
+      "spatial_depth"
+    ],
+    "criteria_failed": [
+      "minimalist_style"
+    ],
+    "quality_score": 7.2,
+    "commentary": "Large floor-to-ceiling windows wrap two walls with a vivid twilight skyline at dusk. The white sectional is well-proportioned and concrete floors are visible beneath an area rug. Wooden bookshelf ends and a chunky wooden coffee table introduce a warmer, less minimalist aesthetic that slightly pulls from the clean contemporary brief, though the dusk lighting and spatial depth remain strong."
+  },
+  {
+    "model_slug": "nano-banana-2",
+    "prompt_id": "04-architecture",
+    "criteria_passed": [
+      "floor_to_ceiling_windows",
+      "dusk_skyline",
+      "white_sectional",
+      "concrete_floor",
+      "lighting_realism",
+      "spatial_depth"
+    ],
+    "criteria_failed": [
+      "minimalist_style"
+    ],
+    "quality_score": 6.8,
+    "commentary": "Floor-to-ceiling windows show a blue-hour city view and the white sectional is prominent, but a large area rug over the concrete and a tall fiddle-leaf fig tree introduce visual clutter that undermines strict minimalism. Window framing is somewhat narrower than ideal and the room reads as furnished rather than architecturally spare. Technically solid but the composition is less refined than higher-ranked images."
+  },
+  {
+    "model_slug": "z-image-turbo",
+    "prompt_id": "04-architecture",
+    "criteria_passed": [
+      "floor_to_ceiling_windows",
+      "white_sectional",
+      "concrete_floor",
+      "minimalist_style",
+      "spatial_depth"
+    ],
+    "criteria_failed": [
+      "dusk_skyline",
+      "lighting_realism",
+      "polish"
+    ],
+    "quality_score": 6.0,
+    "commentary": "Corner floor-to-ceiling glazing and a white L-shaped sectional are correctly rendered on smooth concrete floors. However, the sky outside reads as pale daytime-to-early-evening rather than the dramatic dusk the prompt specifies, and interior lighting lacks the warm ambient glow expected at that hour. The composition is straightforward but lacks the spatial drama, depth, and polish of stronger entries."
+  }
+]
