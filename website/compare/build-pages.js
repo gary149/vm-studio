@@ -74,6 +74,18 @@ const MODELS = {
     supportsI2I: true,
     icon: `<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>`,
   },
+  "gpt-image-2": {
+    id: "fal-ai/gpt-image-2",
+    name: "GPT-Image 2",
+    shortName: "GPT-Image 2",
+    maxRes: "4K (3840 max edge)",
+    cost: "$0.01–$0.41",
+    costNote: "low–high quality",
+    architecture: "Multimodal LLM",
+    providers: "fal.ai, OpenAI, OpenRouter",
+    supportsI2I: true,
+    icon: `<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>`,
+  },
   "seedream-v4-5": {
     id: "fal-ai/bytedance/seedream/v4.5",
     name: "Seedream v4.5",

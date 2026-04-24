@@ -12,13 +12,22 @@ if (!FAL_API_KEY) {
 const FAL_BASE_URL = "https://fal.run";
 
 const MODELS = [
+  { id: "fal-ai/nano-banana-2", slug: "nano-banana-2" },
   { id: "fal-ai/nano-banana-pro", slug: "nano-banana-pro" },
   { id: "fal-ai/flux-2/turbo", slug: "flux2-turbo" },
   { id: "fal-ai/flux-2/klein/9b", slug: "flux2-klein-9b" },
   { id: "fal-ai/gpt-image-1.5", slug: "gpt-image-1-5" },
+  { id: "fal-ai/gpt-image-2", slug: "gpt-image-2" },
   { id: "fal-ai/bytedance/seedream/v4.5", slug: "seedream-v4-5" },
   { id: "fal-ai/z-image/turbo", slug: "z-image-turbo" },
 ];
+
+// Allow targeted generation via CLI: `node generate-images.js --only=slug1,slug2`
+// Results are merged into any existing generation-results.json for the other slugs.
+const ONLY = (process.argv.find((a) => a.startsWith("--only="))?.split("=")[1] || "")
+  .split(",")
+  .map((s) => s.trim())
+  .filter(Boolean);
 
 const PROMPTS = [
   {
@@ -93,6 +102,8 @@ function buildRequestBody(modelId, prompt) {
 
   if (modelId.includes("flux-2")) {
     return { ...base, image_size: { width: 1024, height: 1024 } };
+  } else if (modelId.includes("gpt-image-2")) {
+    return { ...base, image_size: "square_hd", quality: "high" };
   } else if (modelId.includes("gpt-image")) {
     return { ...base, image_size: "1024x1024", quality: "high" };
   } else if (modelId.includes("z-image")) {
@@ -152,8 +163,29 @@ async function generateImage(modelId, prompt) {
 }
 
 async function main() {
-  const results = [];
+  const resultsPath = path.join(__dirname, "generation-results.json");
   const imagesDir = path.join(__dirname, "images");
+
+  const modelsToRun = ONLY.length
+    ? MODELS.filter((m) => ONLY.includes(m.slug))
+    : MODELS;
+  if (ONLY.length) {
+    console.log(`Filtering to: ${modelsToRun.map((m) => m.slug).join(", ")}`);
+  }
+  const runSlugs = new Set(modelsToRun.map((m) => m.slug));
+
+  // Preserve timings for models we're NOT regenerating.
+  let results = [];
+  if (fs.existsSync(resultsPath)) {
+    try {
+      const existing = JSON.parse(fs.readFileSync(resultsPath, "utf-8"));
+      if (Array.isArray(existing)) {
+        results = existing.filter((r) => !runSlugs.has(r.model_slug));
+      }
+    } catch {
+      /* start fresh */
+    }
+  }
 
   // Ensure base images directory exists
   if (!fs.existsSync(imagesDir)) {
@@ -161,9 +193,9 @@ async function main() {
   }
 
   let processed = 0;
-  const total = MODELS.length * PROMPTS.length;
+  const total = modelsToRun.length * PROMPTS.length;
 
-  for (const model of MODELS) {
+  for (const model of modelsToRun) {
     // Create model directory
     const modelDir = path.join(imagesDir, model.slug);
     if (!fs.existsSync(modelDir)) {
@@ -236,9 +268,9 @@ async function main() {
   console.log(`Success: ${successful}/${total}`);
   console.log(`Failed: ${failed}/${total}`);
 
-  // Calculate average times per model
+  // Calculate average times per model (only for models we actually ran).
   console.log("\nAverage generation times:");
-  for (const model of MODELS) {
+  for (const model of modelsToRun) {
     const modelResults = results.filter(
       (r) => r.model_slug === model.slug && r.success
     );
