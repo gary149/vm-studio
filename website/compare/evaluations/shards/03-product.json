@@ -1,0 +1,66 @@
+[
+  {
+    "model_slug": "seedream-v4-5",
+    "prompt_id": "03-product",
+    "criteria_passed": ["perfume_bottle", "white_marble", "crystal_glass", "amber_liquid", "minimalist", "product_lighting", "reflections", "rim_lighting"],
+    "criteria_failed": [],
+    "quality_score": 9.5,
+    "commentary": "Cylindrical bottle with rose-gold cap sits on richly veined white marble, bathed in warm natural side light that casts a glowing amber shadow across the surface — the most evocative and editorial composition in the set. All criteria are fully met: the glass is crystal-clear, the honey-amber liquid radiates warmth, and the marble reflections are stunning. The naturalistic golden-hour mood elevates this beyond standard product photography into genuine visual artistry."
+  },
+  {
+    "model_slug": "nano-banana-pro",
+    "prompt_id": "03-product",
+    "criteria_passed": ["perfume_bottle", "white_marble", "crystal_glass", "amber_liquid", "minimalist", "product_lighting", "reflections", "rim_lighting"],
+    "criteria_failed": [],
+    "quality_score": 8.9,
+    "commentary": "Tall faceted hexagonal bottle labeled 'ÉCLAT D'OR' on a white marble slab, with a dark background that amplifies the dramatic rim lighting — the angular facets catch the backlight beautifully and create crisp edge highlights. Deep amber-gold liquid fills the body with satisfying richness, and the overall cinematic tension between dark surround and glowing glass is excellent. The top of the bottle is slightly cropped but the overall impact is highly polished and luxury-brand worthy."
+  },
+  {
+    "model_slug": "gpt-image-1-5",
+    "prompt_id": "03-product",
+    "criteria_passed": ["perfume_bottle", "white_marble", "crystal_glass", "amber_liquid", "minimalist", "product_lighting", "reflections", "rim_lighting"],
+    "criteria_failed": [],
+    "quality_score": 8.4,
+    "commentary": "Rectangular clear-glass bottle with a black cap and thin gold band contains a deep amber-to-burnt-orange liquid that photographs with excellent saturation and depth. The white marble surface shows pronounced veining and the bottle's reflections in the surface are crisp. Directional side lighting creates strong edge highlights on the glass walls, and the overall execution reads as studio-grade commercial product photography."
+  },
+  {
+    "model_slug": "flux2-klein-9b",
+    "prompt_id": "03-product",
+    "criteria_passed": ["perfume_bottle", "white_marble", "crystal_glass", "amber_liquid", "minimalist", "product_lighting", "reflections", "rim_lighting"],
+    "criteria_failed": [],
+    "quality_score": 7.9,
+    "commentary": "Clean rectangular flacon with a crystal-and-gold spray cap stands on white marble with visible gray veining, lit by crisp side lighting that creates well-defined rim highlights on both vertical edges. The amber liquid is rich and the marble reflections are clean. The composition is slightly conventional compared to the top-ranked entries, but technical execution is solid and would pass commercial review."
+  },
+  {
+    "model_slug": "gpt-image-2",
+    "prompt_id": "03-product",
+    "criteria_passed": ["perfume_bottle", "white_marble", "crystal_glass", "amber_liquid", "minimalist", "product_lighting", "reflections", "rim_lighting"],
+    "criteria_failed": [],
+    "quality_score": 7.4,
+    "commentary": "Rectangular flacon labeled 'LUXÉCLAT PARIS / ÉCLAT AMBRÉ' with a gold spray cap on white marble with light veining; the branded text lends a convincing luxury-house personality. The amber-golden liquid is well-rendered and a right-side rim highlight is visible along the bottle's edge. The image is polished and competent but the lighting lacks the drama of the top-ranked entries, leaving it a step behind in mood."
+  },
+  {
+    "model_slug": "z-image-turbo",
+    "prompt_id": "03-product",
+    "criteria_passed": ["perfume_bottle", "white_marble", "crystal_glass", "amber_liquid", "minimalist", "product_lighting", "rim_lighting"],
+    "criteria_failed": ["reflections"],
+    "quality_score": 7.0,
+    "commentary": "Rectangular bottle with a clear/glass cap and amber-golden liquid on a clean white marble surface with subtle veining; a strong right-edge highlight delivers clear rim lighting. The composition is very minimal and clean, but the marble surface reflections are nearly absent, and the overall image has less depth and visual tension than the higher-ranked entries. Technically correct but lacks the finishing details that make luxury product shots memorable."
+  },
+  {
+    "model_slug": "nano-banana-2",
+    "prompt_id": "03-product",
+    "criteria_passed": ["perfume_bottle", "white_marble", "crystal_glass", "amber_liquid", "minimalist", "product_lighting"],
+    "criteria_failed": ["rim_lighting", "reflections"],
+    "quality_score": 6.5,
+    "commentary": "Rectangular 'AURA PARFUM' flacon with gold cap sits on a white marble slab against a dark gray background; the bottle and label are rendered cleanly and the amber liquid is convincing. However the lighting is predominantly frontal rather than dramatic backlit rim lighting, so the characteristic rim-highlight glow that elevates the other entries is largely absent. Surface reflections in the marble are minimal, and the branded label, while attractive, does not compensate for the weaker lighting direction."
+  },
+  {
+    "model_slug": "flux2-turbo",
+    "prompt_id": "03-product",
+    "criteria_passed": ["perfume_bottle", "white_marble", "crystal_glass", "amber_liquid", "product_lighting"],
+    "criteria_failed": ["rim_lighting", "minimalist", "reflections"],
+    "quality_score": 5.8,
+    "commentary": "Clear rectangular flacon with amber liquid on a white marble surface is correctly rendered, but the dominant compositional choice — a theatrical overhead spotlight creating a cone of light on the marble — is unconventional and works against the minimalist product photography brief. Rim lighting on the bottle itself is weak and diffuse rather than dramatic, and surface reflections are absent. The spotlight effect is creative but misaligned with the prompt's intent, placing this entry at the bottom of the ranking."
+  }
+]
