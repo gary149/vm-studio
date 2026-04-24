@@ -1,0 +1,66 @@
+[
+  {
+    "model_slug": "seedream-v4-5",
+    "prompt_id": "01-portrait",
+    "criteria_passed": ["auburn_hair", "freckles", "navy_blazer", "window_lighting", "shallow_dof", "age_35", "skin_texture", "composition"],
+    "criteria_failed": [],
+    "quality_score": 9.4,
+    "commentary": "The strongest image in the set: warm golden window light streams in from the upper right, producing soft catchlights and a distinctly editorial glow that matches the 'soft window lighting' prompt precisely. Freckles are abundant and naturally distributed across the nose and cheeks, skin texture is rendered with fine-pore realism, and the navy blazer sits cleanly over a white blouse. The composition is tight and centered with a pleasing bokeh falloff behind the subject."
+  },
+  {
+    "model_slug": "flux2-klein-9b",
+    "prompt_id": "01-portrait",
+    "criteria_passed": ["auburn_hair", "freckles", "navy_blazer", "window_lighting", "shallow_dof", "age_35", "skin_texture", "composition"],
+    "criteria_failed": [],
+    "quality_score": 9.0,
+    "commentary": "A highly polished professional headshot with vivid auburn hair, a well-fitted navy blazer, and clearly visible freckles across the nose bridge. The background shows a blurred window and greenery, providing strong environmental support for the window-lighting requirement. Skin rendering is smooth yet realistic, and the three-quarter gaze into camera gives the image a confident, editorial presence."
+  },
+  {
+    "model_slug": "z-image-turbo",
+    "prompt_id": "01-portrait",
+    "criteria_passed": ["auburn_hair", "freckles", "navy_blazer", "window_lighting", "shallow_dof", "age_35", "skin_texture", "composition"],
+    "criteria_failed": [],
+    "quality_score": 8.5,
+    "commentary": "Sharp and technically clean with vivid auburn hair, a confident direct gaze, and well-rendered freckles scattered across the cheeks and nose. Soft window glow is visible in the blurred background, and the navy blazer is accurately rendered. The skin texture is detailed and photorealistic; the image reads as slightly cooler in tone compared to the top two, which slightly reduces the warmth implied by 'soft window lighting.'"
+  },
+  {
+    "model_slug": "gpt-image-1-5",
+    "prompt_id": "01-portrait",
+    "criteria_passed": ["auburn_hair", "freckles", "navy_blazer", "window_lighting", "shallow_dof", "age_35", "skin_texture", "composition"],
+    "criteria_failed": [],
+    "quality_score": 8.2,
+    "commentary": "Clean and professional with accurate auburn hair, visible freckles, and a navy blazer over a white top. The diffuse grey background provides soft lighting that reads as natural and window-adjacent. Skin texture is natural though slightly smoothed, and the slight head tilt adds a personable quality. The image is somewhat less distinctive compositionally — tighter crop and a more neutral background — compared to the top three, but all criteria are satisfied."
+  },
+  {
+    "model_slug": "flux2-turbo",
+    "prompt_id": "01-portrait",
+    "criteria_passed": ["auburn_hair", "freckles", "navy_blazer", "window_lighting", "shallow_dof", "age_35", "skin_texture", "composition"],
+    "criteria_failed": [],
+    "quality_score": 7.6,
+    "commentary": "All major prompt elements are present: auburn hair, freckles, navy blazer, and soft lateral window light. The rendering is slightly softer overall — fine skin details are less resolved than in the top tier images and the image has a somewhat muted contrast compared to peers. The composition is competent but the blurred background blends neutrally rather than anchoring the environmental context. Age reads slightly older at perhaps 38-43."
+  },
+  {
+    "model_slug": "nano-banana-pro",
+    "prompt_id": "01-portrait",
+    "criteria_passed": ["auburn_hair", "freckles", "navy_blazer", "window_lighting", "shallow_dof", "age_35", "composition"],
+    "criteria_failed": ["skin_texture"],
+    "quality_score": 7.2,
+    "commentary": "A warm, candid-feeling portrait with clear window light streaming from the left and a pleasantly blurred background showing plants and shelving. Auburn hair, freckles, and a navy blazer are all present. However, the skin rendering is notably smoother and less textured than the top tier images — pore detail and micro-texture are absent, giving a slightly painterly feel. The composition has good natural warmth but lacks the technical sharpness expected from a professional headshot."
+  },
+  {
+    "model_slug": "nano-banana-2",
+    "prompt_id": "01-portrait",
+    "criteria_passed": ["auburn_hair", "navy_blazer", "window_lighting", "shallow_dof", "age_35", "composition"],
+    "criteria_failed": ["freckles", "skin_texture"],
+    "quality_score": 6.7,
+    "commentary": "Auburn hair and navy blazer are clearly rendered, and the warm left-side window light creates a pleasant, natural-looking environment. The freckles are essentially absent — the skin appears clean without the characteristic freckling the prompt called for. Skin texture is smooth and softly rendered. The background with plants and shelving adds warmth but also some visual busyness that distracts from the subject. The gold necklace is a small addition not in the prompt but not penalized."
+  },
+  {
+    "model_slug": "gpt-image-2",
+    "prompt_id": "01-portrait",
+    "criteria_passed": ["navy_blazer", "window_lighting", "shallow_dof", "age_35", "skin_texture", "composition"],
+    "criteria_failed": ["auburn_hair", "freckles"],
+    "quality_score": 6.1,
+    "commentary": "The image is technically well-executed with clean skin texture, good bokeh, and professional framing, but it fails on two core prompt elements: the hair reads as dark chestnut/brown rather than auburn, and freckles are entirely absent. The lighting is competent and the navy blazer is correct. These are clear, prominent failures on specifically requested visual features rather than subtle omissions, placing this image at the bottom of the ranking despite its photographic polish."
+  }
+]
