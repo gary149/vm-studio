@@ -1,0 +1,142 @@
+[
+  {
+    "model_slug": "flux2-klein-9b",
+    "prompt_id": "06-food",
+    "criteria_passed": [
+      "wooden_board",
+      "brioche_bun_toasted",
+      "melting_cheddar",
+      "crispy_bacon",
+      "fresh_lettuce",
+      "dripping_sauce",
+      "texture_realism"
+    ],
+    "criteria_failed": [
+      "food_magazine_styling"
+    ],
+    "quality_score": 6.5,
+    "commentary": "A well-composed burger with all required ingredients clearly present—wooden board, toasted brioche, melting cheddar, crispy bacon, fresh lettuce, and dripping sauce. However, a large nonsensical text overlay (magazine-cover style lettering) dominates the upper half of the image, severely undermining the food magazine styling criterion. The underlying food photography is competent but the corrupted text element makes this unsuitable for professional use."
+  },
+  {
+    "model_slug": "flux2-turbo",
+    "prompt_id": "06-food",
+    "criteria_passed": [
+      "wooden_board",
+      "brioche_bun_toasted",
+      "melting_cheddar",
+      "crispy_bacon",
+      "fresh_lettuce",
+      "dripping_sauce",
+      "texture_realism"
+    ],
+    "criteria_failed": [
+      "food_magazine_styling"
+    ],
+    "quality_score": 7.5,
+    "commentary": "A solid burger image with all required elements: sesame-topped toasted brioche bun, melting cheddar, crispy bacon, fresh lettuce, dripping sauce, and a wooden board. The composition is appealing but slightly soft and lacks the dramatic lighting or prop styling that food magazines typically demand. Textures are convincing and the overall feel is appetizing, placing it above average but not at editorial level."
+  },
+  {
+    "model_slug": "gpt-image-1-5",
+    "prompt_id": "06-food",
+    "criteria_passed": [
+      "wooden_board",
+      "brioche_bun_toasted",
+      "melting_cheddar",
+      "crispy_bacon",
+      "fresh_lettuce",
+      "dripping_sauce",
+      "food_magazine_styling",
+      "texture_realism"
+    ],
+    "criteria_failed": [],
+    "quality_score": 9.2,
+    "commentary": "An outstanding food magazine-quality image with every element of the prompt executed to a high standard. The brioche bun is perfectly golden and toasted, cheddar melts dramatically over thick crispy bacon, fresh lettuce peeks out attractively, and creamy sauce drips down onto the rustic wooden board. Shallow depth of field, warm studio lighting, and well-chosen props (glass, fries) elevate this to professional editorial level."
+  },
+  {
+    "model_slug": "gpt-image-2",
+    "prompt_id": "06-food",
+    "criteria_passed": [
+      "wooden_board",
+      "brioche_bun_toasted",
+      "melting_cheddar",
+      "crispy_bacon",
+      "fresh_lettuce",
+      "dripping_sauce",
+      "food_magazine_styling",
+      "texture_realism"
+    ],
+    "criteria_failed": [],
+    "quality_score": 8.5,
+    "commentary": "A dramatic, high-impact burger shot with excellent commercial food photography aesthetics. The glossy toasted brioche bun, boldly melting cheddar, well-crisped bacon, and fresh lettuce are all sharply rendered with strong textural detail. The dark background creates professional contrast, and the slight upward camera angle gives the burger commanding presence. Sauce and cheese flow realistically, and fries in the background complete the scene."
+  },
+  {
+    "model_slug": "nano-banana-2",
+    "prompt_id": "06-food",
+    "criteria_passed": [
+      "wooden_board",
+      "brioche_bun_toasted",
+      "melting_cheddar",
+      "crispy_bacon",
+      "fresh_lettuce",
+      "dripping_sauce",
+      "food_magazine_styling",
+      "texture_realism"
+    ],
+    "criteria_failed": [],
+    "quality_score": 8.8,
+    "commentary": "A beautifully styled food magazine spread with excellent scene-setting: a rustic wooden board populated with a beer glass, metal basket of fries, and a small sauce pot creates genuine editorial context. The burger itself shows all required elements—toasted brioche bun, melting cheddar, crispy bacon, fresh lettuce, tomato, and dripping sauce—with convincing textures and warm natural lighting. Composition depth and prop styling place this firmly in editorial territory."
+  },
+  {
+    "model_slug": "nano-banana-pro",
+    "prompt_id": "06-food",
+    "criteria_passed": [
+      "wooden_board",
+      "brioche_bun_toasted",
+      "melting_cheddar",
+      "crispy_bacon",
+      "fresh_lettuce",
+      "dripping_sauce",
+      "food_magazine_styling",
+      "texture_realism"
+    ],
+    "criteria_failed": [],
+    "quality_score": 9.0,
+    "commentary": "A polished, professional food magazine image with clean bright styling. The brioche bun is toasted to a perfect golden color with attractive sesame seeds, the cheddar melts realistically, crispy bacon is visible, fresh lettuce adds color, and a cream sauce drips appealingly onto the wooden board. Garnishes including rosemary, sea salt flakes, and a side of fries complete the editorial look. Textures throughout are highly convincing and the composition is well-balanced."
+  },
+  {
+    "model_slug": "seedream-v4-5",
+    "prompt_id": "06-food",
+    "criteria_passed": [
+      "wooden_board",
+      "melting_cheddar",
+      "crispy_bacon",
+      "fresh_lettuce",
+      "dripping_sauce",
+      "food_magazine_styling",
+      "texture_realism"
+    ],
+    "criteria_failed": [
+      "brioche_bun_toasted"
+    ],
+    "quality_score": 7.8,
+    "commentary": "Atmospheric and inviting food photography with warm amber lighting that suits the subject. The brioche bun is unfortunately over-charred with very dark burn marks, failing the toasted criterion convincingly. All other ingredients—melting cheddar, crispy bacon, fresh lettuce, and a dark BBQ-style dripping sauce—are well-represented on a proper wooden board. The overall styling reads as food-magazine quality despite the bun issue."
+  },
+  {
+    "model_slug": "z-image-turbo",
+    "prompt_id": "06-food",
+    "criteria_passed": [
+      "wooden_board",
+      "brioche_bun_toasted",
+      "melting_cheddar",
+      "crispy_bacon",
+      "fresh_lettuce",
+      "dripping_sauce",
+      "texture_realism"
+    ],
+    "criteria_failed": [
+      "food_magazine_styling"
+    ],
+    "quality_score": 7.2,
+    "commentary": "A clean, technically correct burger image on a wooden cutting board with all key ingredients present: toasted bun, melting cheddar, bacon, lettuce, and dripping sauce. The composition feels modest and slightly flat compared to food-magazine standards—the angle is functional rather than aspirational, the background is understated, and there is little narrative or prop styling to elevate the image beyond a straightforward product shot."
+  }
+]
