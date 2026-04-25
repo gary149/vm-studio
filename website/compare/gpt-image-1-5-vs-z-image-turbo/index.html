@@ -105,7 +105,7 @@
                 "name": "Which is better, GPT-Image 1.5 or Z-Image Turbo?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "In our 10-prompt benchmark, GPT-Image 1.5 won 10-0. GPT-Image 1.5 excels at better photorealism and better text rendering, while Z-Image Turbo excels at faster generation."
+                    "text": "In our 10-prompt benchmark, GPT-Image 1.5 won 9-1. GPT-Image 1.5 excels at better text rendering, while Z-Image Turbo excels at faster generation and better photorealism."
                 }
             },
             {
@@ -198,20 +198,20 @@
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>
                             GPT-Image 1.5
                         </span>
-                        <span class="verdict-strength">Better photorealism, Better text rendering</span>
+                        <span class="verdict-strength">Better text rendering</span>
                     </div>
                     <div class="verdict-model">
                         <span class="model-badge model-b">
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M4 4h16l-8 8 8 8H4l8-8-8-8z"/></svg>
                             Z-Image Turbo
                         </span>
-                        <span class="verdict-strength">Faster generation</span>
+                        <span class="verdict-strength">Faster generation, Better photorealism</span>
                     </div>
                 </div>
                 <div class="verdict-stats-bar">
                     <div class="stat-item">
                         <span class="stat-label">Winner Score</span>
-                        <span class="stat-value">10-0 <span class="winner-a">(GPT-Image)</span></span>
+                        <span class="stat-value">9-1 <span class="winner-a">(GPT-Image)</span></span>
                     </div>
                     <div class="stat-item">
                         <span class="stat-label">Avg Speed</span>
@@ -227,7 +227,7 @@
                     </div>
                     <div class="stat-item">
                         <span class="stat-label">Best at Photos</span>
-                        <span class="stat-value winner-a">GPT-Image</span>
+                        <span class="stat-value winner-b">Z-Image</span>
                     </div>
                 </div>
             </div>
@@ -246,11 +246,11 @@
                         <span class="prompt-number">01</span>
                         <span class="prompt-category">Portrait</span>
                     </div>
-                    <span class="prompt-winner winner-a">
+                    <span class="prompt-winner winner-b">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
           </svg>
-          GPT-Image wins
+          Z-Image wins
         </span>
                 </div>
 
@@ -260,23 +260,6 @@
                     <div class="comparison-card model-a">
                         <div class="image-container">
                             <img src="/compare/images/gpt-image-1-5/01-portrait.png" alt="GPT-Image 1.5 - Portrait" width="1024" height="1024" fetchpriority="high">
-                            <span class="result-badge pass">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                            </span>
-                            <span class="award-badge gold"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>Winner</span>
-                        </div>
-                        <div class="card-footer">
-                            <div class="card-header-row">
-                                <span class="card-model-name">GPT-Image 1.5</span>
-                                <span class="card-gen-time">38.3s</span>
-                            </div>
-                            <p class="card-commentary">Clean, professional headshot with good composition and excellent background blur. Freckles are visible and the auburn hair color is accurate. The navy blazer is well-rendered. However, the skin appears slightly too smooth and idealized, lacking natural pores and texture. The subject also appears younger than 35, closer to late 20s.</p>
-                        </div>
-                    </div>
-
-                    <div class="comparison-card model-b">
-                        <div class="image-container">
-                            <img src="/compare/images/z-image-turbo/01-portrait.png" alt="Z-Image Turbo - Portrait" width="1024" height="1024" fetchpriority="high">
                             <span class="result-badge fail">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                             </span>
@@ -284,10 +267,27 @@
                         </div>
                         <div class="card-footer">
                             <div class="card-header-row">
+                                <span class="card-model-name">GPT-Image 1.5</span>
+                                <span class="card-gen-time">38.3s</span>
+                            </div>
+                            <p class="card-commentary">Clean and professional with accurate auburn hair, visible freckles, and a navy blazer over a white top. The diffuse grey background provides soft lighting that reads as natural and window-adjacent. Skin texture is natural though slightly smoothed, and the slight head tilt adds a personable quality. The image is somewhat less distinctive compositionally — tighter crop and a more neutral background — compared to the top three, but all criteria are satisfied.</p>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card model-b">
+                        <div class="image-container">
+                            <img src="/compare/images/z-image-turbo/01-portrait.png" alt="Z-Image Turbo - Portrait" width="1024" height="1024" fetchpriority="high">
+                            <span class="result-badge pass">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            </span>
+                            <span class="award-badge gold"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>Winner</span>
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-header-row">
                                 <span class="card-model-name">Z-Image Turbo</span>
                                 <span class="card-gen-time">1.3s</span>
                             </div>
-                            <p class="card-commentary">Clean professional portrait with good window lighting and proper depth of field. The auburn hair and navy blazer are accurately rendered. However, the skin is noticeably too smooth and plastic-looking, lacking realistic texture and pores. Freckles are extremely sparse and barely visible. The subject appears to be in her late 30s to early 40s, slightly older than the target age.</p>
+                            <p class="card-commentary">Sharp and technically clean with vivid auburn hair, a confident direct gaze, and well-rendered freckles scattered across the cheeks and nose. Soft window glow is visible in the blurred background, and the navy blazer is accurately rendered. The skin texture is detailed and photorealistic; the image reads as slightly cooler in tone compared to the top two, which slightly reduces the warmth implied by 'soft window lighting.'</p>
                         </div>
                     </div>
                 </div>
@@ -322,7 +322,7 @@
                                 <span class="card-model-name">GPT-Image 1.5</span>
                                 <span class="card-gen-time">38.1s</span>
                             </div>
-                            <p class="card-commentary">All text is rendered perfectly: 'DAILY SPECIALS', 'Espresso $3.50', and 'Cappuccino $4.75' are all correctly spelled with accurate prices. Beautiful decorative banner treatment on the title and coffee cup illustrations add artistic flair. The wooden frame has a rich, rustic appearance.</p>
+                            <p class="card-commentary">Polished ornate design with elegant chalk-style lettering, decorative scrollwork, and illustrated coffee cups. All spelling and prices are perfect. The dark chalkboard with warm wooden frame and symmetrical composition reads as high-quality vintage café signage; the only minor critique is that the lettering leans slightly typographic rather than truly hand-drawn.</p>
                         </div>
                     </div>
 
@@ -339,7 +339,7 @@
                                 <span class="card-model-name">Z-Image Turbo</span>
                                 <span class="card-gen-time">1.3s</span>
                             </div>
-                            <p class="card-commentary">Excellent text accuracy with 'DAILY SPECIALS', 'Espresso $3.50', and 'Cappuccino $4.75' all correctly rendered. Clean, minimalist chalkboard design with good wooden frame. Slightly simpler aesthetic compared to top performers but flawless text execution.</p>
+                            <p class="card-commentary">All required text and prices are present and correctly spelled. The board is mounted on a dark wooden plank wall with a matching wooden frame. However the lettering reads as a clean printed or stenciled font rather than genuine chalk handwriting, which undermines the core brief. Minimal decoration and no café environment context limit the atmosphere.</p>
                         </div>
                     </div>
                 </div>
@@ -374,7 +374,7 @@
                                 <span class="card-model-name">GPT-Image 1.5</span>
                                 <span class="card-gen-time">37.4s</span>
                             </div>
-                            <p class="card-commentary">Highly polished product shot with excellent glass clarity and realistic light refraction through the amber liquid. The rim lighting creates subtle but effective edge highlights on the bottle corners. The marble surface shows authentic veining patterns with good surface reflection. Clean, professional composition that could easily appear in a luxury magazine advertisement.</p>
+                            <p class="card-commentary">Rectangular clear-glass bottle with a black cap and thin gold band contains a deep amber-to-burnt-orange liquid that photographs with excellent saturation and depth. The white marble surface shows pronounced veining and the bottle's reflections in the surface are crisp. Directional side lighting creates strong edge highlights on the glass walls, and the overall execution reads as studio-grade commercial product photography.</p>
                         </div>
                     </div>
 
@@ -391,7 +391,7 @@
                                 <span class="card-model-name">Z-Image Turbo</span>
                                 <span class="card-gen-time">1.9s</span>
                             </div>
-                            <p class="card-commentary">Decent product shot with acceptable glass transparency and good amber liquid color. The marble surface shows realistic texture. However, the rim lighting effect is very weak, and the overall image has a slightly soft, less polished quality compared to the others. The bottle shape appears slightly less refined, and the spray mechanism looks somewhat generic. Would need post-processing to reach true commercial standards.</p>
+                            <p class="card-commentary">Rectangular bottle with a clear/glass cap and amber-golden liquid on a clean white marble surface with subtle veining; a strong right-edge highlight delivers clear rim lighting. The composition is very minimal and clean, but the marble surface reflections are nearly absent, and the overall image has less depth and visual tension than the higher-ranked entries. Technically correct but lacks the finishing details that make luxury product shots memorable.</p>
                         </div>
                     </div>
                 </div>
@@ -426,7 +426,7 @@
                                 <span class="card-model-name">GPT-Image 1.5</span>
                                 <span class="card-gen-time">40.4s</span>
                             </div>
-                            <p class="card-commentary">Exceptional execution with stunning floor-to-ceiling corner windows showcasing a dramatic dusk cityscape with warm building lights against a blue hour sky. The white sectional sofa is perfectly rendered, and the polished concrete floors have excellent reflective quality. The minimalist styling with restrained decor elements creates a highly realistic and aspirational interior.</p>
+                            <p class="card-commentary">Photorealistic corner suite with sweeping floor-to-ceiling glass on two walls, revealing a dense NYC-style dusk skyline bathed in deep blue-orange twilight. The white sectional sofa and accent chair are impeccably staged, and the highly polished concrete floor delivers mirror-like reflections of the city glow. Technical execution and artistic polish are best-in-class among the eight images.</p>
                         </div>
                     </div>
 
@@ -443,7 +443,7 @@
                                 <span class="card-model-name">Z-Image Turbo</span>
                                 <span class="card-gen-time">1.6s</span>
                             </div>
-                            <p class="card-commentary">Solid minimalist composition with clean white sectional and good polished concrete floors. The floor-to-ceiling windows show a city skyline, but the lighting appears more neutral daylight or overcast rather than dusk. The windows also do not wrap around corners, making the space feel less expansive. The image is realistic but lacks the dramatic atmosphere of the prompt.</p>
+                            <p class="card-commentary">Corner floor-to-ceiling glazing and a white L-shaped sectional are correctly rendered on smooth concrete floors. However, the sky outside reads as pale daytime-to-early-evening rather than the dramatic dusk the prompt specifies, and interior lighting lacks the warm ambient glow expected at that hour. The composition is straightforward but lacks the spatial drama, depth, and polish of stronger entries.</p>
                         </div>
                     </div>
                 </div>
@@ -478,7 +478,7 @@
                                 <span class="card-model-name">GPT-Image 1.5</span>
                                 <span class="card-gen-time">45.3s</span>
                             </div>
-                            <p class="card-commentary">Strong fantasy illustration with excellent elven features and long flowing white hair. The silver armor is well-rendered with good reflections, and the white cape shows dynamic flowing movement. The glowing blue sword has a strong luminous effect, and the forest background with magical particles creates an epic adventurer composition.</p>
+                            <p class="card-commentary">Photorealistic render with an imposing female elf warrior (pointed ears, long silver-white hair) in detailed ornate silver armor and a billowing white cape. The blue sword glows intensely with crisp luminescence as the character strides forward through a dark mossy forest strewn with blue sparkle particles. Armor articulation and cloth physics are excellent; slight edge softness in the midground prevents a perfect score.</p>
                         </div>
                     </div>
 
@@ -495,7 +495,7 @@
                                 <span class="card-model-name">Z-Image Turbo</span>
                                 <span class="card-gen-time">3.5s</span>
                             </div>
-                            <p class="card-commentary">Competent rendering of the elven warrior with visible pointed ears and silver plate armor. The white cape is present and the glowing blue sword effect is decent. However, the magical particle effects are minimal compared to other models, and the overall composition feels more standard and less cinematic. The forest environment is adequate but lacks the mystical depth of higher-scoring images.</p>
+                            <p class="card-commentary">Smaller-format digital illustration of a female elf warrior in silver armor with flowing white cape and blue glowing sword standing in a dense forest with scattered blue particles. All required prompt elements are present and the composition is legible, but the rendering lacks fine detail — armor surfaces are low-texture, facial refinement is minimal, and the particle effects are barely visible, resulting in the weakest overall technical execution of the eight images.</p>
                         </div>
                     </div>
                 </div>
@@ -530,7 +530,7 @@
                                 <span class="card-model-name">GPT-Image 1.5</span>
                                 <span class="card-gen-time">36.4s</span>
                             </div>
-                            <p class="card-commentary">Extremely appetizing with excellent caramelization on the bun and generous crispy bacon. The melting cheese drips beautifully and the warm lighting creates a cozy atmosphere. The composition is slightly more casual than magazine-perfect but still very compelling.</p>
+                            <p class="card-commentary">Best-in-class execution: the golden brioche bun is deeply toasted, and molten orange cheddar cascades dramatically down the patty while a thick sauce pools on the rustic wooden cutting board. Bacon layers are visibly crispy with rendered edges, and the abundant frilly lettuce adds color contrast. The close-up editorial composition with warm bokeh background and supporting props (fries, drink) achieves top-tier food magazine quality.</p>
                         </div>
                     </div>
 
@@ -547,7 +547,7 @@
                                 <span class="card-model-name">Z-Image Turbo</span>
                                 <span class="card-gen-time">1.2s</span>
                             </div>
-                            <p class="card-commentary">Clean, modern food magazine composition with nice props including a magazine in the background. The bacon is perfectly crispy and sauce drips nicely. However, the bun lacks the golden toasted appearance of brioche, and the cheese could melt more dramatically.</p>
+                            <p class="card-commentary">Clean, bright composition on a wooden board with a newspaper prop suggesting editorial context; melting cheddar drips neatly and bacon and lettuce are present. However, the bun reads as a plain round roll rather than a distinctively brioche bun, and the overall lighting is flat and more catalog-like than editorial food magazine. Texture realism is adequate but less nuanced than the top-ranked images.</p>
                         </div>
                     </div>
                 </div>
@@ -582,7 +582,7 @@
                                 <span class="card-model-name">GPT-Image 1.5</span>
                                 <span class="card-gen-time">36.6s</span>
                             </div>
-                            <p class="card-commentary">Exceptional editorial quality with dramatic rain visible, the Eiffel Tower and Brasserie Cafe creating unmistakable Parisian ambiance. The oversized beige trench is beautifully rendered with dynamic movement, and the wet pavement reflections with warm red/orange neon tones create a cinematic Vogue cover aesthetic.</p>
+                            <p class="card-commentary">A standout editorial image rendered at large format with a VOGUE masthead, featuring a beige oversized trench worn open over bare legs — a confident high-fashion choice. The Eiffel Tower anchors the Paris setting while the rain-soaked street blazes with deep red and amber neon reflections; the 3/4 gaze and relaxed hands-in-pockets pose convey exactly the effortless cool expected of a Vogue editorial. Color grading is cinematic with a warm-amber foreground bleeding into deep blue shadows, making this the strongest overall execution of the prompt.</p>
                         </div>
                     </div>
 
@@ -599,7 +599,7 @@
                                 <span class="card-model-name">Z-Image Turbo</span>
                                 <span class="card-gen-time">1.2s</span>
                             </div>
-                            <p class="card-commentary">Excellent street photography aesthetic with a truly oversized trench coat and confident walking pose. The wet pavement reflections with red neon create good atmosphere. While the Parisian setting is implied through architecture rather than landmarks, the overall photorealistic quality and natural model styling feel authentically editorial.</p>
+                            <p class="card-commentary">A competent execution of the core brief — beige double-breasted trench, wet street, night setting, hands-in-pockets stance — but the image feels like a product shot rather than an editorial spread. The neon reflections on the pavement are present but muted, the background depth is shallow, and the overall color grading is flat without distinctive atmosphere or cinematic punch. The model's pose is confident but generic, and no Paris-specific visual cues beyond the street composition are visible.</p>
                         </div>
                     </div>
                 </div>
@@ -634,7 +634,7 @@
                                 <span class="card-model-name">GPT-Image 1.5</span>
                                 <span class="card-gen-time">39.5s</span>
                             </div>
-                            <p class="card-commentary">Beautiful golden hour rendering with prominent snowfall and warm backlighting that bathes the scene in atmospheric light. The snow leopard has accurate markings, blue-tinted eyes, and visible snow accumulation on fur. The mountain setting is well-rendered though slightly dreamier in style compared to photorealistic options.</p>
+                            <p class="card-commentary">A richly lit composition with dramatic orange-gold sky and abundant snowflakes suspended mid-air around a calmly resting snow leopard. The blue-green eyes are vivid and anatomically correct, and the spotted fur carries snow accumulation convincingly. Backlighting is strong and atmospheric, though the composition feels slightly tighter than the very best entry.</p>
                         </div>
                     </div>
 
@@ -651,7 +651,7 @@
                                 <span class="card-model-name">Z-Image Turbo</span>
                                 <span class="card-gen-time">1.1s</span>
                             </div>
-                            <p class="card-commentary">Clean, photorealistic portrait of a snow leopard with striking blue eyes and accurate spotted coat markings. The pose is dignified and the rock ledge is present. However, the background is blurred warm tones rather than a mountain scene, no snowflakes are visible, and the golden hour effect is subtle to absent.</p>
+                            <p class="card-commentary">Tight crop of the snow leopard resting on a rocky surface with clear blue-green eyes and accurate spotted fur; snowflakes are lightly dusted on the coat. The anatomy and photorealism are good, but the extremely shallow depth of field eliminates any mountain ledge context and the background is a plain warm bokeh rather than a golden hour scene. The missing environmental framing significantly reduces prompt adherence.</p>
                         </div>
                     </div>
                 </div>
@@ -686,7 +686,7 @@
                                 <span class="card-model-name">GPT-Image 1.5</span>
                                 <span class="card-gen-time">34.8s</span>
                             </div>
-                            <p class="card-commentary">Good fluid movement with dramatic swirling composition and strong contrast. Navy blue and gold are present with white accents adding energy. However, it lacks the gallery context presentation and has a more digital/processed appearance. The composition feels more turbulent than refined, reducing the fine art quality.</p>
+                            <p class="card-commentary">gpt-image-1-5 renders a highly painterly oil-on-canvas feel with visible impasto strokes, gold flecks, and two distinct spiral vortices creating strong swirling motion. The navy-black-white palette is more expansive than a strict navy/gold read — significant white areas push away from the prompt slightly — but the fluid texture is the most tactile of any image here. High contrast is achieved through deep darks and bright highlights, and the overall piece has genuine gallery caliber.</p>
                         </div>
                     </div>
 
@@ -703,7 +703,7 @@
                                 <span class="card-model-name">Z-Image Turbo</span>
                                 <span class="card-gen-time">1.1s</span>
                             </div>
-                            <p class="card-commentary">Achieves the basic fluid abstract style with navy blue and gold tones in organic flowing shapes. However, the contrast is less dramatic, and the overall execution feels more generic. Small image size and lack of gallery context diminishes the premium feel. Competent but lacks the sophistication of higher-ranked entries.</p>
+                            <p class="card-commentary">z-image-turbo produces a clean, centered spiral composition with rich navy and warm gold in a marble-fluid style. The radial symmetry from the center creates a strong focal anchor, and the gold has a genuinely metallic quality. The piece lacks a gallery presentation context and the composition's balance, while pleasing, feels somewhat expected and safe; the fluid texture is smooth but lacks painterly depth compared to higher-ranked entries.</p>
                         </div>
                     </div>
                 </div>
@@ -738,7 +738,7 @@
                                 <span class="card-model-name">GPT-Image 1.5</span>
                                 <span class="card-gen-time">53.4s</span>
                             </div>
-                            <p class="card-commentary">Exceptional execution with stunning neon-drenched visuals featuring a robot figure, holographic female face, MEGA CORP signage, and a sleek flying vehicle. The rain effects create gorgeous reflections on the wet streets, and the composition feels authentically like a Blade Runner-inspired cyberpunk world with dense visual layering.</p>
+                            <p class="card-commentary">This image achieves maximum prompt saturation: a massive holographic female figure dominates the left billboard, a globe-shaped 'MEGA CORP' ad floats centrally, and a mech-robot billboard anchors the right — all fully holographic in feel. Multiple flying vehicles are clearly airborne mid-scene while heavy visible rain streaks reflect in brilliantly lit, mirror-wet pavement in warm orange-pink-blue neon. The composition radiates from street level outward with tremendous depth and layered atmospheric haze, making it the most cinematically immersive entry.</p>
                         </div>
                     </div>
 
@@ -755,7 +755,7 @@
                                 <span class="card-model-name">Z-Image Turbo</span>
                                 <span class="card-gen-time">1.2s</span>
                             </div>
-                            <p class="card-commentary">Clean, polished composition with impressive towering central skyscraper, curved billboard displays showing faces, and flying vehicles in the mid-ground. The wet street reflections and muted teal-pink color palette create an authentic cyberpunk atmosphere with good depth and scale, though slightly less visually dense than top performers.</p>
+                            <p class="card-commentary">The scene covers the core cyberpunk elements — billboard ads, flying vehicles, skyscrapers, wet streets with neon reflections — but execution is noticeably weaker than the rest of the field. The image appears lower resolution with softer detail rendering, the atmospheric depth is limited, and the billboard faces feel generic. The color palette is competent but lacks the richness and haze layering that elevates the stronger entries.</p>
                         </div>
                     </div>
                 </div>

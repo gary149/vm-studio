@@ -1,0 +1,66 @@
+[
+  {
+    "model_slug": "gpt-image-1-5",
+    "prompt_id": "07-fashion",
+    "criteria_passed": ["beige_trench", "rainy_night_street", "neon_reflections", "editorial_style", "model_pose", "lighting_mood", "urban_detail", "color_grading"],
+    "criteria_failed": [],
+    "quality_score": 9.4,
+    "commentary": "A standout editorial image rendered at large format with a VOGUE masthead, featuring a beige oversized trench worn open over bare legs — a confident high-fashion choice. The Eiffel Tower anchors the Paris setting while the rain-soaked street blazes with deep red and amber neon reflections; the 3/4 gaze and relaxed hands-in-pockets pose convey exactly the effortless cool expected of a Vogue editorial. Color grading is cinematic with a warm-amber foreground bleeding into deep blue shadows, making this the strongest overall execution of the prompt."
+  },
+  {
+    "model_slug": "nano-banana-2",
+    "prompt_id": "07-fashion",
+    "criteria_passed": ["beige_trench", "rainy_night_street", "neon_reflections", "editorial_style", "model_pose", "lighting_mood", "urban_detail", "color_grading"],
+    "criteria_failed": [],
+    "quality_score": 9.0,
+    "commentary": "Exceptional photorealism with a richly detailed Parisian street scene — Brasserie Saint-Germain neon signage, rain-slicked cobblestones with vivid orange and red reflections, and a lively background crowd. The model wears a well-proportioned beige trench with a slightly relaxed fit, paired with a structured black handbag; her slightly turned stance and steady eye contact give a candid editorial quality. The full urban environment depth and genuine atmospheric wetness make this the most convincing street-photography execution in the set."
+  },
+  {
+    "model_slug": "flux2-klein-9b",
+    "prompt_id": "07-fashion",
+    "criteria_passed": ["beige_trench", "rainy_night_street", "neon_reflections", "editorial_style", "model_pose", "lighting_mood", "urban_detail", "color_grading"],
+    "criteria_failed": [],
+    "quality_score": 8.5,
+    "commentary": "A clean, confident editorial frame: the model stands centered in a Parisian canyon street, wearing a long beige double-breasted trench over a black turtleneck, her upright posture and direct gaze projecting high-fashion authority. Multi-colored neon signs (including a prominent VARLE sign) cast rainbow reflections across rain-drenched cobblestones, with shop fronts and parked cars providing convincing urban depth. The color grading is cool and controlled, though slightly restrained in atmosphere compared to the top two entries."
+  },
+  {
+    "model_slug": "seedream-v4-5",
+    "prompt_id": "07-fashion",
+    "criteria_passed": ["beige_trench", "rainy_night_street", "neon_reflections", "model_pose", "lighting_mood", "urban_detail", "color_grading"],
+    "criteria_failed": ["editorial_style"],
+    "quality_score": 8.1,
+    "commentary": "Dynamic and cinematic: the model grips her oversized beige trench lapel in a three-quarter over-the-shoulder pose, with visible rain streaks against the Eiffel Tower looming behind her. The cobblestone pavement glows with vivid magenta and blue neon reflections creating a moody, saturated palette. The pose and atmospheric detail are strong, but the composition leans more toward commercial photography than strict editorial Vogue framing, lacking the typographic or graphic polish of higher-ranked images."
+  },
+  {
+    "model_slug": "flux2-turbo",
+    "prompt_id": "07-fashion",
+    "criteria_passed": ["beige_trench", "rainy_night_street", "neon_reflections", "editorial_style", "model_pose", "lighting_mood", "urban_detail"],
+    "criteria_failed": ["color_grading"],
+    "quality_score": 7.6,
+    "commentary": "A technically solid editorial image with a clear VOGUE watermark: the model wears a perfectly beige, belted oversized trench and stands confidently on a wet Parisian boulevard flanked by shopfronts. Red and blue neon reflections are vivid on the wet pavement, and the urban depth is convincing. The pose is slightly static — front-facing with minimal body language — and the color grading, while competent, lacks the distinctive cinematic warmth or contrast of the top-ranked entries."
+  },
+  {
+    "model_slug": "gpt-image-2",
+    "prompt_id": "07-fashion",
+    "criteria_passed": ["beige_trench", "rainy_night_street", "neon_reflections", "editorial_style", "model_pose", "lighting_mood"],
+    "criteria_failed": ["urban_detail", "color_grading"],
+    "quality_score": 7.1,
+    "commentary": "An elegant compact composition with the Café de Flore neon and Eiffel Tower clearly establishing the Paris night setting, and the model's upward glance adding genuine editorial pose language to the belted beige trench. Wet pavement reflections are present but less dramatic, and the square crop limits the sense of urban scale. Color grading is conservative with soft warm tones — pleasant but lacking the bold contrast and atmosphere that define the top of the ranking."
+  },
+  {
+    "model_slug": "z-image-turbo",
+    "prompt_id": "07-fashion",
+    "criteria_passed": ["beige_trench", "rainy_night_street", "neon_reflections", "model_pose"],
+    "criteria_failed": ["editorial_style", "lighting_mood", "urban_detail", "color_grading"],
+    "quality_score": 6.6,
+    "commentary": "A competent execution of the core brief — beige double-breasted trench, wet street, night setting, hands-in-pockets stance — but the image feels like a product shot rather than an editorial spread. The neon reflections on the pavement are present but muted, the background depth is shallow, and the overall color grading is flat without distinctive atmosphere or cinematic punch. The model's pose is confident but generic, and no Paris-specific visual cues beyond the street composition are visible."
+  },
+  {
+    "model_slug": "nano-banana-pro",
+    "prompt_id": "07-fashion",
+    "criteria_passed": ["beige_trench", "rainy_night_street", "urban_detail"],
+    "criteria_failed": ["neon_reflections", "editorial_style", "model_pose", "lighting_mood", "color_grading"],
+    "quality_score": 5.8,
+    "commentary": "The Paris atmosphere is strong — Eiffel Tower visible through rain, cobblestones, vintage Parisian street scene — and the beige trench coat is accurate in color. However, the model's pose is undermined by holding an umbrella that partially obscures her face and creates a hunched, defensive posture that reads as street-snapshot rather than editorial. The wet cobblestone scene lacks distinct neon color reflections, and the overall mood is documentary rather than fashion-forward."
+  }
+]

@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>FLUX.2 Turbo vs GPT-Image 2 | Side-by-Side AI Comparison</title>
+    <meta name="description"
+        content="Compare FLUX.2 Turbo vs GPT-Image 2 with 10 test prompts. See side-by-side AI images, speed benchmarks, and pricing to pick the best model.">
+    <meta name="keywords" content="FLUX.2 Turbo vs GPT-Image 2, AI image generator comparison, best AI image model, text to image comparison">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://vmstudio.ai/compare/flux2-turbo-vs-gpt-image-2/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="FLUX.2 Turbo vs GPT-Image 2: Complete AI Image Comparison">
+    <meta property="og:description" content="10 test prompts with side-by-side results. Compare portraits, text rendering, landscapes, and more.">
+    <meta property="og:url" content="https://vmstudio.ai/compare/flux2-turbo-vs-gpt-image-2/">
+    <meta property="og:site_name" content="VM Studio">
+    <meta property="og:image" content="https://vmstudio.ai/compare/images/flux2-turbo/01-portrait.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="FLUX.2 Turbo vs GPT-Image 2: AI Image Comparison">
+    <meta name="twitter:description" content="10 test prompts, actual outputs, speed measurements.">
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" sizes="48x48">
+    <link rel="icon" type="image/svg+xml" href="/assets/logo.svg">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/compare/compare.css">
+
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "FLUX.2 Turbo vs GPT-Image 2: AI Image Model Comparison",
+        "description": "FLUX.2 Turbo and GPT-Image 2 compared with 10 test prompts and side-by-side outputs.",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://vmstudio.ai/compare/images/flux2-turbo/01-portrait.png",
+            "width": 1024,
+            "height": 1024
+        },
+        "author": {
+            "@type": "Organization",
+            "name": "VM Studio",
+            "url": "https://vmstudio.ai"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "VM Studio",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://vmstudio.ai/assets/logo.svg"
+            }
+        },
+        "datePublished": "2026-01-20",
+        "dateModified": "2026-02-06"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://vmstudio.ai/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Compare",
+                "item": "https://vmstudio.ai/compare/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "FLUX.2 Turbo vs GPT-Image 2",
+                "item": "https://vmstudio.ai/compare/flux2-turbo-vs-gpt-image-2/"
+            }
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Which is better, FLUX.2 Turbo or GPT-Image 2?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "In our 10-prompt benchmark, GPT-Image 2 won 4-6. FLUX.2 Turbo excels at faster generation and better photorealism, while GPT-Image 2 excels at better text rendering."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How fast is FLUX.2 Turbo compared to GPT-Image 2?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "FLUX.2 Turbo averages 2.6s per image while GPT-Image 2 averages 169.6s per image. FLUX.2 Turbo is the faster model."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I use FLUX.2 Turbo and GPT-Image 2 in Figma?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, VM Studio is a free Figma plugin that supports both FLUX.2 Turbo and GPT-Image 2 along with 4 other AI image generation models. Install it from the Figma Community and bring your own API keys."
+                }
+            }
+        ]
+    }
+    </script>
+</head>
+
+<body>
+    <div class="compare-layout">
+        <!-- Header -->
+        <header class="compare-header">
+            <a href="/" class="logo">
+                <img src="/assets/logo.svg" alt="VM Studio Logo" width="24" height="24">
+                <span>VM Studio</span>
+            </a>
+            <nav class="compare-nav">
+                <a href="/#features">Features</a>
+                <a href="/#models">Models</a>
+                <a href="/compare/">All Comparisons</a>
+                <a href="/guides/">Guides</a>
+                <a href="/pricing/">Pricing</a>
+                <a href="https://www.figma.com/community/plugin/1588675833256652136" target="_blank"
+                    class="btn btn-sm btn-primary">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 5.5A3.5 3.5 0 0 1 8.5 2H12v7H8.5A3.5 3.5 0 0 1 5 5.5z"></path>
+                        <path d="M12 2h3.5a3.5 3.5 0 1 1 0 7H12V2z"></path>
+                        <path d="M12 12.5a3.5 3.5 0 1 1 7 0 3.5 3.5 0 1 1-7 0z"></path>
+                        <path d="M5 19.5A3.5 3.5 0 0 1 8.5 16H12v3.5a3.5 3.5 0 1 1-7 0z"></path>
+                        <path d="M5 12.5A3.5 3.5 0 0 1 8.5 9H12v7H8.5A3.5 3.5 0 0 1 5 12.5z"></path>
+                    </svg>
+                    Add to Figma
+                </a>
+            </nav>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="compare-hero">
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+                <a href="/">Home</a>
+                <span>/</span>
+                <a href="/compare/">Compare</a>
+                <span>/</span>
+                <span aria-current="page">FLUX.2 Turbo vs GPT-Image 2</span>
+            </nav>
+
+            <h1 class="compare-title">FLUX.2 Turbo vs GPT-Image 2</h1>
+            <p class="compare-subtitle">We ran both models through 10 prompts and measured the results. Below you'll find the actual outputs, generation times, and our notes on each.</p>
+
+            <!-- Quick Verdict -->
+            <div class="verdict-card">
+                <div class="verdict-header">
+                    <span class="verdict-label">Quick Verdict</span>
+                    <div class="verdict-stats">
+                        <span class="verdict-stat">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                <rect x="7" y="7" width="3" height="9"></rect>
+                                <rect x="14" y="7" width="3" height="5"></rect>
+                            </svg>
+                            10 prompts tested
+                        </span>
+                        <span class="verdict-stat">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg>
+                            Jan 2026
+                        </span>
+                    </div>
+                </div>
+                <div class="verdict-content">
+                    <div class="verdict-model">
+                        <span class="model-badge model-a">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M0 20.683L12.01 2.5 24 20.683h-2.233L12.009 5.878 3.471 18.806h12.122l1.239 1.877H0z"/></svg>
+                            FLUX.2 Turbo
+                        </span>
+                        <span class="verdict-strength">Faster generation, Better photorealism</span>
+                    </div>
+                    <div class="verdict-model">
+                        <span class="model-badge model-b">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>
+                            GPT-Image 2
+                        </span>
+                        <span class="verdict-strength">Better text rendering</span>
+                    </div>
+                </div>
+                <div class="verdict-stats-bar">
+                    <div class="stat-item">
+                        <span class="stat-label">Winner Score</span>
+                        <span class="stat-value">4-6 <span class="winner-b">(GPT-Image 2)</span></span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Avg Speed</span>
+                        <span class="stat-value winner-a">FLUX.2 Turbo: 2.6s</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Avg Speed</span>
+                        <span class="stat-value ">GPT-Image 2: 169.6s</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Best at Text</span>
+                        <span class="stat-value winner-b">GPT-Image 2</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Best at Photos</span>
+                        <span class="stat-value winner-a">FLUX.2 Turbo</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Visual Comparison Gallery -->
+        <section class="compare-gallery" id="gallery">
+            <div class="gallery-intro">
+                <h2>The 10 test prompts</h2>
+                <p>Same prompt, same settings (1024×1024, default parameters). Different model.</p>
+            </div>
+
+            <article class="prompt-item">
+                <div class="prompt-header">
+                    <div class="prompt-meta">
+                        <span class="prompt-number">01</span>
+                        <span class="prompt-category">Portrait</span>
+                    </div>
+                    <span class="prompt-winner winner-a">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+          </svg>
+          FLUX.2 Turbo wins
+        </span>
+                </div>
+
+                <div class="prompt-text">Professional headshot of a 35-year-old woman with auburn hair, natural freckles, wearing a navy blazer, soft window lighting, shallow depth of field</div>
+
+                <div class="comparison-grid">
+                    <div class="comparison-card model-a">
+                        <div class="image-container">
+                            <img src="/compare/images/flux2-turbo/01-portrait.png" alt="FLUX.2 Turbo - Portrait" width="1024" height="1024" fetchpriority="high">
+                            <span class="result-badge pass">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            </span>
+                            <span class="award-badge gold"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>Winner</span>
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-header-row">
+                                <span class="card-model-name">FLUX.2 Turbo</span>
+                                <span class="card-gen-time">3.1s</span>
+                            </div>
+                            <p class="card-commentary">All major prompt elements are present: auburn hair, freckles, navy blazer, and soft lateral window light. The rendering is slightly softer overall — fine skin details are less resolved than in the top tier images and the image has a somewhat muted contrast compared to peers. The composition is competent but the blurred background blends neutrally rather than anchoring the environmental context. Age reads slightly older at perhaps 38-43.</p>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card model-b">
+                        <div class="image-container">
+                            <img src="/compare/images/gpt-image-2/01-portrait.png" alt="GPT-Image 2 - Portrait" width="1024" height="1024" fetchpriority="high">
+                            <span class="result-badge fail">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                            </span>
+                            
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-header-row">
+                                <span class="card-model-name">GPT-Image 2</span>
+                                <span class="card-gen-time">138.8s</span>
+                            </div>
+                            <p class="card-commentary">The image is technically well-executed with clean skin texture, good bokeh, and professional framing, but it fails on two core prompt elements: the hair reads as dark chestnut/brown rather than auburn, and freckles are entirely absent. The lighting is competent and the navy blazer is correct. These are clear, prominent failures on specifically requested visual features rather than subtle omissions, placing this image at the bottom of the ranking despite its photographic polish.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <article class="prompt-item">
+                <div class="prompt-header">
+                    <div class="prompt-meta">
+                        <span class="prompt-number">02</span>
+                        <span class="prompt-category">Text Rendering</span>
+                    </div>
+                    <span class="prompt-winner winner-b">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+          </svg>
+          GPT-Image 2 wins
+        </span>
+                </div>
+
+                <div class="prompt-text">Vintage coffee shop chalkboard menu with handwritten text 'DAILY SPECIALS' at the top, listing 'Espresso $3.50' and 'Cappuccino $4.75', rustic wooden frame</div>
+
+                <div class="comparison-grid">
+                    <div class="comparison-card model-a">
+                        <div class="image-container">
+                            <img src="/compare/images/flux2-turbo/02-text.png" alt="FLUX.2 Turbo - Text Rendering" width="1024" height="1024" loading="lazy">
+                            <span class="result-badge fail">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                            </span>
+                            
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-header-row">
+                                <span class="card-model-name">FLUX.2 Turbo</span>
+                                <span class="card-gen-time">2.1s</span>
+                            </div>
+                            <p class="card-commentary">All text is correct and the rustic wooden frame is convincing, with a real café setting glimpsed around the board (coffee grinder visible at lower left). The chalk lettering has a slightly informal, hand-done quality that suits the brief. The composition is a bit tighter and less decorative than the top-ranked images but is functionally strong.</p>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card model-b">
+                        <div class="image-container">
+                            <img src="/compare/images/gpt-image-2/02-text.png" alt="GPT-Image 2 - Text Rendering" width="1024" height="1024" loading="lazy">
+                            <span class="result-badge pass">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            </span>
+                            <span class="award-badge gold"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>Winner</span>
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-header-row">
+                                <span class="card-model-name">GPT-Image 2</span>
+                                <span class="card-gen-time">173.9s</span>
+                            </div>
+                            <p class="card-commentary">Genuinely handwritten cursive script gives this the most authentic chalk feel of all entries. The board is set in a warm café environment with plants and shelves visible, and bullet points plus decorative dividers maintain a tidy menu structure. All required text and prices are correct and legible.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <article class="prompt-item">
+                <div class="prompt-header">
+                    <div class="prompt-meta">
+                        <span class="prompt-number">03</span>
+                        <span class="prompt-category">Product</span>
+                    </div>
+                    <span class="prompt-winner winner-b">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+          </svg>
+          GPT-Image 2 wins
+        </span>
+                </div>
+
+                <div class="prompt-text">Luxury perfume bottle on white marble surface, dramatic rim lighting, crystal-clear glass with amber liquid inside, minimalist product photography</div>
+
+                <div class="comparison-grid">
+                    <div class="comparison-card model-a">
+                        <div class="image-container">
+                            <img src="/compare/images/flux2-turbo/03-product.png" alt="FLUX.2 Turbo - Product" width="1024" height="1024" loading="lazy">
+                            <span class="result-badge fail">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                            </span>
+                            
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-header-row">
+                                <span class="card-model-name">FLUX.2 Turbo</span>
+                                <span class="card-gen-time">3.3s</span>
+                            </div>
+                            <p class="card-commentary">Clear rectangular flacon with amber liquid on a white marble surface is correctly rendered, but the dominant compositional choice — a theatrical overhead spotlight creating a cone of light on the marble — is unconventional and works against the minimalist product photography brief. Rim lighting on the bottle itself is weak and diffuse rather than dramatic, and surface reflections are absent. The spotlight effect is creative but misaligned with the prompt's intent, placing this entry at the bottom of the ranking.</p>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card model-b">
+                        <div class="image-container">
+                            <img src="/compare/images/gpt-image-2/03-product.png" alt="GPT-Image 2 - Product" width="1024" height="1024" loading="lazy">
+                            <span class="result-badge pass">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            </span>
+                            <span class="award-badge gold"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>Winner</span>
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-header-row">
+                                <span class="card-model-name">GPT-Image 2</span>
+                                <span class="card-gen-time">172.8s</span>
+                            </div>
+                            <p class="card-commentary">Rectangular flacon labeled 'LUXÉCLAT PARIS / ÉCLAT AMBRÉ' with a gold spray cap on white marble with light veining; the branded text lends a convincing luxury-house personality. The amber-golden liquid is well-rendered and a right-side rim highlight is visible along the bottle's edge. The image is polished and competent but the lighting lacks the drama of the top-ranked entries, leaving it a step behind in mood.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <article class="prompt-item">
+                <div class="prompt-header">
+                    <div class="prompt-meta">
+                        <span class="prompt-number">04</span>
+                        <span class="prompt-category">Architecture</span>
+                    </div>
+                    <span class="prompt-winner winner-b">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+          </svg>
+          GPT-Image 2 wins
+        </span>
+                </div>
+
+                <div class="prompt-text">Modern minimalist living room with floor-to-ceiling windows overlooking city skyline at dusk, white sectional sofa, polished concrete floors</div>
+
+                <div class="comparison-grid">
+                    <div class="comparison-card model-a">
+                        <div class="image-container">
+                            <img src="/compare/images/flux2-turbo/04-architecture.png" alt="FLUX.2 Turbo - Architecture" width="1024" height="1024" loading="lazy">
+                            <span class="result-badge fail">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                            </span>
+                            
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-header-row">
+                                <span class="card-model-name">FLUX.2 Turbo</span>
+                                <span class="card-gen-time">2.2s</span>
+                            </div>
+                            <p class="card-commentary">Corner glass walls reach ceiling height and the dusk skyline is clearly visible in pinkish twilight tones. White sectional and polished concrete floor are both present and correctly rendered. The overall image is competent but lacks the atmospheric lighting drama and fine-detail polish of the top contenders — ambient illumination feels uniform and the composition is less engaging.</p>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card model-b">
+                        <div class="image-container">
+                            <img src="/compare/images/gpt-image-2/04-architecture.png" alt="GPT-Image 2 - Architecture" width="1024" height="1024" loading="lazy">
+                            <span class="result-badge pass">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            </span>
+                            <span class="award-badge gold"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>Winner</span>
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-header-row">
+                                <span class="card-model-name">GPT-Image 2</span>
+                                <span class="card-gen-time">163.6s</span>
+                            </div>
+                            <p class="card-commentary">Crisp minimalist room with full-height glazing framing a dusk city skyline in warm orange and blue hues. The white L-shaped sectional anchors the space elegantly, a wall-mounted fireplace and minimal side furnishings add magazine-grade staging without cluttering the scene. Concrete floors are smooth and reflective, and lighting is soft yet precise.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <article class="prompt-item">
+                <div class="prompt-header">
+                    <div class="prompt-meta">
+                        <span class="prompt-number">05</span>
+                        <span class="prompt-category">Fantasy</span>
+                    </div>
+                    <span class="prompt-winner winner-b">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+          </svg>
+          GPT-Image 2 wins
+        </span>
+                </div>
+
+                <div class="prompt-text">Mystical elven warrior with silver armor and flowing white cape, holding a glowing blue sword, standing in ancient forest with magical particles</div>
+
+                <div class="comparison-grid">
+                    <div class="comparison-card model-a">
+                        <div class="image-container">
+                            <img src="/compare/images/flux2-turbo/05-fantasy.png" alt="FLUX.2 Turbo - Fantasy" width="1024" height="1024" loading="lazy">
+                            <span class="result-badge fail">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                            </span>
+                            
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-header-row">
+                                <span class="card-model-name">FLUX.2 Turbo</span>
+                                <span class="card-gen-time">2.5s</span>
+                            </div>
+                            <p class="card-commentary">Square-format illustration of an androgynous elven warrior (sharply pointed ears, pale complexion, white hair) in silver spiked armor with a silver-grey flowing cape and a bright blue sword. Colorful magical particles (blue, purple, pink) enhance the mystical quality of the forest setting. The cape reads as silver-grey rather than white, and the illustration flatness is slightly more apparent than in photorealistic competitors, but the character design and particle variety are distinctive strengths.</p>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card model-b">
+                        <div class="image-container">
+                            <img src="/compare/images/gpt-image-2/05-fantasy.png" alt="GPT-Image 2 - Fantasy" width="1024" height="1024" loading="lazy">
+                            <span class="result-badge pass">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            </span>
+                            <span class="award-badge gold"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>Winner</span>
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-header-row">
+                                <span class="card-model-name">GPT-Image 2</span>
+                                <span class="card-gen-time">171.4s</span>
+                            </div>
+                            <p class="card-commentary">Well-executed digital art of a female elf warrior in white-silver armor with flowing white cape and a forward-angled blue glowing sword. The sunlit forest backdrop has soft bokeh particles lending a gentle magical quality. All prompt criteria are present, but the lighter daytime lighting and softer particle effects yield a less dramatic fantasy atmosphere compared to higher-ranked entries.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <article class="prompt-item">
+                <div class="prompt-header">
+                    <div class="prompt-meta">
+                        <span class="prompt-number">06</span>
+                        <span class="prompt-category">Food</span>
+                    </div>
+                    <span class="prompt-winner winner-b">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+          </svg>
+          GPT-Image 2 wins
+        </span>
+                </div>
+
+                <div class="prompt-text">Gourmet burger on wooden board, toasted brioche bun, melting cheddar cheese, crispy bacon, fresh lettuce, dripping sauce, food magazine style</div>
+
+                <div class="comparison-grid">
+                    <div class="comparison-card model-a">
+                        <div class="image-container">
+                            <img src="/compare/images/flux2-turbo/06-food.png" alt="FLUX.2 Turbo - Food" width="1024" height="1024" loading="lazy">
+                            <span class="result-badge fail">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                            </span>
+                            
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-header-row">
+                                <span class="card-model-name">FLUX.2 Turbo</span>
+                                <span class="card-gen-time">2.8s</span>
+                            </div>
+                            <p class="card-commentary">Adequate burger composition with visible melting cheddar, crispy bacon, and fresh lettuce on a wooden board; the warm shallow-focus background gives some editorial character. The sesame-seeded bun reads as a standard burger bun rather than a brioche, and the overall lighting is soft and slightly flat, reducing the premium food-photography feel. Technically competent but the least distinctive entry in this set.</p>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card model-b">
+                        <div class="image-container">
+                            <img src="/compare/images/gpt-image-2/06-food.png" alt="GPT-Image 2 - Food" width="1024" height="1024" loading="lazy">
+                            <span class="result-badge pass">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            </span>
+                            <span class="award-badge gold"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>Winner</span>
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-header-row">
+                                <span class="card-model-name">GPT-Image 2</span>
+                                <span class="card-gen-time">177.1s</span>
+                            </div>
+                            <p class="card-commentary">Dark moody studio background elevates the commercial appeal; the brioche bun carries a rich glazed sheen, and thick melting cheddar flows generously over the patty. Crispy bacon strips are well-rendered with good color variation, and frilly green lettuce peeks out cleanly. The dramatic lighting with shallow depth-of-field and blurred fries in the background reads as premium editorial food photography.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <article class="prompt-item">
+                <div class="prompt-header">
+                    <div class="prompt-meta">
+                        <span class="prompt-number">07</span>
+                        <span class="prompt-category">Fashion</span>
+                    </div>
+                    <span class="prompt-winner winner-a">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+          </svg>
+          FLUX.2 Turbo wins
+        </span>
+                </div>
+
+                <div class="prompt-text">Fashion model in oversized beige trench coat, standing on rainy Paris street at night, neon reflections on wet pavement, editorial Vogue style</div>
+
+                <div class="comparison-grid">
+                    <div class="comparison-card model-a">
+                        <div class="image-container">
+                            <img src="/compare/images/flux2-turbo/07-fashion.png" alt="FLUX.2 Turbo - Fashion" width="1024" height="1024" loading="lazy">
+                            <span class="result-badge pass">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            </span>
+                            <span class="award-badge gold"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>Winner</span>
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-header-row">
+                                <span class="card-model-name">FLUX.2 Turbo</span>
+                                <span class="card-gen-time">3.0s</span>
+                            </div>
+                            <p class="card-commentary">A technically solid editorial image with a clear VOGUE watermark: the model wears a perfectly beige, belted oversized trench and stands confidently on a wet Parisian boulevard flanked by shopfronts. Red and blue neon reflections are vivid on the wet pavement, and the urban depth is convincing. The pose is slightly static — front-facing with minimal body language — and the color grading, while competent, lacks the distinctive cinematic warmth or contrast of the top-ranked entries.</p>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card model-b">
+                        <div class="image-container">
+                            <img src="/compare/images/gpt-image-2/07-fashion.png" alt="GPT-Image 2 - Fashion" width="1024" height="1024" loading="lazy">
+                            <span class="result-badge fail">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                            </span>
+                            
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-header-row">
+                                <span class="card-model-name">GPT-Image 2</span>
+                                <span class="card-gen-time">166.0s</span>
+                            </div>
+                            <p class="card-commentary">An elegant compact composition with the Café de Flore neon and Eiffel Tower clearly establishing the Paris night setting, and the model's upward glance adding genuine editorial pose language to the belted beige trench. Wet pavement reflections are present but less dramatic, and the square crop limits the sense of urban scale. Color grading is conservative with soft warm tones — pleasant but lacking the bold contrast and atmosphere that define the top of the ranking.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <article class="prompt-item">
+                <div class="prompt-header">
+                    <div class="prompt-meta">
+                        <span class="prompt-number">08</span>
+                        <span class="prompt-category">Wildlife</span>
+                    </div>
+                    <span class="prompt-winner winner-a">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+          </svg>
+          FLUX.2 Turbo wins
+        </span>
+                </div>
+
+                <div class="prompt-text">Majestic snow leopard resting on rocky mountain ledge, piercing blue-green eyes, thick spotted fur with snowflakes, golden hour backlighting</div>
+
+                <div class="comparison-grid">
+                    <div class="comparison-card model-a">
+                        <div class="image-container">
+                            <img src="/compare/images/flux2-turbo/08-wildlife.png" alt="FLUX.2 Turbo - Wildlife" width="1024" height="1024" loading="lazy">
+                            <span class="result-badge pass">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            </span>
+                            <span class="award-badge gold"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>Winner</span>
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-header-row">
+                                <span class="card-model-name">FLUX.2 Turbo</span>
+                                <span class="card-gen-time">2.4s</span>
+                            </div>
+                            <p class="card-commentary">Front-facing resting pose on a rocky ledge with striking teal eyes that dominate the frame; scattered snowflakes catch the warm golden backlighting beautifully. Fur texture is exceptionally crisp with accurate snow-leopard rosette patterning and a thick, plush white chest. The golden hour rim light from behind gives the image a cinematic glow without washing out fine detail.</p>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card model-b">
+                        <div class="image-container">
+                            <img src="/compare/images/gpt-image-2/08-wildlife.png" alt="GPT-Image 2 - Wildlife" width="1024" height="1024" loading="lazy">
+                            <span class="result-badge fail">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                            </span>
+                            
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-header-row">
+                                <span class="card-model-name">GPT-Image 2</span>
+                                <span class="card-gen-time">170.0s</span>
+                            </div>
+                            <p class="card-commentary">The snow leopard rests on a rocky ledge with green eyes, snow/snowflakes present, and golden hour clouds visible behind. However the rendering is noticeably softer and more painterly than photorealistic, with the heavily cloud-obscured background reducing environmental clarity. Fur markings are present but lack the crisp definition of higher-ranked entries.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <article class="prompt-item">
+                <div class="prompt-header">
+                    <div class="prompt-meta">
+                        <span class="prompt-number">09</span>
+                        <span class="prompt-category">Abstract</span>
+                    </div>
+                    <span class="prompt-winner winner-a">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+          </svg>
+          FLUX.2 Turbo wins
+        </span>
+                </div>
+
+                <div class="prompt-text">Fluid abstract painting with swirling navy blue and gold metallic tones, organic flowing shapes, high contrast, modern art gallery piece</div>
+
+                <div class="comparison-grid">
+                    <div class="comparison-card model-a">
+                        <div class="image-container">
+                            <img src="/compare/images/flux2-turbo/09-abstract.png" alt="FLUX.2 Turbo - Abstract" width="1024" height="1024" loading="lazy">
+                            <span class="result-badge pass">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            </span>
+                            <span class="award-badge gold"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>Winner</span>
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-header-row">
+                                <span class="card-model-name">FLUX.2 Turbo</span>
+                                <span class="card-gen-time">2.2s</span>
+                            </div>
+                            <p class="card-commentary">flux2-turbo delivers an elegant, moody composition hung on a neutral wall, with navy dominating and restrained gold swirls emanating from a central focal point. The organic shapes are graceful and the spiral motion reads clearly. The gold is somewhat muted compared to the top scorers — less metallic sheen — and some blue-grey accents dilute the color contrast, but the overall piece has strong gallery polish and a refined, understated quality.</p>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card model-b">
+                        <div class="image-container">
+                            <img src="/compare/images/gpt-image-2/09-abstract.png" alt="GPT-Image 2 - Abstract" width="1024" height="1024" loading="lazy">
+                            <span class="result-badge fail">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                            </span>
+                            
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-header-row">
+                                <span class="card-model-name">GPT-Image 2</span>
+                                <span class="card-gen-time">172.7s</span>
+                            </div>
+                            <p class="card-commentary">gpt-image-2 is technically accurate to the navy-and-gold palette with clean, bright gold veins against vivid cobalt-navy, and the fluid texture is convincing. However, the composition reads as relatively static — the gold flows laterally without strong rotational or swirling energy, and the overall layout feels centered and symmetrical rather than dynamically composed. No gallery context is provided, and the piece feels more like a texture sample than a finished artwork.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <article class="prompt-item">
+                <div class="prompt-header">
+                    <div class="prompt-meta">
+                        <span class="prompt-number">10</span>
+                        <span class="prompt-category">Sci-Fi</span>
+                    </div>
+                    <span class="prompt-winner winner-b">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+          </svg>
+          GPT-Image 2 wins
+        </span>
+                </div>
+
+                <div class="prompt-text">Futuristic cyberpunk cityscape at night, massive holographic advertisements, flying vehicles between towering skyscrapers, rain-slicked streets with neon reflections</div>
+
+                <div class="comparison-grid">
+                    <div class="comparison-card model-a">
+                        <div class="image-container">
+                            <img src="/compare/images/flux2-turbo/10-scifi.png" alt="FLUX.2 Turbo - Sci-Fi" width="1024" height="1024" loading="lazy">
+                            <span class="result-badge fail">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                            </span>
+                            
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-header-row">
+                                <span class="card-model-name">FLUX.2 Turbo</span>
+                                <span class="card-gen-time">2.2s</span>
+                            </div>
+                            <p class="card-commentary">Solid cyberpunk street scene with a large glowing humanoid figure billboard (holographic-quality), multiple flying vehicles visible mid-air, and wet reflective pavement under atmospheric haze. The muted gray-pink palette feels appropriately gritty and moody. The composition is well-structured but the detail density is lower than the top tier and the image has a slightly compressed, less expansive feel to the skyscraper scale.</p>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card model-b">
+                        <div class="image-container">
+                            <img src="/compare/images/gpt-image-2/10-scifi.png" alt="GPT-Image 2 - Sci-Fi" width="1024" height="1024" loading="lazy">
+                            <span class="result-badge pass">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            </span>
+                            <span class="award-badge gold"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>Winner</span>
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-header-row">
+                                <span class="card-model-name">GPT-Image 2</span>
+                                <span class="card-gen-time">189.4s</span>
+                            </div>
+                            <p class="card-commentary">Dense urban canyon with a glowing blue-face portrait billboard, 'CYBERNETICS' signage, Japanese kanji ads, and multiple flying vehicles threading between towers. The blue-purple-pink palette is richly atmospheric and the wet street catches strong neon reflections with visible pedestrian activity. Detail density is high and the scene has strong depth, though the overall image resolution and sharpness feel slightly softer than the top three entries.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <!-- Feature Comparison Table -->
+        <section class="compare-features" id="features">
+            <div class="section-header">
+                <h2>Specs</h2>
+                <p>What each model can do.</p>
+            </div>
+
+            <div class="feature-table">
+                <div class="table-header">
+                    <span>Feature</span>
+                    <span>FLUX.2 Turbo</span>
+                    <span>GPT-Image 2</span>
+                </div>
+
+                <div class="table-row">
+                    <span class="feature-name">Text-to-Image</span>
+                    <span class="col-value"><span class="check">Yes</span></span>
+                    <span class="col-value"><span class="check">Yes</span></span>
+                </div>
+
+                <div class="table-row">
+                    <span class="feature-name">Image-to-Image</span>
+                    <span class="col-value"><span class="check">Yes</span></span>
+                    <span class="col-value"><span class="check">Yes</span></span>
+                </div>
+
+                <div class="table-row">
+                    <span class="feature-name">Max Resolution</span>
+                    <span class="col-value">1K (1024×1024)</span>
+                    <span class="col-value">4K (3840 max edge)</span>
+                </div>
+
+                <div class="table-row">
+                    <span class="feature-name">Average Speed</span>
+                    <span class="col-value highlight">2.6s</span>
+                    <span class="col-value ">169.6s</span>
+                </div>
+
+                <div class="table-row">
+                    <div>
+                        <span class="feature-name">Cost</span>
+                        <span class="feature-note">via fal.ai</span>
+                    </div>
+                    <span class="col-value">$0.008<br><small>per megapixel</small></span>
+                    <span class="col-value">$0.01–$0.41<br><small>low–high quality</small></span>
+                </div>
+
+                <div class="table-row">
+                    <span class="feature-name">Architecture</span>
+                    <span class="col-value">Diffusion (Turbo)</span>
+                    <span class="col-value">Multimodal LLM</span>
+                </div>
+
+                <div class="table-row">
+                    <span class="feature-name">Providers</span>
+                    <span class="col-value">fal.ai</span>
+                    <span class="col-value">fal.ai, OpenAI, OpenRouter</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="compare-cta">
+            <div class="cta-card">
+                <h2>Use both models in VM Studio</h2>
+                <p>Install VM Studio and compare FLUX.2 Turbo vs GPT-Image 2 on your own prompts.</p>
+                <a href="https://www.figma.com/community/plugin/1588675833256652136" target="_blank"
+                    class="btn btn-primary btn-lg">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 5.5A3.5 3.5 0 0 1 8.5 2H12v7H8.5A3.5 3.5 0 0 1 5 5.5z"></path>
+                        <path d="M12 2h3.5a3.5 3.5 0 1 1 0 7H12V2z"></path>
+                        <path d="M12 12.5a3.5 3.5 0 1 1 7 0 3.5 3.5 0 1 1-7 0z"></path>
+                        <path d="M5 19.5A3.5 3.5 0 0 1 8.5 16H12v3.5a3.5 3.5 0 1 1-7 0z"></path>
+                        <path d="M5 12.5A3.5 3.5 0 0 1 8.5 9H12v7H8.5A3.5 3.5 0 0 1 5 12.5z"></path>
+                    </svg>
+                    Add to Figma
+                </a>
+            </div>
+
+            <!-- Related Comparisons -->
+            <div class="related-comparisons">
+                <h3>More Model Comparisons</h3>
+                <div class="related-grid">
+
+                    <a href="/compare/nano-banana-2-vs-nano-banana-pro/" class="related-card">
+                        <span>Nano Banana 2 vs Nano Banana Pro</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                    <a href="/compare/nano-banana-2-vs-flux2-turbo/" class="related-card">
+                        <span>Nano Banana 2 vs FLUX.2 Turbo</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                    <a href="/compare/nano-banana-2-vs-flux2-klein-9b/" class="related-card">
+                        <span>Nano Banana 2 vs FLUX.2 Klein 9B</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                    <a href="/compare/" class="related-card">
+                        <span>View all comparisons</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="compare-footer">
+            <div class="footer-content">
+                <a href="/" class="logo">
+                    <img src="/assets/logo.svg" alt="VM Studio Logo" width="24" height="24">
+                    <span>VM Studio</span>
+                </a>
+                <div class="footer-links">
+                    <a href="/#features">Features</a>
+                    <a href="/#models">Models</a>
+                    <a href="/compare/">Compare</a>
+                    <a href="https://www.figma.com/community/plugin/1588675833256652136" target="_blank">Figma</a>
+                </div>
+                <span class="copyright">© 2026 VM Studio</span>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>

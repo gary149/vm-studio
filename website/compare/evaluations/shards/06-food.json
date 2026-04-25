@@ -1,0 +1,66 @@
+[
+  {
+    "model_slug": "gpt-image-1-5",
+    "prompt_id": "06-food",
+    "criteria_passed": ["wooden_board", "brioche_bun", "melting_cheese", "crispy_bacon", "fresh_lettuce", "dripping_sauce", "magazine_style", "texture_realism"],
+    "criteria_failed": [],
+    "quality_score": 9.5,
+    "commentary": "Best-in-class execution: the golden brioche bun is deeply toasted, and molten orange cheddar cascades dramatically down the patty while a thick sauce pools on the rustic wooden cutting board. Bacon layers are visibly crispy with rendered edges, and the abundant frilly lettuce adds color contrast. The close-up editorial composition with warm bokeh background and supporting props (fries, drink) achieves top-tier food magazine quality."
+  },
+  {
+    "model_slug": "gpt-image-2",
+    "prompt_id": "06-food",
+    "criteria_passed": ["wooden_board", "brioche_bun", "melting_cheese", "crispy_bacon", "fresh_lettuce", "dripping_sauce", "magazine_style", "texture_realism"],
+    "criteria_failed": [],
+    "quality_score": 9.0,
+    "commentary": "Dark moody studio background elevates the commercial appeal; the brioche bun carries a rich glazed sheen, and thick melting cheddar flows generously over the patty. Crispy bacon strips are well-rendered with good color variation, and frilly green lettuce peeks out cleanly. The dramatic lighting with shallow depth-of-field and blurred fries in the background reads as premium editorial food photography."
+  },
+  {
+    "model_slug": "nano-banana-2",
+    "prompt_id": "06-food",
+    "criteria_passed": ["wooden_board", "brioche_bun", "melting_cheese", "crispy_bacon", "fresh_lettuce", "dripping_sauce", "magazine_style", "texture_realism"],
+    "criteria_failed": [],
+    "quality_score": 8.5,
+    "commentary": "Rich pub-editorial atmosphere with warm natural light gives this image a distinctive inviting feel; the golden bun has excellent surface texture and the melting cheese flows naturally down the patty. Crispy bacon is visible and well-crisped, and the rustic wooden board with supporting props (beer glass, wire fry basket) elevates the editorial storytelling. Tomato adds freshness though it goes slightly beyond the prompt spec."
+  },
+  {
+    "model_slug": "nano-banana-pro",
+    "prompt_id": "06-food",
+    "criteria_passed": ["wooden_board", "brioche_bun", "melting_cheese", "crispy_bacon", "fresh_lettuce", "dripping_sauce", "magazine_style", "texture_realism"],
+    "criteria_failed": [],
+    "quality_score": 8.0,
+    "commentary": "Clean white-studio editorial style with excellent natural light; the brioche bun is golden with a soft rounded crown and slight sheen, and melting cheddar drips attractively down the side. Crispy bacon and fresh lettuce are well-represented, and the wooden board with garnish (pickle spear, rosemary) adds polish. Slightly less dramatic than the top entries but confidently magazine-ready."
+  },
+  {
+    "model_slug": "flux2-klein-9b",
+    "prompt_id": "06-food",
+    "criteria_passed": ["wooden_board", "brioche_bun", "melting_cheese", "crispy_bacon", "fresh_lettuce", "dripping_sauce", "magazine_style", "texture_realism"],
+    "criteria_failed": [],
+    "quality_score": 7.5,
+    "commentary": "Strong food photography execution with warm editorial lighting and a beautiful cheddar melt cascading across the bun and patty; crispy bacon strips and fresh lettuce are clearly present, and the wooden board is well-integrated. A decorative magazine-cover text overlay (non-obstructive) frames the image, reinforcing the editorial intent. Loses a few points relative to the top tier for the overlay and slightly less compositional depth."
+  },
+  {
+    "model_slug": "seedream-v4-5",
+    "prompt_id": "06-food",
+    "criteria_passed": ["wooden_board", "brioche_bun", "melting_cheese", "crispy_bacon", "fresh_lettuce", "dripping_sauce", "magazine_style", "texture_realism"],
+    "criteria_failed": [],
+    "quality_score": 7.0,
+    "commentary": "Warm amber lighting creates an appealing atmosphere and the melting cheddar is well-rendered; crispy bacon and fresh lettuce are clearly visible, and a dark dripping sauce (reads BBQ) flows down the side of the patty onto the board. The main drawback is the bun, which is over-charred on top — the blackened char detracts from the polish expected of a gourmet food magazine shot."
+  },
+  {
+    "model_slug": "z-image-turbo",
+    "prompt_id": "06-food",
+    "criteria_passed": ["wooden_board", "brioche_bun", "melting_cheese", "crispy_bacon", "fresh_lettuce", "dripping_sauce", "magazine_style"],
+    "criteria_failed": ["texture_realism"],
+    "quality_score": 6.0,
+    "commentary": "Clean, bright composition on a wooden board with a newspaper prop suggesting editorial context; melting cheddar drips neatly and bacon and lettuce are present. However, the bun reads as a plain round roll rather than a distinctively brioche bun, and the overall lighting is flat and more catalog-like than editorial food magazine. Texture realism is adequate but less nuanced than the top-ranked images."
+  },
+  {
+    "model_slug": "flux2-turbo",
+    "prompt_id": "06-food",
+    "criteria_passed": ["wooden_board", "melting_cheese", "crispy_bacon", "fresh_lettuce", "dripping_sauce", "magazine_style"],
+    "criteria_failed": ["brioche_bun", "texture_realism"],
+    "quality_score": 5.5,
+    "commentary": "Adequate burger composition with visible melting cheddar, crispy bacon, and fresh lettuce on a wooden board; the warm shallow-focus background gives some editorial character. The sesame-seeded bun reads as a standard burger bun rather than a brioche, and the overall lighting is soft and slightly flat, reducing the premium food-photography feel. Technically competent but the least distinctive entry in this set."
+  }
+]

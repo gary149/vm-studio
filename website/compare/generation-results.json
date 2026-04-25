@@ -598,5 +598,205 @@
     "generation_time_ms": 1209,
     "image_path": "images/z-image-turbo/10-scifi.png",
     "success": true
+  },
+  {
+    "model_id": "fal-ai/nano-banana-2",
+    "model_slug": "nano-banana-2",
+    "prompt_id": "01-portrait",
+    "prompt_category": "Portrait",
+    "prompt_text": "Professional headshot of a 35-year-old woman with auburn hair, natural freckles, wearing a navy blazer, soft window lighting, shallow depth of field",
+    "generation_time_ms": 24856,
+    "image_path": "images/nano-banana-2/01-portrait.png",
+    "success": true
+  },
+  {
+    "model_id": "fal-ai/nano-banana-2",
+    "model_slug": "nano-banana-2",
+    "prompt_id": "02-text",
+    "prompt_category": "Text Rendering",
+    "prompt_text": "Vintage coffee shop chalkboard menu with handwritten text 'DAILY SPECIALS' at the top, listing 'Espresso $3.50' and 'Cappuccino $4.75', rustic wooden frame",
+    "generation_time_ms": 21863,
+    "image_path": "images/nano-banana-2/02-text.png",
+    "success": true
+  },
+  {
+    "model_id": "fal-ai/nano-banana-2",
+    "model_slug": "nano-banana-2",
+    "prompt_id": "03-product",
+    "prompt_category": "Product",
+    "prompt_text": "Luxury perfume bottle on white marble surface, dramatic rim lighting, crystal-clear glass with amber liquid inside, minimalist product photography",
+    "generation_time_ms": 24641,
+    "image_path": "images/nano-banana-2/03-product.png",
+    "success": true
+  },
+  {
+    "model_id": "fal-ai/nano-banana-2",
+    "model_slug": "nano-banana-2",
+    "prompt_id": "04-architecture",
+    "prompt_category": "Architecture",
+    "prompt_text": "Modern minimalist living room with floor-to-ceiling windows overlooking city skyline at dusk, white sectional sofa, polished concrete floors",
+    "generation_time_ms": 23097,
+    "image_path": "images/nano-banana-2/04-architecture.png",
+    "success": true
+  },
+  {
+    "model_id": "fal-ai/nano-banana-2",
+    "model_slug": "nano-banana-2",
+    "prompt_id": "05-fantasy",
+    "prompt_category": "Fantasy",
+    "prompt_text": "Mystical elven warrior with silver armor and flowing white cape, holding a glowing blue sword, standing in ancient forest with magical particles",
+    "generation_time_ms": 24960,
+    "image_path": "images/nano-banana-2/05-fantasy.png",
+    "success": true
+  },
+  {
+    "model_id": "fal-ai/nano-banana-2",
+    "model_slug": "nano-banana-2",
+    "prompt_id": "06-food",
+    "prompt_category": "Food",
+    "prompt_text": "Gourmet burger on wooden board, toasted brioche bun, melting cheddar cheese, crispy bacon, fresh lettuce, dripping sauce, food magazine style",
+    "generation_time_ms": 24662,
+    "image_path": "images/nano-banana-2/06-food.png",
+    "success": true
+  },
+  {
+    "model_id": "fal-ai/nano-banana-2",
+    "model_slug": "nano-banana-2",
+    "prompt_id": "07-fashion",
+    "prompt_category": "Fashion",
+    "prompt_text": "Fashion model in oversized beige trench coat, standing on rainy Paris street at night, neon reflections on wet pavement, editorial Vogue style",
+    "generation_time_ms": 24785,
+    "image_path": "images/nano-banana-2/07-fashion.png",
+    "success": true
+  },
+  {
+    "model_id": "fal-ai/nano-banana-2",
+    "model_slug": "nano-banana-2",
+    "prompt_id": "08-wildlife",
+    "prompt_category": "Wildlife",
+    "prompt_text": "Majestic snow leopard resting on rocky mountain ledge, piercing blue-green eyes, thick spotted fur with snowflakes, golden hour backlighting",
+    "generation_time_ms": 21897,
+    "image_path": "images/nano-banana-2/08-wildlife.png",
+    "success": true
+  },
+  {
+    "model_id": "fal-ai/nano-banana-2",
+    "model_slug": "nano-banana-2",
+    "prompt_id": "09-abstract",
+    "prompt_category": "Abstract",
+    "prompt_text": "Fluid abstract painting with swirling navy blue and gold metallic tones, organic flowing shapes, high contrast, modern art gallery piece",
+    "generation_time_ms": 22468,
+    "image_path": "images/nano-banana-2/09-abstract.png",
+    "success": true
+  },
+  {
+    "model_id": "fal-ai/nano-banana-2",
+    "model_slug": "nano-banana-2",
+    "prompt_id": "10-scifi",
+    "prompt_category": "Sci-Fi",
+    "prompt_text": "Futuristic cyberpunk cityscape at night, massive holographic advertisements, flying vehicles between towering skyscrapers, rain-slicked streets with neon reflections",
+    "generation_time_ms": 26257,
+    "image_path": "images/nano-banana-2/10-scifi.png",
+    "success": true
+  },
+  {
+    "model_id": "fal-ai/gpt-image-2",
+    "model_slug": "gpt-image-2",
+    "prompt_id": "01-portrait",
+    "prompt_category": "Portrait",
+    "prompt_text": "Professional headshot of a 35-year-old woman with auburn hair, natural freckles, wearing a navy blazer, soft window lighting, shallow depth of field",
+    "generation_time_ms": 138778,
+    "image_path": "images/gpt-image-2/01-portrait.png",
+    "success": true
+  },
+  {
+    "model_id": "fal-ai/gpt-image-2",
+    "model_slug": "gpt-image-2",
+    "prompt_id": "02-text",
+    "prompt_category": "Text Rendering",
+    "prompt_text": "Vintage coffee shop chalkboard menu with handwritten text 'DAILY SPECIALS' at the top, listing 'Espresso $3.50' and 'Cappuccino $4.75', rustic wooden frame",
+    "generation_time_ms": 173919,
+    "image_path": "images/gpt-image-2/02-text.png",
+    "success": true
+  },
+  {
+    "model_id": "fal-ai/gpt-image-2",
+    "model_slug": "gpt-image-2",
+    "prompt_id": "03-product",
+    "prompt_category": "Product",
+    "prompt_text": "Luxury perfume bottle on white marble surface, dramatic rim lighting, crystal-clear glass with amber liquid inside, minimalist product photography",
+    "generation_time_ms": 172753,
+    "image_path": "images/gpt-image-2/03-product.png",
+    "success": true
+  },
+  {
+    "model_id": "fal-ai/gpt-image-2",
+    "model_slug": "gpt-image-2",
+    "prompt_id": "04-architecture",
+    "prompt_category": "Architecture",
+    "prompt_text": "Modern minimalist living room with floor-to-ceiling windows overlooking city skyline at dusk, white sectional sofa, polished concrete floors",
+    "generation_time_ms": 163604,
+    "image_path": "images/gpt-image-2/04-architecture.png",
+    "success": true
+  },
+  {
+    "model_id": "fal-ai/gpt-image-2",
+    "model_slug": "gpt-image-2",
+    "prompt_id": "05-fantasy",
+    "prompt_category": "Fantasy",
+    "prompt_text": "Mystical elven warrior with silver armor and flowing white cape, holding a glowing blue sword, standing in ancient forest with magical particles",
+    "generation_time_ms": 171386,
+    "image_path": "images/gpt-image-2/05-fantasy.png",
+    "success": true
+  },
+  {
+    "model_id": "fal-ai/gpt-image-2",
+    "model_slug": "gpt-image-2",
+    "prompt_id": "06-food",
+    "prompt_category": "Food",
+    "prompt_text": "Gourmet burger on wooden board, toasted brioche bun, melting cheddar cheese, crispy bacon, fresh lettuce, dripping sauce, food magazine style",
+    "generation_time_ms": 177142,
+    "image_path": "images/gpt-image-2/06-food.png",
+    "success": true
+  },
+  {
+    "model_id": "fal-ai/gpt-image-2",
+    "model_slug": "gpt-image-2",
+    "prompt_id": "07-fashion",
+    "prompt_category": "Fashion",
+    "prompt_text": "Fashion model in oversized beige trench coat, standing on rainy Paris street at night, neon reflections on wet pavement, editorial Vogue style",
+    "generation_time_ms": 165980,
+    "image_path": "images/gpt-image-2/07-fashion.png",
+    "success": true
+  },
+  {
+    "model_id": "fal-ai/gpt-image-2",
+    "model_slug": "gpt-image-2",
+    "prompt_id": "08-wildlife",
+    "prompt_category": "Wildlife",
+    "prompt_text": "Majestic snow leopard resting on rocky mountain ledge, piercing blue-green eyes, thick spotted fur with snowflakes, golden hour backlighting",
+    "generation_time_ms": 170000,
+    "image_path": "images/gpt-image-2/08-wildlife.png",
+    "success": true
+  },
+  {
+    "model_id": "fal-ai/gpt-image-2",
+    "model_slug": "gpt-image-2",
+    "prompt_id": "09-abstract",
+    "prompt_category": "Abstract",
+    "prompt_text": "Fluid abstract painting with swirling navy blue and gold metallic tones, organic flowing shapes, high contrast, modern art gallery piece",
+    "generation_time_ms": 172694,
+    "image_path": "images/gpt-image-2/09-abstract.png",
+    "success": true
+  },
+  {
+    "model_id": "fal-ai/gpt-image-2",
+    "model_slug": "gpt-image-2",
+    "prompt_id": "10-scifi",
+    "prompt_category": "Sci-Fi",
+    "prompt_text": "Futuristic cyberpunk cityscape at night, massive holographic advertisements, flying vehicles between towering skyscrapers, rain-slicked streets with neon reflections",
+    "generation_time_ms": 189380,
+    "image_path": "images/gpt-image-2/10-scifi.png",
+    "success": true
   }
 ]

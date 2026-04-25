@@ -105,7 +105,7 @@
                 "name": "Which is better, FLUX.2 Turbo or GPT-Image 1.5?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "In our 10-prompt benchmark, GPT-Image 1.5 won 2-8. FLUX.2 Turbo excels at faster generation and better photorealism, while GPT-Image 1.5 excels at better text rendering."
+                    "text": "In our 10-prompt benchmark, GPT-Image 1.5 won 1-9. FLUX.2 Turbo excels at faster generation, while GPT-Image 1.5 excels at better photorealism and better text rendering."
                 }
             },
             {
@@ -198,20 +198,20 @@
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M0 20.683L12.01 2.5 24 20.683h-2.233L12.009 5.878 3.471 18.806h12.122l1.239 1.877H0z"/></svg>
                             FLUX.2 Turbo
                         </span>
-                        <span class="verdict-strength">Faster generation, Better photorealism</span>
+                        <span class="verdict-strength">Faster generation</span>
                     </div>
                     <div class="verdict-model">
                         <span class="model-badge model-b">
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>
                             GPT-Image 1.5
                         </span>
-                        <span class="verdict-strength">Better text rendering</span>
+                        <span class="verdict-strength">Better photorealism, Better text rendering</span>
                     </div>
                 </div>
                 <div class="verdict-stats-bar">
                     <div class="stat-item">
                         <span class="stat-label">Winner Score</span>
-                        <span class="stat-value">2-8 <span class="winner-b">(GPT-Image)</span></span>
+                        <span class="stat-value">1-9 <span class="winner-b">(GPT-Image)</span></span>
                     </div>
                     <div class="stat-item">
                         <span class="stat-label">Avg Speed</span>
@@ -227,7 +227,7 @@
                     </div>
                     <div class="stat-item">
                         <span class="stat-label">Best at Photos</span>
-                        <span class="stat-value winner-a">FLUX.2 Turbo</span>
+                        <span class="stat-value winner-b">GPT-Image</span>
                     </div>
                 </div>
             </div>
@@ -246,11 +246,11 @@
                         <span class="prompt-number">01</span>
                         <span class="prompt-category">Portrait</span>
                     </div>
-                    <span class="prompt-winner winner-a">
+                    <span class="prompt-winner winner-b">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
           </svg>
-          FLUX.2 Turbo wins
+          GPT-Image wins
         </span>
                 </div>
 
@@ -260,23 +260,6 @@
                     <div class="comparison-card model-a">
                         <div class="image-container">
                             <img src="/compare/images/flux2-turbo/01-portrait.png" alt="FLUX.2 Turbo - Portrait" width="1024" height="1024" fetchpriority="high">
-                            <span class="result-badge pass">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                            </span>
-                            <span class="award-badge gold"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>Winner</span>
-                        </div>
-                        <div class="card-footer">
-                            <div class="card-header-row">
-                                <span class="card-model-name">FLUX.2 Turbo</span>
-                                <span class="card-gen-time">3.1s</span>
-                            </div>
-                            <p class="card-commentary">Highly realistic portrait with excellent freckle rendering that appears very natural. The auburn hair color is vibrant and accurate, and the navy blazer is well-rendered. Window lighting from the left creates pleasing soft shadows. However, the subject appears slightly older than 35, closer to early 40s, which affects age accuracy.</p>
-                        </div>
-                    </div>
-
-                    <div class="comparison-card model-b">
-                        <div class="image-container">
-                            <img src="/compare/images/gpt-image-1-5/01-portrait.png" alt="GPT-Image 1.5 - Portrait" width="1024" height="1024" fetchpriority="high">
                             <span class="result-badge fail">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                             </span>
@@ -284,10 +267,27 @@
                         </div>
                         <div class="card-footer">
                             <div class="card-header-row">
+                                <span class="card-model-name">FLUX.2 Turbo</span>
+                                <span class="card-gen-time">3.1s</span>
+                            </div>
+                            <p class="card-commentary">All major prompt elements are present: auburn hair, freckles, navy blazer, and soft lateral window light. The rendering is slightly softer overall — fine skin details are less resolved than in the top tier images and the image has a somewhat muted contrast compared to peers. The composition is competent but the blurred background blends neutrally rather than anchoring the environmental context. Age reads slightly older at perhaps 38-43.</p>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card model-b">
+                        <div class="image-container">
+                            <img src="/compare/images/gpt-image-1-5/01-portrait.png" alt="GPT-Image 1.5 - Portrait" width="1024" height="1024" fetchpriority="high">
+                            <span class="result-badge pass">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            </span>
+                            <span class="award-badge gold"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>Winner</span>
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-header-row">
                                 <span class="card-model-name">GPT-Image 1.5</span>
                                 <span class="card-gen-time">38.3s</span>
                             </div>
-                            <p class="card-commentary">Clean, professional headshot with good composition and excellent background blur. Freckles are visible and the auburn hair color is accurate. The navy blazer is well-rendered. However, the skin appears slightly too smooth and idealized, lacking natural pores and texture. The subject also appears younger than 35, closer to late 20s.</p>
+                            <p class="card-commentary">Clean and professional with accurate auburn hair, visible freckles, and a navy blazer over a white top. The diffuse grey background provides soft lighting that reads as natural and window-adjacent. Skin texture is natural though slightly smoothed, and the slight head tilt adds a personable quality. The image is somewhat less distinctive compositionally — tighter crop and a more neutral background — compared to the top three, but all criteria are satisfied.</p>
                         </div>
                     </div>
                 </div>
@@ -322,7 +322,7 @@
                                 <span class="card-model-name">FLUX.2 Turbo</span>
                                 <span class="card-gen-time">2.1s</span>
                             </div>
-                            <p class="card-commentary">Text is correctly rendered: 'DAILY SPECIALS', 'Espresso $3.50', and 'Cappuccino $4.75' all spelled accurately. Good chalkboard aesthetic with decorative underline and a rustic wooden frame. Slightly less polished presentation than top-tier models but solid text accuracy.</p>
+                            <p class="card-commentary">All text is correct and the rustic wooden frame is convincing, with a real café setting glimpsed around the board (coffee grinder visible at lower left). The chalk lettering has a slightly informal, hand-done quality that suits the brief. The composition is a bit tighter and less decorative than the top-ranked images but is functionally strong.</p>
                         </div>
                     </div>
 
@@ -339,7 +339,7 @@
                                 <span class="card-model-name">GPT-Image 1.5</span>
                                 <span class="card-gen-time">38.1s</span>
                             </div>
-                            <p class="card-commentary">All text is rendered perfectly: 'DAILY SPECIALS', 'Espresso $3.50', and 'Cappuccino $4.75' are all correctly spelled with accurate prices. Beautiful decorative banner treatment on the title and coffee cup illustrations add artistic flair. The wooden frame has a rich, rustic appearance.</p>
+                            <p class="card-commentary">Polished ornate design with elegant chalk-style lettering, decorative scrollwork, and illustrated coffee cups. All spelling and prices are perfect. The dark chalkboard with warm wooden frame and symmetrical composition reads as high-quality vintage café signage; the only minor critique is that the lettering leans slightly typographic rather than truly hand-drawn.</p>
                         </div>
                     </div>
                 </div>
@@ -374,7 +374,7 @@
                                 <span class="card-model-name">FLUX.2 Turbo</span>
                                 <span class="card-gen-time">3.3s</span>
                             </div>
-                            <p class="card-commentary">Clean, studio-quality product shot with excellent glass transparency and accurate amber liquid coloring. The spotlight effect on the marble creates an elegant circular highlight that draws focus to the product. The marble veining is subtle but realistic. While the image lacks strong rim lighting (the edge glow is minimal), the overall commercial quality remains high with good minimalist composition.</p>
+                            <p class="card-commentary">Clear rectangular flacon with amber liquid on a white marble surface is correctly rendered, but the dominant compositional choice — a theatrical overhead spotlight creating a cone of light on the marble — is unconventional and works against the minimalist product photography brief. Rim lighting on the bottle itself is weak and diffuse rather than dramatic, and surface reflections are absent. The spotlight effect is creative but misaligned with the prompt's intent, placing this entry at the bottom of the ranking.</p>
                         </div>
                     </div>
 
@@ -391,7 +391,7 @@
                                 <span class="card-model-name">GPT-Image 1.5</span>
                                 <span class="card-gen-time">37.4s</span>
                             </div>
-                            <p class="card-commentary">Highly polished product shot with excellent glass clarity and realistic light refraction through the amber liquid. The rim lighting creates subtle but effective edge highlights on the bottle corners. The marble surface shows authentic veining patterns with good surface reflection. Clean, professional composition that could easily appear in a luxury magazine advertisement.</p>
+                            <p class="card-commentary">Rectangular clear-glass bottle with a black cap and thin gold band contains a deep amber-to-burnt-orange liquid that photographs with excellent saturation and depth. The white marble surface shows pronounced veining and the bottle's reflections in the surface are crisp. Directional side lighting creates strong edge highlights on the glass walls, and the overall execution reads as studio-grade commercial product photography.</p>
                         </div>
                     </div>
                 </div>
@@ -426,7 +426,7 @@
                                 <span class="card-model-name">FLUX.2 Turbo</span>
                                 <span class="card-gen-time">2.2s</span>
                             </div>
-                            <p class="card-commentary">Strong floor-to-ceiling windows with an impressive city skyline, but the lighting reads more as twilight/early evening rather than characteristic golden-hour dusk tones. The polished concrete floors have excellent reflective quality, and the white sectional is well-executed. Overall very realistic but missing the warm dusk color palette.</p>
+                            <p class="card-commentary">Corner glass walls reach ceiling height and the dusk skyline is clearly visible in pinkish twilight tones. White sectional and polished concrete floor are both present and correctly rendered. The overall image is competent but lacks the atmospheric lighting drama and fine-detail polish of the top contenders — ambient illumination feels uniform and the composition is less engaging.</p>
                         </div>
                     </div>
 
@@ -443,7 +443,7 @@
                                 <span class="card-model-name">GPT-Image 1.5</span>
                                 <span class="card-gen-time">40.4s</span>
                             </div>
-                            <p class="card-commentary">Exceptional execution with stunning floor-to-ceiling corner windows showcasing a dramatic dusk cityscape with warm building lights against a blue hour sky. The white sectional sofa is perfectly rendered, and the polished concrete floors have excellent reflective quality. The minimalist styling with restrained decor elements creates a highly realistic and aspirational interior.</p>
+                            <p class="card-commentary">Photorealistic corner suite with sweeping floor-to-ceiling glass on two walls, revealing a dense NYC-style dusk skyline bathed in deep blue-orange twilight. The white sectional sofa and accent chair are impeccably staged, and the highly polished concrete floor delivers mirror-like reflections of the city glow. Technical execution and artistic polish are best-in-class among the eight images.</p>
                         </div>
                     </div>
                 </div>
@@ -478,7 +478,7 @@
                                 <span class="card-model-name">FLUX.2 Turbo</span>
                                 <span class="card-gen-time">2.5s</span>
                             </div>
-                            <p class="card-commentary">Well-executed fantasy warrior with very prominent pointed ears and ethereal appearance. The silver-toned armor has a unique spiked shoulder design, and the white cape flows naturally. The bright glowing blue sword is excellently rendered, and the mystical forest with floating particles creates strong atmosphere. Full-body composition is well balanced.</p>
+                            <p class="card-commentary">Square-format illustration of an androgynous elven warrior (sharply pointed ears, pale complexion, white hair) in silver spiked armor with a silver-grey flowing cape and a bright blue sword. Colorful magical particles (blue, purple, pink) enhance the mystical quality of the forest setting. The cape reads as silver-grey rather than white, and the illustration flatness is slightly more apparent than in photorealistic competitors, but the character design and particle variety are distinctive strengths.</p>
                         </div>
                     </div>
 
@@ -495,7 +495,7 @@
                                 <span class="card-model-name">GPT-Image 1.5</span>
                                 <span class="card-gen-time">45.3s</span>
                             </div>
-                            <p class="card-commentary">Strong fantasy illustration with excellent elven features and long flowing white hair. The silver armor is well-rendered with good reflections, and the white cape shows dynamic flowing movement. The glowing blue sword has a strong luminous effect, and the forest background with magical particles creates an epic adventurer composition.</p>
+                            <p class="card-commentary">Photorealistic render with an imposing female elf warrior (pointed ears, long silver-white hair) in detailed ornate silver armor and a billowing white cape. The blue sword glows intensely with crisp luminescence as the character strides forward through a dark mossy forest strewn with blue sparkle particles. Armor articulation and cloth physics are excellent; slight edge softness in the midground prevents a perfect score.</p>
                         </div>
                     </div>
                 </div>
@@ -530,7 +530,7 @@
                                 <span class="card-model-name">FLUX.2 Turbo</span>
                                 <span class="card-gen-time">2.8s</span>
                             </div>
-                            <p class="card-commentary">Solid execution with a nice golden brioche bun and good cheese drip effect. The lettuce is fresh and vibrant, and bacon texture is visible. The composition is somewhat plain compared to others, missing the extra styling elements that make it magazine-worthy.</p>
+                            <p class="card-commentary">Adequate burger composition with visible melting cheddar, crispy bacon, and fresh lettuce on a wooden board; the warm shallow-focus background gives some editorial character. The sesame-seeded bun reads as a standard burger bun rather than a brioche, and the overall lighting is soft and slightly flat, reducing the premium food-photography feel. Technically competent but the least distinctive entry in this set.</p>
                         </div>
                     </div>
 
@@ -547,7 +547,7 @@
                                 <span class="card-model-name">GPT-Image 1.5</span>
                                 <span class="card-gen-time">36.4s</span>
                             </div>
-                            <p class="card-commentary">Extremely appetizing with excellent caramelization on the bun and generous crispy bacon. The melting cheese drips beautifully and the warm lighting creates a cozy atmosphere. The composition is slightly more casual than magazine-perfect but still very compelling.</p>
+                            <p class="card-commentary">Best-in-class execution: the golden brioche bun is deeply toasted, and molten orange cheddar cascades dramatically down the patty while a thick sauce pools on the rustic wooden cutting board. Bacon layers are visibly crispy with rendered edges, and the abundant frilly lettuce adds color contrast. The close-up editorial composition with warm bokeh background and supporting props (fries, drink) achieves top-tier food magazine quality.</p>
                         </div>
                     </div>
                 </div>
@@ -582,7 +582,7 @@
                                 <span class="card-model-name">FLUX.2 Turbo</span>
                                 <span class="card-gen-time">3.0s</span>
                             </div>
-                            <p class="card-commentary">Strong editorial execution with a perfectly centered model in a well-fitted beige trench coat. Haussmannian architecture and wet Parisian streets are clearly rendered with colorful neon reflections. The confident centered pose nails the editorial brief, though the composition feels slightly more commercial than high-fashion artistic.</p>
+                            <p class="card-commentary">A technically solid editorial image with a clear VOGUE watermark: the model wears a perfectly beige, belted oversized trench and stands confidently on a wet Parisian boulevard flanked by shopfronts. Red and blue neon reflections are vivid on the wet pavement, and the urban depth is convincing. The pose is slightly static — front-facing with minimal body language — and the color grading, while competent, lacks the distinctive cinematic warmth or contrast of the top-ranked entries.</p>
                         </div>
                     </div>
 
@@ -599,7 +599,7 @@
                                 <span class="card-model-name">GPT-Image 1.5</span>
                                 <span class="card-gen-time">36.6s</span>
                             </div>
-                            <p class="card-commentary">Exceptional editorial quality with dramatic rain visible, the Eiffel Tower and Brasserie Cafe creating unmistakable Parisian ambiance. The oversized beige trench is beautifully rendered with dynamic movement, and the wet pavement reflections with warm red/orange neon tones create a cinematic Vogue cover aesthetic.</p>
+                            <p class="card-commentary">A standout editorial image rendered at large format with a VOGUE masthead, featuring a beige oversized trench worn open over bare legs — a confident high-fashion choice. The Eiffel Tower anchors the Paris setting while the rain-soaked street blazes with deep red and amber neon reflections; the 3/4 gaze and relaxed hands-in-pockets pose convey exactly the effortless cool expected of a Vogue editorial. Color grading is cinematic with a warm-amber foreground bleeding into deep blue shadows, making this the strongest overall execution of the prompt.</p>
                         </div>
                     </div>
                 </div>
@@ -610,11 +610,11 @@
                         <span class="prompt-number">08</span>
                         <span class="prompt-category">Wildlife</span>
                     </div>
-                    <span class="prompt-winner winner-b">
+                    <span class="prompt-winner winner-a">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
           </svg>
-          GPT-Image wins
+          FLUX.2 Turbo wins
         </span>
                 </div>
 
@@ -624,23 +624,6 @@
                     <div class="comparison-card model-a">
                         <div class="image-container">
                             <img src="/compare/images/flux2-turbo/08-wildlife.png" alt="FLUX.2 Turbo - Wildlife" width="1024" height="1024" loading="lazy">
-                            <span class="result-badge fail">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-                            </span>
-                            
-                        </div>
-                        <div class="card-footer">
-                            <div class="card-header-row">
-                                <span class="card-model-name">FLUX.2 Turbo</span>
-                                <span class="card-gen-time">2.4s</span>
-                            </div>
-                            <p class="card-commentary">Strong photorealistic rendering with beautiful golden backlighting and visible snowfall in the scene. The snow leopard's markings and thick fur are accurately depicted in a confident forward-facing pose. However, the eyes appear more amber/neutral rather than the specified blue-green color.</p>
-                        </div>
-                    </div>
-
-                    <div class="comparison-card model-b">
-                        <div class="image-container">
-                            <img src="/compare/images/gpt-image-1-5/08-wildlife.png" alt="GPT-Image 1.5 - Wildlife" width="1024" height="1024" loading="lazy">
                             <span class="result-badge pass">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
                             </span>
@@ -648,10 +631,27 @@
                         </div>
                         <div class="card-footer">
                             <div class="card-header-row">
+                                <span class="card-model-name">FLUX.2 Turbo</span>
+                                <span class="card-gen-time">2.4s</span>
+                            </div>
+                            <p class="card-commentary">Front-facing resting pose on a rocky ledge with striking teal eyes that dominate the frame; scattered snowflakes catch the warm golden backlighting beautifully. Fur texture is exceptionally crisp with accurate snow-leopard rosette patterning and a thick, plush white chest. The golden hour rim light from behind gives the image a cinematic glow without washing out fine detail.</p>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card model-b">
+                        <div class="image-container">
+                            <img src="/compare/images/gpt-image-1-5/08-wildlife.png" alt="GPT-Image 1.5 - Wildlife" width="1024" height="1024" loading="lazy">
+                            <span class="result-badge fail">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                            </span>
+                            
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-header-row">
                                 <span class="card-model-name">GPT-Image 1.5</span>
                                 <span class="card-gen-time">39.5s</span>
                             </div>
-                            <p class="card-commentary">Beautiful golden hour rendering with prominent snowfall and warm backlighting that bathes the scene in atmospheric light. The snow leopard has accurate markings, blue-tinted eyes, and visible snow accumulation on fur. The mountain setting is well-rendered though slightly dreamier in style compared to photorealistic options.</p>
+                            <p class="card-commentary">A richly lit composition with dramatic orange-gold sky and abundant snowflakes suspended mid-air around a calmly resting snow leopard. The blue-green eyes are vivid and anatomically correct, and the spotted fur carries snow accumulation convincingly. Backlighting is strong and atmospheric, though the composition feels slightly tighter than the very best entry.</p>
                         </div>
                     </div>
                 </div>
@@ -662,11 +662,11 @@
                         <span class="prompt-number">09</span>
                         <span class="prompt-category">Abstract</span>
                     </div>
-                    <span class="prompt-winner winner-a">
+                    <span class="prompt-winner winner-b">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
           </svg>
-          FLUX.2 Turbo wins
+          GPT-Image wins
         </span>
                 </div>
 
@@ -676,23 +676,6 @@
                     <div class="comparison-card model-a">
                         <div class="image-container">
                             <img src="/compare/images/flux2-turbo/09-abstract.png" alt="FLUX.2 Turbo - Abstract" width="1024" height="1024" loading="lazy">
-                            <span class="result-badge pass">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                            </span>
-                            <span class="award-badge gold"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>Winner</span>
-                        </div>
-                        <div class="card-footer">
-                            <div class="card-header-row">
-                                <span class="card-model-name">FLUX.2 Turbo</span>
-                                <span class="card-gen-time">2.2s</span>
-                            </div>
-                            <p class="card-commentary">Strong abstract composition with dynamic swirling patterns and cosmic energy. Good balance of navy blue and gold tones with interesting splatter details. The framed gallery presentation works well. Movement feels slightly more chaotic than elegant, and the smaller image size limits detail appreciation.</p>
-                        </div>
-                    </div>
-
-                    <div class="comparison-card model-b">
-                        <div class="image-container">
-                            <img src="/compare/images/gpt-image-1-5/09-abstract.png" alt="GPT-Image 1.5 - Abstract" width="1024" height="1024" loading="lazy">
                             <span class="result-badge fail">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                             </span>
@@ -700,10 +683,27 @@
                         </div>
                         <div class="card-footer">
                             <div class="card-header-row">
+                                <span class="card-model-name">FLUX.2 Turbo</span>
+                                <span class="card-gen-time">2.2s</span>
+                            </div>
+                            <p class="card-commentary">flux2-turbo delivers an elegant, moody composition hung on a neutral wall, with navy dominating and restrained gold swirls emanating from a central focal point. The organic shapes are graceful and the spiral motion reads clearly. The gold is somewhat muted compared to the top scorers — less metallic sheen — and some blue-grey accents dilute the color contrast, but the overall piece has strong gallery polish and a refined, understated quality.</p>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card model-b">
+                        <div class="image-container">
+                            <img src="/compare/images/gpt-image-1-5/09-abstract.png" alt="GPT-Image 1.5 - Abstract" width="1024" height="1024" loading="lazy">
+                            <span class="result-badge pass">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            </span>
+                            <span class="award-badge gold"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>Winner</span>
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-header-row">
                                 <span class="card-model-name">GPT-Image 1.5</span>
                                 <span class="card-gen-time">34.8s</span>
                             </div>
-                            <p class="card-commentary">Good fluid movement with dramatic swirling composition and strong contrast. Navy blue and gold are present with white accents adding energy. However, it lacks the gallery context presentation and has a more digital/processed appearance. The composition feels more turbulent than refined, reducing the fine art quality.</p>
+                            <p class="card-commentary">gpt-image-1-5 renders a highly painterly oil-on-canvas feel with visible impasto strokes, gold flecks, and two distinct spiral vortices creating strong swirling motion. The navy-black-white palette is more expansive than a strict navy/gold read — significant white areas push away from the prompt slightly — but the fluid texture is the most tactile of any image here. High contrast is achieved through deep darks and bright highlights, and the overall piece has genuine gallery caliber.</p>
                         </div>
                     </div>
                 </div>
@@ -738,7 +738,7 @@
                                 <span class="card-model-name">FLUX.2 Turbo</span>
                                 <span class="card-gen-time">2.2s</span>
                             </div>
-                            <p class="card-commentary">Good rendition with prominent holographic whale/creature displays and flying vehicles between buildings. Rain and wet street reflections are visible, though the overall palette feels more desaturated gray-blue than the vibrant neon typically associated with cyberpunk. The scene feels slightly sterile compared to more atmospheric competitors.</p>
+                            <p class="card-commentary">Solid cyberpunk street scene with a large glowing humanoid figure billboard (holographic-quality), multiple flying vehicles visible mid-air, and wet reflective pavement under atmospheric haze. The muted gray-pink palette feels appropriately gritty and moody. The composition is well-structured but the detail density is lower than the top tier and the image has a slightly compressed, less expansive feel to the skyscraper scale.</p>
                         </div>
                     </div>
 
@@ -755,7 +755,7 @@
                                 <span class="card-model-name">GPT-Image 1.5</span>
                                 <span class="card-gen-time">53.4s</span>
                             </div>
-                            <p class="card-commentary">Exceptional execution with stunning neon-drenched visuals featuring a robot figure, holographic female face, MEGA CORP signage, and a sleek flying vehicle. The rain effects create gorgeous reflections on the wet streets, and the composition feels authentically like a Blade Runner-inspired cyberpunk world with dense visual layering.</p>
+                            <p class="card-commentary">This image achieves maximum prompt saturation: a massive holographic female figure dominates the left billboard, a globe-shaped 'MEGA CORP' ad floats centrally, and a mech-robot billboard anchors the right — all fully holographic in feel. Multiple flying vehicles are clearly airborne mid-scene while heavy visible rain streaks reflect in brilliantly lit, mirror-wet pavement in warm orange-pink-blue neon. The composition radiates from street level outward with tremendous depth and layered atmospheric haze, making it the most cinematically immersive entry.</p>
                         </div>
                     </div>
                 </div>

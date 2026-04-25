@@ -1,0 +1,66 @@
+[
+  {
+    "model_slug": "seedream-v4-5",
+    "prompt_id": "09-abstract",
+    "criteria_passed": ["navy_blue", "gold_metallic", "swirling_motion", "organic_shapes", "high_contrast", "fluid_texture", "gallery_caliber", "composition"],
+    "criteria_failed": [],
+    "quality_score": 9.5,
+    "commentary": "Presented as an actual gallery-hung painting with track lighting and white walls, seedream-v4-5 delivers the most complete interpretation: deep navy blue fields contrast dramatically against luminous, broad-stroke gold forms with visible painterly brushwork. The diagonal swirl from lower-left to upper-right gives the composition tremendous energy, and the near-black shadow zones push contrast to the maximum. Minor iridescent prismatic glints in the gold add interest without feeling accidental."
+  },
+  {
+    "model_slug": "nano-banana-2",
+    "prompt_id": "09-abstract",
+    "criteria_passed": ["navy_blue", "gold_metallic", "swirling_motion", "organic_shapes", "high_contrast", "fluid_texture", "gallery_caliber", "composition"],
+    "criteria_failed": [],
+    "quality_score": 9.0,
+    "commentary": "nano-banana-2 produces the richest, most intricate gold vein work of the set — dense swirling threads of metallic gold branch and pool against a near-black navy ground, evoking a high-end resin-pour or marble painting. The contrast is extreme and consistent across the entire canvas, and the organic complexity of the gold network feels genuinely handcrafted. A gallery context is subtly present in the background; the main weakness is that the sheer density of gold detail edges toward decorative busyness rather than composed fine art."
+  },
+  {
+    "model_slug": "gpt-image-1-5",
+    "prompt_id": "09-abstract",
+    "criteria_passed": ["navy_blue", "gold_metallic", "swirling_motion", "organic_shapes", "high_contrast", "fluid_texture", "gallery_caliber", "composition"],
+    "criteria_failed": [],
+    "quality_score": 8.6,
+    "commentary": "gpt-image-1-5 renders a highly painterly oil-on-canvas feel with visible impasto strokes, gold flecks, and two distinct spiral vortices creating strong swirling motion. The navy-black-white palette is more expansive than a strict navy/gold read — significant white areas push away from the prompt slightly — but the fluid texture is the most tactile of any image here. High contrast is achieved through deep darks and bright highlights, and the overall piece has genuine gallery caliber."
+  },
+  {
+    "model_slug": "flux2-turbo",
+    "prompt_id": "09-abstract",
+    "criteria_passed": ["navy_blue", "gold_metallic", "swirling_motion", "organic_shapes", "high_contrast", "fluid_texture", "gallery_caliber", "composition"],
+    "criteria_failed": [],
+    "quality_score": 8.2,
+    "commentary": "flux2-turbo delivers an elegant, moody composition hung on a neutral wall, with navy dominating and restrained gold swirls emanating from a central focal point. The organic shapes are graceful and the spiral motion reads clearly. The gold is somewhat muted compared to the top scorers — less metallic sheen — and some blue-grey accents dilute the color contrast, but the overall piece has strong gallery polish and a refined, understated quality."
+  },
+  {
+    "model_slug": "z-image-turbo",
+    "prompt_id": "09-abstract",
+    "criteria_passed": ["navy_blue", "gold_metallic", "swirling_motion", "organic_shapes", "high_contrast", "fluid_texture", "composition"],
+    "criteria_failed": ["gallery_caliber"],
+    "quality_score": 7.8,
+    "commentary": "z-image-turbo produces a clean, centered spiral composition with rich navy and warm gold in a marble-fluid style. The radial symmetry from the center creates a strong focal anchor, and the gold has a genuinely metallic quality. The piece lacks a gallery presentation context and the composition's balance, while pleasing, feels somewhat expected and safe; the fluid texture is smooth but lacks painterly depth compared to higher-ranked entries."
+  },
+  {
+    "model_slug": "gpt-image-2",
+    "prompt_id": "09-abstract",
+    "criteria_passed": ["navy_blue", "gold_metallic", "organic_shapes", "high_contrast", "fluid_texture"],
+    "criteria_failed": ["swirling_motion", "gallery_caliber", "composition"],
+    "quality_score": 7.3,
+    "commentary": "gpt-image-2 is technically accurate to the navy-and-gold palette with clean, bright gold veins against vivid cobalt-navy, and the fluid texture is convincing. However, the composition reads as relatively static — the gold flows laterally without strong rotational or swirling energy, and the overall layout feels centered and symmetrical rather than dynamically composed. No gallery context is provided, and the piece feels more like a texture sample than a finished artwork."
+  },
+  {
+    "model_slug": "flux2-klein-9b",
+    "prompt_id": "09-abstract",
+    "criteria_passed": ["navy_blue", "gold_metallic", "swirling_motion", "organic_shapes", "fluid_texture"],
+    "criteria_failed": ["high_contrast", "gallery_caliber", "composition"],
+    "quality_score": 6.9,
+    "commentary": "flux2-klein-9b delivers a competent marble-pattern image with smooth navy-and-gold bands in a classic S-curve arrangement. The execution is clean and the gold is warm and legible, but the composition is predictable and the contrast between blue and gold is moderate rather than high. The piece lacks the drama or visual tension needed for gallery caliber — it reads more as polished decorative art than a statement fine-art work."
+  },
+  {
+    "model_slug": "nano-banana-pro",
+    "prompt_id": "09-abstract",
+    "criteria_passed": ["gold_metallic", "swirling_motion", "organic_shapes", "fluid_texture", "gallery_caliber", "composition"],
+    "criteria_failed": ["navy_blue", "high_contrast"],
+    "quality_score": 6.3,
+    "commentary": "nano-banana-pro is presented in a wide gallery room which lends strong environmental context, and the diagonal flow and organic shapes are well-executed. The critical weakness is color: the dominant blue reads as steel-grey or slate rather than navy, significantly missing the prompt's color specification, and this desaturation also reduces apparent contrast. The gold streaks are bold and warm, but they fight against a grey-blue ground rather than the expected deep navy."
+  }
+]

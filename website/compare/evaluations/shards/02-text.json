@@ -1,0 +1,139 @@
+[
+  {
+    "model_slug": "nano-banana-pro",
+    "prompt_id": "02-text",
+    "criteria_passed": [
+      "spelling_daily_specials",
+      "spelling_espresso",
+      "spelling_cappuccino",
+      "price_3_50",
+      "price_4_75",
+      "handwritten_chalk_style",
+      "wooden_frame",
+      "vintage_feel"
+    ],
+    "criteria_failed": [],
+    "quality_score": 9.4,
+    "commentary": "The most photorealistic and immersive entry: a weathered chalkboard on an easel inside a brick-walled café, with a beautifully aged wooden frame showing peeling paint. All required text is correctly spelled and both prices appear cleanly. Handwritten script and chalk coffee-cup illustrations add warmth without cluttering the required content."
+  },
+  {
+    "model_slug": "gpt-image-1-5",
+    "prompt_id": "02-text",
+    "criteria_passed": [
+      "spelling_daily_specials",
+      "spelling_espresso",
+      "spelling_cappuccino",
+      "price_3_50",
+      "price_4_75",
+      "handwritten_chalk_style",
+      "wooden_frame",
+      "vintage_feel"
+    ],
+    "criteria_failed": [],
+    "quality_score": 9.0,
+    "commentary": "Polished ornate design with elegant chalk-style lettering, decorative scrollwork, and illustrated coffee cups. All spelling and prices are perfect. The dark chalkboard with warm wooden frame and symmetrical composition reads as high-quality vintage café signage; the only minor critique is that the lettering leans slightly typographic rather than truly hand-drawn."
+  },
+  {
+    "model_slug": "gpt-image-2",
+    "prompt_id": "02-text",
+    "criteria_passed": [
+      "spelling_daily_specials",
+      "spelling_espresso",
+      "spelling_cappuccino",
+      "price_3_50",
+      "price_4_75",
+      "handwritten_chalk_style",
+      "wooden_frame",
+      "vintage_feel"
+    ],
+    "criteria_failed": [],
+    "quality_score": 8.5,
+    "commentary": "Genuinely handwritten cursive script gives this the most authentic chalk feel of all entries. The board is set in a warm café environment with plants and shelves visible, and bullet points plus decorative dividers maintain a tidy menu structure. All required text and prices are correct and legible."
+  },
+  {
+    "model_slug": "seedream-v4-5",
+    "prompt_id": "02-text",
+    "criteria_passed": [
+      "spelling_daily_specials",
+      "spelling_espresso",
+      "spelling_cappuccino",
+      "price_3_50",
+      "price_4_75",
+      "handwritten_chalk_style",
+      "wooden_frame",
+      "vintage_feel"
+    ],
+    "criteria_failed": [],
+    "quality_score": 8.2,
+    "commentary": "Clean and natural handwritten chalk text with a horizontal rule under the header; wooden frame edges with visible wood grain are authentic. Warm ambient side-lighting adds realism. All spelling and prices are correct. The composition is straightforward but the genuine chalk texture and realistic framing make it stand out as believable signage."
+  },
+  {
+    "model_slug": "flux2-turbo",
+    "prompt_id": "02-text",
+    "criteria_passed": [
+      "spelling_daily_specials",
+      "spelling_espresso",
+      "spelling_cappuccino",
+      "price_3_50",
+      "price_4_75",
+      "handwritten_chalk_style",
+      "wooden_frame",
+      "vintage_feel"
+    ],
+    "criteria_failed": [],
+    "quality_score": 7.7,
+    "commentary": "All text is correct and the rustic wooden frame is convincing, with a real café setting glimpsed around the board (coffee grinder visible at lower left). The chalk lettering has a slightly informal, hand-done quality that suits the brief. The composition is a bit tighter and less decorative than the top-ranked images but is functionally strong."
+  },
+  {
+    "model_slug": "flux2-klein-9b",
+    "prompt_id": "02-text",
+    "criteria_passed": [
+      "spelling_daily_specials",
+      "spelling_espresso",
+      "spelling_cappuccino",
+      "price_3_50",
+      "price_4_75",
+      "handwritten_chalk_style",
+      "wooden_frame",
+      "vintage_feel"
+    ],
+    "criteria_failed": [],
+    "quality_score": 7.3,
+    "commentary": "All spelling and prices are correct, and the chalk lettering is readable and reasonably handwritten. The wooden frame is present and the warm, slightly faded background conveys a vintage café atmosphere. The image lacks decorative flourishes or scene context, making it functional but less visually rich than higher-ranked entries."
+  },
+  {
+    "model_slug": "z-image-turbo",
+    "prompt_id": "02-text",
+    "criteria_passed": [
+      "spelling_daily_specials",
+      "spelling_espresso",
+      "spelling_cappuccino",
+      "price_3_50",
+      "price_4_75",
+      "wooden_frame",
+      "vintage_feel"
+    ],
+    "criteria_failed": [
+      "handwritten_chalk_style"
+    ],
+    "quality_score": 6.9,
+    "commentary": "All required text and prices are present and correctly spelled. The board is mounted on a dark wooden plank wall with a matching wooden frame. However the lettering reads as a clean printed or stenciled font rather than genuine chalk handwriting, which undermines the core brief. Minimal decoration and no café environment context limit the atmosphere."
+  },
+  {
+    "model_slug": "nano-banana-2",
+    "prompt_id": "02-text",
+    "criteria_passed": [
+      "spelling_daily_specials",
+      "spelling_espresso",
+      "spelling_cappuccino",
+      "price_3_50",
+      "price_4_75",
+      "handwritten_chalk_style",
+      "wooden_frame",
+      "vintage_feel"
+    ],
+    "criteria_failed": [],
+    "quality_score": 6.2,
+    "commentary": "The required items (Espresso $3.50, Cappuccino $4.75) are present and correctly spelled, but the model hallucinated four additional unrequested menu items (Latte $5.00, Flat White $4.50, Mocha $5.50, Croissants $3.75), making the board overcrowded and departing from the specific prompt. The chalk artistry and café scene are attractive, but generating content beyond the brief is a meaningful prompt-adherence failure."
+  }
+]

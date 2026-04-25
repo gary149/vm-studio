@@ -105,7 +105,7 @@
                 "name": "Which is better, FLUX.2 Turbo or FLUX.2 Klein 9B?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "In our 10-prompt benchmark, FLUX.2 Klein 9B won 3-7. FLUX.2 Turbo offers balanced performance, while FLUX.2 Klein 9B excels at faster generation and better photorealism and better text rendering."
+                    "text": "In our 10-prompt benchmark, it was a tie at 5-5. FLUX.2 Turbo excels at better text rendering, while FLUX.2 Klein 9B excels at faster generation and better photorealism."
                 }
             },
             {
@@ -198,20 +198,20 @@
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M0 20.683L12.01 2.5 24 20.683h-2.233L12.009 5.878 3.471 18.806h12.122l1.239 1.877H0z"/></svg>
                             FLUX.2 Turbo
                         </span>
-                        <span class="verdict-strength">Balanced performance</span>
+                        <span class="verdict-strength">Better text rendering</span>
                     </div>
                     <div class="verdict-model">
                         <span class="model-badge model-b">
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M0 20.683L12.01 2.5 24 20.683h-2.233L12.009 5.878 3.471 18.806h12.122l1.239 1.877H0z"/></svg>
                             FLUX.2 Klein 9B
                         </span>
-                        <span class="verdict-strength">Faster generation, Better photorealism, Better text rendering</span>
+                        <span class="verdict-strength">Faster generation, Better photorealism</span>
                     </div>
                 </div>
                 <div class="verdict-stats-bar">
                     <div class="stat-item">
                         <span class="stat-label">Winner Score</span>
-                        <span class="stat-value">3-7 <span class="winner-b">(FLUX.2 Klein)</span></span>
+                        <span class="stat-value">5-5 </span>
                     </div>
                     <div class="stat-item">
                         <span class="stat-label">Avg Speed</span>
@@ -223,7 +223,7 @@
                     </div>
                     <div class="stat-item">
                         <span class="stat-label">Best at Text</span>
-                        <span class="stat-value winner-b">FLUX.2 Klein</span>
+                        <span class="stat-value winner-a">FLUX.2 Turbo</span>
                     </div>
                     <div class="stat-item">
                         <span class="stat-label">Best at Photos</span>
@@ -270,7 +270,7 @@
                                 <span class="card-model-name">FLUX.2 Turbo</span>
                                 <span class="card-gen-time">3.1s</span>
                             </div>
-                            <p class="card-commentary">Highly realistic portrait with excellent freckle rendering that appears very natural. The auburn hair color is vibrant and accurate, and the navy blazer is well-rendered. Window lighting from the left creates pleasing soft shadows. However, the subject appears slightly older than 35, closer to early 40s, which affects age accuracy.</p>
+                            <p class="card-commentary">All major prompt elements are present: auburn hair, freckles, navy blazer, and soft lateral window light. The rendering is slightly softer overall — fine skin details are less resolved than in the top tier images and the image has a somewhat muted contrast compared to peers. The composition is competent but the blurred background blends neutrally rather than anchoring the environmental context. Age reads slightly older at perhaps 38-43.</p>
                         </div>
                     </div>
 
@@ -287,7 +287,7 @@
                                 <span class="card-model-name">FLUX.2 Klein 9B</span>
                                 <span class="card-gen-time">1.9s</span>
                             </div>
-                            <p class="card-commentary">Exceptional photorealistic quality with natural skin texture showing pores and subtle imperfections. Freckles are clearly visible and naturally distributed across the face. The navy blazer with white blouse is perfectly rendered, soft window lighting creates beautiful catchlights in the eyes, and the shallow depth of field with blurred background is professionally executed.</p>
+                            <p class="card-commentary">A highly polished professional headshot with vivid auburn hair, a well-fitted navy blazer, and clearly visible freckles across the nose bridge. The background shows a blurred window and greenery, providing strong environmental support for the window-lighting requirement. Skin rendering is smooth yet realistic, and the three-quarter gaze into camera gives the image a confident, editorial presence.</p>
                         </div>
                     </div>
                 </div>
@@ -298,11 +298,11 @@
                         <span class="prompt-number">02</span>
                         <span class="prompt-category">Text Rendering</span>
                     </div>
-                    <span class="prompt-winner winner-b">
+                    <span class="prompt-winner winner-a">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
           </svg>
-          FLUX.2 Klein wins
+          FLUX.2 Turbo wins
         </span>
                 </div>
 
@@ -312,23 +312,6 @@
                     <div class="comparison-card model-a">
                         <div class="image-container">
                             <img src="/compare/images/flux2-turbo/02-text.png" alt="FLUX.2 Turbo - Text Rendering" width="1024" height="1024" loading="lazy">
-                            <span class="result-badge fail">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-                            </span>
-                            
-                        </div>
-                        <div class="card-footer">
-                            <div class="card-header-row">
-                                <span class="card-model-name">FLUX.2 Turbo</span>
-                                <span class="card-gen-time">2.1s</span>
-                            </div>
-                            <p class="card-commentary">Text is correctly rendered: 'DAILY SPECIALS', 'Espresso $3.50', and 'Cappuccino $4.75' all spelled accurately. Good chalkboard aesthetic with decorative underline and a rustic wooden frame. Slightly less polished presentation than top-tier models but solid text accuracy.</p>
-                        </div>
-                    </div>
-
-                    <div class="comparison-card model-b">
-                        <div class="image-container">
-                            <img src="/compare/images/flux2-klein-9b/02-text.png" alt="FLUX.2 Klein 9B - Text Rendering" width="1024" height="1024" loading="lazy">
                             <span class="result-badge pass">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
                             </span>
@@ -336,10 +319,27 @@
                         </div>
                         <div class="card-footer">
                             <div class="card-header-row">
+                                <span class="card-model-name">FLUX.2 Turbo</span>
+                                <span class="card-gen-time">2.1s</span>
+                            </div>
+                            <p class="card-commentary">All text is correct and the rustic wooden frame is convincing, with a real café setting glimpsed around the board (coffee grinder visible at lower left). The chalk lettering has a slightly informal, hand-done quality that suits the brief. The composition is a bit tighter and less decorative than the top-ranked images but is functionally strong.</p>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card model-b">
+                        <div class="image-container">
+                            <img src="/compare/images/flux2-klein-9b/02-text.png" alt="FLUX.2 Klein 9B - Text Rendering" width="1024" height="1024" loading="lazy">
+                            <span class="result-badge fail">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                            </span>
+                            
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-header-row">
                                 <span class="card-model-name">FLUX.2 Klein 9B</span>
                                 <span class="card-gen-time">1.5s</span>
                             </div>
-                            <p class="card-commentary">All text is correctly spelled: 'DAILY SPECIALS', 'Espresso $3.50', and 'Cappuccino $4.75'. The chalkboard has a weathered, authentic look with a rustic wooden frame. Text is clear and legible, though the overall presentation is slightly more basic than competitors.</p>
+                            <p class="card-commentary">All spelling and prices are correct, and the chalk lettering is readable and reasonably handwritten. The wooden frame is present and the warm, slightly faded background conveys a vintage café atmosphere. The image lacks decorative flourishes or scene context, making it functional but less visually rich than higher-ranked entries.</p>
                         </div>
                     </div>
                 </div>
@@ -374,7 +374,7 @@
                                 <span class="card-model-name">FLUX.2 Turbo</span>
                                 <span class="card-gen-time">3.3s</span>
                             </div>
-                            <p class="card-commentary">Clean, studio-quality product shot with excellent glass transparency and accurate amber liquid coloring. The spotlight effect on the marble creates an elegant circular highlight that draws focus to the product. The marble veining is subtle but realistic. While the image lacks strong rim lighting (the edge glow is minimal), the overall commercial quality remains high with good minimalist composition.</p>
+                            <p class="card-commentary">Clear rectangular flacon with amber liquid on a white marble surface is correctly rendered, but the dominant compositional choice — a theatrical overhead spotlight creating a cone of light on the marble — is unconventional and works against the minimalist product photography brief. Rim lighting on the bottle itself is weak and diffuse rather than dramatic, and surface reflections are absent. The spotlight effect is creative but misaligned with the prompt's intent, placing this entry at the bottom of the ranking.</p>
                         </div>
                     </div>
 
@@ -391,7 +391,7 @@
                                 <span class="card-model-name">FLUX.2 Klein 9B</span>
                                 <span class="card-gen-time">1.5s</span>
                             </div>
-                            <p class="card-commentary">Beautiful product photography with strong directional lighting that creates dramatic shadows and highlights. The glass bottle shows excellent transparency with visible light refraction. The amber liquid has rich, warm tones. The marble surface features realistic veining and good reflectivity. The composition is clean and professional with elegant proportions suitable for commercial use.</p>
+                            <p class="card-commentary">Clean rectangular flacon with a crystal-and-gold spray cap stands on white marble with visible gray veining, lit by crisp side lighting that creates well-defined rim highlights on both vertical edges. The amber liquid is rich and the marble reflections are clean. The composition is slightly conventional compared to the top-ranked entries, but technical execution is solid and would pass commercial review.</p>
                         </div>
                     </div>
                 </div>
@@ -426,7 +426,7 @@
                                 <span class="card-model-name">FLUX.2 Turbo</span>
                                 <span class="card-gen-time">2.2s</span>
                             </div>
-                            <p class="card-commentary">Strong floor-to-ceiling windows with an impressive city skyline, but the lighting reads more as twilight/early evening rather than characteristic golden-hour dusk tones. The polished concrete floors have excellent reflective quality, and the white sectional is well-executed. Overall very realistic but missing the warm dusk color palette.</p>
+                            <p class="card-commentary">Corner glass walls reach ceiling height and the dusk skyline is clearly visible in pinkish twilight tones. White sectional and polished concrete floor are both present and correctly rendered. The overall image is competent but lacks the atmospheric lighting drama and fine-detail polish of the top contenders — ambient illumination feels uniform and the composition is less engaging.</p>
                         </div>
                     </div>
 
@@ -443,7 +443,7 @@
                                 <span class="card-model-name">FLUX.2 Klein 9B</span>
                                 <span class="card-gen-time">1.5s</span>
                             </div>
-                            <p class="card-commentary">Excellent floor-to-ceiling corner windows with a gorgeous sunset gradient over the city skyline. The large U-shaped white sectional dominates the space appropriately, and concrete floors are well-rendered. The minimalist aesthetic is strong, though the composition feels slightly more sterile than aspirational. Very clean execution overall.</p>
+                            <p class="card-commentary">Generous U-shaped white sectional fills a clean minimalist room with corner floor-to-ceiling windows showing a pink-orange dusk skyline. The space is very tidy and compositionally balanced, with visible polished concrete and only a small round coffee table as accent. The image reads slightly flat in terms of depth cues and artistic staging compared to higher-ranked entries.</p>
                         </div>
                     </div>
                 </div>
@@ -478,7 +478,7 @@
                                 <span class="card-model-name">FLUX.2 Turbo</span>
                                 <span class="card-gen-time">2.5s</span>
                             </div>
-                            <p class="card-commentary">Well-executed fantasy warrior with very prominent pointed ears and ethereal appearance. The silver-toned armor has a unique spiked shoulder design, and the white cape flows naturally. The bright glowing blue sword is excellently rendered, and the mystical forest with floating particles creates strong atmosphere. Full-body composition is well balanced.</p>
+                            <p class="card-commentary">Square-format illustration of an androgynous elven warrior (sharply pointed ears, pale complexion, white hair) in silver spiked armor with a silver-grey flowing cape and a bright blue sword. Colorful magical particles (blue, purple, pink) enhance the mystical quality of the forest setting. The cape reads as silver-grey rather than white, and the illustration flatness is slightly more apparent than in photorealistic competitors, but the character design and particle variety are distinctive strengths.</p>
                         </div>
                     </div>
 
@@ -495,7 +495,7 @@
                                 <span class="card-model-name">FLUX.2 Klein 9B</span>
                                 <span class="card-gen-time">1.5s</span>
                             </div>
-                            <p class="card-commentary">Good elven warrior depiction with clearly visible pointed ears and white hair. The silver armor is cleanly rendered and the white cape flows behind the figure. The glowing blue sword is well done with good luminosity. The twisted tree forest creates atmosphere, but the overall composition feels slightly more illustrative than epic, with a more static pose.</p>
+                            <p class="card-commentary">Illustration-style render in a smaller square format showing a female elf (pointed ears, white hair) in silver plate armor with a white cape and blue glowing sword held forward. The ancient forest background includes faint blue sparkles. All core prompt elements are present and coherent, but the illustration style is noticeably flatter and less detailed than peer entries — armor texturing lacks depth and the particle effects are sparse.</p>
                         </div>
                     </div>
                 </div>
@@ -506,11 +506,11 @@
                         <span class="prompt-number">06</span>
                         <span class="prompt-category">Food</span>
                     </div>
-                    <span class="prompt-winner winner-a">
+                    <span class="prompt-winner winner-b">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
           </svg>
-          FLUX.2 Turbo wins
+          FLUX.2 Klein wins
         </span>
                 </div>
 
@@ -520,23 +520,6 @@
                     <div class="comparison-card model-a">
                         <div class="image-container">
                             <img src="/compare/images/flux2-turbo/06-food.png" alt="FLUX.2 Turbo - Food" width="1024" height="1024" loading="lazy">
-                            <span class="result-badge pass">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                            </span>
-                            <span class="award-badge gold"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>Winner</span>
-                        </div>
-                        <div class="card-footer">
-                            <div class="card-header-row">
-                                <span class="card-model-name">FLUX.2 Turbo</span>
-                                <span class="card-gen-time">2.8s</span>
-                            </div>
-                            <p class="card-commentary">Solid execution with a nice golden brioche bun and good cheese drip effect. The lettuce is fresh and vibrant, and bacon texture is visible. The composition is somewhat plain compared to others, missing the extra styling elements that make it magazine-worthy.</p>
-                        </div>
-                    </div>
-
-                    <div class="comparison-card model-b">
-                        <div class="image-container">
-                            <img src="/compare/images/flux2-klein-9b/06-food.png" alt="FLUX.2 Klein 9B - Food" width="1024" height="1024" loading="lazy">
                             <span class="result-badge fail">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                             </span>
@@ -544,10 +527,27 @@
                         </div>
                         <div class="card-footer">
                             <div class="card-header-row">
+                                <span class="card-model-name">FLUX.2 Turbo</span>
+                                <span class="card-gen-time">2.8s</span>
+                            </div>
+                            <p class="card-commentary">Adequate burger composition with visible melting cheddar, crispy bacon, and fresh lettuce on a wooden board; the warm shallow-focus background gives some editorial character. The sesame-seeded bun reads as a standard burger bun rather than a brioche, and the overall lighting is soft and slightly flat, reducing the premium food-photography feel. Technically competent but the least distinctive entry in this set.</p>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card model-b">
+                        <div class="image-container">
+                            <img src="/compare/images/flux2-klein-9b/06-food.png" alt="FLUX.2 Klein 9B - Food" width="1024" height="1024" loading="lazy">
+                            <span class="result-badge pass">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            </span>
+                            <span class="award-badge gold"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>Winner</span>
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-header-row">
                                 <span class="card-model-name">FLUX.2 Klein 9B</span>
                                 <span class="card-gen-time">1.4s</span>
                             </div>
-                            <p class="card-commentary">The burger itself looks appealing with dramatic cheese drip, but the image is significantly marred by nonsensical AI-generated text overlaid on top, reading 'SURONDORX' and gibberish text. This completely ruins the magazine-quality aesthetic and makes it unsuitable for professional use.</p>
+                            <p class="card-commentary">Strong food photography execution with warm editorial lighting and a beautiful cheddar melt cascading across the bun and patty; crispy bacon strips and fresh lettuce are clearly present, and the wooden board is well-integrated. A decorative magazine-cover text overlay (non-obstructive) frames the image, reinforcing the editorial intent. Loses a few points relative to the top tier for the overlay and slightly less compositional depth.</p>
                         </div>
                     </div>
                 </div>
@@ -558,11 +558,11 @@
                         <span class="prompt-number">07</span>
                         <span class="prompt-category">Fashion</span>
                     </div>
-                    <span class="prompt-winner winner-a">
+                    <span class="prompt-winner winner-b">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
           </svg>
-          FLUX.2 Turbo wins
+          FLUX.2 Klein wins
         </span>
                 </div>
 
@@ -572,23 +572,6 @@
                     <div class="comparison-card model-a">
                         <div class="image-container">
                             <img src="/compare/images/flux2-turbo/07-fashion.png" alt="FLUX.2 Turbo - Fashion" width="1024" height="1024" loading="lazy">
-                            <span class="result-badge pass">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                            </span>
-                            <span class="award-badge gold"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>Winner</span>
-                        </div>
-                        <div class="card-footer">
-                            <div class="card-header-row">
-                                <span class="card-model-name">FLUX.2 Turbo</span>
-                                <span class="card-gen-time">3.0s</span>
-                            </div>
-                            <p class="card-commentary">Strong editorial execution with a perfectly centered model in a well-fitted beige trench coat. Haussmannian architecture and wet Parisian streets are clearly rendered with colorful neon reflections. The confident centered pose nails the editorial brief, though the composition feels slightly more commercial than high-fashion artistic.</p>
-                        </div>
-                    </div>
-
-                    <div class="comparison-card model-b">
-                        <div class="image-container">
-                            <img src="/compare/images/flux2-klein-9b/07-fashion.png" alt="FLUX.2 Klein 9B - Fashion" width="1024" height="1024" loading="lazy">
                             <span class="result-badge fail">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                             </span>
@@ -596,10 +579,27 @@
                         </div>
                         <div class="card-footer">
                             <div class="card-header-row">
+                                <span class="card-model-name">FLUX.2 Turbo</span>
+                                <span class="card-gen-time">3.0s</span>
+                            </div>
+                            <p class="card-commentary">A technically solid editorial image with a clear VOGUE watermark: the model wears a perfectly beige, belted oversized trench and stands confidently on a wet Parisian boulevard flanked by shopfronts. Red and blue neon reflections are vivid on the wet pavement, and the urban depth is convincing. The pose is slightly static — front-facing with minimal body language — and the color grading, while competent, lacks the distinctive cinematic warmth or contrast of the top-ranked entries.</p>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card model-b">
+                        <div class="image-container">
+                            <img src="/compare/images/flux2-klein-9b/07-fashion.png" alt="FLUX.2 Klein 9B - Fashion" width="1024" height="1024" loading="lazy">
+                            <span class="result-badge pass">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            </span>
+                            <span class="award-badge gold"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>Winner</span>
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-header-row">
                                 <span class="card-model-name">FLUX.2 Klein 9B</span>
                                 <span class="card-gen-time">1.3s</span>
                             </div>
-                            <p class="card-commentary">Good execution of all core elements with rainbow neon reflections on wet pavement and clear night setting. The trench coat and model pose are well-rendered. However, the composition feels slightly more documentary than high-fashion editorial, and the overall lighting lacks the dramatic, polished quality of a Vogue shoot.</p>
+                            <p class="card-commentary">A clean, confident editorial frame: the model stands centered in a Parisian canyon street, wearing a long beige double-breasted trench over a black turtleneck, her upright posture and direct gaze projecting high-fashion authority. Multi-colored neon signs (including a prominent VARLE sign) cast rainbow reflections across rain-drenched cobblestones, with shop fronts and parked cars providing convincing urban depth. The color grading is cool and controlled, though slightly restrained in atmosphere compared to the top two entries.</p>
                         </div>
                     </div>
                 </div>
@@ -610,11 +610,11 @@
                         <span class="prompt-number">08</span>
                         <span class="prompt-category">Wildlife</span>
                     </div>
-                    <span class="prompt-winner winner-b">
+                    <span class="prompt-winner winner-a">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
           </svg>
-          FLUX.2 Klein wins
+          FLUX.2 Turbo wins
         </span>
                 </div>
 
@@ -624,23 +624,6 @@
                     <div class="comparison-card model-a">
                         <div class="image-container">
                             <img src="/compare/images/flux2-turbo/08-wildlife.png" alt="FLUX.2 Turbo - Wildlife" width="1024" height="1024" loading="lazy">
-                            <span class="result-badge fail">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-                            </span>
-                            
-                        </div>
-                        <div class="card-footer">
-                            <div class="card-header-row">
-                                <span class="card-model-name">FLUX.2 Turbo</span>
-                                <span class="card-gen-time">2.4s</span>
-                            </div>
-                            <p class="card-commentary">Strong photorealistic rendering with beautiful golden backlighting and visible snowfall in the scene. The snow leopard's markings and thick fur are accurately depicted in a confident forward-facing pose. However, the eyes appear more amber/neutral rather than the specified blue-green color.</p>
-                        </div>
-                    </div>
-
-                    <div class="comparison-card model-b">
-                        <div class="image-container">
-                            <img src="/compare/images/flux2-klein-9b/08-wildlife.png" alt="FLUX.2 Klein 9B - Wildlife" width="1024" height="1024" loading="lazy">
                             <span class="result-badge pass">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
                             </span>
@@ -648,10 +631,27 @@
                         </div>
                         <div class="card-footer">
                             <div class="card-header-row">
+                                <span class="card-model-name">FLUX.2 Turbo</span>
+                                <span class="card-gen-time">2.4s</span>
+                            </div>
+                            <p class="card-commentary">Front-facing resting pose on a rocky ledge with striking teal eyes that dominate the frame; scattered snowflakes catch the warm golden backlighting beautifully. Fur texture is exceptionally crisp with accurate snow-leopard rosette patterning and a thick, plush white chest. The golden hour rim light from behind gives the image a cinematic glow without washing out fine detail.</p>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card model-b">
+                        <div class="image-container">
+                            <img src="/compare/images/flux2-klein-9b/08-wildlife.png" alt="FLUX.2 Klein 9B - Wildlife" width="1024" height="1024" loading="lazy">
+                            <span class="result-badge fail">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                            </span>
+                            
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-header-row">
                                 <span class="card-model-name">FLUX.2 Klein 9B</span>
                                 <span class="card-gen-time">1.5s</span>
                             </div>
-                            <p class="card-commentary">Photorealistic quality with accurate snow leopard anatomy and beautiful golden hour lighting creating warm rim effects. The blue-green eyes are visible and the spotted coat pattern is correct. The rocky ledge and mountain backdrop are well-executed, though snowflakes on fur are minimal to absent.</p>
+                            <p class="card-commentary">Solid prompt adherence with the leopard resting on a snow-dusted ledge and warm golden side-light from behind illuminating the mountain backdrop. Eyes have a cool blue-teal tone and spotting is anatomically plausible. The overall image is competent but lacks the dramatic lighting intensity or compositional ambition seen in the top-ranked images, resulting in a pleasant but less memorable execution.</p>
                         </div>
                     </div>
                 </div>
@@ -662,11 +662,11 @@
                         <span class="prompt-number">09</span>
                         <span class="prompt-category">Abstract</span>
                     </div>
-                    <span class="prompt-winner winner-b">
+                    <span class="prompt-winner winner-a">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
           </svg>
-          FLUX.2 Klein wins
+          FLUX.2 Turbo wins
         </span>
                 </div>
 
@@ -676,23 +676,6 @@
                     <div class="comparison-card model-a">
                         <div class="image-container">
                             <img src="/compare/images/flux2-turbo/09-abstract.png" alt="FLUX.2 Turbo - Abstract" width="1024" height="1024" loading="lazy">
-                            <span class="result-badge fail">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-                            </span>
-                            
-                        </div>
-                        <div class="card-footer">
-                            <div class="card-header-row">
-                                <span class="card-model-name">FLUX.2 Turbo</span>
-                                <span class="card-gen-time">2.2s</span>
-                            </div>
-                            <p class="card-commentary">Strong abstract composition with dynamic swirling patterns and cosmic energy. Good balance of navy blue and gold tones with interesting splatter details. The framed gallery presentation works well. Movement feels slightly more chaotic than elegant, and the smaller image size limits detail appreciation.</p>
-                        </div>
-                    </div>
-
-                    <div class="comparison-card model-b">
-                        <div class="image-container">
-                            <img src="/compare/images/flux2-klein-9b/09-abstract.png" alt="FLUX.2 Klein 9B - Abstract" width="1024" height="1024" loading="lazy">
                             <span class="result-badge pass">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
                             </span>
@@ -700,10 +683,27 @@
                         </div>
                         <div class="card-footer">
                             <div class="card-header-row">
+                                <span class="card-model-name">FLUX.2 Turbo</span>
+                                <span class="card-gen-time">2.2s</span>
+                            </div>
+                            <p class="card-commentary">flux2-turbo delivers an elegant, moody composition hung on a neutral wall, with navy dominating and restrained gold swirls emanating from a central focal point. The organic shapes are graceful and the spiral motion reads clearly. The gold is somewhat muted compared to the top scorers — less metallic sheen — and some blue-grey accents dilute the color contrast, but the overall piece has strong gallery polish and a refined, understated quality.</p>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card model-b">
+                        <div class="image-container">
+                            <img src="/compare/images/flux2-klein-9b/09-abstract.png" alt="FLUX.2 Klein 9B - Abstract" width="1024" height="1024" loading="lazy">
+                            <span class="result-badge fail">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                            </span>
+                            
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-header-row">
                                 <span class="card-model-name">FLUX.2 Klein 9B</span>
                                 <span class="card-gen-time">1.4s</span>
                             </div>
-                            <p class="card-commentary">Bold and striking composition with excellent swirling movement. The deep navy blue background provides strong contrast against bright gold flowing forms. Clean framed presentation feels gallery-ready. The organic curves are elegant and continuous. Slightly more graphic/illustrative quality compared to more painterly entries.</p>
+                            <p class="card-commentary">flux2-klein-9b delivers a competent marble-pattern image with smooth navy-and-gold bands in a classic S-curve arrangement. The execution is clean and the gold is warm and legible, but the composition is predictable and the contrast between blue and gold is moderate rather than high. The piece lacks the drama or visual tension needed for gallery caliber — it reads more as polished decorative art than a statement fine-art work.</p>
                         </div>
                     </div>
                 </div>
@@ -714,11 +714,11 @@
                         <span class="prompt-number">10</span>
                         <span class="prompt-category">Sci-Fi</span>
                     </div>
-                    <span class="prompt-winner winner-b">
+                    <span class="prompt-winner winner-a">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
           </svg>
-          FLUX.2 Klein wins
+          FLUX.2 Turbo wins
         </span>
                 </div>
 
@@ -728,23 +728,6 @@
                     <div class="comparison-card model-a">
                         <div class="image-container">
                             <img src="/compare/images/flux2-turbo/10-scifi.png" alt="FLUX.2 Turbo - Sci-Fi" width="1024" height="1024" loading="lazy">
-                            <span class="result-badge fail">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-                            </span>
-                            
-                        </div>
-                        <div class="card-footer">
-                            <div class="card-header-row">
-                                <span class="card-model-name">FLUX.2 Turbo</span>
-                                <span class="card-gen-time">2.2s</span>
-                            </div>
-                            <p class="card-commentary">Good rendition with prominent holographic whale/creature displays and flying vehicles between buildings. Rain and wet street reflections are visible, though the overall palette feels more desaturated gray-blue than the vibrant neon typically associated with cyberpunk. The scene feels slightly sterile compared to more atmospheric competitors.</p>
-                        </div>
-                    </div>
-
-                    <div class="comparison-card model-b">
-                        <div class="image-container">
-                            <img src="/compare/images/flux2-klein-9b/10-scifi.png" alt="FLUX.2 Klein 9B - Sci-Fi" width="1024" height="1024" loading="lazy">
                             <span class="result-badge pass">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
                             </span>
@@ -752,10 +735,27 @@
                         </div>
                         <div class="card-footer">
                             <div class="card-header-row">
+                                <span class="card-model-name">FLUX.2 Turbo</span>
+                                <span class="card-gen-time">2.2s</span>
+                            </div>
+                            <p class="card-commentary">Solid cyberpunk street scene with a large glowing humanoid figure billboard (holographic-quality), multiple flying vehicles visible mid-air, and wet reflective pavement under atmospheric haze. The muted gray-pink palette feels appropriately gritty and moody. The composition is well-structured but the detail density is lower than the top tier and the image has a slightly compressed, less expansive feel to the skyscraper scale.</p>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card model-b">
+                        <div class="image-container">
+                            <img src="/compare/images/flux2-klein-9b/10-scifi.png" alt="FLUX.2 Klein 9B - Sci-Fi" width="1024" height="1024" loading="lazy">
+                            <span class="result-badge fail">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                            </span>
+                            
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-header-row">
                                 <span class="card-model-name">FLUX.2 Klein 9B</span>
                                 <span class="card-gen-time">1.4s</span>
                             </div>
-                            <p class="card-commentary">Solid cyberpunk scene with large holographic face advertisements, multiple flying vehicles, and good wet street reflections. The misty atmosphere adds depth, though the overall color palette leans more muted with pink/purple accents. Composition is well-balanced with clear visual hierarchy between elements.</p>
+                            <p class="card-commentary">Wide-angle street corridor with large portrait-face billboard ads in blue-purple tones, several flying craft visible above the road, and wet pavement with neon reflections. The composition is clean and covers all prompt elements, but the execution feels somewhat flatter and less atmospheric than flux2-turbo — less rain haze, less surface grime, and the billboard ads feel more like standard screens than immersive holographic displays. Good baseline execution without outstanding artistic distinction.</p>
                         </div>
                     </div>
                 </div>

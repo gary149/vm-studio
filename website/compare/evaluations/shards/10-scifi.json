@@ -1,0 +1,139 @@
+[
+  {
+    "model_slug": "gpt-image-1-5",
+    "prompt_id": "10-scifi",
+    "criteria_passed": [
+      "cyberpunk_atmosphere",
+      "holographic_ads",
+      "flying_vehicles",
+      "towering_skyscrapers",
+      "rain_slicked_streets",
+      "neon_reflections",
+      "night_lighting",
+      "scene_depth"
+    ],
+    "criteria_failed": [],
+    "quality_score": 9.5,
+    "commentary": "This image achieves maximum prompt saturation: a massive holographic female figure dominates the left billboard, a globe-shaped 'MEGA CORP' ad floats centrally, and a mech-robot billboard anchors the right — all fully holographic in feel. Multiple flying vehicles are clearly airborne mid-scene while heavy visible rain streaks reflect in brilliantly lit, mirror-wet pavement in warm orange-pink-blue neon. The composition radiates from street level outward with tremendous depth and layered atmospheric haze, making it the most cinematically immersive entry."
+  },
+  {
+    "model_slug": "nano-banana-2",
+    "prompt_id": "10-scifi",
+    "criteria_passed": [
+      "cyberpunk_atmosphere",
+      "holographic_ads",
+      "flying_vehicles",
+      "towering_skyscrapers",
+      "rain_slicked_streets",
+      "neon_reflections",
+      "night_lighting",
+      "scene_depth"
+    ],
+    "criteria_failed": [],
+    "quality_score": 9.0,
+    "commentary": "Exceptional detail density across every layer: the 'NEO-TOKYO CYBERNETICS' anime-figure billboard, 'SYNTH CORP', 'DATA NET', 'RAMEN HOUSE 24H', 'NOODLE BAR', and 'ARCADE' signs create a lived-in cyberpunk ecosystem. Multiple flying craft are distributed at different altitudes, and the wet streets carry vivid cyan-magenta neon reflections. The scene reads as a complete, believable mega-city with tremendous vertical scale and atmospheric rain haze."
+  },
+  {
+    "model_slug": "nano-banana-pro",
+    "prompt_id": "10-scifi",
+    "criteria_passed": [
+      "cyberpunk_atmosphere",
+      "holographic_ads",
+      "flying_vehicles",
+      "towering_skyscrapers",
+      "rain_slicked_streets",
+      "neon_reflections",
+      "night_lighting",
+      "scene_depth"
+    ],
+    "criteria_failed": [],
+    "quality_score": 8.4,
+    "commentary": "A beautifully rendered Neo-Tokyo boulevard with 'NEO-TOKYO' and 'CYBER-RAMEN' large-format billboard ads, umbrella-carrying pedestrians in falling rain, and at least three clearly visible flying vehicles at mid-height. The deep-blue palette with warm accent lighting is polished and cohesive, and the rain-slicked pavement carries strong neon reflections. Slightly less raw visual density than the top tier, but composition, scale, and technical execution are excellent."
+  },
+  {
+    "model_slug": "gpt-image-2",
+    "prompt_id": "10-scifi",
+    "criteria_passed": [
+      "cyberpunk_atmosphere",
+      "holographic_ads",
+      "flying_vehicles",
+      "towering_skyscrapers",
+      "rain_slicked_streets",
+      "neon_reflections",
+      "night_lighting",
+      "scene_depth"
+    ],
+    "criteria_failed": [],
+    "quality_score": 8.1,
+    "commentary": "Dense urban canyon with a glowing blue-face portrait billboard, 'CYBERNETICS' signage, Japanese kanji ads, and multiple flying vehicles threading between towers. The blue-purple-pink palette is richly atmospheric and the wet street catches strong neon reflections with visible pedestrian activity. Detail density is high and the scene has strong depth, though the overall image resolution and sharpness feel slightly softer than the top three entries."
+  },
+  {
+    "model_slug": "flux2-turbo",
+    "prompt_id": "10-scifi",
+    "criteria_passed": [
+      "cyberpunk_atmosphere",
+      "holographic_ads",
+      "flying_vehicles",
+      "towering_skyscrapers",
+      "rain_slicked_streets",
+      "neon_reflections",
+      "night_lighting",
+      "scene_depth"
+    ],
+    "criteria_failed": [],
+    "quality_score": 7.4,
+    "commentary": "Solid cyberpunk street scene with a large glowing humanoid figure billboard (holographic-quality), multiple flying vehicles visible mid-air, and wet reflective pavement under atmospheric haze. The muted gray-pink palette feels appropriately gritty and moody. The composition is well-structured but the detail density is lower than the top tier and the image has a slightly compressed, less expansive feel to the skyscraper scale."
+  },
+  {
+    "model_slug": "flux2-klein-9b",
+    "prompt_id": "10-scifi",
+    "criteria_passed": [
+      "cyberpunk_atmosphere",
+      "holographic_ads",
+      "flying_vehicles",
+      "towering_skyscrapers",
+      "rain_slicked_streets",
+      "neon_reflections",
+      "night_lighting",
+      "scene_depth"
+    ],
+    "criteria_failed": [],
+    "quality_score": 7.0,
+    "commentary": "Wide-angle street corridor with large portrait-face billboard ads in blue-purple tones, several flying craft visible above the road, and wet pavement with neon reflections. The composition is clean and covers all prompt elements, but the execution feels somewhat flatter and less atmospheric than flux2-turbo — less rain haze, less surface grime, and the billboard ads feel more like standard screens than immersive holographic displays. Good baseline execution without outstanding artistic distinction."
+  },
+  {
+    "model_slug": "seedream-v4-5",
+    "prompt_id": "10-scifi",
+    "criteria_passed": [
+      "cyberpunk_atmosphere",
+      "holographic_ads",
+      "towering_skyscrapers",
+      "rain_slicked_streets",
+      "neon_reflections",
+      "night_lighting",
+      "scene_depth"
+    ],
+    "criteria_failed": [
+      "flying_vehicles"
+    ],
+    "quality_score": 6.2,
+    "commentary": "Technically the most polished street-level render in terms of wet road surface quality — the teal and magenta neon reflections on the rain-slicked road are superb, and 'NEO TECH' and 'CYBER FASHION' signage reads clearly on flanking skyscrapers. However, flying vehicles are essentially absent (only a faint drone silhouette in the far background fails the criterion), which is a meaningful miss for this prompt. The narrower field of view and ground-only vehicle presence limit the futuristic cityscape feel."
+  },
+  {
+    "model_slug": "z-image-turbo",
+    "prompt_id": "10-scifi",
+    "criteria_passed": [
+      "cyberpunk_atmosphere",
+      "holographic_ads",
+      "flying_vehicles",
+      "towering_skyscrapers",
+      "rain_slicked_streets",
+      "neon_reflections",
+      "night_lighting",
+      "scene_depth"
+    ],
+    "criteria_failed": [],
+    "quality_score": 5.8,
+    "commentary": "The scene covers the core cyberpunk elements — billboard ads, flying vehicles, skyscrapers, wet streets with neon reflections — but execution is noticeably weaker than the rest of the field. The image appears lower resolution with softer detail rendering, the atmospheric depth is limited, and the billboard faces feel generic. The color palette is competent but lacks the richness and haze layering that elevates the stronger entries."
+  }
+]
