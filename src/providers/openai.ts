@@ -78,11 +78,14 @@ export async function generateWithOpenAI(
     });
 
     if (!response.ok) {
-      const errorData = (await response
-        .json()
-        .catch(() => ({}))) as OpenAIResponse;
-      const errorMessage =
-        errorData.error?.message || `HTTP ${response.status}`;
+      const errorText = await response.text().catch(() => "");
+      let errorMessage = `HTTP ${response.status}`;
+      try {
+        const parsed = JSON.parse(errorText) as OpenAIResponse;
+        if (parsed.error?.message) errorMessage = parsed.error.message;
+      } catch {
+        if (errorText) errorMessage = errorText.slice(0, 300);
+      }
       return { success: false, error: `OpenAI error: ${errorMessage}` };
     }
 

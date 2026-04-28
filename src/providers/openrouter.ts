@@ -109,10 +109,14 @@ export async function generateWithOpenRouter(
     });
 
     if (!response.ok) {
-      const errorData = await response.json().catch(() => ({}));
-      const errorMessage =
-        (errorData as OpenRouterResponse).error?.message ||
-        `HTTP ${response.status}`;
+      const errorText = await response.text().catch(() => "");
+      let errorMessage = `HTTP ${response.status}`;
+      try {
+        const parsed = JSON.parse(errorText) as OpenRouterResponse;
+        if (parsed.error?.message) errorMessage = parsed.error.message;
+      } catch {
+        if (errorText) errorMessage = errorText.slice(0, 300);
+      }
       return { success: false, error: `OpenRouter error: ${errorMessage}` };
     }
 

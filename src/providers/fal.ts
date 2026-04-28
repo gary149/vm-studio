@@ -85,10 +85,12 @@ function snapGptImage2Dimensions(dims: {
   return { width: snap(dims.width), height: snap(dims.height) };
 }
 
-// Map aspect ratio to GPT-Image 2 size (preset enum or custom dimensions)
+// Map aspect ratio to GPT-Image 2 size (preset enum or custom dimensions).
+// "auto" is only valid on the /edit endpoint; on t2i it returns 422.
 function getGptImage2Size(
   aspectRatio: AspectRatio,
   imageSize: ImageSize,
+  allowAuto: boolean,
 ): string | { width: number; height: number } {
   const enumMapping: Partial<Record<AspectRatio, string>> = {
     "1:1": "square_hd",
@@ -99,7 +101,7 @@ function getGptImage2Size(
   };
 
   if (aspectRatio === "auto") {
-    return "auto";
+    return allowAuto ? "auto" : "landscape_4_3";
   }
 
   const enumValue = enumMapping[aspectRatio];
@@ -148,9 +150,41 @@ interface FalResponse {
   description?: string;
 }
 
+interface FalValidationError {
+  type?: string;
+  loc?: Array<string | number>;
+  msg?: string;
+  input?: unknown;
+}
+
 interface FalErrorResponse {
-  detail?: string;
+  detail?: string | FalValidationError[];
   error?: string;
+  message?: string;
+}
+
+function formatFalError(data: FalErrorResponse, status: number): string {
+  if (typeof data.detail === "string" && data.detail) return data.detail;
+  if (Array.isArray(data.detail) && data.detail.length > 0) {
+    // Group Pydantic union errors by field; pick the most informative msg per field.
+    const byField = new Map<string, string>();
+    for (const e of data.detail) {
+      const loc = Array.isArray(e.loc)
+        ? e.loc.filter((p) => p !== "body" && typeof p === "string")
+        : [];
+      const field = loc[0] ? String(loc[0]) : "";
+      const msg = e.msg || "Invalid value";
+      if (!byField.has(field) || msg.length > (byField.get(field)?.length || 0)) {
+        byField.set(field, msg);
+      }
+    }
+    return Array.from(byField.entries())
+      .map(([field, msg]) => (field ? `${field}: ${msg}` : msg))
+      .join("; ");
+  }
+  if (data.error) return data.error;
+  if (data.message) return data.message;
+  return `HTTP ${status}`;
 }
 
 export async function generateWithFal(
@@ -204,6 +238,7 @@ export async function generateWithFal(
       body.image_size = getGptImage2Size(
         aspectRatio || "auto",
         imageSize || "1K",
+        !!hasInputImages,
       );
       body.quality = "high";
       body.output_format = "png";
@@ -268,9 +303,10 @@ export async function generateWithFal(
       const errorData = (await response
         .json()
         .catch(() => ({}))) as FalErrorResponse;
-      const errorMessage =
-        errorData.detail || errorData.error || `HTTP ${response.status}`;
-      return { success: false, error: `Fal.ai error: ${errorMessage}` };
+      return {
+        success: false,
+        error: `Fal.ai error: ${formatFalError(errorData, response.status)}`,
+      };
     }
 
     onProgress?.("Processing response...");
