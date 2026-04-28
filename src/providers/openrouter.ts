@@ -98,7 +98,7 @@ export async function generateWithOpenRouter(
     // Add image config if aspect ratio (non-auto), size, or quality specified
     const hasAspectRatio = aspectRatio && aspectRatio !== "auto";
     const isGptImage2 = modelId.includes("gpt-5.4-image-2") || modelId.includes("gpt-image-2");
-    const effectiveQuality = isGptImage2 ? quality || "medium" : undefined;
+    const effectiveQuality = isGptImage2 ? quality || "low" : undefined;
     if (hasAspectRatio || imageSize || effectiveQuality) {
       const imageConfig: Record<string, string> = {};
       if (hasAspectRatio) imageConfig.aspect_ratio = aspectRatio;

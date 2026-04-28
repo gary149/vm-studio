@@ -250,7 +250,7 @@ export async function generateWithFal(
         imageSize || "1K",
         !!hasInputImages,
       );
-      body.quality = quality || "medium";
+      body.quality = quality || "low";
       body.output_format = "png";
       body.sync_mode = true;
     } else if (isGptImage) {

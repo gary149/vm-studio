@@ -61,7 +61,7 @@ function Plugin() {
     count: 1,
     aspectRatio: "auto",
     imageSize: "1K",
-    quality: "medium",
+    quality: "low",
     generatingCount: 0,
     error: null,
     status: null,

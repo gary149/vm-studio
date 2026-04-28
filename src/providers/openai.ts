@@ -64,7 +64,7 @@ export async function generateWithOpenAI(
     };
 
     if (isGptImage2) {
-      body.quality = quality || "medium";
+      body.quality = quality || "low";
     }
 
     // Add input images for editing. JSON /v1/images/edits expects `images`: [{image_url: "<url|data URI>"}].
