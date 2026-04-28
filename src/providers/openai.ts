@@ -38,7 +38,8 @@ export async function generateWithOpenAI(
   request: GenerationRequest,
   onProgress?: (status: string) => void,
 ): Promise<GenerationResult> {
-  const { prompt, modelId, apiKey, aspectRatio, inputImages } = request;
+  const { prompt, modelId, apiKey, aspectRatio, quality, inputImages } =
+    request;
 
   if (!apiKey) {
     return { success: false, error: "OpenAI API key is required" };
@@ -53,6 +54,7 @@ export async function generateWithOpenAI(
       ? `${OPENAI_BASE_URL}/edits`
       : `${OPENAI_BASE_URL}/generations`;
 
+    const isGptImage2 = modelId.includes("gpt-image-2");
     const body: Record<string, unknown> = {
       model: modelId,
       prompt,
@@ -60,6 +62,10 @@ export async function generateWithOpenAI(
       size: getOpenAISize(aspectRatio || "auto"),
       output_format: "png",
     };
+
+    if (isGptImage2) {
+      body.quality = quality || "medium";
+    }
 
     // Add input images for editing. JSON /v1/images/edits expects `images`: [{image_url: "<url|data URI>"}].
     if (hasInputImages) {

@@ -49,6 +49,7 @@ export const PROVIDERS: Record<ProviderId, ProviderConfig> = {
         supportsImageGeneration: true,
         supportsImageToImage: true,
         supportedImageSizes: ["1K", "2K", "4K"],
+        supportsQuality: true,
       },
       {
         id: "fal-ai/flux-2/turbo",
@@ -92,6 +93,7 @@ export const PROVIDERS: Record<ProviderId, ProviderConfig> = {
         supportsImageGeneration: true,
         supportsImageToImage: true,
         supportedImageSizes: ["1K", "2K", "4K"],
+        supportsQuality: true,
       },
     ],
   },
@@ -136,6 +138,7 @@ export const PROVIDERS: Record<ProviderId, ProviderConfig> = {
         supportsImageGeneration: true,
         supportsImageToImage: true,
         supportedImageSizes: ["1K"],
+        supportsQuality: true,
       },
     ],
   },
@@ -203,6 +206,14 @@ export function modelSupportsImageToImage(modelId: string): boolean {
   for (const provider of Object.values(PROVIDERS)) {
     const model = provider.models.find((m) => m.id === modelId);
     if (model) return model.supportsImageToImage;
+  }
+  return false;
+}
+
+export function modelSupportsQuality(modelId: string): boolean {
+  for (const provider of Object.values(PROVIDERS)) {
+    const model = provider.models.find((m) => m.id === modelId);
+    if (model) return !!model.supportsQuality;
   }
   return false;
 }

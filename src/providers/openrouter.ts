@@ -33,8 +33,15 @@ export async function generateWithOpenRouter(
   request: GenerationRequest,
   onProgress?: (status: string) => void,
 ): Promise<GenerationResult> {
-  const { prompt, modelId, apiKey, aspectRatio, imageSize, inputImages } =
-    request;
+  const {
+    prompt,
+    modelId,
+    apiKey,
+    aspectRatio,
+    imageSize,
+    quality,
+    inputImages,
+  } = request;
 
   if (!apiKey) {
     return { success: false, error: "OpenRouter API key is required" };
@@ -88,12 +95,15 @@ export async function generateWithOpenRouter(
       ],
     };
 
-    // Add image config if aspect ratio (non-auto) or size specified
+    // Add image config if aspect ratio (non-auto), size, or quality specified
     const hasAspectRatio = aspectRatio && aspectRatio !== "auto";
-    if (hasAspectRatio || imageSize) {
+    const isGptImage2 = modelId.includes("gpt-5.4-image-2") || modelId.includes("gpt-image-2");
+    const effectiveQuality = isGptImage2 ? quality || "medium" : undefined;
+    if (hasAspectRatio || imageSize || effectiveQuality) {
       const imageConfig: Record<string, string> = {};
       if (hasAspectRatio) imageConfig.aspect_ratio = aspectRatio;
       if (imageSize) imageConfig.image_size = imageSize;
+      if (effectiveQuality) imageConfig.quality = effectiveQuality;
       body.image_config = imageConfig;
     }
 

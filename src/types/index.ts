@@ -17,6 +17,7 @@ export interface ModelConfig {
   supportsImageGeneration: boolean;
   supportsImageToImage: boolean;
   supportedImageSizes: ImageSize[];
+  supportsQuality?: boolean;
 }
 
 // Input image from Figma selection
@@ -43,6 +44,7 @@ export type AspectRatio =
   | "4:5"
   | "21:9";
 export type ImageSize = "1K" | "2K" | "4K";
+export type Quality = "low" | "medium" | "high";
 
 export interface GenerationRequest {
   prompt: string;
@@ -51,6 +53,7 @@ export interface GenerationRequest {
   apiKey: string;
   aspectRatio?: AspectRatio;
   imageSize?: ImageSize;
+  quality?: Quality;
   inputImages?: string[];
 }
 
@@ -146,6 +149,7 @@ export interface UIState {
   count: number;
   aspectRatio: AspectRatio;
   imageSize: ImageSize;
+  quality: Quality;
   generatingCount: number;
   error: string | null;
   status: string | null;

@@ -4,6 +4,7 @@ export { ApiKeyInput } from "./ApiKeyInput";
 export { CountInput } from "./CountInput";
 export { AspectRatioSelect } from "./AspectRatioSelect";
 export { ImageSizeSelect } from "./ImageSizeSelect";
+export { QualitySelect } from "./QualitySelect";
 export { GenerateButton } from "./GenerateButton";
 export { ErrorBanner } from "./ErrorBanner";
 export { ThumbnailStrip } from "./ThumbnailStrip";

@@ -194,8 +194,15 @@ export async function generateWithFal(
   request: GenerationRequest,
   onProgress?: (status: string) => void,
 ): Promise<GenerationResult> {
-  const { prompt, modelId, apiKey, aspectRatio, imageSize, inputImages } =
-    request;
+  const {
+    prompt,
+    modelId,
+    apiKey,
+    aspectRatio,
+    imageSize,
+    quality,
+    inputImages,
+  } = request;
 
   if (!apiKey) {
     return { success: false, error: "Fal.ai API key is required" };
@@ -243,7 +250,7 @@ export async function generateWithFal(
         imageSize || "1K",
         !!hasInputImages,
       );
-      body.quality = "high";
+      body.quality = quality || "medium";
       body.output_format = "png";
       body.sync_mode = true;
     } else if (isGptImage) {
@@ -252,7 +259,7 @@ export async function generateWithFal(
         aspectRatio || "auto",
         !!hasInputImages,
       );
-      body.quality = "high";
+      body.quality = quality || "high";
       body.output_format = "png";
       body.sync_mode = true;
     } else if (isFlux2) {

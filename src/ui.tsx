@@ -11,6 +11,7 @@ import {
   CountInput,
   AspectRatioSelect,
   ImageSizeSelect,
+  QualitySelect,
   GenerateButton,
   ErrorBanner,
   ThumbnailStrip,
@@ -20,6 +21,7 @@ import {
   getProviderList,
   getProvider,
   modelSupportsImageToImage,
+  modelSupportsQuality,
   getModelSupportedImageSizes,
 } from "./providers";
 import type {
@@ -28,6 +30,7 @@ import type {
   PluginSettings,
   AspectRatio,
   ImageSize,
+  Quality,
   InputImage,
   GenerateImageHandler,
   LoadSettingsHandler,
@@ -58,6 +61,7 @@ function Plugin() {
     count: 1,
     aspectRatio: "auto",
     imageSize: "1K",
+    quality: "medium",
     generatingCount: 0,
     error: null,
     status: null,
@@ -247,6 +251,10 @@ function Plugin() {
     setState((prev) => ({ ...prev, imageSize: value }));
   }, []);
 
+  const handleQualityChange = useCallback((value: Quality) => {
+    setState((prev) => ({ ...prev, quality: value }));
+  }, []);
+
   const handleRemoveImage = useCallback((nodeId: string) => {
     emit<DeselectNodeHandler>("deselect-node", { nodeId });
   }, []);
@@ -284,6 +292,7 @@ function Plugin() {
       count: state.count,
       aspectRatio: state.aspectRatio,
       imageSize: state.imageSize,
+      quality: state.quality,
       // inputImages are exported at generation time from node IDs
     });
   }, [
@@ -294,6 +303,7 @@ function Plugin() {
     state.count,
     state.aspectRatio,
     state.imageSize,
+    state.quality,
     state.inputImages,
     promptHistory,
   ]);
@@ -410,6 +420,14 @@ function Plugin() {
                 availableSizes={getModelSupportedImageSizes(state.modelId)}
               />
             </div>
+            {modelSupportsQuality(state.modelId) && (
+              <div class="row">
+                <QualitySelect
+                  value={state.quality}
+                  onChange={handleQualityChange}
+                />
+              </div>
+            )}
           </div>
 
           <footer class="footer">
