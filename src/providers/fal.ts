@@ -73,6 +73,48 @@ function getGptImageSize(aspectRatio: AspectRatio, allowAuto: boolean): string {
   return mapping[aspectRatio] || "1024x1024";
 }
 
+// Snap a width/height pair to GPT-Image 2 constraints:
+// multiples of 16, long edge <= 3840.
+function snapGptImage2Dimensions(dims: {
+  width: number;
+  height: number;
+}): { width: number; height: number } {
+  const longEdge = Math.max(dims.width, dims.height);
+  const scale = longEdge > 3840 ? 3840 / longEdge : 1;
+  const snap = (n: number) => Math.max(16, Math.floor((n * scale) / 16) * 16);
+  return { width: snap(dims.width), height: snap(dims.height) };
+}
+
+// Map aspect ratio to GPT-Image 2 size (preset enum or custom dimensions).
+// "auto" is only valid on the /edit endpoint; on t2i it returns 422.
+// Preset enums are all 1K-tier, so 2K/4K always uses custom dimensions.
+function getGptImage2Size(
+  aspectRatio: AspectRatio,
+  imageSize: ImageSize,
+  allowAuto: boolean,
+): string | { width: number; height: number } {
+  if (aspectRatio === "auto") {
+    if (allowAuto) return "auto";
+    return imageSize === "1K"
+      ? "landscape_4_3"
+      : snapGptImage2Dimensions(getZImageDimensions("4:3", imageSize));
+  }
+
+  if (imageSize === "1K") {
+    const enumMapping: Partial<Record<AspectRatio, string>> = {
+      "1:1": "square_hd",
+      "4:3": "landscape_4_3",
+      "3:4": "portrait_4_3",
+      "16:9": "landscape_16_9",
+      "9:16": "portrait_16_9",
+    };
+    const enumValue = enumMapping[aspectRatio];
+    if (enumValue) return enumValue;
+  }
+
+  return snapGptImage2Dimensions(getZImageDimensions(aspectRatio, imageSize));
+}
+
 // Map aspect ratio to FLUX.2 size (enum or custom dimensions)
 function getFlux2ImageSize(
   aspectRatio: AspectRatio,
@@ -111,9 +153,41 @@ interface FalResponse {
   description?: string;
 }
 
+interface FalValidationError {
+  type?: string;
+  loc?: Array<string | number>;
+  msg?: string;
+  input?: unknown;
+}
+
 interface FalErrorResponse {
-  detail?: string;
+  detail?: string | FalValidationError[];
   error?: string;
+  message?: string;
+}
+
+function formatFalError(data: FalErrorResponse, status: number): string {
+  if (typeof data.detail === "string" && data.detail) return data.detail;
+  if (Array.isArray(data.detail) && data.detail.length > 0) {
+    // Group Pydantic union errors by field; pick the most informative msg per field.
+    const byField = new Map<string, string>();
+    for (const e of data.detail) {
+      const loc = Array.isArray(e.loc)
+        ? e.loc.filter((p) => p !== "body" && typeof p === "string")
+        : [];
+      const field = loc[0] ? String(loc[0]) : "";
+      const msg = e.msg || "Invalid value";
+      if (!byField.has(field) || msg.length > (byField.get(field)?.length || 0)) {
+        byField.set(field, msg);
+      }
+    }
+    return Array.from(byField.entries())
+      .map(([field, msg]) => (field ? `${field}: ${msg}` : msg))
+      .join("; ");
+  }
+  if (data.error) return data.error;
+  if (data.message) return data.message;
+  return `HTTP ${status}`;
 }
 
 export async function generateWithFal(
@@ -133,7 +207,8 @@ export async function generateWithFal(
     const hasInputImages = inputImages && inputImages.length > 0;
     const isZImage = modelId.includes("z-image");
     const isSeedream = modelId.includes("seedream");
-    const isGptImage = modelId.includes("gpt-image");
+    const isGptImage2 = modelId.includes("gpt-image-2");
+    const isGptImage = modelId.includes("gpt-image-1");
     const isFlux2 = modelId.includes("flux-2");
 
     // Determine endpoint based on model and whether we have input images
@@ -160,7 +235,18 @@ export async function generateWithFal(
       );
     }
 
-    if (isGptImage) {
+    if (isGptImage2) {
+      // GPT-Image 2: preset enums (square_hd, landscape_4_3, ...) or custom {width, height}
+      body.num_images = 1;
+      body.image_size = getGptImage2Size(
+        aspectRatio || "auto",
+        imageSize || "1K",
+        !!hasInputImages,
+      );
+      body.quality = "high";
+      body.output_format = "png";
+      body.sync_mode = true;
+    } else if (isGptImage) {
       // GPT-Image: t2i doesn't support "auto" size, edit does
       body.image_size = getGptImageSize(
         aspectRatio || "auto",
@@ -220,9 +306,10 @@ export async function generateWithFal(
       const errorData = (await response
         .json()
         .catch(() => ({}))) as FalErrorResponse;
-      const errorMessage =
-        errorData.detail || errorData.error || `HTTP ${response.status}`;
-      return { success: false, error: `Fal.ai error: ${errorMessage}` };
+      return {
+        success: false,
+        error: `Fal.ai error: ${formatFalError(errorData, response.status)}`,
+      };
     }
 
     onProgress?.("Processing response...");
