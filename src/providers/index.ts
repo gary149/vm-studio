@@ -135,7 +135,7 @@ export const PROVIDERS: Record<ProviderId, ProviderConfig> = {
         name: "GPT-Image 2",
         supportsImageGeneration: true,
         supportsImageToImage: true,
-        supportedImageSizes: ["1K", "2K", "4K"],
+        supportedImageSizes: ["1K"],
       },
     ],
   },

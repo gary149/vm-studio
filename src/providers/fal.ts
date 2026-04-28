@@ -87,26 +87,29 @@ function snapGptImage2Dimensions(dims: {
 
 // Map aspect ratio to GPT-Image 2 size (preset enum or custom dimensions).
 // "auto" is only valid on the /edit endpoint; on t2i it returns 422.
+// Preset enums are all 1K-tier, so 2K/4K always uses custom dimensions.
 function getGptImage2Size(
   aspectRatio: AspectRatio,
   imageSize: ImageSize,
   allowAuto: boolean,
 ): string | { width: number; height: number } {
-  const enumMapping: Partial<Record<AspectRatio, string>> = {
-    "1:1": "square_hd",
-    "4:3": "landscape_4_3",
-    "3:4": "portrait_4_3",
-    "16:9": "landscape_16_9",
-    "9:16": "portrait_16_9",
-  };
-
   if (aspectRatio === "auto") {
-    return allowAuto ? "auto" : "landscape_4_3";
+    if (allowAuto) return "auto";
+    return imageSize === "1K"
+      ? "landscape_4_3"
+      : snapGptImage2Dimensions(getZImageDimensions("4:3", imageSize));
   }
 
-  const enumValue = enumMapping[aspectRatio];
-  if (enumValue) {
-    return enumValue;
+  if (imageSize === "1K") {
+    const enumMapping: Partial<Record<AspectRatio, string>> = {
+      "1:1": "square_hd",
+      "4:3": "landscape_4_3",
+      "3:4": "portrait_4_3",
+      "16:9": "landscape_16_9",
+      "9:16": "portrait_16_9",
+    };
+    const enumValue = enumMapping[aspectRatio];
+    if (enumValue) return enumValue;
   }
 
   return snapGptImage2Dimensions(getZImageDimensions(aspectRatio, imageSize));
