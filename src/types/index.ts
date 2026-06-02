@@ -12,11 +12,22 @@ export interface ProviderConfig {
 }
 
 export interface ModelConfig {
+  // Globally-unique internal/UI identifier (used by the provider picker and
+  // model lookups). Usually equal to the provider's API slug.
   id: string;
+  // The identifier sent to the provider's API. Defaults to `id`. Set this only
+  // when two providers expose the same API slug (e.g. "microsoft/mai-image-2.5"
+  // on both Fal and OpenRouter) and `id` must be disambiguated to stay unique.
+  apiModelId?: string;
   name: string;
   supportsImageGeneration: boolean;
   supportsImageToImage: boolean;
   supportedImageSizes: ImageSize[];
+  // OpenRouter only: the output modalities to request via the `modalities`
+  // param. Defaults to ["text", "image"]. Image-only models (e.g. MAI-Image)
+  // must use ["image"] or OpenRouter returns "No endpoints found that support
+  // the requested output modalities".
+  outputModalities?: Array<"text" | "image">;
 }
 
 // Input image from Figma selection

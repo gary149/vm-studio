@@ -64,6 +64,13 @@ export const PROVIDERS: Record<ProviderId, ProviderConfig> = {
         supportsImageToImage: true,
         supportedImageSizes: ["1K"],
       },
+      {
+        id: "microsoft/mai-image-2.5",
+        name: "MAI-Image 2.5",
+        supportsImageGeneration: true,
+        supportsImageToImage: false, // No /edit endpoint; text-to-image only
+        supportedImageSizes: ["1K"], // No resolution param; single tier
+      },
     ],
   },
   openrouter: {
@@ -92,6 +99,17 @@ export const PROVIDERS: Record<ProviderId, ProviderConfig> = {
         supportsImageGeneration: true,
         supportsImageToImage: true,
         supportedImageSizes: ["1K", "2K", "4K"],
+      },
+      {
+        // `id` is prefixed to stay unique vs the Fal entry, which shares the
+        // same API slug. `apiModelId` carries the real OpenRouter model id.
+        id: "openrouter/microsoft/mai-image-2.5",
+        apiModelId: "microsoft/mai-image-2.5",
+        name: "MAI-Image 2.5",
+        supportsImageGeneration: true,
+        supportsImageToImage: false, // Text-to-image only
+        supportedImageSizes: ["1K"],
+        outputModalities: ["image"], // Image-only output (no "text")
       },
     ],
   },
@@ -188,6 +206,26 @@ export function getProvidersForModelName(modelName: string): FlatModel[] {
   return getAllModels()
     .filter((m) => m.name === modelName)
     .sort((a, b) => a.providerName.localeCompare(b.providerName));
+}
+
+// Resolve the internal model `id` to the identifier sent to the provider's API.
+// Falls back to the id itself when no explicit `apiModelId` is configured.
+export function getApiModelId(modelId: string): string {
+  for (const provider of Object.values(PROVIDERS)) {
+    const model = provider.models.find((m) => m.id === modelId);
+    if (model) return model.apiModelId ?? model.id;
+  }
+  return modelId;
+}
+
+// OpenRouter `modalities` request param: the output modalities to request for a
+// model. Defaults to both; image-only models override via `outputModalities`.
+export function getOutputModalities(modelId: string): Array<"text" | "image"> {
+  for (const provider of Object.values(PROVIDERS)) {
+    const model = provider.models.find((m) => m.id === modelId);
+    if (model?.outputModalities) return model.outputModalities;
+  }
+  return ["text", "image"];
 }
 
 export function getProviderForModel(modelId: string): ProviderId | null {
