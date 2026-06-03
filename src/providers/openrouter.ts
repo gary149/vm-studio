@@ -1,5 +1,6 @@
 import type { GenerationRequest, GenerationResult } from "../types";
 import { extractImageFromDataUrl, fetchImageFromUrl } from "./utils";
+import { getApiModelId, getOutputModalities } from "./index";
 
 const OPENROUTER_BASE_URL = "https://openrouter.ai/api/v1";
 
@@ -78,8 +79,8 @@ export async function generateWithOpenRouter(
     }
 
     const body: Record<string, unknown> = {
-      model: modelId,
-      modalities: ["text", "image"],
+      model: getApiModelId(modelId),
+      modalities: getOutputModalities(modelId),
       messages: [
         {
           role: "user",

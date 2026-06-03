@@ -5,6 +5,7 @@ import type {
   ImageSize,
 } from "../types";
 import { extractImageFromDataUrl, fetchImageFromUrl } from "./utils";
+import { getApiModelId } from "./index";
 
 const FAL_BASE_URL = "https://fal.run";
 
@@ -210,19 +211,24 @@ export async function generateWithFal(
     const isGptImage2 = modelId.includes("gpt-image-2");
     const isGptImage = modelId.includes("gpt-image-1");
     const isFlux2 = modelId.includes("flux-2");
+    const isMaiImage = modelId.includes("mai-image");
+
+    // The path segment on fal.run is the API slug, which may differ from the
+    // internal model id (see getApiModelId).
+    const apiModelId = getApiModelId(modelId);
 
     // Determine endpoint based on model and whether we have input images
     let endpoint: string;
     if (isSeedream) {
       // Seedream uses /text-to-image and /edit suffixes
       endpoint = hasInputImages
-        ? `${FAL_BASE_URL}/${modelId}/edit`
-        : `${FAL_BASE_URL}/${modelId}/text-to-image`;
+        ? `${FAL_BASE_URL}/${apiModelId}/edit`
+        : `${FAL_BASE_URL}/${apiModelId}/text-to-image`;
     } else {
       // Other models use base path for t2i, /edit suffix for i2i
       endpoint = hasInputImages
-        ? `${FAL_BASE_URL}/${modelId}/edit`
-        : `${FAL_BASE_URL}/${modelId}`;
+        ? `${FAL_BASE_URL}/${apiModelId}/edit`
+        : `${FAL_BASE_URL}/${apiModelId}`;
     }
 
     // Build body based on model type
@@ -280,6 +286,12 @@ export async function generateWithFal(
         aspectRatio || "auto",
         imageSize || "2K",
       );
+    } else if (isMaiImage) {
+      // MAI-Image 2.5: aspect_ratio enum (incl. "auto"), no resolution param
+      body.num_images = 1;
+      body.output_format = "png";
+      body.sync_mode = true;
+      body.aspect_ratio = aspectRatio || "auto";
     } else {
       // Other Fal models: standard params
       body.num_images = 1;
