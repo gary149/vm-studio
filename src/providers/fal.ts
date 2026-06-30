@@ -212,6 +212,7 @@ export async function generateWithFal(
     const isGptImage = modelId.includes("gpt-image-1");
     const isFlux2 = modelId.includes("flux-2");
     const isMaiImage = modelId.includes("mai-image");
+    const isNanoBananaLite = modelId.includes("nano-banana-lite");
 
     // The path segment on fal.run is the API slug, which may differ from the
     // internal model id (see getApiModelId).
@@ -286,8 +287,10 @@ export async function generateWithFal(
         aspectRatio || "auto",
         imageSize || "2K",
       );
-    } else if (isMaiImage) {
-      // MAI-Image 2.5: aspect_ratio enum (incl. "auto"), no resolution param
+    } else if (isMaiImage || isNanoBananaLite) {
+      // MAI-Image 2.5 & Nano Banana 2 Lite: aspect_ratio enum (incl. "auto"),
+      // no resolution param (fixed 1K output). Nano Banana 2 Lite also supports
+      // i2i via the /edit endpoint (image_urls is set generically above).
       body.num_images = 1;
       body.output_format = "png";
       body.sync_mode = true;

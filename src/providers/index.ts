@@ -23,6 +23,13 @@ export const PROVIDERS: Record<ProviderId, ProviderConfig> = {
         supportedImageSizes: ["1K", "2K", "4K"],
       },
       {
+        id: "google/nano-banana-lite",
+        name: "Nano Banana 2 Lite",
+        supportsImageGeneration: true,
+        supportsImageToImage: true, // Has a /edit endpoint (accepts image_urls)
+        supportedImageSizes: ["1K"], // Fixed 1K output; no resolution param
+      },
+      {
         id: "fal-ai/z-image/turbo",
         name: "Z-Image Turbo",
         supportsImageGeneration: true,
@@ -94,6 +101,14 @@ export const PROVIDERS: Record<ProviderId, ProviderConfig> = {
         supportedImageSizes: ["1K", "2K", "4K"],
       },
       {
+        // Launched GA (no "-preview" suffix), unlike the other two banana models.
+        id: "google/gemini-3.1-flash-lite-image",
+        name: "Nano Banana 2 Lite",
+        supportsImageGeneration: true,
+        supportsImageToImage: true,
+        supportedImageSizes: ["1K"],
+      },
+      {
         id: "openai/gpt-5.4-image-2",
         name: "GPT-Image 2",
         supportsImageGeneration: true,
@@ -132,6 +147,14 @@ export const PROVIDERS: Record<ProviderId, ProviderConfig> = {
         supportsImageGeneration: true,
         supportsImageToImage: true,
         supportedImageSizes: ["1K", "2K", "4K"],
+      },
+      {
+        // Launched GA (no "-preview" suffix). Lite is 1K-only.
+        id: "gemini-3.1-flash-lite-image",
+        name: "Nano Banana 2 Lite",
+        supportsImageGeneration: true,
+        supportsImageToImage: true,
+        supportedImageSizes: ["1K"],
       },
     ],
   },

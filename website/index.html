@@ -28,7 +28,7 @@
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="AI Image Generator for Figma Plugin | VM Studio">
-    <meta name="twitter:description" content="Free plugin. 9 AI models, 4 providers, up to 4K. Use your own API keys.">
+    <meta name="twitter:description" content="Free plugin. 10 AI models, 4 providers, up to 4K. Use your own API keys.">
     <meta name="twitter:image" content="https://vmstudio.ai/assets/vm-studio.png">
     <meta name="twitter:image:alt" content="VM Studio - AI Image Generator for Figma">
 
@@ -53,7 +53,7 @@
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
         "name": "VM Studio - AI Image Generator for Figma",
-        "description": "Generate AI images directly in Figma with 9 AI models including FLUX, Nano Banana 2, Nano Banana Pro, GPT-Image 1.5, GPT-Image 2, and MAI-Image 2.5. Supports text-to-image, image-to-image, and batch generation up to 4K resolution.",
+        "description": "Generate AI images directly in Figma with 10 AI models including FLUX, Nano Banana 2, Nano Banana Pro, Nano Banana 2 Lite, GPT-Image 1.5, GPT-Image 2, and MAI-Image 2.5. Supports text-to-image, image-to-image, and batch generation up to 4K resolution.",
         "applicationCategory": "DesignApplication",
         "applicationSubCategory": "Figma Plugin",
         "operatingSystem": "Web",
@@ -65,7 +65,7 @@
             "priceCurrency": "USD",
             "description": "Free plugin with BYOK (Bring Your Own Key) pricing model"
         },
-        "featureList": ["Text-to-image generation", "Image-to-image transformation", "Batch image generation", "Up to 4K resolution output", "10 aspect ratios", "9 AI models", "4 AI providers"],
+        "featureList": ["Text-to-image generation", "Image-to-image transformation", "Batch image generation", "Up to 4K resolution output", "10 aspect ratios", "10 AI models", "4 AI providers"],
         "softwareRequirements": "Figma desktop or web application",
         "downloadUrl": "https://www.figma.com/community/plugin/1588675833256652136",
         "screenshot": "https://vmstudio.ai/assets/hero-poster.jpg"
@@ -81,7 +81,7 @@
                 "name": "What AI models does VM Studio support?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "VM Studio supports 9 AI models: Nano Banana 2, Nano Banana Pro, Z-Image Turbo, Seedream v4.5, FLUX.2 Turbo, FLUX.2 Klein 9B, GPT-Image 1.5, GPT-Image 2, and MAI-Image 2.5. Each model has unique strengths for different creative needs."
+                    "text": "VM Studio supports 10 AI models: Nano Banana 2, Nano Banana Pro, Nano Banana 2 Lite, Z-Image Turbo, Seedream v4.5, FLUX.2 Turbo, FLUX.2 Klein 9B, GPT-Image 1.5, GPT-Image 2, and MAI-Image 2.5. Each model has unique strengths for different creative needs."
                 }
             },
             {
@@ -320,7 +320,7 @@
                 <div class="container">
                     <div class="section-header">
                         <h2>Models & Providers</h2>
-                        <p>9 models, 4 providers. Your keys, your control.</p>
+                        <p>10 models, 4 providers. Your keys, your control.</p>
                     </div>
 
                     <div class="models-table">
@@ -380,6 +380,38 @@
                                     <div>
                                         <span class="model-name">Nano Banana Pro</span>
                                         <span class="model-desc">Google's reasoning-powered AI</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-caps">
+                                <span class="tag">Text-to-Image</span>
+                                <span class="tag">Image-to-Image</span>
+                            </div>
+                            <div class="col-provider align-right">
+                                <a href="https://fal.ai/dashboard/keys" target="_blank">fal.ai</a>
+                                <a href="https://openrouter.ai/keys" target="_blank">OpenRouter</a>
+                                <a href="https://aistudio.google.com/apikey" target="_blank">Google AI</a>
+                            </div>
+                        </div>
+
+                        <div class="table-row">
+                            <div class="col-model">
+                                <div class="model-info">
+                                    <svg viewBox="0 0 65 65" class="model-icon">
+                                        <defs>
+                                            <linearGradient id="gemini-lite-grad" x1="18" y1="43" x2="52" y2="15"
+                                                gradientUnits="userSpaceOnUse">
+                                                <stop stop-color="#4893FC" />
+                                                <stop offset=".5" stop-color="#969DFF" />
+                                                <stop offset="1" stop-color="#BD99FE" />
+                                            </linearGradient>
+                                        </defs>
+                                        <path fill="url(#gemini-lite-grad)"
+                                            d="M32.447 0c.68 0 1.273.465 1.439 1.125a38.904 38.904 0 001.999 5.905c2.152 5 5.105 9.376 8.854 13.125 3.751 3.75 8.126 6.703 13.125 8.855a38.98 38.98 0 005.906 1.999c.66.166 1.124.758 1.124 1.438 0 .68-.464 1.273-1.125 1.439a38.902 38.902 0 00-5.905 1.999c-5 2.152-9.375 5.105-13.125 8.854-3.749 3.751-6.702 8.126-8.854 13.125a38.973 38.973 0 00-2 5.906 1.485 1.485 0 01-1.438 1.124c-.68 0-1.272-.464-1.438-1.125a38.913 38.913 0 00-2-5.905c-2.151-5-5.103-9.375-8.854-13.125-3.75-3.749-8.125-6.702-13.125-8.854a38.973 38.973 0 00-5.905-2A1.485 1.485 0 010 32.448c0-.68.465-1.272 1.125-1.438a38.903 38.903 0 005.905-2c5-2.151 9.376-5.104 13.125-8.854 3.75-3.749 6.703-8.125 8.855-13.125a38.972 38.972 0 001.999-5.905A1.485 1.485 0 0132.447 0z" />
+                                    </svg>
+                                    <div>
+                                        <span class="model-name">Nano Banana 2 Lite</span>
+                                        <span class="model-desc">Google's fastest image model</span>
                                     </div>
                                 </div>
                             </div>
@@ -578,7 +610,7 @@
                         <div class="faq-item">
                             <h3>What AI models does VM Studio support?</h3>
                             <div class="faq-content">
-                                <p>VM Studio supports 9 AI models: Nano Banana 2, Nano Banana Pro, Z-Image Turbo, Seedream v4.5, FLUX.2
+                                <p>VM Studio supports 10 AI models: Nano Banana 2, Nano Banana Pro, Nano Banana 2 Lite, Z-Image Turbo, Seedream v4.5, FLUX.2
                                     Turbo, FLUX.2 Klein 9B, GPT-Image 1.5, GPT-Image 2, and MAI-Image 2.5. Each model has unique strengths for different creative
                                     needs.</p>
                             </div>
