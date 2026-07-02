@@ -235,7 +235,7 @@ async function main() {
 
   // Plugin aspect ratio -> expected image_size (enum or custom dims)
   const turboCases: Array<[AspectRatio, unknown]> = [
-    ["auto", "landscape_4_3"],
+    ["auto", "square_hd"], // Krea 2 Turbo's documented default (FLUX.2 uses landscape_4_3)
     ["1:1", "square_hd"],
     ["16:9", "landscape_16_9"],
     ["9:16", "portrait_16_9"],

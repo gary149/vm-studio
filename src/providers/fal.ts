@@ -116,10 +116,13 @@ function getGptImage2Size(
   return snapGptImage2Dimensions(getZImageDimensions(aspectRatio, imageSize));
 }
 
-// Map aspect ratio to FLUX.2 size (enum or custom dimensions)
+// Map aspect ratio to FLUX.2 size (enum or custom dimensions). Krea 2 Turbo
+// shares the format but defaults to square_hd, so "auto" resolves to the
+// model's own documented default.
 function getFlux2ImageSize(
   aspectRatio: AspectRatio,
   imageSize: ImageSize,
+  autoDefault: string = "landscape_4_3", // FLUX.2 default
 ): string | { width: number; height: number } {
   // FLUX.2 supported enum values
   const enumMapping: Partial<Record<AspectRatio, string>> = {
@@ -131,7 +134,7 @@ function getFlux2ImageSize(
   };
 
   if (aspectRatio === "auto") {
-    return "landscape_4_3"; // FLUX.2 default
+    return autoDefault;
   }
 
   const enumValue = enumMapping[aspectRatio];
@@ -290,7 +293,11 @@ export async function generateWithFal(
       // FLUX.2 models (turbo, klein/9b) and Krea 2 Turbo share the same
       // enum-based image_size format
       body.num_images = 1;
-      body.image_size = getFlux2ImageSize(aspectRatio || "auto", imageSize || "1K");
+      body.image_size = getFlux2ImageSize(
+        aspectRatio || "auto",
+        imageSize || "1K",
+        isKrea2Turbo ? "square_hd" : "landscape_4_3",
+      );
       body.output_format = "png";
       body.sync_mode = true;
     } else if (isKrea2) {
