@@ -143,6 +143,26 @@ function getFlux2ImageSize(
   return getZImageDimensions(aspectRatio, imageSize);
 }
 
+// Map aspect ratio to Krea 2's supported enum values
+// (1:1, 4:3, 3:2, 16:9, 2.35:1, 4:5, 2:3, 9:16); unsupported ratios
+// snap to the closest available value.
+function getKrea2AspectRatio(aspectRatio: AspectRatio): string {
+  const mapping: Record<AspectRatio, string> = {
+    auto: "1:1", // Krea 2 default
+    "1:1": "1:1",
+    "16:9": "16:9",
+    "9:16": "9:16",
+    "4:3": "4:3",
+    "3:4": "4:5", // 0.75 is closer to 4:5 (0.8) than to 2:3 (0.67)
+    "3:2": "3:2",
+    "2:3": "2:3",
+    "5:4": "4:3", // 1.25 is closest to 4:3 (1.33)
+    "4:5": "4:5",
+    "21:9": "2.35:1",
+  };
+  return mapping[aspectRatio] || "1:1";
+}
+
 interface FalImageFile {
   url: string;
   content_type: string;
@@ -211,6 +231,10 @@ export async function generateWithFal(
     const isGptImage2 = modelId.includes("gpt-image-2");
     const isGptImage = modelId.includes("gpt-image-1");
     const isFlux2 = modelId.includes("flux-2");
+    // "fal-ai/krea-2/turbo" (open-weights Turbo) vs "krea/v2/..." (Medium/Large
+    // partner endpoints) — different API slugs and request formats.
+    const isKrea2Turbo = modelId.includes("krea-2");
+    const isKrea2 = modelId.includes("krea/v2");
     const isMaiImage = modelId.includes("mai-image");
     const isNanoBananaLite = modelId.includes("nano-banana-lite");
 
@@ -262,12 +286,17 @@ export async function generateWithFal(
       body.quality = "high";
       body.output_format = "png";
       body.sync_mode = true;
-    } else if (isFlux2) {
-      // FLUX.2 models: turbo, klein/9b - use enum-based image sizes
+    } else if (isFlux2 || isKrea2Turbo) {
+      // FLUX.2 models (turbo, klein/9b) and Krea 2 Turbo share the same
+      // enum-based image_size format
       body.num_images = 1;
       body.image_size = getFlux2ImageSize(aspectRatio || "auto", imageSize || "1K");
       body.output_format = "png";
       body.sync_mode = true;
+    } else if (isKrea2) {
+      // Krea 2 Medium/Large: aspect_ratio enum only; no num_images,
+      // output_format, sync_mode, or resolution params in the schema
+      body.aspect_ratio = getKrea2AspectRatio(aspectRatio || "auto");
     } else if (isZImage) {
       // Z-Image: custom dimensions, inference steps
       body.num_images = 1;
