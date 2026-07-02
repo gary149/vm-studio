@@ -146,6 +146,36 @@ function getFlux2ImageSize(
   return getZImageDimensions(aspectRatio, imageSize);
 }
 
+// Map aspect ratio to Ideogram 4 size (preset enum or custom {width, height}).
+// Preset enums are all 1K-tier; "auto" is only valid on /image-to-image.
+function getIdeogramImageSize(
+  aspectRatio: AspectRatio,
+  imageSize: ImageSize,
+  allowAuto: boolean,
+): string | { width: number; height: number } {
+  if (aspectRatio === "auto") {
+    if (allowAuto) return "auto";
+    // t2i has no "auto"; fall back to the model's default square framing
+    return imageSize === "1K"
+      ? "square_hd"
+      : getZImageDimensions("1:1", imageSize);
+  }
+
+  if (imageSize === "1K") {
+    const enumMapping: Partial<Record<AspectRatio, string>> = {
+      "1:1": "square_hd",
+      "4:3": "landscape_4_3",
+      "3:4": "portrait_4_3",
+      "16:9": "landscape_16_9",
+      "9:16": "portrait_16_9",
+    };
+    const enumValue = enumMapping[aspectRatio];
+    if (enumValue) return enumValue;
+  }
+
+  return getZImageDimensions(aspectRatio, imageSize);
+}
+
 // Map aspect ratio to Krea 2's supported enum values
 // (1:1, 4:3, 3:2, 16:9, 2.35:1, 4:5, 2:3, 9:16); unsupported ratios
 // snap to the closest available value.
@@ -240,6 +270,7 @@ export async function generateWithFal(
     const isKrea2 = modelId.includes("krea/v2");
     const isMaiImage = modelId.includes("mai-image");
     const isNanoBananaLite = modelId.includes("nano-banana-lite");
+    const isIdeogram = modelId.includes("ideogram");
 
     // The path segment on fal.run is the API slug, which may differ from the
     // internal model id (see getApiModelId).
@@ -252,6 +283,11 @@ export async function generateWithFal(
       endpoint = hasInputImages
         ? `${FAL_BASE_URL}/${apiModelId}/edit`
         : `${FAL_BASE_URL}/${apiModelId}/text-to-image`;
+    } else if (isIdeogram) {
+      // Ideogram uses /image-to-image (not /edit) for i2i
+      endpoint = hasInputImages
+        ? `${FAL_BASE_URL}/${apiModelId}/image-to-image`
+        : `${FAL_BASE_URL}/${apiModelId}`;
     } else {
       // Other models use base path for t2i, /edit suffix for i2i
       endpoint = hasInputImages
@@ -264,9 +300,23 @@ export async function generateWithFal(
 
     // Add input images for image-to-image
     if (hasInputImages) {
-      body.image_urls = inputImages.map(
+      // Ideogram i2i accepts a single image_url, not an image_urls array;
+      // reject extra inputs instead of silently dropping them
+      if (isIdeogram && inputImages.length > 1) {
+        return {
+          success: false,
+          error:
+            "Ideogram 4 accepts a single input image. Select one layer and try again.",
+        };
+      }
+      const dataUrls = inputImages.map(
         (base64) => `data:image/png;base64,${base64}`,
       );
+      if (isIdeogram) {
+        body.image_url = dataUrls[0];
+      } else {
+        body.image_urls = dataUrls;
+      }
     }
 
     if (isGptImage2) {
@@ -322,6 +372,17 @@ export async function generateWithFal(
       body.image_size = getZImageDimensions(
         aspectRatio || "auto",
         imageSize || "2K",
+      );
+    } else if (isIdeogram) {
+      // Ideogram 4: preset enums (square_hd, landscape_4_3, ...) or custom
+      // {width, height}; defaults to jpeg so force png output
+      body.num_images = 1;
+      body.output_format = "png";
+      body.sync_mode = true;
+      body.image_size = getIdeogramImageSize(
+        aspectRatio || "auto",
+        imageSize || "1K",
+        !!hasInputImages,
       );
     } else if (isMaiImage || isNanoBananaLite) {
       // MAI-Image 2.5 & Nano Banana 2 Lite: aspect_ratio enum (incl. "auto"),

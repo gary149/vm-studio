@@ -72,6 +72,13 @@ export const PROVIDERS: Record<ProviderId, ProviderConfig> = {
         supportedImageSizes: ["1K"],
       },
       {
+        id: "ideogram/v4",
+        name: "Ideogram 4",
+        supportsImageGeneration: true,
+        supportsImageToImage: true, // /image-to-image endpoint (single image_url)
+        supportedImageSizes: ["1K", "2K"], // Native 2K max; no 4K tier
+      },
+      {
         id: "krea/v2/large/text-to-image",
         name: "Krea 2 Large",
         supportsImageGeneration: true,
