@@ -28,7 +28,7 @@
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="AI Image Generator for Figma Plugin | VM Studio">
-    <meta name="twitter:description" content="Free plugin. 11 AI models, 4 providers, up to 4K. Use your own API keys.">
+    <meta name="twitter:description" content="Free plugin. 14 AI models, 4 providers, up to 4K. Use your own API keys.">
     <meta name="twitter:image" content="https://vmstudio.ai/assets/vm-studio.png">
     <meta name="twitter:image:alt" content="VM Studio - AI Image Generator for Figma">
 
@@ -53,7 +53,7 @@
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
         "name": "VM Studio - AI Image Generator for Figma",
-        "description": "Generate AI images directly in Figma with 11 AI models including FLUX, Nano Banana 2, Nano Banana Pro, Nano Banana 2 Lite, Ideogram 4, GPT-Image 1.5, GPT-Image 2, and MAI-Image 2.5. Supports text-to-image, image-to-image, and batch generation up to 4K resolution.",
+        "description": "Generate AI images directly in Figma with 14 AI models including FLUX, Krea 2, Nano Banana 2, Nano Banana Pro, Nano Banana 2 Lite, Ideogram 4, GPT-Image 1.5, GPT-Image 2, and MAI-Image 2.5. Supports text-to-image, image-to-image, and batch generation up to 4K resolution.",
         "applicationCategory": "DesignApplication",
         "applicationSubCategory": "Figma Plugin",
         "operatingSystem": "Web",
@@ -65,7 +65,7 @@
             "priceCurrency": "USD",
             "description": "Free plugin with BYOK (Bring Your Own Key) pricing model"
         },
-        "featureList": ["Text-to-image generation", "Image-to-image transformation", "Batch image generation", "Up to 4K resolution output", "10 aspect ratios", "11 AI models", "4 AI providers"],
+        "featureList": ["Text-to-image generation", "Image-to-image transformation", "Batch image generation", "Up to 4K resolution output", "10 aspect ratios", "14 AI models", "4 AI providers"],
         "softwareRequirements": "Figma desktop or web application",
         "downloadUrl": "https://www.figma.com/community/plugin/1588675833256652136",
         "screenshot": "https://vmstudio.ai/assets/hero-poster.jpg"
@@ -81,7 +81,7 @@
                 "name": "What AI models does VM Studio support?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "VM Studio supports 11 AI models: Nano Banana 2, Nano Banana Pro, Nano Banana 2 Lite, Ideogram 4, Z-Image Turbo, Seedream v4.5, FLUX.2 Turbo, FLUX.2 Klein 9B, GPT-Image 1.5, GPT-Image 2, and MAI-Image 2.5. Each model has unique strengths for different creative needs."
+                    "text": "VM Studio supports 14 AI models: Nano Banana 2, Nano Banana Pro, Nano Banana 2 Lite, Ideogram 4, Z-Image Turbo, Seedream v4.5, FLUX.2 Turbo, FLUX.2 Klein 9B, Krea 2 Large, Krea 2 Medium, Krea 2 Turbo, GPT-Image 1.5, GPT-Image 2, and MAI-Image 2.5. Each model has unique strengths for different creative needs."
                 }
             },
             {
@@ -320,7 +320,7 @@
                 <div class="container">
                     <div class="section-header">
                         <h2>Models & Providers</h2>
-                        <p>11 models, 4 providers. Your keys, your control.</p>
+                        <p>14 models, 4 providers. Your keys, your control.</p>
                     </div>
 
                     <div class="models-table">
@@ -468,6 +468,69 @@
                             <div class="col-caps">
                                 <span class="tag">Text-to-Image</span>
                                 <span class="tag">Image-to-Image</span>
+                            </div>
+                            <div class="col-provider align-right">
+                                <a href="https://fal.ai/dashboard/keys" target="_blank">fal.ai</a>
+                            </div>
+                        </div>
+
+                        <div class="table-row">
+                            <div class="col-model">
+                                <div class="model-info">
+                                    <svg viewBox="0 0 24 24" class="model-icon" fill="currentColor">
+                                        <path d="M3 2h5v20H3z" />
+                                        <path d="M15 2h6l-8 10 8 10h-6l-8-10z" />
+                                    </svg>
+                                    <div>
+                                        <span class="model-name">Krea 2 Large</span>
+                                        <span class="model-desc">Aesthetic-first photorealism</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-caps">
+                                <span class="tag">Text-to-Image</span>
+                            </div>
+                            <div class="col-provider align-right">
+                                <a href="https://fal.ai/dashboard/keys" target="_blank">fal.ai</a>
+                            </div>
+                        </div>
+
+                        <div class="table-row">
+                            <div class="col-model">
+                                <div class="model-info">
+                                    <svg viewBox="0 0 24 24" class="model-icon" fill="currentColor">
+                                        <path d="M3 2h5v20H3z" />
+                                        <path d="M15 2h6l-8 10 8 10h-6l-8-10z" />
+                                    </svg>
+                                    <div>
+                                        <span class="model-name">Krea 2 Medium</span>
+                                        <span class="model-desc">Expressive illustration styles</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-caps">
+                                <span class="tag">Text-to-Image</span>
+                            </div>
+                            <div class="col-provider align-right">
+                                <a href="https://fal.ai/dashboard/keys" target="_blank">fal.ai</a>
+                            </div>
+                        </div>
+
+                        <div class="table-row">
+                            <div class="col-model">
+                                <div class="model-info">
+                                    <svg viewBox="0 0 24 24" class="model-icon" fill="currentColor">
+                                        <path d="M3 2h5v20H3z" />
+                                        <path d="M15 2h6l-8 10 8 10h-6l-8-10z" />
+                                    </svg>
+                                    <div>
+                                        <span class="model-name">Krea 2 Turbo</span>
+                                        <span class="model-desc">Open-weights 2-second generation</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-caps">
+                                <span class="tag">Text-to-Image</span>
                             </div>
                             <div class="col-provider align-right">
                                 <a href="https://fal.ai/dashboard/keys" target="_blank">fal.ai</a>
@@ -633,9 +696,9 @@
                         <div class="faq-item">
                             <h3>What AI models does VM Studio support?</h3>
                             <div class="faq-content">
-                                <p>VM Studio supports 11 AI models: Nano Banana 2, Nano Banana Pro, Nano Banana 2 Lite, Ideogram 4, Z-Image Turbo, Seedream v4.5, FLUX.2
-                                    Turbo, FLUX.2 Klein 9B, GPT-Image 1.5, GPT-Image 2, and MAI-Image 2.5. Each model has unique strengths for different creative
-                                    needs.</p>
+                                <p>VM Studio supports 14 AI models: Nano Banana 2, Nano Banana Pro, Nano Banana 2 Lite, Ideogram 4, Z-Image Turbo, Seedream v4.5, FLUX.2
+                                    Turbo, FLUX.2 Klein 9B, Krea 2 Large, Krea 2 Medium, Krea 2 Turbo, GPT-Image 1.5, GPT-Image 2, and MAI-Image 2.5. Each model
+                                    has unique strengths for different creative needs.</p>
                             </div>
                         </div>
                         <div class="faq-item">

@@ -79,6 +79,27 @@ export const PROVIDERS: Record<ProviderId, ProviderConfig> = {
         supportedImageSizes: ["1K", "2K"], // Native 2K max; no 4K tier
       },
       {
+        id: "krea/v2/large/text-to-image",
+        name: "Krea 2 Large",
+        supportsImageGeneration: true,
+        supportsImageToImage: false, // No /edit endpoint; text-to-image only
+        supportedImageSizes: ["1K"], // No resolution param; aspect_ratio only
+      },
+      {
+        id: "krea/v2/medium/text-to-image",
+        name: "Krea 2 Medium",
+        supportsImageGeneration: true,
+        supportsImageToImage: false, // No /edit endpoint; text-to-image only
+        supportedImageSizes: ["1K"], // No resolution param; aspect_ratio only
+      },
+      {
+        id: "fal-ai/krea-2/turbo",
+        name: "Krea 2 Turbo",
+        supportsImageGeneration: true,
+        supportsImageToImage: false, // Text-to-image only
+        supportedImageSizes: ["1K"],
+      },
+      {
         id: "microsoft/mai-image-2.5",
         name: "MAI-Image 2.5",
         supportsImageGeneration: true,
