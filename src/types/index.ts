@@ -23,11 +23,11 @@ export interface ModelConfig {
   supportsImageGeneration: boolean;
   supportsImageToImage: boolean;
   supportedImageSizes: ImageSize[];
-  // OpenRouter only: the output modalities to request via the `modalities`
-  // param. Defaults to ["text", "image"]. Image-only models (e.g. MAI-Image)
-  // must use ["image"] or OpenRouter returns "No endpoints found that support
-  // the requested output modalities".
-  outputModalities?: Array<"text" | "image">;
+  // OpenRouter only: route requests through the dedicated Images API
+  // (POST /api/v1/images) instead of chat completions. Image-only models
+  // (Seedream, Krea, MAI-Image, GPT-Image) are served there; chat-multimodal
+  // models (the Gemini "Nano Banana" family) stay on chat completions.
+  useImagesApi?: boolean;
 }
 
 // Input image from Figma selection
