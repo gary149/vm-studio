@@ -14,7 +14,7 @@ import {
   getProvidersForModelName,
   modelSupportsImageToImage,
   getModelSupportedImageSizes,
-  getOutputModalities,
+  modelUsesImagesApi,
 } from "../src/providers/index";
 import { generateWithFal } from "../src/providers/fal";
 import { generateWithOpenRouter } from "../src/providers/openrouter";
@@ -130,8 +130,8 @@ async function main() {
     falModel?.supportsImageToImage === false,
   );
   check(
-    "OpenRouter MAI: i2i NOT supported (text input only)",
-    orModel?.supportsImageToImage === false,
+    "OpenRouter MAI: i2i supported (Images API accepts one reference image)",
+    orModel?.supportsImageToImage === true,
   );
   check(
     "Fal MAI: single 1K size tier",
@@ -177,19 +177,22 @@ async function main() {
 
   // by-id lookups resolve per-provider correctly
   check("modelSupportsImageToImage(FAL_ID) === false", modelSupportsImageToImage(FAL_ID) === false);
-  check("modelSupportsImageToImage(OR_ID) === false", modelSupportsImageToImage(OR_ID) === false);
+  check("modelSupportsImageToImage(OR_ID) === true", modelSupportsImageToImage(OR_ID) === true);
   check(
     "getModelSupportedImageSizes(OR_ID) === ['1K']",
     JSON.stringify(getModelSupportedImageSizes(OR_ID)) === JSON.stringify(["1K"]),
   );
   check(
-    "getOutputModalities(OR_ID) === ['image']",
-    JSON.stringify(getOutputModalities(OR_ID)) === JSON.stringify(["image"]),
+    "modelUsesImagesApi(OR_ID) === true (dedicated Images API)",
+    modelUsesImagesApi(OR_ID) === true,
   );
   check(
-    "getOutputModalities(normal OR model) defaults to ['text','image']",
-    JSON.stringify(getOutputModalities("google/gemini-3.1-flash-image-preview")) ===
-      JSON.stringify(["text", "image"]),
+    "modelUsesImagesApi(FAL_ID) === false (Fal entry unaffected)",
+    modelUsesImagesApi(FAL_ID) === false,
+  );
+  check(
+    "modelUsesImagesApi(chat-multimodal OR model) === false",
+    modelUsesImagesApi("google/gemini-3.1-flash-image") === false,
   );
 
   // ---- Request-body shape (capture without a key -> generator returns early, so
@@ -255,13 +258,38 @@ async function main() {
     }
   }
 
-  console.log("\n=== 3. OpenRouter generation (live) ===");
+  console.log("\n=== 3. OpenRouter single-reference guard (no network) ===");
+  {
+    installCapture();
+    const res = await generateWithOpenRouter({
+      prompt: "combine these",
+      providerId: "openrouter",
+      modelId: OR_ID,
+      apiKey: OR_KEY || "test-key",
+      aspectRatio: "auto",
+      imageSize: "1K",
+      inputImages: ["aGk=", "aGk="], // two inputs -> rejected before any request
+    });
+    const req = genRequest();
+    restoreFetch();
+
+    check("MAI with 2 input images fails fast", res.success === false);
+    check(
+      "MAI multi-input error mentions single input image",
+      (res.error || "").includes("single input image"),
+      res.error,
+    );
+    check("MAI multi-input sends no network request", req === undefined);
+  }
+
+  console.log("\n=== 4. OpenRouter generation via Images API (live) ===");
   if (!OR_KEY) {
     console.log("  ! OPENROUTER_API_KEY missing - skipping OpenRouter tests");
   } else {
     installCapture();
+    const prompt = "a single yellow banana on a white background, studio photo";
     const res = await generateWithOpenRouter({
-      prompt: "a single yellow banana on a white background, studio photo",
+      prompt,
       providerId: "openrouter",
       modelId: OR_ID,
       apiKey: OR_KEY,
@@ -272,14 +300,30 @@ async function main() {
     restoreFetch();
 
     check(
+      "OpenRouter MAI posts to the dedicated Images API (/api/v1/images)",
+      req?.url === "https://openrouter.ai/api/v1/images",
+      req?.url,
+    );
+    check(
       `OpenRouter body.model === '${API_SLUG}' (resolved api slug, not internal id)`,
       req?.body?.model === API_SLUG,
       req?.body?.model,
     );
     check(
-      "OpenRouter MAI requests modalities ['image'] only (image-only output)",
-      JSON.stringify(req?.body?.modalities) === JSON.stringify(["image"]),
-      JSON.stringify(req?.body?.modalities),
+      "OpenRouter MAI sends the raw prompt (no chat message wrapping)",
+      req?.body?.prompt === prompt,
+    );
+    check(
+      "OpenRouter MAI omits chat-only params (modalities/messages)",
+      req?.body && !("modalities" in req.body) && !("messages" in req.body),
+    );
+    check(
+      "OpenRouter MAI omits aspect_ratio for 'auto'",
+      req?.body && !("aspect_ratio" in req.body),
+    );
+    check(
+      "OpenRouter MAI omits resolution (single 1K tier)",
+      req?.body && !("resolution" in req.body),
     );
     check("OpenRouter generation succeeded", res.success === true, res.error);
     if (res.success && res.imageData) {

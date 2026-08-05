@@ -94,7 +94,7 @@ const MODELS = {
     cost: "$0.04",
     costNote: "per image",
     architecture: "Diffusion",
-    providers: "fal.ai",
+    providers: "fal.ai, OpenRouter",
     supportsI2I: true,
     icon: `<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>`,
   },

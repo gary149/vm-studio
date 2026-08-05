@@ -18,6 +18,7 @@ import type {
   PromptHistoryLoadedHandler,
 } from "./types";
 import { generateImage } from "./providers/generate";
+import { MIGRATED_MODEL_IDS } from "./providers/index";
 import {
   getPlacementOrigin,
   getEstimatedCellSize,
@@ -506,6 +507,11 @@ export default function () {
       }
       if (!settings.apiKeys.openai) {
         settings.apiKeys.openai = "";
+      }
+      // Remap model ids superseded by registry renames
+      const migratedModelId = MIGRATED_MODEL_IDS[settings.lastModelId];
+      if (migratedModelId) {
+        settings.lastModelId = migratedModelId;
       }
       emit<SettingsLoadedHandler>("settings-loaded", settings);
     } catch (error) {

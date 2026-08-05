@@ -115,21 +115,22 @@ export const PROVIDERS: Record<ProviderId, ProviderConfig> = {
     apiKeyUrl: "https://openrouter.ai/keys",
     models: [
       {
-        id: "google/gemini-3.1-flash-image-preview",
+        // GA endpoint (replaces "google/gemini-3.1-flash-image-preview").
+        id: "google/gemini-3.1-flash-image",
         name: "Nano Banana 2",
         supportsImageGeneration: true,
         supportsImageToImage: true,
         supportedImageSizes: ["1K", "2K", "4K"],
       },
       {
-        id: "google/gemini-3-pro-image-preview",
+        // GA endpoint (replaces "google/gemini-3-pro-image-preview").
+        id: "google/gemini-3-pro-image",
         name: "Nano Banana Pro",
         supportsImageGeneration: true,
         supportsImageToImage: true,
         supportedImageSizes: ["1K", "2K", "4K"],
       },
       {
-        // Launched GA (no "-preview" suffix), unlike the other two banana models.
         id: "google/gemini-3.1-flash-lite-image",
         name: "Nano Banana 2 Lite",
         supportsImageGeneration: true,
@@ -137,11 +138,17 @@ export const PROVIDERS: Record<ProviderId, ProviderConfig> = {
         supportedImageSizes: ["1K"],
       },
       {
-        id: "openai/gpt-5.4-image-2",
+        // Dedicated Images API model. Replaces the "openai/gpt-5.4-image-2"
+        // chat wrapper: same underlying image model, lower cost per image.
+        // `id` is prefixed to stay unique vs the Fal entry, which shares the
+        // same API slug. `apiModelId` carries the real OpenRouter model id.
+        id: "openrouter/openai/gpt-image-2",
+        apiModelId: "openai/gpt-image-2",
         name: "GPT-Image 2",
         supportsImageGeneration: true,
-        supportsImageToImage: true,
-        supportedImageSizes: ["1K", "2K", "4K"],
+        supportsImageToImage: true, // Up to 16 reference images
+        supportedImageSizes: ["1K"], // No resolution tiers on the Images API
+        useImagesApi: true,
       },
       {
         // `id` is prefixed to stay unique vs the Fal entry, which shares the
@@ -150,9 +157,43 @@ export const PROVIDERS: Record<ProviderId, ProviderConfig> = {
         apiModelId: "microsoft/mai-image-2.5",
         name: "MAI-Image 2.5",
         supportsImageGeneration: true,
-        supportsImageToImage: false, // Text-to-image only
+        supportsImageToImage: true, // Images API accepts one reference image
         supportedImageSizes: ["1K"],
-        outputModalities: ["image"], // Image-only output (no "text")
+        useImagesApi: true,
+      },
+      {
+        id: "bytedance-seed/seedream-4.5",
+        name: "Seedream v4.5",
+        supportsImageGeneration: true,
+        supportsImageToImage: true, // Up to 14 reference images
+        supportedImageSizes: ["1K", "2K", "4K"],
+        useImagesApi: true,
+      },
+      {
+        id: "krea/krea-2-large",
+        name: "Krea 2 Large",
+        supportsImageGeneration: true,
+        supportsImageToImage: true, // One reference image
+        supportedImageSizes: ["1K"], // 1K only; aspect_ratio picks dimensions
+        useImagesApi: true,
+      },
+      {
+        id: "krea/krea-2-medium",
+        name: "Krea 2 Medium",
+        supportsImageGeneration: true,
+        supportsImageToImage: true, // One reference image
+        supportedImageSizes: ["1K"], // 1K only; aspect_ratio picks dimensions
+        useImagesApi: true,
+      },
+      {
+        // OpenRouter's "Krea 2 Medium Turbo" is the same distilled Turbo model
+        // Fal serves as "fal-ai/krea-2/turbo"; shared name groups the providers.
+        id: "krea/krea-2-medium-turbo",
+        name: "Krea 2 Turbo",
+        supportsImageGeneration: true,
+        supportsImageToImage: true, // One reference image
+        supportedImageSizes: ["1K"], // 1K only; aspect_ratio picks dimensions
+        useImagesApi: true,
       },
     ],
   },
@@ -208,6 +249,16 @@ export const PROVIDERS: Record<ProviderId, ProviderConfig> = {
       },
     ],
   },
+};
+
+// Superseded model ids -> their replacements (registry renames). Applied when
+// loading persisted settings so an existing selection stays valid.
+export const MIGRATED_MODEL_IDS: Record<string, string> = {
+  // OpenRouter "-preview" endpoints replaced by GA ids
+  "google/gemini-3.1-flash-image-preview": "google/gemini-3.1-flash-image",
+  "google/gemini-3-pro-image-preview": "google/gemini-3-pro-image",
+  // OpenRouter chat wrapper replaced by the direct Images API model
+  "openai/gpt-5.4-image-2": "openrouter/openai/gpt-image-2",
 };
 
 export function getProvider(providerId: ProviderId): ProviderConfig {
@@ -269,14 +320,14 @@ export function getApiModelId(modelId: string): string {
   return modelId;
 }
 
-// OpenRouter `modalities` request param: the output modalities to request for a
-// model. Defaults to both; image-only models override via `outputModalities`.
-export function getOutputModalities(modelId: string): Array<"text" | "image"> {
+// OpenRouter only: whether the model is served by the dedicated Images API
+// (POST /api/v1/images) rather than chat completions.
+export function modelUsesImagesApi(modelId: string): boolean {
   for (const provider of Object.values(PROVIDERS)) {
     const model = provider.models.find((m) => m.id === modelId);
-    if (model?.outputModalities) return model.outputModalities;
+    if (model) return model.useImagesApi === true;
   }
-  return ["text", "image"];
+  return false;
 }
 
 export function getProviderForModel(modelId: string): ProviderId | null {

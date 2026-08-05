@@ -158,7 +158,7 @@ async function main() {
     check(`getApiModelId('${id}') falls through to id`, getApiModelId(id) === id);
   }
 
-  // Provider picker: each Krea name maps to exactly one provider (fal)
+  // Provider picker: each Krea name maps to fal + openrouter
   for (const name of ["Krea 2 Large", "Krea 2 Medium", "Krea 2 Turbo"]) {
     check(
       `'${name}' appears once in unique model names`,
@@ -166,8 +166,9 @@ async function main() {
     );
     const providers = getProvidersForModelName(name);
     check(
-      `'${name}' offered by fal only`,
-      providers.length === 1 && providers[0]?.providerId === "fal",
+      `'${name}' offered by fal + openrouter`,
+      providers.map((p) => p.providerId).sort().join(",") === "fal,openrouter",
+      providers.map((p) => p.providerId).join(","),
     );
   }
 
