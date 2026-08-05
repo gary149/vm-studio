@@ -251,6 +251,16 @@ export const PROVIDERS: Record<ProviderId, ProviderConfig> = {
   },
 };
 
+// Superseded model ids -> their replacements (registry renames). Applied when
+// loading persisted settings so an existing selection stays valid.
+export const MIGRATED_MODEL_IDS: Record<string, string> = {
+  // OpenRouter "-preview" endpoints replaced by GA ids
+  "google/gemini-3.1-flash-image-preview": "google/gemini-3.1-flash-image",
+  "google/gemini-3-pro-image-preview": "google/gemini-3-pro-image",
+  // OpenRouter chat wrapper replaced by the direct Images API model
+  "openai/gpt-5.4-image-2": "openrouter/openai/gpt-image-2",
+};
+
 export function getProvider(providerId: ProviderId): ProviderConfig {
   return PROVIDERS[providerId];
 }

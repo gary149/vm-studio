@@ -10,6 +10,7 @@
  */
 import {
   PROVIDERS,
+  MIGRATED_MODEL_IDS,
   getApiModelId,
   getAllModels,
   getUniqueModelNames,
@@ -209,6 +210,20 @@ async function main() {
       .sort()
       .join(",");
     check(`'${name}' offered by [${expected}]`, providers === expected, providers);
+  }
+
+  // Persisted-settings migration map: every replaced id maps to a live entry
+  const migrationEntries = Object.entries(MIGRATED_MODEL_IDS);
+  check("Migration map covers the three replaced ids", migrationEntries.length === 3);
+  for (const [oldId, newId] of migrationEntries) {
+    check(
+      `Migration source '${oldId}' is no longer registered`,
+      !getAllModels().some((m) => m.id === oldId),
+    );
+    check(
+      `Migration target '${newId}' exists in the registry`,
+      getAllModels().some((m) => m.id === newId),
+    );
   }
 
   // i2i capability lookups by id
