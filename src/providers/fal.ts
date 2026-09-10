@@ -74,21 +74,44 @@ function getGptImageSize(aspectRatio: AspectRatio, allowAuto: boolean): string {
   return mapping[aspectRatio] || "1024x1024";
 }
 
-// Snap a width/height pair to GPT-Image 2 constraints:
-// multiples of 16, long edge <= 3840.
+// Snap a width/height pair to the GPT-Image 2 / 2.5 custom-size constraints
+// (identical on Fal and the OpenAI API): both dimensions multiples of 16,
+// long edge <= 3840, total pixels between 655,360 and 8,294,400 (3840x2160).
+// The API silently rescales out-of-range requests (3840x3840 comes back as
+// 2880x2880), so snapping client-side keeps the requested and delivered
+// sizes identical. The aspect ratio is preserved; the image is scaled down
+// when it exceeds the edge or pixel ceiling (e.g. 4K 1:1 -> 2880x2880) and
+// scaled up when it falls under the pixel floor (e.g. 1K 21:9 -> 1248x544).
+const GPT_IMAGE_MAX_EDGE = 3840;
+const GPT_IMAGE_MIN_PIXELS = 655_360;
+const GPT_IMAGE_MAX_PIXELS = 8_294_400;
+
 function snapGptImage2Dimensions(dims: {
   width: number;
   height: number;
 }): { width: number; height: number } {
   const longEdge = Math.max(dims.width, dims.height);
-  const scale = longEdge > 3840 ? 3840 / longEdge : 1;
-  const snap = (n: number) => Math.max(16, Math.floor((n * scale) / 16) * 16);
+  let scale = longEdge > GPT_IMAGE_MAX_EDGE ? GPT_IMAGE_MAX_EDGE / longEdge : 1;
+  const pixels = dims.width * dims.height * scale * scale;
+  if (pixels > GPT_IMAGE_MAX_PIXELS) {
+    scale *= Math.sqrt(GPT_IMAGE_MAX_PIXELS / pixels);
+  }
+  const scaledUp = pixels < GPT_IMAGE_MIN_PIXELS;
+  if (scaledUp) {
+    scale *= Math.sqrt(GPT_IMAGE_MIN_PIXELS / pixels);
+  }
+  // Round toward the bound we just enforced so the snapped result stays inside it
+  const snap = (n: number) => {
+    const scaled = n * scale;
+    const units = scaledUp ? Math.ceil(scaled / 16) : Math.floor(scaled / 16);
+    return Math.max(16, units * 16);
+  };
   return { width: snap(dims.width), height: snap(dims.height) };
 }
 
-// Map aspect ratio to GPT-Image 2 size (preset enum or custom dimensions).
-// "auto" is only valid on the /edit endpoint; on t2i it returns 422.
-// Preset enums are all 1K-tier, so 2K/4K always uses custom dimensions.
+// Map aspect ratio to GPT-Image 2 / 2.5 size (preset enum or custom
+// dimensions). "auto" is only valid on the /edit endpoint; on t2i it returns
+// 422. Preset enums are all 1K-tier, so 2K/4K always uses custom dimensions.
 function getGptImage2Size(
   aspectRatio: AspectRatio,
   imageSize: ImageSize,
@@ -261,7 +284,10 @@ export async function generateWithFal(
     const hasInputImages = inputImages && inputImages.length > 0;
     const isZImage = modelId.includes("z-image");
     const isSeedream = modelId.includes("seedream");
+    // "gpt-image-2" also matches the 2.5 slugs ("openai/gpt-image-2.5/flare"),
+    // which share GPT-Image 2's request body; only the endpoint layout differs.
     const isGptImage2 = modelId.includes("gpt-image-2");
+    const isGptImage25 = modelId.includes("gpt-image-2.5");
     const isGptImage = modelId.includes("gpt-image-1");
     const isFlux2 = modelId.includes("flux-2");
     // "fal-ai/krea-2/turbo" (open-weights Turbo) vs "krea/v2/..." (Medium/Large
@@ -278,8 +304,8 @@ export async function generateWithFal(
 
     // Determine endpoint based on model and whether we have input images
     let endpoint: string;
-    if (isSeedream) {
-      // Seedream uses /text-to-image and /edit suffixes
+    if (isSeedream || isGptImage25) {
+      // Seedream and GPT-Image 2.5 use /text-to-image and /edit suffixes
       endpoint = hasInputImages
         ? `${FAL_BASE_URL}/${apiModelId}/edit`
         : `${FAL_BASE_URL}/${apiModelId}/text-to-image`;
@@ -320,7 +346,7 @@ export async function generateWithFal(
     }
 
     if (isGptImage2) {
-      // GPT-Image 2: preset enums (square_hd, landscape_4_3, ...) or custom {width, height}
+      // GPT-Image 2 / 2.5: preset enums (square_hd, landscape_4_3, ...) or custom {width, height}
       body.num_images = 1;
       body.image_size = getGptImage2Size(
         aspectRatio || "auto",
