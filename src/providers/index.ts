@@ -58,6 +58,22 @@ export const PROVIDERS: Record<ProviderId, ProviderConfig> = {
         supportedImageSizes: ["1K", "2K", "4K"],
       },
       {
+        // Fal splits 2.5 into /text-to-image and /edit sub-endpoints (unlike
+        // "openai/gpt-image-2", which serves t2i at the base path).
+        id: "openai/gpt-image-2.5/flare",
+        name: "GPT-Image 2.5 Flare",
+        supportsImageGeneration: true,
+        supportsImageToImage: true, // /edit endpoint, up to 16 reference images
+        supportedImageSizes: ["1K", "2K", "4K"],
+      },
+      {
+        id: "openai/gpt-image-2.5/sunburst",
+        name: "GPT-Image 2.5 Sunburst",
+        supportsImageGeneration: true,
+        supportsImageToImage: true, // /edit endpoint, up to 16 reference images
+        supportedImageSizes: ["1K", "2K", "4K"],
+      },
+      {
         id: "fal-ai/flux-2/turbo",
         name: "FLUX.2 [dev] Turbo",
         supportsImageGeneration: true,
@@ -145,6 +161,23 @@ export const PROVIDERS: Record<ProviderId, ProviderConfig> = {
         id: "openrouter/openai/gpt-image-2",
         apiModelId: "openai/gpt-image-2",
         name: "GPT-Image 2",
+        supportsImageGeneration: true,
+        supportsImageToImage: true, // Up to 16 reference images
+        supportedImageSizes: ["1K"], // No resolution tiers on the Images API
+        useImagesApi: true,
+      },
+      {
+        // No prefix needed: the Fal slug is "openai/gpt-image-2.5/flare".
+        id: "openai/gpt-image-2.5-flare",
+        name: "GPT-Image 2.5 Flare",
+        supportsImageGeneration: true,
+        supportsImageToImage: true, // Up to 16 reference images
+        supportedImageSizes: ["1K"], // No resolution tiers on the Images API
+        useImagesApi: true,
+      },
+      {
+        id: "openai/gpt-image-2.5-sunburst",
+        name: "GPT-Image 2.5 Sunburst",
         supportsImageGeneration: true,
         supportsImageToImage: true, // Up to 16 reference images
         supportedImageSizes: ["1K"], // No resolution tiers on the Images API
@@ -243,6 +276,22 @@ export const PROVIDERS: Record<ProviderId, ProviderConfig> = {
       {
         id: "gpt-image-2",
         name: "GPT-Image 2",
+        supportsImageGeneration: true,
+        supportsImageToImage: true,
+        supportedImageSizes: ["1K"],
+      },
+      {
+        // Fast tier of GPT Image 2.5 (OpenAI's default image model).
+        id: "gpt-image-2.5-flare",
+        name: "GPT-Image 2.5 Flare",
+        supportsImageGeneration: true,
+        supportsImageToImage: true,
+        supportedImageSizes: ["1K"],
+      },
+      {
+        // Precision-editing tier of GPT Image 2.5.
+        id: "gpt-image-2.5-sunburst",
+        name: "GPT-Image 2.5 Sunburst",
         supportsImageGeneration: true,
         supportsImageToImage: true,
         supportedImageSizes: ["1K"],
