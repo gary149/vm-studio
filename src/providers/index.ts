@@ -16,6 +16,15 @@ export const PROVIDERS: Record<ProviderId, ProviderConfig> = {
         supportedImageSizes: ["1K", "2K", "4K"],
       },
       {
+        // Partner endpoint under "google/"; same request body as Nano Banana 2
+        // (aspect_ratio + resolution), i2i via the /edit endpoint.
+        id: "google/nano-banana-2.1",
+        name: "Nano Banana 2.1",
+        supportsImageGeneration: true,
+        supportsImageToImage: true,
+        supportedImageSizes: ["1K", "2K", "4K"],
+      },
+      {
         id: "fal-ai/nano-banana-pro",
         name: "Nano Banana Pro",
         supportsImageGeneration: true,
@@ -139,6 +148,14 @@ export const PROVIDERS: Record<ProviderId, ProviderConfig> = {
         supportedImageSizes: ["1K", "2K", "4K"],
       },
       {
+        // Breaks the "gemini-3.x-*-image" naming used by earlier releases.
+        id: "google/gemini-nano-banana-2.1",
+        name: "Nano Banana 2.1",
+        supportsImageGeneration: true,
+        supportsImageToImage: true,
+        supportedImageSizes: ["1K", "2K", "4K"],
+      },
+      {
         // GA endpoint (replaces "google/gemini-3-pro-image-preview").
         id: "google/gemini-3-pro-image",
         name: "Nano Banana Pro",
@@ -239,6 +256,13 @@ export const PROVIDERS: Record<ProviderId, ProviderConfig> = {
       {
         id: "gemini-3.1-flash-image-preview",
         name: "Nano Banana 2",
+        supportsImageGeneration: true,
+        supportsImageToImage: true,
+        supportedImageSizes: ["1K", "2K", "4K"],
+      },
+      {
+        id: "gemini-nano-banana-2.1",
+        name: "Nano Banana 2.1",
         supportsImageGeneration: true,
         supportsImageToImage: true,
         supportedImageSizes: ["1K", "2K", "4K"],
