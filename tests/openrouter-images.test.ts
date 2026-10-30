@@ -214,7 +214,7 @@ async function main() {
 
   // Persisted-settings migration map: every replaced id maps to a live entry
   const migrationEntries = Object.entries(MIGRATED_MODEL_IDS);
-  check("Migration map covers the three replaced ids", migrationEntries.length === 3);
+  check("Migration map covers the five replaced ids", migrationEntries.length === 5);
   for (const [oldId, newId] of migrationEntries) {
     check(
       `Migration source '${oldId}' is no longer registered`,

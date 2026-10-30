@@ -199,6 +199,43 @@ function getIdeogramImageSize(
   return getZImageDimensions(aspectRatio, imageSize);
 }
 
+// Ideogram 4.5 rejects dimensions outside a fixed list. 21:9 has no 1K-tier
+// entry, so both tiers use 3072x1280 (2.4:1) to keep the framing.
+const IDEOGRAM_45_SIZES: Record<
+  Exclude<AspectRatio, "auto">,
+  { "1K": [number, number]; "2K": [number, number] }
+> = {
+  "1:1": { "1K": [1024, 1024], "2K": [2048, 2048] },
+  "16:9": { "1K": [1280, 720], "2K": [2560, 1440] },
+  "9:16": { "1K": [720, 1280], "2K": [1440, 2560] },
+  "4:3": { "1K": [1152, 864], "2K": [2304, 1728] },
+  "3:4": { "1K": [864, 1152], "2K": [1728, 2304] },
+  "3:2": { "1K": [1248, 832], "2K": [2496, 1664] },
+  "2:3": { "1K": [832, 1248], "2K": [1664, 2496] },
+  "5:4": { "1K": [1120, 896], "2K": [2240, 1792] },
+  "4:5": { "1K": [896, 1120], "2K": [1792, 2240] },
+  "21:9": { "1K": [3072, 1280], "2K": [3072, 1280] },
+};
+
+// Map aspect ratio to an Ideogram 4.5 size. /edit takes "auto" (keep the source
+// framing) and only accepts multiples of 32, which rules out 1280x720.
+function getIdeogram45ImageSize(
+  aspectRatio: AspectRatio,
+  imageSize: ImageSize,
+  isEdit: boolean,
+): string | { width: number; height: number } {
+  if (aspectRatio === "auto" && isEdit) return "auto";
+
+  const ratio = aspectRatio === "auto" ? "1:1" : aspectRatio;
+  const tier = imageSize === "1K" ? "1K" : "2K";
+  if (isEdit && tier === "1K") {
+    if (ratio === "16:9") return { width: 1024, height: 576 };
+    if (ratio === "9:16") return { width: 576, height: 1024 };
+  }
+  const [width, height] = IDEOGRAM_45_SIZES[ratio][tier];
+  return { width, height };
+}
+
 // Map aspect ratio to Krea 2's supported enum values
 // (1:1, 4:3, 3:2, 16:9, 2.35:1, 4:5, 2:3, 9:16); unsupported ratios
 // snap to the closest available value.
@@ -297,6 +334,7 @@ export async function generateWithFal(
     const isMaiImage = modelId.includes("mai-image");
     const isNanoBananaLite = modelId.includes("nano-banana-lite");
     const isIdeogram = modelId.includes("ideogram");
+    const isIdeogram45 = modelId.includes("ideogram/v4.5");
 
     // The path segment on fal.run is the API slug, which may differ from the
     // internal model id (see getApiModelId).
@@ -309,8 +347,8 @@ export async function generateWithFal(
       endpoint = hasInputImages
         ? `${FAL_BASE_URL}/${apiModelId}/edit`
         : `${FAL_BASE_URL}/${apiModelId}/text-to-image`;
-    } else if (isIdeogram) {
-      // Ideogram uses /image-to-image (not /edit) for i2i
+    } else if (isIdeogram && !isIdeogram45) {
+      // Ideogram 4 uses /image-to-image (not /edit) for i2i
       endpoint = hasInputImages
         ? `${FAL_BASE_URL}/${apiModelId}/image-to-image`
         : `${FAL_BASE_URL}/${apiModelId}`;
@@ -328,11 +366,18 @@ export async function generateWithFal(
     if (hasInputImages) {
       // Ideogram i2i accepts a single image_url, not an image_urls array;
       // reject extra inputs instead of silently dropping them
-      if (isIdeogram && inputImages.length > 1) {
+      if (isIdeogram && !isIdeogram45 && inputImages.length > 1) {
         return {
           success: false,
           error:
             "Ideogram 4 accepts a single input image. Select one layer and try again.",
+        };
+      }
+      if (isIdeogram45 && inputImages.length > 5) {
+        return {
+          success: false,
+          error:
+            "Ideogram 4.5 accepts up to 5 input images. Select fewer layers and try again.",
         };
       }
       const dataUrls = inputImages.map(
@@ -340,6 +385,10 @@ export async function generateWithFal(
       );
       if (isIdeogram) {
         body.image_url = dataUrls[0];
+        // Ideogram 4.5: the first image is edited, the rest guide the edit
+        if (isIdeogram45 && dataUrls.length > 1) {
+          body.reference_image_urls = dataUrls.slice(1);
+        }
       } else {
         body.image_urls = dataUrls;
       }
@@ -398,6 +447,16 @@ export async function generateWithFal(
       body.image_size = getZImageDimensions(
         aspectRatio || "auto",
         imageSize || "2K",
+      );
+    } else if (isIdeogram45) {
+      // Ideogram 4.5: explicit sizes only; no output_format param in the schema
+      body.num_images = 1;
+      body.quality = "high";
+      body.sync_mode = true;
+      body.image_size = getIdeogram45ImageSize(
+        aspectRatio || "auto",
+        imageSize || "1K",
+        !!hasInputImages,
       );
     } else if (isIdeogram) {
       // Ideogram 4: preset enums (square_hd, landscape_4_3, ...) or custom

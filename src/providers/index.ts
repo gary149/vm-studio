@@ -104,6 +104,13 @@ export const PROVIDERS: Record<ProviderId, ProviderConfig> = {
         supportedImageSizes: ["1K", "2K"], // Native 2K max; no 4K tier
       },
       {
+        id: "ideogram/v4.5",
+        name: "Ideogram 4.5",
+        supportsImageGeneration: true,
+        supportsImageToImage: true, // /edit endpoint, source image + up to 4 references
+        supportedImageSizes: ["1K", "2K"], // Fixed size list, tops out around 4MP
+      },
+      {
         id: "krea/v2/large/text-to-image",
         name: "Krea 2 Large",
         supportsImageGeneration: true,
@@ -254,7 +261,8 @@ export const PROVIDERS: Record<ProviderId, ProviderConfig> = {
     apiKeyUrl: "https://aistudio.google.com/apikey",
     models: [
       {
-        id: "gemini-3.1-flash-image-preview",
+        // GA endpoint (replaces "gemini-3.1-flash-image-preview").
+        id: "gemini-3.1-flash-image",
         name: "Nano Banana 2",
         supportsImageGeneration: true,
         supportsImageToImage: true,
@@ -268,7 +276,8 @@ export const PROVIDERS: Record<ProviderId, ProviderConfig> = {
         supportedImageSizes: ["1K", "2K", "4K"],
       },
       {
-        id: "gemini-3-pro-image-preview",
+        // GA endpoint (replaces "gemini-3-pro-image-preview").
+        id: "gemini-3-pro-image",
         name: "Nano Banana Pro",
         supportsImageGeneration: true,
         supportsImageToImage: true,
@@ -330,6 +339,9 @@ export const MIGRATED_MODEL_IDS: Record<string, string> = {
   // OpenRouter "-preview" endpoints replaced by GA ids
   "google/gemini-3.1-flash-image-preview": "google/gemini-3.1-flash-image",
   "google/gemini-3-pro-image-preview": "google/gemini-3-pro-image",
+  // Google AI Studio "-preview" endpoints replaced by GA ids
+  "gemini-3.1-flash-image-preview": "gemini-3.1-flash-image",
+  "gemini-3-pro-image-preview": "gemini-3-pro-image",
   // OpenRouter chat wrapper replaced by the direct Images API model
   "openai/gpt-5.4-image-2": "openrouter/openai/gpt-image-2",
 };

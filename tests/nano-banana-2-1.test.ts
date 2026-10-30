@@ -273,7 +273,7 @@ async function main() {
       "Default per-provider models unchanged (2.1 is not models[0])",
       PROVIDERS.fal.models[0].id === "fal-ai/nano-banana-2" &&
         PROVIDERS.openrouter.models[0].id === "google/gemini-3.1-flash-image" &&
-        PROVIDERS.gemini.models[0].id === "gemini-3.1-flash-image-preview",
+        PROVIDERS.gemini.models[0].id === "gemini-3.1-flash-image",
     );
   }
 
