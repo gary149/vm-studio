@@ -83,6 +83,21 @@ export const PROVIDERS: Record<ProviderId, ProviderConfig> = {
         supportedImageSizes: ["1K", "2K", "4K"],
       },
       {
+        // Same endpoint layout and request body as 2.5.
+        id: "openai/gpt-image-2.6/flare",
+        name: "GPT-Image 2.6 Flare",
+        supportsImageGeneration: true,
+        supportsImageToImage: true, // /edit endpoint, up to 16 reference images
+        supportedImageSizes: ["1K", "2K", "4K"],
+      },
+      {
+        id: "openai/gpt-image-2.6/sunburst",
+        name: "GPT-Image 2.6 Sunburst",
+        supportsImageGeneration: true,
+        supportsImageToImage: true, // /edit endpoint, up to 16 reference images
+        supportedImageSizes: ["1K", "2K", "4K"],
+      },
+      {
         id: "fal-ai/flux-2/turbo",
         name: "FLUX.2 [dev] Turbo",
         supportsImageGeneration: true,
@@ -208,6 +223,22 @@ export const PROVIDERS: Record<ProviderId, ProviderConfig> = {
         useImagesApi: true,
       },
       {
+        id: "openai/gpt-image-2.6-flare",
+        name: "GPT-Image 2.6 Flare",
+        supportsImageGeneration: true,
+        supportsImageToImage: true, // Up to 16 reference images
+        supportedImageSizes: ["1K"], // No resolution tiers on the Images API
+        useImagesApi: true,
+      },
+      {
+        id: "openai/gpt-image-2.6-sunburst",
+        name: "GPT-Image 2.6 Sunburst",
+        supportsImageGeneration: true,
+        supportsImageToImage: true, // Up to 16 reference images
+        supportedImageSizes: ["1K"], // No resolution tiers on the Images API
+        useImagesApi: true,
+      },
+      {
         // `id` is prefixed to stay unique vs the Fal entry, which shares the
         // same API slug. `apiModelId` carries the real OpenRouter model id.
         id: "openrouter/microsoft/mai-image-2.5",
@@ -325,6 +356,22 @@ export const PROVIDERS: Record<ProviderId, ProviderConfig> = {
         // Precision-editing tier of GPT Image 2.5.
         id: "gpt-image-2.5-sunburst",
         name: "GPT-Image 2.5 Sunburst",
+        supportsImageGeneration: true,
+        supportsImageToImage: true,
+        supportedImageSizes: ["1K"],
+      },
+      {
+        // Fast tier of GPT Image 2.6.
+        id: "gpt-image-2.6-flare",
+        name: "GPT-Image 2.6 Flare",
+        supportsImageGeneration: true,
+        supportsImageToImage: true,
+        supportedImageSizes: ["1K"],
+      },
+      {
+        // Detailed-composition and editing tier of GPT Image 2.6.
+        id: "gpt-image-2.6-sunburst",
+        name: "GPT-Image 2.6 Sunburst",
         supportsImageGeneration: true,
         supportsImageToImage: true,
         supportedImageSizes: ["1K"],
